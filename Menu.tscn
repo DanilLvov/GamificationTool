@@ -50,3 +50,10 @@ uv = PackedVector2Array(811, 499, 739, 573, 737, 778, 816, 847, 1339, 853, 1393,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpaceShip/Room3" unique_id=799466899]
 position = Vector2(610.14276, 187.28569)
 polygon = PackedVector2Array(795.71423, 608.5714, 737.1428, 674.2856, 738, 778, 1001.42847, 775.71423, 1088.5713, 692.8571, 1082.857, 610)
+
+[node name="StartButton" type="Button" parent="." unique_id=315628407]
+offset_left = 411.0
+offset_top = 262.0
+offset_right = 731.0
+offset_bottom = 366.0
+text = "Start"
