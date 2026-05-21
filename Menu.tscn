@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dlwa3cx6bf1fj"]
+
+[ext_resource type="Script" uid="uid://c4q3n8bja66b8" path="res://menu.gd" id="1_5yleq"]
+[ext_resource type="Texture2D" uid="uid://c6wmbw5mi3sv1" path="res://Assets/SpaceShip.png" id="1_uubjt"]
+
+[node name="Spaceship" type="Node2D" unique_id=333191118]
+script = ExtResource("1_5yleq")
+
+[node name="SpaceShip" type="Sprite2D" parent="." unique_id=1747395986]
+position = Vector2(542.00006, 357.00003)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_uubjt")
+
+[node name="Room1" type="Area2D" parent="SpaceShip" unique_id=1707947464]
+position = Vector2(-1263, -703)
+
+[node name="RoomHover" type="Polygon2D" parent="SpaceShip/Room1" unique_id=402151635]
+visible = false
+color = Color(0.7254902, 0.23137255, 0.14117648, 0.5176471)
+polygon = PackedVector2Array(811, 499, 739, 573, 737, 778, 816, 847, 1339, 853, 1393, 793, 1691, 792, 1691, 556, 1397, 558, 1335, 496)
+uv = PackedVector2Array(811, 499, 739, 573, 737, 778, 816, 847, 1339, 853, 1393, 793, 1691, 792, 1691, 556, 1397, 558, 1335, 496)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpaceShip/Room1" unique_id=2041158318]
+polygon = PackedVector2Array(1337, 501, 810, 499, 741, 567, 738, 778, 808, 849, 1339, 849, 1392, 794, 1692, 789, 1689, 554, 1398, 556)
+
+[node name="Room2" type="Area2D" parent="SpaceShip" unique_id=33471707]
+position = Vector2(-1263, -703)
+
+[node name="RoomHover" type="Polygon2D" parent="SpaceShip/Room2" unique_id=594858647]
+visible = false
+position = Vector2(601.5713, -298.4286)
+color = Color(0.7254902, 0.23137255, 0.14117648, 0.5176471)
+polygon = PackedVector2Array(735.71423, 672.85706, 737, 778, 816, 847, 1092.8572, 849.99994, 1094.2858, 755.71423, 1008.57135, 674.28564)
+uv = PackedVector2Array(811, 499, 739, 573, 737, 778, 816, 847, 1339, 853, 1393, 793, 1691, 792, 1691, 556, 1397, 558, 1335, 496)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpaceShip/Room2" unique_id=1100536880]
+position = Vector2(602.9999, -299.85712)
+polygon = PackedVector2Array(1004.2857, 674.2856, 737.1428, 674.2856, 738, 778, 808, 849, 1090, 849.9999, 1091.4285, 758.5713)
+
+[node name="Room3" type="Area2D" parent="SpaceShip" unique_id=965998611]
+position = Vector2(-1263, -703)
+
+[node name="RoomHover" type="Polygon2D" parent="SpaceShip/Room3" unique_id=336880864]
+visible = false
+position = Vector2(618.7142, 187.28568)
+color = Color(0.7254902, 0.23137255, 0.14117648, 0.5176471)
+polygon = PackedVector2Array(735.71423, 672.85706, 737, 778, 994.28564, 777.1428, 1084.2856, 685.71423, 1079.9999, 607.1428, 798.57135, 608.5714)
+uv = PackedVector2Array(811, 499, 739, 573, 737, 778, 816, 847, 1339, 853, 1393, 793, 1691, 792, 1691, 556, 1397, 558, 1335, 496)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpaceShip/Room3" unique_id=799466899]
+position = Vector2(610.14276, 187.28569)
+polygon = PackedVector2Array(795.71423, 608.5714, 737.1428, 674.2856, 738, 778, 1001.42847, 775.71423, 1088.5713, 692.8571, 1082.857, 610)
