@@ -1,3 +1,6 @@
 .godot/
 .import/
 .vscode/
+/android/
+bin/
+obj/

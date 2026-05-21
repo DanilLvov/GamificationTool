@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Gamefication Tool"
+config/name="Gameification Tool"
+run/main_scene="uid://g4sptq7to3nr"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
