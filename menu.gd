@@ -10,7 +10,7 @@ enum GameState {
 }
 
 signal finished #for finished cutscenes and minigames
-
+# test
 # TODO: game_sequence needs to be read from json
 var game_sequence = [
 	{ "type": "screen", "id": GameState.START },
