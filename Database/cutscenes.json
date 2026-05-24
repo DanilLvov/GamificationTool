@@ -1,0 +1,52 @@
+{
+    "cutscenes": [
+        {
+            "id": 0,
+            "name": "test",
+            "subtitles": "",
+            "backgroundImagePath": "Assets/Backgrounds/background1.png",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "fsdf f",
+            "subtitles": "",
+            "backgroundImagePath": "Assets/Backgrounds/background2.png",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        }
+    ]
+}

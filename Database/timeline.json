@@ -1,0 +1,80 @@
+{
+    "timelineObjects": [
+        {
+            "type": "Menu",
+            "id": 0
+        },
+        {
+            "type": "Menu",
+            "id": 1
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Minigame",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Minigame",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Minigame",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Minigame",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Minigame",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Cutscene",
+            "id": 0
+        },
+        {
+            "type": "Menu",
+            "id": 0
+        }
+    ]
+}
