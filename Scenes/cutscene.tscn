@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://crexa6ncprce6"]
 
 [ext_resource type="Script" uid="uid://d0xev558lsohc" path="res://Scripts/cutscene.gd" id="1_7n648"]
-[ext_resource type="Texture2D" uid="uid://cjw3wst8wx3mi" path="res://Assets/ChatGPT Image 24. Mai 2026, 12_07_11.png" id="2_vlwh7"]
-[ext_resource type="Texture2D" uid="uid://dv6c7kunu5hl" path="res://Assets/Screenshot 2026-05-24 121653.png" id="3_jd5kf"]
+[ext_resource type="Texture2D" uid="uid://dv6c7kunu5hl" path="res://Assets/Objects/Screenshot 2026-05-24 121653.png" id="3_jd5kf"]
+[ext_resource type="Texture2D" uid="uid://dkadc2cw4brg2" path="res://Assets/Textures/ChatGPT Image 25. Mai 2026, 13_03_28.png" id="4_iy4n7"]
 
 [node name="Cutscene" type="Node2D" unique_id=2129651268]
 script = ExtResource("1_7n648")
@@ -10,7 +10,6 @@ script = ExtResource("1_7n648")
 [node name="Background" type="Sprite2D" parent="." unique_id=1985663623]
 position = Vector2(574, 321.5)
 scale = Vector2(0.7486979, 0.633789)
-texture = ExtResource("2_vlwh7")
 
 [node name="UiElements" type="Control" parent="." unique_id=764787583]
 layout_mode = 3
@@ -24,9 +23,23 @@ offset_left = 183.0
 offset_top = 523.0
 offset_right = 914.0
 offset_bottom = 619.0
-text = "dsadadsaddddddddddddddddddddddddddd"
+
+[node name="ContinueTextureButton" type="TextureButton" parent="UiElements" unique_id=1429739027]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 432.00003
+offset_right = 2259.0
+offset_bottom = 1456.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_iy4n7")
+texture_pressed = ExtResource("4_iy4n7")
+texture_hover = ExtResource("4_iy4n7")
+texture_disabled = ExtResource("4_iy4n7")
+texture_focused = ExtResource("4_iy4n7")
 
 [node name="Astronaut" type="Sprite2D" parent="." unique_id=2003645544]
-position = Vector2(824, 431)
+position = Vector2(237, 171.00005)
 scale = Vector2(0.3386076, 0.33803862)
 texture = ExtResource("3_jd5kf")
+
+[connection signal="pressed" from="UiElements/ContinueTextureButton" to="." method="_on_continue_texture_button_pressed"]

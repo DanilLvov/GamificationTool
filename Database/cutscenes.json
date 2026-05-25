@@ -3,8 +3,8 @@
         {
             "id": 0,
             "name": "test",
-            "subtitles": "",
-            "backgroundImagePath": "Assets/Backgrounds/background1.png",
+            "subtitles": "Der Kontrollraum explodiert gleich, bitte helfe mir ihn vor dem Explodieren zu bewahren!",
+            "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
             "objects": [
                 {
                     "id": 0,
@@ -26,9 +26,225 @@
         },
         {
             "id": 1,
-            "name": "fsdf f",
-            "subtitles": "",
-            "backgroundImagePath": "Assets/Backgrounds/background2.png",
+            "name": "blablabla",
+            "subtitles": "Die Engines sind kaputt, bitte repariere sie!",
+            "backgroundImagePath": "res://Assets/Backgrounds/EngineRoom.jpg",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Cutscene 3",
+            "subtitles": "Cutscene 3",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Cutscene 4",
+            "subtitles": "Cutscene 4",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Cutscene 5",
+            "subtitles": "Cutscene 5",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Cutscene 6",
+            "subtitles": "Cutscene 6",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Cutscene 7",
+            "subtitles": "Cutscene 7",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Cutscene 8",
+            "subtitles": "Cutscene 8",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Cutscene 9",
+            "subtitles": "Cutscene 9",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Cutscene 10",
+            "subtitles": "Cutscene 10",
+            "backgroundImagePath": "",
+            "objects": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": true,
+                    "animationId": 0
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "path": "",
+                    "position": "",
+                    "hasAnimation": false,
+                    "animationId": null
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Cutscene 11",
+            "subtitles": "Cutscene 11",
+            "backgroundImagePath": "",
             "objects": [
                 {
                     "id": 0,
