@@ -5,13 +5,24 @@ signal finished
 func _ready() -> void:
 	pass # Replace with function body.
 
+#timer funcs
+var time_left = 0.0
+var timer_running = false
+
+func _start_timer(time: float) -> void:
+	timer_running = true
+	time_left = time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if (timer_running): 
+		time_left -= delta
+		if (time_left <= 0.0):
+			emit_signal("finished")
+			timer_running = false
 	pass
 
 # Signaling that Cutscene is finished
 func _launch_scene(scene_id: String) -> void:
 	print("launched cutscene " + scene_id)
-	await get_tree().create_timer(1.0).timeout
-	emit_signal("finished")
+	_start_timer(2.0)

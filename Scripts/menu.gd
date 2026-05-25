@@ -6,8 +6,7 @@ enum GameState {
 	CUTSCENE,
 	MINIGAME,
 	SPECIALIZATION_CHOICE,
-	END,
-	RESTART # Not sure if needed, remove if not used
+	END
 }
 
 # TODO: game_sequence needs to be read from json
@@ -29,8 +28,9 @@ var game_sequence = {
 #@onready var spaceship = $SpaceShip
 @onready var cutscene_manager = $CutsceneDummy
 @onready var minigame_manager = $MiniGame
-@onready var control_room = $SpaceShip/Room3
 @onready var start_button = $StartButton
+@onready var restart_button = $RestartButton
+@onready var restart_menu = $RestartMenu
 
 
 var current_scene: String
@@ -46,7 +46,6 @@ func _ready() -> void:
 	current_scene = "start"
 
 	_run_current_scene()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -75,10 +74,26 @@ func _run_current_scene() -> void:
 			minigame_manager.visible = true
 		GameState.SPECIALIZATION_CHOICE:
 			#TODO: Nils: planet_choice elements need to be shown with: .visible = true
-			_next_game_step()
+			_next_game_step()		
 
-# TODO: Add every new scene object to this function
+# TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
 	start_button.visible = false
 	minigame_manager.visible = false
 	cutscene_manager.visible = false
+
+# Restart functionality
+func _restart_game() -> void:
+	minigame_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	cutscene_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	restart_menu.visible = true
+
+func _restart_menu_yes_pressed() -> void:
+	get_tree().reload_current_scene()
+
+func _restart_menu_no_pressed() -> void:
+	minigame_manager.process_mode = Node.PROCESS_MODE_INHERIT
+	cutscene_manager.process_mode = Node.PROCESS_MODE_INHERIT
+	restart_menu.visible = false
+
+# TODO: add reset on timer 

@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
 [ext_resource type="PackedScene" uid="uid://ccx1bgwla2m6y" path="res://Scenes/Cutscene_Dummy.tscn" id="4_s2c3o"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
+bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
+
 [node name="Game" type="Node2D" unique_id=333191118]
+process_mode = 1
 script = ExtResource("1_syfuq")
 
 [node name="SpaceShip" type="Sprite2D" parent="." unique_id=1747395986]
@@ -55,6 +59,7 @@ position = Vector2(610.14276, 187.28569)
 polygon = PackedVector2Array(795.71423, 608.5714, 737.1428, 674.2856, 738, 778, 1001.42847, 775.71423, 1088.5713, 692.8571, 1082.857, 610)
 
 [node name="StartButton" type="Button" parent="." unique_id=315628407]
+visible = false
 offset_left = 411.0
 offset_top = 262.0
 offset_right = 731.0
@@ -62,5 +67,47 @@ offset_bottom = 366.0
 text = "Start"
 
 [node name="MiniGame" parent="." unique_id=875578804 instance=ExtResource("3_syfuq")]
+visible = false
 
 [node name="CutsceneDummy" parent="." unique_id=1168846618 instance=ExtResource("4_s2c3o")]
+visible = false
+
+[node name="RestartButton" type="Button" parent="." unique_id=480556500]
+offset_left = 1076.0
+offset_top = 7.0
+offset_right = 1141.0
+offset_bottom = 60.0
+text = "Restart"
+
+[node name="RestartMenu" type="PanelContainer" parent="." unique_id=1349227946]
+visible = false
+offset_left = 3.0
+offset_right = 1146.0
+offset_bottom = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2c3o")
+
+[node name="Content" type="VBoxContainer" parent="RestartMenu" unique_id=818826965]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="RestartMenu/Content" unique_id=171890597]
+layout_mode = 2
+text = "Are you sure? Restart will erase all progress"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="RestartMenu/Content" unique_id=1782032524]
+layout_mode = 2
+alignment = 1
+
+[node name="Yes" type="Button" parent="RestartMenu/Content/Buttons" unique_id=220387279]
+layout_mode = 2
+text = "Yes"
+
+[node name="No" type="Button" parent="RestartMenu/Content/Buttons" unique_id=1588320668]
+layout_mode = 2
+text = "No"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_restart_game"]
+[connection signal="pressed" from="RestartMenu/Content/Buttons/Yes" to="." method="_restart_menu_yes_pressed"]
+[connection signal="pressed" from="RestartMenu/Content/Buttons/No" to="." method="_restart_menu_no_pressed"]
