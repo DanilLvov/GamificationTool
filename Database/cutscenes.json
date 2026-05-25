@@ -8,17 +8,21 @@
             "objects": [
                 {
                     "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "",
+                    "name": "Astronaut",
+                    "path": "res://Assets/Objects/Astronaut.png",
+                    "position_x": 600,
+                    "position_y": 500,
+                    "scale": 0.2,
                     "hasAnimation": true,
                     "animationId": 0
                 },
                 {
                     "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "",
+                    "name": "Icon",
+                    "path": "res://Assets/Textures/icon.svg",
+                    "position_x": 200,
+                    "position_y": 100,
+                    "scale": 1,
                     "hasAnimation": false,
                     "animationId": null
                 }

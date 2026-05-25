@@ -77,7 +77,7 @@ func _on_continue_texture_button_pressed() -> void:
 		_continue.visible = false
 
 		get_current_cutscene()
-		
+
 		if is_current_scene_cutscene:
 			play_cutscene()
 		
@@ -85,6 +85,16 @@ func _on_continue_texture_button_pressed() -> void:
 func play_cutscene():
 	_background.texture = load(current_cutscene["background_image_path"])
 
+	var objects = current_cutscene["objects"]
+	for object in objects:
+		var animation_object = Sprite2D.new()
+		animation_object.name = object["name"]
+		animation_object.texture = load(object["path"])
+		animation_object.global_position = Vector2(object["position_x"], object["position_y"])
+		animation_object.scale = Vector2(object["scale"], object["scale"])
+		add_child(animation_object)
+
+		
 	var characters = current_cutscene["subtitles"].split()
 	var text = ""
 	_subtitles.text = text
