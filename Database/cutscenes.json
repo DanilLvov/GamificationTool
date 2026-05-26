@@ -36,19 +36,13 @@
             "objects": [
                 {
                     "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "",
+                    "name": "Astronaut",
+                    "path": "res://Assets/Objects/Astronaut.png",
+                    "position_x": 200,
+                    "position_y": 300,
+                    "scale": 0.2,
                     "hasAnimation": true,
                     "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "",
-                    "hasAnimation": false,
-                    "animationId": null
                 }
             ]
         },
@@ -62,7 +56,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -70,7 +64,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -86,7 +80,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -94,7 +88,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -110,7 +104,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -118,7 +112,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -134,7 +128,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -142,7 +136,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -158,7 +152,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -166,7 +160,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -182,7 +176,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -190,7 +184,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -206,7 +200,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -214,7 +208,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -230,7 +224,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -238,7 +232,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }
@@ -254,7 +248,7 @@
                     "id": 0,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": true,
                     "animationId": 0
                 },
@@ -262,7 +256,7 @@
                     "id": 1,
                     "name": "",
                     "path": "",
-                    "position": "",
+                    "position": "0",
                     "hasAnimation": false,
                     "animationId": null
                 }

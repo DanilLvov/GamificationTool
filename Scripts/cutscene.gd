@@ -14,6 +14,8 @@ var timeline_objects = []
 var _background
 var _subtitles
 var _continue
+var _animation_objects
+var _ui_elements
 
 
 var current_cutscene = {
@@ -33,6 +35,8 @@ func _ready() -> void:
 	_background = $Background
 	_subtitles = $UiElements/Subtitles
 	_continue = $UiElements/ContinueTextureButton
+	_animation_objects = $AnimationObjects
+	_ui_elements = $UiElements
 
 	get_current_cutscene()
 
@@ -76,6 +80,9 @@ func _on_continue_texture_button_pressed() -> void:
 
 		_continue.visible = false
 
+		for child in _animation_objects.get_children():
+			child.queue_free()
+
 		get_current_cutscene()
 
 		if is_current_scene_cutscene:
@@ -86,13 +93,14 @@ func play_cutscene():
 	_background.texture = load(current_cutscene["background_image_path"])
 
 	var objects = current_cutscene["objects"]
+
 	for object in objects:
 		var animation_object = Sprite2D.new()
 		animation_object.name = object["name"]
 		animation_object.texture = load(object["path"])
 		animation_object.global_position = Vector2(object["position_x"], object["position_y"])
 		animation_object.scale = Vector2(object["scale"], object["scale"])
-		add_child(animation_object)
+		_animation_objects.add_child(animation_object)
 
 		
 	var characters = current_cutscene["subtitles"].split()
