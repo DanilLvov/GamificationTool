@@ -9,39 +9,35 @@ enum GameState {
 	END
 }
 
-var json
-var game_sequence: Dictionary
-	
-
 # Node variables, if changing node name, change it here:
-@onready var cutscene_manager = $CutsceneDummy
 @onready var minigame_manager = $MiniGame
-@onready var start_button     = $StartButton
-@onready var restart_button   = $RestartButton
-@onready var restart_menu     = $RestartMenu
+@onready var cutscene_manager = $Cutscene
+@onready var start_button = $StartButton
+@onready var restart_button = $RestartButton
+@onready var restart_menu = $RestartMenu
 
 
-var current_scene: String
+var current_scene_id: int
 var current_minigame: int
+var timeline: Dictionary
 
 func _ready() -> void:
-	# Connecting signals
-	# Start button clicked
-	start_button.button_down.connect(_next_game_step)
-	# Finished Minigame or cutscene
-	minigame_manager.finished.connect(_next_game_step) # TODO: add success or fail functions for minigame
-	cutscene_manager.finished.connect(_next_game_step)
-	current_scene = "start"
+	#loading game sequence from json file
+	timeline = _load_timeline("res://Database/timeline.json")
 
-	game_sequence = _load_timeline("res://Database/timeline.json")
-	print(game_sequence)
+	# Connecting signals for finished minigame or cutscene
+	minigame_manager.finished.connect(_next_game_step)
+	minigame_manager.failed.connect(_failed_minigame)
+	cutscene_manager.finished.connect(_next_game_step)
+	current_scene_id = 0
+
 	_run_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-# Parsing json with all checks and errors
+# Parsing timeline json with all checks and errors
 func _load_timeline(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):
 		push_error("JSON file not found: %s" % path)
@@ -67,7 +63,6 @@ func _load_timeline(path: String) -> Dictionary:
 
 	for scene_id in parsed.keys():
 		var scene_data = parsed[scene_id]
-		print(scene_data)
 		if typeof(scene_data) != TYPE_DICTIONARY:
 			push_error("Scene '%s' must be an object" % scene_id)
 			continue
@@ -87,30 +82,59 @@ func _load_timeline(path: String) -> Dictionary:
 
 	return result
 
+
+func _on_start_button_pressed() -> void:
+	print("pressed start button")
+	_next_game_step()
+
+
 # If failed a Minigame get fail cutscene
 func _failed_minigame() -> void:
-	current_scene = game_sequence.get(current_scene).get("next_scene_fail")
+	# for timeline_object in game_sequence["timelineObjects"]:
+	# 	if timeline_object["id"] == current_scene_id:
+	# 		current_scene_id = timeline_object["next_scene_fail"]
+	# 		break
+	current_scene_id = timeline.get(str(current_scene_id)).get("next_scene_fail")
+	print(current_scene_id)
 	_run_current_scene()
+
 
 func _next_game_step() -> void:
-	current_scene = game_sequence.get(current_scene).get("next_scene")
+	# for timeline_object in game_sequence["timelineObjects"]:
+	# 	if timeline_object["id"] == current_scene_id:
+	# 		current_scene_id = timeline_object["next_scene"]
+	# 		break
+	current_scene_id = timeline.get(str(current_scene_id)).get("next_scene")
+	print(current_scene_id)
 	_run_current_scene()
 
-func _run_current_scene() -> void:
-	#hidding all objects, to show only those used for the current game step
-	_hide_all_objects()
 
-	match game_sequence.get(current_scene).get("state"):
+func _run_current_scene() -> void:
+	# var current_scene_state
+	# var cutscene_id
+
+	#hidding all objects, to show only used for the current game step
+	_hide_all_objects()
+	# for timeline_object in game_sequence["timelineObjects"]:
+	# 	if timeline_object["id"] == current_scene_id:
+	# 		current_scene_state = timeline_object["state"]
+	# 		if current_scene_state == "GameState.CUTSCENE":
+	# 			cutscene_id = timeline_object["cutscene_id"]
+	# 		break
+	# print(current_scene_state)
+
+	
+	match timeline.get(str(current_scene_id)).get("state"):
 		GameState.START:
 			start_button.visible = true
 		GameState.CUTSCENE:
 			cutscene_manager.visible = true
-			cutscene_manager._launch_scene(current_scene)
+			cutscene_manager.get_current_cutscene(timeline.get(str(current_scene_id)).get("cutscene_id"))
 		GameState.MINIGAME:
 			minigame_manager.visible = true
 		GameState.SPECIALIZATION_CHOICE:
 			#TODO: Nils: planet_choice elements need to be shown with: .visible = true
-			_next_game_step()		
+			_next_game_step()
 
 # TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
