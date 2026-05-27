@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://08yngngwjd1n"]
+
+[ext_resource type="Texture2D" uid="uid://dw2wi3wj7ujfj" path="res://Assets/Objects/sun1.svg" id="1_3u666"]
+[ext_resource type="Script" uid="uid://dacrs4p4kb14" path="res://Scripts/start_screen.gd" id="1_a2231"]
+[ext_resource type="Texture2D" uid="uid://c1yfwhp45ubtn" path="res://Assets/Objects/planet1.1_no_blur.svg" id="2_a2231"]
+[ext_resource type="Texture2D" uid="uid://lpofx4om57a2" path="res://Assets/Objects/planet2.1.svg" id="3_ey7n4"]
+[ext_resource type="Texture2D" uid="uid://dlatah40fs6" path="res://Assets/Objects/planet3.1.svg" id="4_6mw8b"]
+
+[node name="StarSystem" type="Node2D" unique_id=504394107]
+script = ExtResource("1_a2231")
+
+[node name="Sun1" type="Sprite2D" parent="." unique_id=628054557]
+position = Vector2(600, 240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3u666")
+
+[node name="Planet1_1NoBlur" type="Sprite2D" parent="." unique_id=1206152234]
+position = Vector2(420, 293)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_a2231")
+
+[node name="Planet2_1" type="Sprite2D" parent="." unique_id=274980847]
+position = Vector2(191.00003, 289.00003)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ey7n4")
+
+[node name="Planet3_1" type="Sprite2D" parent="." unique_id=542053172]
+position = Vector2(305, 289)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_6mw8b")

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dlwa3cx6bf1fj"]
 
 [ext_resource type="Script" uid="uid://c4q3n8bja66b8" path="res://Scripts/menu.gd" id="1_syfuq"]
+[ext_resource type="Texture2D" uid="uid://b2wrmxy0glrd6" path="res://Assets/Backgrounds/spaceBG.png" id="2_ma218"]
+[ext_resource type="PackedScene" uid="uid://08yngngwjd1n" path="res://Scenes/StartScreen.tscn" id="2_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
 
@@ -11,12 +13,20 @@ bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
 process_mode = 1
 script = ExtResource("1_syfuq")
 
-[node name="StartButton" type="Button" parent="." unique_id=315628407]
-visible = false
-offset_left = 411.0
-offset_top = 262.0
-offset_right = 731.0
-offset_bottom = 366.0
+[node name="SpaceBg" type="Sprite2D" parent="." unique_id=1424909887]
+z_index = -2
+position = Vector2(575, 322.75)
+scale = Vector2(0.68899524, 0.6934113)
+texture = ExtResource("2_ma218")
+
+[node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]
+position = Vector2(3, 0)
+
+[node name="StartButton" type="Button" parent="StartScreen" unique_id=315628407]
+offset_left = 439.0
+offset_top = 495.0
+offset_right = 759.0
+offset_bottom = 599.0
 text = "Start"
 
 [node name="MiniGame" parent="." unique_id=875578804 instance=ExtResource("3_syfuq")]
@@ -60,8 +70,9 @@ layout_mode = 2
 text = "No"
 
 [node name="Cutscene" parent="." unique_id=2129651268 instance=ExtResource("3_s2c3o")]
+position = Vector2(2, 19)
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_restart_game"]
 [connection signal="pressed" from="RestartMenu/Content/Buttons/Yes" to="." method="_restart_menu_yes_pressed"]

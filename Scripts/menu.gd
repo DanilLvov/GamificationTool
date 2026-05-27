@@ -12,9 +12,10 @@ enum GameState {
 # Node variables, if changing node name, change it here:
 @onready var minigame_manager = $MiniGame
 @onready var cutscene_manager = $Cutscene
-@onready var start_button = $StartButton
+@onready var start_button = $StartScreen/StartButton
 @onready var restart_button = $RestartButton
 @onready var restart_menu = $RestartMenu
+@onready var start_screen = $StartScreen
 
 
 var current_scene_id: int
@@ -126,7 +127,7 @@ func _run_current_scene() -> void:
 	
 	match timeline.get(str(current_scene_id)).get("state"):
 		GameState.START:
-			start_button.visible = true
+			start_screen.visible = true
 		GameState.CUTSCENE:
 			cutscene_manager.visible = true
 			cutscene_manager.get_current_cutscene(timeline.get(str(current_scene_id)).get("cutscene_id"))
@@ -138,7 +139,7 @@ func _run_current_scene() -> void:
 
 # TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
-	start_button.visible = false
+	start_screen.visible = false
 	minigame_manager.visible = false
 	cutscene_manager.visible = false
 
