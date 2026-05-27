@@ -6,31 +6,57 @@ enum GameState {
 	CUTSCENE,
 	MINIGAME,
 	SPECIALIZATION_CHOICE,
-	END,
-	RESTART # Not sure if needed, remove if not used
+	END
 }
 
 # TODO: game_sequence needs to be read from json
 var game_sequence = {
-	"start": { "state": GameState.START, "next_scene": "intro_cutscene" },
-	"intro_cutscene": { "state": GameState.CUTSCENE, "next_scene": "specialisation_choice" },
-	"specialisation_choice": { "state": GameState.SPECIALIZATION_CHOICE, "next_scene": "minigame_1"},
-	"minigame_1": { "state": GameState.MINIGAME, "next_scene": "cutscene_1_success", "next_scene_fail": "cutscene_1_fail" },
-	"cutscene_1_success": { "state": GameState.CUTSCENE, "next_scene": "end_cutscene"},
-	"cutscene_1_fail": { "state": GameState.CUTSCENE, "next_scene": "end"},
+	"start": { 
+		"state": GameState.START, 
+		"next_scene": "intro_cutscene" 
+	},
+	"intro_cutscene": { 
+		"state": GameState.CUTSCENE, 
+		"next_scene": "specialisation_choice" 
+	},
+	"specialisation_choice": {
+		"state": GameState.SPECIALIZATION_CHOICE, 
+		"next_scene": "minigame_1"
+	},
+	"minigame_1": { 
+		"state": GameState.MINIGAME, 
+		"next_scene": "cutscene_1_success", 
+		"next_scene_fail": "cutscene_1_fail" 
+	},
+	"cutscene_1_success": { 
+		"state": GameState.CUTSCENE, 
+		"next_scene": "end_cutscene"
+	},
+	"cutscene_1_fail": { 
+		"state": GameState.CUTSCENE, 
+		"next_scene": "end"
+	},
 	# TODO: ability to choose bad and good ending
-	"end_cutscene": { "state": GameState.CUTSCENE, "next_scene": "end", "condition": 3,},
-	"bad_end_cutscene": { "state": GameState.CUTSCENE, "next_scene": "end", "condition": 3},
+	"end_cutscene": { 
+		"state": GameState.CUTSCENE, 
+		"next_scene": "end", 
+		"condition": 3,
+	},
+	"bad_end_cutscene": { 
+		"state": GameState.CUTSCENE, 
+		"next_scene": "end", 
+		"condition": 3
+	},
 	"end": { "state": GameState.END}
 }
 	
 
 # Node variables, if changing node name, change it here:
-#@onready var spaceship = $SpaceShip
 @onready var cutscene_manager = $CutsceneDummy
 @onready var minigame_manager = $MiniGame
-@onready var control_room = $SpaceShip/Room3
-@onready var start_button = $StartButton
+@onready var start_button     = $StartButton
+@onready var restart_button   = $RestartButton
+@onready var restart_menu     = $RestartMenu
 
 
 var current_scene: String
@@ -47,7 +73,6 @@ func _ready() -> void:
 
 	_run_current_scene()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -62,7 +87,7 @@ func _next_game_step() -> void:
 	_run_current_scene()
 
 func _run_current_scene() -> void:
-	#hidding all objects, to show only used for the current game step
+	#hidding all objects, to show only those used for the current game step
 	_hide_all_objects()
 
 	match game_sequence.get(current_scene).get("state"):
@@ -75,10 +100,26 @@ func _run_current_scene() -> void:
 			minigame_manager.visible = true
 		GameState.SPECIALIZATION_CHOICE:
 			#TODO: Nils: planet_choice elements need to be shown with: .visible = true
-			_next_game_step()
+			_next_game_step()		
 
-# TODO: Add every new scene object to this function
+# TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
 	start_button.visible = false
 	minigame_manager.visible = false
 	cutscene_manager.visible = false
+
+# Restart functionality
+func _restart_game() -> void:
+	minigame_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	cutscene_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	restart_menu.visible = true
+
+func _restart_menu_yes_pressed() -> void:
+	get_tree().reload_current_scene()
+
+func _restart_menu_no_pressed() -> void:
+	minigame_manager.process_mode = Node.PROCESS_MODE_INHERIT
+	cutscene_manager.process_mode = Node.PROCESS_MODE_INHERIT
+	restart_menu.visible = false
+
+# TODO: add reset on timer 
