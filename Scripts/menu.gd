@@ -11,6 +11,7 @@ enum GameState {
 
 # Node variables, if changing node name, change it here:
 @onready var minigame_manager = $MiniGame
+@onready var cutscene_manager = $Cutscene
 @onready var start_button = $StartButton
 @onready var restart_button = $RestartButton
 @onready var restart_menu = $RestartMenu

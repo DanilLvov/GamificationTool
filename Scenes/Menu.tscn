@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c4q3n8bja66b8" path="res://Scripts/menu.gd" id="1_syfuq"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
-[ext_resource type="PackedScene" uid="uid://ccx1bgwla2m6y" path="res://Scenes/Cutscene_Dummy.tscn" id="4_s2c3o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
@@ -23,10 +22,8 @@ text = "Start"
 [node name="MiniGame" parent="." unique_id=875578804 instance=ExtResource("3_syfuq")]
 visible = false
 
-[node name="CutsceneDummy" parent="." unique_id=1168846618 instance=ExtResource("4_s2c3o")]
-visible = false
-
 [node name="RestartButton" type="Button" parent="." unique_id=480556500]
+z_index = 3
 offset_left = 1076.0
 offset_top = 7.0
 offset_right = 1141.0
@@ -35,6 +32,7 @@ text = "Restart"
 
 [node name="RestartMenu" type="PanelContainer" parent="." unique_id=1349227946]
 visible = false
+z_index = 3
 offset_left = 3.0
 offset_right = 1146.0
 offset_bottom = 640.0
@@ -61,6 +59,9 @@ text = "Yes"
 layout_mode = 2
 text = "No"
 
+[node name="Cutscene" parent="." unique_id=2129651268 instance=ExtResource("3_s2c3o")]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_restart_game"]
 [connection signal="pressed" from="RestartMenu/Content/Buttons/Yes" to="." method="_restart_menu_yes_pressed"]
