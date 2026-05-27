@@ -1,80 +1,38 @@
 {
-    "timelineObjects": [
-        {
-            "type": "Menu",
-            "id": 0
-        },
-        {
-            "type": "Menu",
-            "id": 1
-        },
-        {
-            "type": "Cutscene",
-            "id": 0
-        },
-        {
-            "type": "Minigame",
-            "id": 0
-        },
-        {
-            "type": "Cutscene",
-            "id": 1
-        },
-        {
-            "type": "Cutscene",
-            "id": 2
-        },
-        {
-            "type": "Minigame",
-            "id": 1
-        },
-        {
-            "type": "Cutscene",
-            "id": 3
-        },
-        {
-            "type": "Cutscene",
-            "id": 4
-        },
-        {
-            "type": "Minigame",
-            "id": 2
-        },
-        {
-            "type": "Cutscene",
-            "id": 5
-        },
-        {
-            "type": "Cutscene",
-            "id": 6
-        },
-        {
-            "type": "Minigame",
-            "id": 3
-        },
-        {
-            "type": "Cutscene",
-            "id": 7
-        },
-        {
-            "type": "Cutscene",
-            "id": 8
-        },
-        {
-            "type": "Minigame",
-            "id": 4
-        },
-        {
-            "type": "Cutscene",
-            "id": 9
-        },
-        {
-            "type": "Cutscene",
-            "id": 10
-        },
-        {
-            "type": "Menu",
-            "id": 0
-        }
-    ]
+    "start": { 
+		"state": "START", 
+		"next_scene": "intro_cutscene" 
+	},
+	"intro_cutscene": { 
+		"state": "CUTSCENE", 
+		"next_scene": "specialisation_choice" 
+	},
+	"specialisation_choice": {
+		"state": "SPECIALIZATION_CHOICE", 
+		"next_scene": "minigame_1"
+	},
+	"minigame_1": { 
+		"state": "MINIGAME", 
+		"next_scene": "cutscene_1_success", 
+		"next_scene_fail": "cutscene_1_fail" 
+	},
+	"cutscene_1_success": { 
+		"state": "CUTSCENE", 
+		"next_scene": "end_cutscene"
+	},
+	"cutscene_1_fail": { 
+		"state": "CUTSCENE", 
+		"next_scene": "end"
+	},
+	"end_cutscene": { 
+		"state": "CUTSCENE", 
+		"next_scene": "end", 
+		"condition": 3
+	},
+	"bad_end_cutscene": { 
+		"state": "CUTSCENE", 
+		"next_scene": "end", 
+		"condition": 3
+	},
+	"end": { "state": "END"}
 }

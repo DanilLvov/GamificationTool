@@ -9,46 +9,8 @@ enum GameState {
 	END
 }
 
-# TODO: game_sequence needs to be read from json
-var game_sequence = {
-	"start": { 
-		"state": GameState.START, 
-		"next_scene": "intro_cutscene" 
-	},
-	"intro_cutscene": { 
-		"state": GameState.CUTSCENE, 
-		"next_scene": "specialisation_choice" 
-	},
-	"specialisation_choice": {
-		"state": GameState.SPECIALIZATION_CHOICE, 
-		"next_scene": "minigame_1"
-	},
-	"minigame_1": { 
-		"state": GameState.MINIGAME, 
-		"next_scene": "cutscene_1_success", 
-		"next_scene_fail": "cutscene_1_fail" 
-	},
-	"cutscene_1_success": { 
-		"state": GameState.CUTSCENE, 
-		"next_scene": "end_cutscene"
-	},
-	"cutscene_1_fail": { 
-		"state": GameState.CUTSCENE, 
-		"next_scene": "end"
-	},
-	# TODO: ability to choose bad and good ending
-	"end_cutscene": { 
-		"state": GameState.CUTSCENE, 
-		"next_scene": "end", 
-		"condition": 3,
-	},
-	"bad_end_cutscene": { 
-		"state": GameState.CUTSCENE, 
-		"next_scene": "end", 
-		"condition": 3
-	},
-	"end": { "state": GameState.END}
-}
+var json
+var game_sequence: Dictionary
 	
 
 # Node variables, if changing node name, change it here:
@@ -71,11 +33,59 @@ func _ready() -> void:
 	cutscene_manager.finished.connect(_next_game_step)
 	current_scene = "start"
 
+	game_sequence = _load_timeline("res://Database/timeline.json")
+	print(game_sequence)
 	_run_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+# Parsing json with all checks and errors
+func _load_timeline(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		push_error("JSON file not found: %s" % path)
+		return {}
+
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Cannot open JSON file: %s" % path)
+		return {}
+
+	var json_text := file.get_as_text()
+	var parsed = JSON.parse_string(json_text)
+
+	if parsed == null:
+		push_error("Invalid JSON in file: %s" % path)
+		return {}
+
+	if typeof(parsed) != TYPE_DICTIONARY:
+		push_error("Root JSON must be an object/dictionary")
+		return {}
+	
+	var result: Dictionary = {}
+
+	for scene_id in parsed.keys():
+		var scene_data = parsed[scene_id]
+		print(scene_data)
+		if typeof(scene_data) != TYPE_DICTIONARY:
+			push_error("Scene '%s' must be an object" % scene_id)
+			continue
+
+		if not scene_data.has("state"):
+			push_error("Scene '%s' has no state" % scene_id)
+			continue
+
+		var state_name: String = scene_data["state"]
+
+		if not GameState.has(state_name):
+			push_error("Unknown state '%s' in scene '%s'" % [state_name, scene_id])
+			continue
+		
+		scene_data["state"] = GameState[state_name]
+		result[scene_id] = scene_data
+
+	return result
 
 # If failed a Minigame get fail cutscene
 func _failed_minigame() -> void:
