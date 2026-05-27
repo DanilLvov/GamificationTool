@@ -10,18 +10,18 @@
                     "id": 0,
                     "name": "Astronaut",
                     "path": "res://Assets/Objects/Astronaut.png",
-                    "position_x": 600,
-                    "position_y": 500,
+                    "position_x": 200,
+                    "position_y": 100,
                     "scale": 0.2,
                     "hasAnimation": true,
                     "animationId": 0
                 },
                 {
                     "id": 1,
-                    "name": "Icon",
-                    "path": "res://Assets/Textures/icon.svg",
-                    "position_x": 200,
-                    "position_y": 100,
+                    "name": "Smoke",
+                    "path": "res://Assets/Objects/smoke.webp",
+                    "position_x": 250,
+                    "position_y": 300,
                     "scale": 1,
                     "hasAnimation": false,
                     "animationId": null
@@ -48,49 +48,37 @@
         },
         {
             "id": 2,
-            "name": "Cutscene 3",
-            "subtitles": "Cutscene 3",
+            "name": "Minigame 1 Succes",
+            "subtitles": "juhu, wir können weiter fliegen, du hast mich gerettet",
             "backgroundImagePath": "",
             "objects": [
                 {
                     "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
+                    "name": "Astronaut",
+                    "path": "res://Assets/Objects/Astronaut.png",
+                    "position_x": 200,
+                    "position_y": 300,
+                    "scale": 0.2,
                     "hasAnimation": false,
-                    "animationId": null
+                    "animationId": 0
                 }
             ]
         },
         {
             "id": 3,
-            "name": "Cutscene 4",
-            "subtitles": "Cutscene 4",
-            "backgroundImagePath": "",
+            "name": "Minigame 1 Fail",
+            "subtitles": "Das Schiff ist explodiert ... ",
+            "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
             "objects": [
                 {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
+                    "id": 2,
+                    "name": "Feuer",
+                    "path": "res://Assets/Objects/fire.webp",
+                    "position_x": 250,
+                    "position_y": 300,
+                    "scale": 1,
                     "hasAnimation": true,
                     "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
                 }
             ]
         },

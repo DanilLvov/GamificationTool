@@ -12,32 +12,40 @@ func _process(delta: float) -> void:
 	pass
 
 #TODO: change to cuurrent project task
-var richtigeAntwort = 1;
+var richtigeAntwort = 1
+var lifes = 3
+
 func _on_button_a_pressed() -> void:
 	$ButtonA.visible = false
 	$ButtonB.visible = false
 	var text
-	if (richtigeAntwort == 0): 
+	if (richtigeAntwort == 0):
 		text = "You are right!!!"
 		$NextGameButton.visible = true
-	else: 
+	else:
 		text = "You are Wrong!!!"
+		lifes -= 1
+		if lifes < 0:
+			_failed()
+		
 		$ResetButton.visible = true
 	$MiniGameRes.text = text
 	$MiniGameRes.visible = true
 	
 
-
-
 func _on_button_b_pressed() -> void:
 	$ButtonA.visible = false
 	$ButtonB.visible = false
 	var text
-	if (richtigeAntwort == 1): 
+	if (richtigeAntwort == 1):
 		text = "You are right!!!"
 		$NextGameButton.visible = true
-	else: 
+	else:
 		text = "You are Wrong!!!"
+		lifes -= 1
+		if lifes < 0:
+			_failed()
+		
 		$ResetButton.visible = true
 	$MiniGameRes.text = text
 	$MiniGameRes.visible = true
@@ -46,12 +54,15 @@ func _on_button_b_pressed() -> void:
 func _on_reset_button_pressed() -> void:
 	$ButtonA.visible = true
 	$ButtonB.visible = true
+	$MiniGameRes.text = ""
 	$MiniGameRes.visible = false
 	$ResetButton.visible = false
 
 
 func _on_next_game_button_pressed() -> void:
+	_on_reset_button_pressed()
 	emit_signal("finished")
 
 func _failed() -> void:
+	_on_reset_button_pressed()
 	emit_signal("failed")

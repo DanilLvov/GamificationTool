@@ -3,6 +3,8 @@ extends Node2D
 
 ## Dokumentation
 
+signal finished
+
 var timeline_pointer = 0 # for Debug purposes
 
 var is_current_scene_cutscene = false
@@ -30,15 +32,12 @@ var current_cutscene = {
 func _ready() -> void:
 	cutscenes = read_JSON("res://Database/cutscenes.json")
 	#animations = read_JSON("res://Database/animations.json") #TODO animations structure hinzufügen und Funktionalität hinzufügen
-	timeline_objects = read_JSON("res://Database/timeline.json")
-
+	
 	_background = $Background
 	_subtitles = $UiElements/Subtitles
 	_continue = $UiElements/ContinueTextureButton
 	_animation_objects = $AnimationObjects
 	_ui_elements = $UiElements
-
-	get_current_cutscene()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,15 +52,8 @@ func read_JSON(json_file_path):
 	return finish
 
 
-func get_current_cutscene():
-	if timeline_objects["timelineObjects"][timeline_pointer]["type"] != "Cutscene":
-		is_current_scene_cutscene = false
-		_continue.visible = true
-		return
-
+func get_current_cutscene(current_cutscene_id: int):
 	is_current_scene_cutscene = true
-
-	var current_cutscene_id = timeline_objects["timelineObjects"][timeline_pointer]["id"]
 
 	for cutscene in cutscenes["cutscenes"]:
 		if cutscene["id"] == current_cutscene_id:
@@ -70,23 +62,17 @@ func get_current_cutscene():
 			current_cutscene["subtitles"] = cutscene["subtitles"]
 			current_cutscene["background_image_path"] = cutscene["backgroundImagePath"]
 			current_cutscene["objects"] = cutscene["objects"]
-			print(current_cutscene)
 			break
-
+			
+	play_cutscene()
 
 func _on_continue_texture_button_pressed() -> void:
-	if timeline_pointer < timeline_objects["timelineObjects"].size() - 1:
-		timeline_pointer += 1
-
 		_continue.visible = false
 
 		for child in _animation_objects.get_children():
 			child.queue_free()
 
-		get_current_cutscene()
-
-		if is_current_scene_cutscene:
-			play_cutscene()
+		emit_signal("finished")
 		
 
 func play_cutscene():

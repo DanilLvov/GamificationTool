@@ -1,38 +1,170 @@
 {
-    "start": { 
-		"state": "START", 
-		"next_scene": "intro_cutscene" 
-	},
-	"intro_cutscene": { 
-		"state": "CUTSCENE", 
-		"next_scene": "specialisation_choice" 
-	},
-	"specialisation_choice": {
-		"state": "SPECIALIZATION_CHOICE", 
-		"next_scene": "minigame_1"
-	},
-	"minigame_1": { 
-		"state": "MINIGAME", 
-		"next_scene": "cutscene_1_success", 
-		"next_scene_fail": "cutscene_1_fail" 
-	},
-	"cutscene_1_success": { 
-		"state": "CUTSCENE", 
-		"next_scene": "end_cutscene"
-	},
-	"cutscene_1_fail": { 
-		"state": "CUTSCENE", 
-		"next_scene": "end"
-	},
-	"end_cutscene": { 
-		"state": "CUTSCENE", 
-		"next_scene": "end", 
-		"condition": 3
-	},
-	"bad_end_cutscene": { 
-		"state": "CUTSCENE", 
-		"next_scene": "end", 
-		"condition": 3
-	},
-	"end": { "state": "END"}
+    "timelineObjects": [
+        {
+            "id": 0,
+            "name": "StartMenu",
+            "state": "GameState.START",
+            "next_scene": 2
+        },
+        {
+            "id": 1,
+            "name": "SpecializationChoice",
+            "state": "GameState.SPECIALIZATION_CHOICE",
+            "next_scene": 2
+        },
+        {
+            "id": 2,
+            "name": "Intro",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 3
+        },
+        {
+            "id": 3,
+            "name": "Mingame 1",
+            "state": "GameState.MINIGAME",
+            "next_scene": 4,
+            "next_scene_fail": 5
+        },
+        {
+            "id": 4,
+            "name": "Mingame 1 Success",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 2,
+            "next_scene": 6
+        },
+        {
+            "id": 5,
+            "name": "Minigame 1 Fail",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 3,
+            "next_scene": 6
+        },
+        {
+            "id": 6,
+            "name": "Next Minigame 1",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 1,
+            "next_scene": 7
+        },
+        {
+            "id": 7,
+            "name": "Minigame 2",
+            "state": "GameState.MINIGAME",
+            "next_scene": 8,
+            "next_scene_fail": 9,
+            "next_scene_complete_fail": 1
+        },
+        {
+            "id": 8,
+            "name": "Mingame 2 Success",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 10
+        },
+        {
+            "id": 9,
+            "name": "Minigame 2 Fail",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 10
+        },
+        {
+            "id": 10,
+            "name": "Next Minigame 2",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 11
+        },
+        {
+            "id": 11,
+            "name": "Minigame 3",
+            "state": "GameState.MINIGAME",
+            "next_scene": 12,
+            "next_scene_fail": 13
+        },
+        {
+            "id": 12,
+            "name": "Minigame 3 Success",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 14
+        },
+        {
+            "id": 13,
+            "name": "Minigame 3 Fail",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 14
+        },
+        {
+            "id": 14,
+            "name": "Next Minigame 3",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 15
+        },
+        {
+            "id": 15,
+            "name": "Minigame 4",
+            "state": "GameState.MINIGAME",
+            "next_scene": 16,
+            "next_scene_fail": 17
+        },
+        {
+            "id": 16,
+            "name": "Minigame 4 Success",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 18
+        },
+        {
+            "id": 17,
+            "name": "Minigame 4 Fail",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 18
+        },
+        {
+            "id": 18,
+            "name": "Next Minigame 4",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 19
+        },
+        {
+            "id": 19,
+            "name": "Mingame 5",
+            "state": "GameState.MINIGAME",
+            "next_scene": 20,
+            "next_scene_fail": 21
+        },
+        {
+            "id": 20,
+            "name": "Mingame 5 Success",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 22
+        },
+        {
+            "id": 21,
+            "name": "Mingame 5 Fail",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 22
+        },
+        {
+            "id": 22,
+            "name": "End Cutscene",
+            "state": "GameState.CUTSCENE",
+            "cutscene_id": 0,
+            "next_scene": 23
+        },
+        {
+            "id": 23,
+            "name": "End",
+            "state": "GameState.END",
+            "next_scene": 0
+        }
+    ]
 }

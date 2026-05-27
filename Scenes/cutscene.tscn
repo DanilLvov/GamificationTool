@@ -25,6 +25,7 @@ offset_right = 914.0
 offset_bottom = 619.0
 
 [node name="ContinueTextureButton" type="TextureButton" parent="UiElements" unique_id=1429739027]
+visible = false
 layout_mode = 0
 offset_left = 723.0
 offset_top = 432.00003
