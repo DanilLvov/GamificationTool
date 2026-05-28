@@ -10,13 +10,20 @@ enum GameState {
 }
 
 # Node variables, if changing node name, change it here:
-@onready var minigame_manager = $MiniGame
-@onready var cutscene_manager = $Cutscene
-@onready var start_button = $StartScreen/StartButton
-@onready var restart_button = $RestartButton
-@onready var restart_menu = $RestartMenu
-@onready var start_screen = $StartScreen
+@onready var minigame_manager := $MiniGame
+@onready var cutscene_manager := $Cutscene
+@onready var start_button := $StartScreen/StartButton
+@onready var restart_button := $RestartButton
+@onready var restart_menu := $RestartMenu
+@onready var start_screen := $StartScreen
+@onready var restart_warning := $RestartWarning
 
+
+# Restart timer vars:
+var idle_timeout := 60.0
+var restart_warning_time := 10.0
+var warning_shown := false
+var idle_time_left: float
 
 var current_scene_id: int
 var current_minigame: int
@@ -32,11 +39,19 @@ func _ready() -> void:
 	cutscene_manager.finished.connect(_next_game_step)
 	current_scene_id = 0
 
+	_reset_idle_timer()
 	_run_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	idle_time_left -= delta
+	if idle_time_left < restart_warning_time:
+		if not warning_shown:
+			warning_shown = true
+			restart_warning.visible = true
+		if idle_time_left < 0.0:
+			_on_idle_timeout()
+	
 
 # Parsing timeline json with all checks and errors
 func _load_timeline(path: String) -> Dictionary:
@@ -145,6 +160,7 @@ func _hide_all_objects() -> void:
 
 # Restart functionality
 func _restart_game() -> void:
+	start_screen.process_mode     = Node.PROCESS_MODE_DISABLED
 	minigame_manager.process_mode = Node.PROCESS_MODE_DISABLED
 	cutscene_manager.process_mode = Node.PROCESS_MODE_DISABLED
 	restart_menu.visible = true
@@ -153,8 +169,26 @@ func _restart_menu_yes_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _restart_menu_no_pressed() -> void:
+	start_screen.process_mode     = Node.PROCESS_MODE_INHERIT
 	minigame_manager.process_mode = Node.PROCESS_MODE_INHERIT
 	cutscene_manager.process_mode = Node.PROCESS_MODE_INHERIT
 	restart_menu.visible = false
 
-# TODO: add reset on timer 
+# Idle Timer 
+func _reset_idle_timer() -> void:
+	warning_shown = false
+	restart_warning.visible = false
+	idle_time_left = idle_timeout
+
+func _on_idle_timeout() -> void:
+	_restart_menu_yes_pressed()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		_reset_idle_timer()
+	elif event is InputEventKey and event.pressed:
+		_reset_idle_timer()
+	elif event is InputEventScreenTouch and event.pressed:
+		_reset_idle_timer()
+	elif event is InputEventMouseMotion:
+		_reset_idle_timer()
