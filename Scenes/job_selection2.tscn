@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://byxjxy2y1sl8q"]
+
+[node name="job_selection2" type="Control" unique_id=73399769]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="planets" type="Node2D" parent="." unique_id=77282104]
+
+[node name="planet 1" type="Sprite2D" parent="planets" unique_id=874769540]
+
+[node name="planet 2" type="Sprite2D" parent="planets" unique_id=241330975]
+
+[node name="planet 3" type="Sprite2D" parent="planets" unique_id=1893904747]
+
+[node name="left" type="Button" parent="." unique_id=951807919]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 384.0
+text = "<"
+
+[node name="right" type="Button" parent="." unique_id=555240308]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 256.0
+offset_right = 1088.0
+offset_bottom = 384.0
+
+[node name="select" type="Button" parent="." unique_id=929717759]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 448.0
+offset_right = 704.0
+offset_bottom = 576.0
+text = "Auswählen"

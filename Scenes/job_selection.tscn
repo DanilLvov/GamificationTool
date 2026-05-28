@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://br2xlfa6ck151"]
+
+[ext_resource type="Script" uid="uid://1utkmrc5agok" path="res://Scripts/job_selection.gd" id="1_c614l"]
+
+[node name="job_selection" type="Node2D" unique_id=1499211700]
+script = ExtResource("1_c614l")
+
+[node name="button_manager" type="Control" parent="." unique_id=1762859931]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="select" type="Button" parent="button_manager" unique_id=994532483]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 448.0
+offset_right = 704.0
+offset_bottom = 576.0
+text = "Start"
+
+[node name="left" type="Button" parent="button_manager" unique_id=1527781819]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 384.0
+text = "<"
+
+[node name="right" type="Button" parent="button_manager" unique_id=1009468267]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 256.0
+offset_right = 1088.0
+offset_bottom = 384.0
+text = ">"
+
+[node name="Planet 1" type="Sprite2D" parent="." unique_id=277809685]
+
+[node name="Planet 2" type="Sprite2D" parent="." unique_id=1542639398]
+
+[node name="Planet 3" type="Sprite2D" parent="." unique_id=1042331793]
