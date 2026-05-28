@@ -101,6 +101,7 @@ func _load_timeline(path: String) -> Dictionary:
 
 func _on_start_button_pressed() -> void:
 	print("pressed start button")
+	var _waiter = await start_screen._start_pressed()
 	_next_game_step()
 
 
