@@ -17,6 +17,7 @@ enum GameState {
 @onready var restart_menu := $RestartMenu
 @onready var start_screen := $StartScreen
 @onready var restart_warning := $RestartWarning
+@onready var end_screen := $GameEnd
 
 
 # Restart timer vars:
@@ -101,6 +102,7 @@ func _load_timeline(path: String) -> Dictionary:
 
 func _on_start_button_pressed() -> void:
 	print("pressed start button")
+	start_button.visible = false
 	var _waiter = await start_screen._start_pressed()
 	_next_game_step()
 
@@ -150,16 +152,20 @@ func _run_current_scene() -> void:
 		GameState.MINIGAME:
 			minigame_manager.visible = true
 		GameState.SPECIALIZATION_CHOICE:
+			start_screen.visible = true
 			#TODO: Nils: planet_choice elements need to be shown with: .visible = true
-			_next_game_step()
+			#_next_game_step()
+		GameState.END:
+			end_screen.visible = true
 
 # TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
+	end_screen.visible = false
 	start_screen.visible = false
 	minigame_manager.visible = false
 	cutscene_manager.visible = false
 
-# Restart functionality
+# Restart functionality 
 func _restart_game() -> void:
 	start_screen.process_mode     = Node.PROCESS_MODE_DISABLED
 	minigame_manager.process_mode = Node.PROCESS_MODE_DISABLED
