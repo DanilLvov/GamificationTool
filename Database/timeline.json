@@ -1,144 +1,144 @@
 {
-	  "0": {
+	"0": {
 		"name": "StartMenu",
 		"state": "START",
-		"next_scene": 1
-	  },
-	  "1": {
+		"next_scene": 2
+	},
+	"1": {
 		"name": "SpecializationChoice",
 		"state": "SPECIALIZATION_CHOICE",
 		"next_scene": 2
-	  },
-	  "2": {
+	},
+	"2": {
 		"name": "Intro",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 3
-	  },
-	  "3": {
+	},
+	"3": {
 		"name": "Mingame 1",
 		"state": "MINIGAME",
 		"next_scene": 4,
 		"next_scene_fail": 5
-	  },
-	  "4": {
+	},
+	"4": {
 		"name": "Mingame 1 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 2,
 		"next_scene": 6
-	  },
-	  "5": {
+	},
+	"5": {
 		"name": "Minigame 1 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 3,
 		"next_scene": 6
-	  },
-	  "6": {
+	},
+	"6": {
 		"name": "Next Minigame 1",
 		"state": "CUTSCENE",
 		"cutscene_id": 1,
 		"next_scene": 7
-	  },
-	  "7": {
+	},
+	"7": {
 		"name": "Minigame 2",
 		"state": "MINIGAME",
 		"next_scene": 8,
 		"next_scene_fail": 9,
 		"next_scene_complete_fail": 1
-	  },
-	  "8": {
+	},
+	"8": {
 		"name": "Mingame 2 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 10
-	  },
-	  "9": {
+	},
+	"9": {
 		"name": "Minigame 2 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 10
-	  },
-	  "10": {
+	},
+	"10": {
 		"name": "Next Minigame 2",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 11
-	  },
-	  "11": {
+	},
+	"11": {
 		"name": "Minigame 3",
 		"state": "MINIGAME",
 		"next_scene": 12,
 		"next_scene_fail": 13
-	  },
-	  "12": {
+	},
+	"12": {
 		"name": "Minigame 3 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 14
-	  },
-	  "13": {
+	},
+	"13": {
 		"name": "Minigame 3 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 14
-	  },
-	  "14": {
+	},
+	"14": {
 		"name": "Next Minigame 3",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 15
-	  },
-	  "15": {
+	},
+	"15": {
 		"name": "Minigame 4",
 		"state": "MINIGAME",
 		"next_scene": 16,
 		"next_scene_fail": 17
-	  },
-	  "16": {
+	},
+	"16": {
 		"name": "Minigame 4 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 18
-	  },
-	  "17": {
+	},
+	"17": {
 		"name": "Minigame 4 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 18
-	  },
-	  "18": {
+	},
+	"18": {
 		"name": "Next Minigame 4",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 19
-	  },
-	  "19": {
+	},
+	"19": {
 		"name": "Mingame 5",
 		"state": "MINIGAME",
 		"next_scene": 20,
 		"next_scene_fail": 21
-	  },
-	  "20": {
+	},
+	"20": {
 		"name": "Mingame 5 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 22
-	  },
-	  "21": {
+	},
+	"21": {
 		"name": "Mingame 5 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 22
-	  },
-	  "22": {
+	},
+	"22": {
 		"name": "End Cutscene",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
 		"next_scene": 23
-	  },
-	  "23": {
+	},
+	"23": {
 		"name": "End",
 		"state": "END",
 		"next_scene": 0
-	  }
+	}
 }

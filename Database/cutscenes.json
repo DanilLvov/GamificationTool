@@ -1,254 +1,226 @@
 {
-    "cutscenes": [
-        {
-            "id": 0,
-            "name": "test",
-            "subtitles": "Der Kontrollraum explodiert gleich, bitte helfe mir ihn vor dem Explodieren zu bewahren!",
-            "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "Astronaut",
-                    "path": "res://Assets/Objects/Astronaut.png",
-                    "position_x": 200,
-                    "position_y": 100,
-                    "scale": 0.2,
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "Smoke",
-                    "path": "res://Assets/Objects/smoke.webp",
-                    "position_x": 250,
-                    "position_y": 300,
-                    "scale": 1,
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "name": "blablabla",
-            "subtitles": "Die Engines sind kaputt, bitte repariere sie!",
-            "backgroundImagePath": "res://Assets/Backgrounds/EngineRoom.jpg",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "Astronaut",
-                    "path": "res://Assets/Objects/Astronaut.png",
-                    "position_x": 200,
-                    "position_y": 300,
-                    "scale": 0.2,
-                    "hasAnimation": true,
-                    "animationId": 0
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Minigame 1 Succes",
-            "subtitles": "juhu, wir können weiter fliegen, du hast mich gerettet",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "Astronaut",
-                    "path": "res://Assets/Objects/Astronaut.png",
-                    "position_x": 200,
-                    "position_y": 300,
-                    "scale": 0.2,
-                    "hasAnimation": false,
-                    "animationId": 0
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "name": "Minigame 1 Fail",
-            "subtitles": "Das Schiff ist explodiert ... ",
-            "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
-            "objects": [
-                {
-                    "id": 2,
-                    "name": "Feuer",
-                    "path": "res://Assets/Objects/fire.webp",
-                    "position_x": 250,
-                    "position_y": 300,
-                    "scale": 1,
-                    "hasAnimation": true,
-                    "animationId": 0
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Cutscene 5",
-            "subtitles": "Cutscene 5",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "name": "Cutscene 6",
-            "subtitles": "Cutscene 6",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "name": "Cutscene 7",
-            "subtitles": "Cutscene 7",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "name": "Cutscene 8",
-            "subtitles": "Cutscene 8",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "name": "Cutscene 9",
-            "subtitles": "Cutscene 9",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "name": "Cutscene 10",
-            "subtitles": "Cutscene 10",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "name": "Cutscene 11",
-            "subtitles": "Cutscene 11",
-            "backgroundImagePath": "",
-            "objects": [
-                {
-                    "id": 0,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": true,
-                    "animationId": 0
-                },
-                {
-                    "id": 1,
-                    "name": "",
-                    "path": "",
-                    "position": "0",
-                    "hasAnimation": false,
-                    "animationId": null
-                }
-            ]
-        }
-    ]
+    "0": {
+        "name": "test",
+        "subtitles": "Der Kontrollraum explodiert gleich, bitte helfe mir ihn vor dem Explodieren zu bewahren!",
+        "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
+        "objects": [
+            {
+                "id": 0,
+                "hasAnimation": true,
+                "animationId": 0
+            }
+        ]
+    },
+    "1": {
+        "name": "blablabla",
+        "subtitles": "Die Engines sind kaputt, bitte repariere sie!",
+        "backgroundImagePath": "res://Assets/Backgrounds/EngineRoom.jpg",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 200,
+                "position_y": 300,
+                "scale": 0.2,
+                "hasAnimation": true,
+                "animationId": 0
+            }
+        ]
+    },
+    "2": {
+        "name": "Minigame 1 Succes",
+        "subtitles": "juhu, wir können weiter fliegen, du hast mich gerettet",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 200,
+                "position_y": 300,
+                "scale": 0.2,
+                "hasAnimation": false,
+                "animationId": 0
+            }
+        ]
+    },
+    "3": {
+        "name": "Minigame 1 Fail",
+        "subtitles": "Das Schiff ist explodiert ... ",
+        "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
+        "objects": [
+            {
+                "id": 2,
+                "name": "Feuer",
+                "path": "res://Assets/Objects/fire.webp",
+                "position_x": 250,
+                "position_y": 300,
+                "scale": 1,
+                "hasAnimation": true,
+                "animationId": 0
+            }
+        ]
+    },
+    "4": {
+        "name": "Cutscene 5",
+        "subtitles": "Cutscene 5",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    },
+    "5": {
+        "name": "Cutscene 6",
+        "subtitles": "Cutscene 6",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    },
+    "6": {
+        "name": "Cutscene 7",
+        "subtitles": "Cutscene 7",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    },
+    "7": {
+        "name": "Cutscene 8",
+        "subtitles": "Cutscene 8",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    },
+    "8": {
+        "name": "Cutscene 9",
+        "subtitles": "Cutscene 9",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    },
+    "9": {
+        "name": "Cutscene 10",
+        "subtitles": "Cutscene 10",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    },
+    "10": {
+        "name": "Cutscene 11",
+        "subtitles": "Cutscene 11",
+        "backgroundImagePath": "",
+        "objects": [
+            {
+                "id": 0,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": true,
+                "animationId": 0
+            },
+            {
+                "id": 1,
+                "name": "",
+                "path": "",
+                "position": "0",
+                "hasAnimation": false,
+                "animationId": null
+            }
+        ]
+    }
 }

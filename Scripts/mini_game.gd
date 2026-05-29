@@ -25,7 +25,7 @@ func _on_button_a_pressed() -> void:
 	else:
 		text = "You are Wrong!!!"
 		lifes -= 1
-		if lifes < 0:
+		if lifes <= 0:
 			_failed()
 		
 		$ResetButton.visible = true
@@ -43,7 +43,7 @@ func _on_button_b_pressed() -> void:
 	else:
 		text = "You are Wrong!!!"
 		lifes -= 1
-		if lifes < 0:
+		if lifes <= 0:
 			_failed()
 		
 		$ResetButton.visible = true
