@@ -9,12 +9,14 @@ signal finished
 var cutscenes: Dictionary
 var animations: Dictionary
 
+var timer = 0.0
+
 # Node variables, if changing node name, change it here:
 @onready var _background = $Background
 @onready var _subtitles = $UiElements/Subtitles
 @onready var _continue = $UiElements/ContinueTextureButton
 @onready var _animation_objects = $AnimationObjects
-@onready var _ui_elements = $UiElements
+#@onready var _ui_elements = $UiElements
 
 # Global cutscene structure variable
 var current_cutscene = {
@@ -25,17 +27,24 @@ var current_cutscene = {
 	"objects": []
 }
 
+var animation_object_connections = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Load cutscene and animation data from JSON files
 	cutscenes = _load_JSON("res://Database/cutscenes.json")
-	#animations = read_JSON("res://Database/animations.json") #TODO animations structure hinzufügen und Funktionalität hinzufügen
+	animations = _load_JSON("res://Database/animations.json")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
+func _process(delta: float) -> void:
+	timer += delta
+	print(timer)
+	for animation_object in _animation_objects.get_children():
+		for connection in animation_object_connections:
+				if animation_object.name == connection["object_name"]:
+					_update_animation_object(animation_object)
+	
 
 # Parsing json with all checks and errors
 func _load_JSON(path: String) -> Dictionary:
@@ -111,11 +120,16 @@ func _on_continue_texture_button_pressed() -> void:
 		for child in _animation_objects.get_children():
 			child.queue_free()
 
+		animation_object_connections.clear()
+
 		# Emit signal, so next scene can be played 
 		emit_signal("finished")
 		
 # Load background image, animation objects and play scene with subtitles
 func play_cutscene():
+	timer = 0.0
+	_continue.visible = false
+
 	var background_image_path = current_cutscene["background_image_path"]
 
 	# Check if path to background image is valid
@@ -149,12 +163,19 @@ func play_cutscene():
 			push_error("Invalid or missing position/scale for object '%s'" % object.get("name"))
 			continue
 
-		# Create a new  unique Sprite2D node for every animation object in scene as achild of animation objects parent node at position/scale from dictionary
+		# Create a new unique Sprite2D node for every animation object in scene as child of animation objects parent node
 		var animation_object = Sprite2D.new()
 		animation_object.name = object.get("name", "")
 		animation_object.texture = load(object_path)
 		animation_object.global_position = Vector2(position_x, position_y)
 		animation_object.scale = Vector2(scale_value, scale_value)
+
+		if object.get("hasAnimation") == true and object.has("animationId"):
+			animation_object_connections.append({
+			"object_name": animation_object.name,
+			"animation_id": object.get("animationId")
+			})
+
 		_animation_objects.add_child(animation_object)
 
 	# Animate every character in subtitles string
@@ -171,3 +192,121 @@ func play_cutscene():
 
 	# Show continue button at end of cutscene
 	_continue.visible = true
+
+
+func _update_animation_object(animation_object: Sprite2D):
+	print("Update:", animation_object.name)
+	var animation_id = _get_animation_id(animation_object.name)
+	var animation_data = animations.get(str(animation_id))
+
+	if animation_data == null:
+		push_error("Animation not found: " + str(animation_id))
+		return
+
+	_update_position(animation_object, animation_data)
+	_update_scale(animation_object, animation_data)
+	_update_rotation(animation_object, animation_data)
+	_update_alternate_image(animation_object, animation_data)
+	
+func _get_animation_id(object_name: String):
+	for connection in animation_object_connections:
+		if connection["object_name"] == object_name:
+			return connection["animation_id"]
+	return null
+
+
+func _update_position(animation_object: Sprite2D, animation_data: Dictionary):
+	print("Update Position:", animation_object.name)
+	var positions = animation_data.get("position", [])
+
+	if positions.size() < 2:
+		return
+
+	for i in range(positions.size() - 1):
+		var start_key = positions[i]
+		var end_key = positions[i + 1]
+
+		var start_time = float(start_key["time"])
+		var end_time = float(end_key["time"])
+
+		if timer >= start_time and timer <= end_time:
+			var progress = (timer - start_time) / (end_time - start_time)
+
+			var start_pos = Vector2(
+				start_key["coordinates"][0],
+				start_key["coordinates"][1]
+			)
+
+			var end_pos = Vector2(
+				end_key["coordinates"][0],
+				end_key["coordinates"][1]
+			)
+
+			animation_object.global_position = start_pos.lerp(
+				end_pos,
+				progress
+			)
+
+			return
+
+
+func _update_scale(animation_object: Sprite2D, animation_data: Dictionary):
+	var scales = animation_data.get("scale", [])
+
+	if scales.size() < 2:
+		return
+
+	for i in range(scales.size() - 1):
+		var start_key = scales[i]
+		var end_key = scales[i + 1]
+
+		var start_time = float(start_key["time"])
+		var end_time = float(end_key["time"])
+
+		if timer >= start_time and timer <= end_time:
+			var progress = (timer - start_time) / (end_time - start_time)
+
+			var value = lerpf(
+				float(start_key["scale"]),
+				float(end_key["scale"]),
+				progress
+			)
+
+			animation_object.scale = Vector2(value, value)
+
+			return
+
+func _update_rotation(animation_object: Sprite2D, animation_data: Dictionary):
+	var rotations = animation_data.get("rotation", [])
+
+	if rotations.size() < 2:
+		return
+
+	for i in range(rotations.size() - 1):
+		var start_key = rotations[i]
+		var end_key = rotations[i + 1]
+
+		var start_time = float(start_key["time"])
+		var end_time = float(end_key["time"])
+
+		if timer >= start_time and timer <= end_time:
+			var progress = (timer - start_time) / (end_time - start_time)
+
+			animation_object.rotation_degrees = lerpf(
+				float(start_key["value"]),
+				float(end_key["value"]),
+				progress
+			)
+
+			return
+
+
+func _update_alternate_image(animation_object: Sprite2D, animation_data: Dictionary):
+	var images = animation_data.get("alternate_image", [])
+
+	for image_data in images:
+		if timer >= float(image_data["time"]):
+			var path = image_data.get("path", "")
+
+			if path != "" and FileAccess.file_exists(path):
+				animation_object.texture = load(path)

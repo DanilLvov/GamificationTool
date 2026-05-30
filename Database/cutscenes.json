@@ -6,8 +6,23 @@
         "objects": [
             {
                 "id": 0,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 500,
+                "position_y": 300,
+                "scale": 0.2,
                 "hasAnimation": true,
-                "animationId": 0
+                "animationId": "0"
+            },
+            {
+                "id": 1,
+                "name": "Smoke",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 100,
+                "position_y": 300,
+                "scale": 0.5,
+                "hasAnimation": true,
+                "animationId": "1"
             }
         ]
     },

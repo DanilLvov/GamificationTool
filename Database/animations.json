@@ -1,0 +1,83 @@
+{
+    "0": {
+        "name": "test",
+        "position": [
+            {
+                "time": 1,
+                "coordinates": [
+                    500,
+                    300
+                ]
+            },
+            {
+                "time": 2,
+                "coordinates": [
+                    450,
+                    250
+                ]
+            },
+            {
+                "time": 3,
+                "coordinates": [
+                    500,
+                    300
+                ]
+            }
+        ],
+        "scale": [],
+        "rotation": [],
+        "alternate_image": []
+    },
+    "1": {
+        "name": "test2",
+        "position": [],
+        "scale": [
+            {
+                "time": 0,
+                "scale": 0.5
+            },
+            {
+                "time": 1,
+                "scale": 0.5
+            },
+            {
+                "time": 2,
+                "scale": 0.5
+            },
+            {
+                "time": 3,
+                "scale": 0.25
+            },
+            {
+                "time": 4,
+                "scale": 0.5
+            },
+            {
+                "time": 5,
+                "scale": 0.25
+            },
+            {
+                "time": 6,
+                "scale": 0.5
+            },
+            {
+                "time": 7,
+                "scale": 0.25
+            },
+            {
+                "time": 8,
+                "scale": 0.5
+            },
+            {
+                "time": 9,
+                "scale": 0.25
+            },
+            {
+                "time": 10,
+                "scale": 0.5
+            }
+        ],
+        "rotation": [],
+        "alternate_image": []
+    }
+}
