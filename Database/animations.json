@@ -1,6 +1,7 @@
 {
     "0": {
         "name": "test",
+        "is_loop": false,
         "position": [
             {
                 "time": 1,
@@ -24,13 +25,6 @@
                 ]
             }
         ],
-        "scale": [],
-        "rotation": [],
-        "alternate_image": []
-    },
-    "1": {
-        "name": "test2",
-        "position": [],
         "scale": [
             {
                 "time": 0,
@@ -38,46 +32,79 @@
             },
             {
                 "time": 1,
+                "scale": 0.25
+            }
+        ],
+        "rotation": [
+            {
+                "time": 0,
+                "rotation": 0.0
+            },
+            {
+                "time": 1,
+                "rotation": 45.0
+            },
+            {
+                "time": 2,
+                "rotation": 90.0
+            }
+        ],
+        "alternate_image": []
+    },
+    "1": {
+        "name": "test2",
+        "is_loop": true,
+        "position": [
+            {
+                "time": 1,
+                "coordinates": [
+                    100,
+                    300
+                ]
+            },
+            {
+                "time": 2,
+                "coordinates": [
+                    100,
+                    400
+                ]
+            },
+            {
+                "time": 3,
+                "coordinates": [
+                    100,
+                    300
+                ]
+            }
+        ],
+        "scale": [
+            {
+                "time": 1,
                 "scale": 0.5
             },
             {
                 "time": 2,
-                "scale": 0.5
+                "scale": 0.25
             },
             {
                 "time": 3,
-                "scale": 0.25
-            },
-            {
-                "time": 4,
-                "scale": 0.5
-            },
-            {
-                "time": 5,
-                "scale": 0.25
-            },
-            {
-                "time": 6,
-                "scale": 0.5
-            },
-            {
-                "time": 7,
-                "scale": 0.25
-            },
-            {
-                "time": 8,
-                "scale": 0.5
-            },
-            {
-                "time": 9,
-                "scale": 0.25
-            },
-            {
-                "time": 10,
                 "scale": 0.5
             }
         ],
         "rotation": [],
-        "alternate_image": []
+        "alternate_image": [
+            {
+                "time": 1,
+                "path": "res://Assets/Objects/fire.webp"
+            },
+            {
+                "time": 2,
+                "path": "res://Assets/Objects/smoke.webp"
+            },
+            {
+                "time": 3,
+                "path": "res://Assets/Objects/fire.webp"
+            }
+        ]
     }
 }

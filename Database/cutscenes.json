@@ -11,6 +11,7 @@
                 "position_x": 500,
                 "position_y": 300,
                 "scale": 0.2,
+                "rotation": 0,
                 "hasAnimation": true,
                 "animationId": "0"
             },
@@ -21,6 +22,7 @@
                 "position_x": 100,
                 "position_y": 300,
                 "scale": 0.5,
+                "rotation": 0,
                 "hasAnimation": true,
                 "animationId": "1"
             }
@@ -38,6 +40,7 @@
                 "position_x": 200,
                 "position_y": 300,
                 "scale": 0.2,
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             }
@@ -55,6 +58,7 @@
                 "position_x": 200,
                 "position_y": 300,
                 "scale": 0.2,
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": 0
             }
@@ -72,6 +76,7 @@
                 "position_x": 250,
                 "position_y": 300,
                 "scale": 1,
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             }
@@ -87,6 +92,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -95,6 +101,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": null
             }
@@ -110,6 +117,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -118,6 +126,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": null
             }
@@ -133,6 +142,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -141,6 +151,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": null
             }
@@ -156,6 +167,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -164,6 +176,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": null
             }
@@ -179,6 +192,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -187,6 +201,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": null
             }
@@ -202,6 +217,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -210,6 +226,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": false,
                 "animationId": null
             }
@@ -225,6 +242,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": 0.0,
                 "hasAnimation": true,
                 "animationId": 0
             },
@@ -233,6 +251,7 @@
                 "name": "",
                 "path": "",
                 "position": "0",
+                "rotation": "0.0",
                 "hasAnimation": false,
                 "animationId": null
             }

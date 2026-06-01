@@ -38,12 +38,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Update timer for keyframes and update aniamtion objects if they have an animation connected
 	timer += delta
-	print(timer)
 	for animation_object in _animation_objects.get_children():
-		for connection in animation_object_connections:
-				if animation_object.name == connection["object_name"]:
-					_update_animation_object(animation_object)
+		_update_animation_object(animation_object)
 	
 
 # Parsing json with all checks and errors
@@ -96,6 +94,7 @@ func _load_JSON(path: String) -> Dictionary:
 
 	return result
 
+
 # Get the data for the cutscene that is going to be played from the dictionary
 func get_current_cutscene(current_cutscene_id: int):
 	var cutscene = cutscenes.get(str(current_cutscene_id))
@@ -111,6 +110,7 @@ func get_current_cutscene(current_cutscene_id: int):
 		
 	play_cutscene()
 
+
 # Button to finish scene and continue
 func _on_continue_texture_button_pressed() -> void:
 		# Hide continue button after pressing
@@ -125,6 +125,7 @@ func _on_continue_texture_button_pressed() -> void:
 		# Emit signal, so next scene can be played 
 		emit_signal("finished")
 		
+
 # Load background image, animation objects and play scene with subtitles
 func play_cutscene():
 	timer = 0.0
@@ -151,7 +152,14 @@ func play_cutscene():
 		var object_path = object.get("path", "")
 		var position_x = object.get("position_x")
 		var position_y = object.get("position_y")
+		var object_rotation_value = object.get("rotation")
 		var scale_value = object.get("scale")
+
+		# Validate object rotation
+		if typeof(object_rotation_value) not in [TYPE_INT, TYPE_FLOAT]:
+			push_error("Invalid or missing rotation for object '%s'" % object.get("name"))
+			continue
+		var object_rotation = float(object_rotation_value)
 
 		# Check if object image path is valid
 		if typeof(object_path) != TYPE_STRING or object_path == "" or not FileAccess.file_exists(object_path):
@@ -167,6 +175,7 @@ func play_cutscene():
 		var animation_object = Sprite2D.new()
 		animation_object.name = object.get("name", "")
 		animation_object.texture = load(object_path)
+		animation_object.rotation_degrees = object_rotation
 		animation_object.global_position = Vector2(position_x, position_y)
 		animation_object.scale = Vector2(scale_value, scale_value)
 
@@ -194,9 +203,14 @@ func play_cutscene():
 	_continue.visible = true
 
 
+# If aniamtion exists, call update functions for position, scale, rotation and alternate image
 func _update_animation_object(animation_object: Sprite2D):
 	print("Update:", animation_object.name)
+
 	var animation_id = _get_animation_id(animation_object.name)
+	if animation_id == null:
+		return
+
 	var animation_data = animations.get(str(animation_id))
 
 	if animation_data == null:
@@ -208,6 +222,8 @@ func _update_animation_object(animation_object: Sprite2D):
 	_update_rotation(animation_object, animation_data)
 	_update_alternate_image(animation_object, animation_data)
 	
+
+# Get the animation id for an animation object by its name from the connections list
 func _get_animation_id(object_name: String):
 	for connection in animation_object_connections:
 		if connection["object_name"] == object_name:
@@ -215,12 +231,19 @@ func _get_animation_id(object_name: String):
 	return null
 
 
+# Update position of animation object and interpolate between keyframes, if there are any
 func _update_position(animation_object: Sprite2D, animation_data: Dictionary):
-	print("Update Position:", animation_object.name)
 	var positions = animation_data.get("position", [])
 
 	if positions.size() < 2:
 		return
+
+	var current_time = timer
+
+	if animation_data.get("is_loop", false):
+		var last_time = float(positions[positions.size() - 1]["time"])
+		if last_time > 0:
+			current_time = fmod(timer, last_time)
 
 	for i in range(positions.size() - 1):
 		var start_key = positions[i]
@@ -229,8 +252,8 @@ func _update_position(animation_object: Sprite2D, animation_data: Dictionary):
 		var start_time = float(start_key["time"])
 		var end_time = float(end_key["time"])
 
-		if timer >= start_time and timer <= end_time:
-			var progress = (timer - start_time) / (end_time - start_time)
+		if current_time >= start_time and current_time <= end_time:
+			var progress = (current_time - start_time) / (end_time - start_time)
 
 			var start_pos = Vector2(
 				start_key["coordinates"][0],
@@ -250,11 +273,19 @@ func _update_position(animation_object: Sprite2D, animation_data: Dictionary):
 			return
 
 
+# Update scale of animation object and interpolate between keyframes, if there are any
 func _update_scale(animation_object: Sprite2D, animation_data: Dictionary):
+	print("SCALE", timer)
 	var scales = animation_data.get("scale", [])
 
 	if scales.size() < 2:
 		return
+
+	var last_time = float(scales[scales.size() - 1]["time"])
+	var current_time = timer
+
+	if animation_data.get("is_loop", false):
+		current_time = fmod(timer, last_time)
 
 	for i in range(scales.size() - 1):
 		var start_key = scales[i]
@@ -263,8 +294,8 @@ func _update_scale(animation_object: Sprite2D, animation_data: Dictionary):
 		var start_time = float(start_key["time"])
 		var end_time = float(end_key["time"])
 
-		if timer >= start_time and timer <= end_time:
-			var progress = (timer - start_time) / (end_time - start_time)
+		if current_time >= start_time and current_time <= end_time:
+			var progress = (current_time - start_time) / (end_time - start_time)
 
 			var value = lerpf(
 				float(start_key["scale"]),
@@ -276,11 +307,19 @@ func _update_scale(animation_object: Sprite2D, animation_data: Dictionary):
 
 			return
 
+
+# Update rotation of animation object and interpolate between keyframes, if there are any
 func _update_rotation(animation_object: Sprite2D, animation_data: Dictionary):
 	var rotations = animation_data.get("rotation", [])
 
 	if rotations.size() < 2:
 		return
+
+	var last_time = float(rotations[rotations.size() - 1]["time"])
+	var current_time = timer
+
+	if animation_data.get("is_loop", false):
+		current_time = fmod(timer, last_time)
 
 	for i in range(rotations.size() - 1):
 		var start_key = rotations[i]
@@ -289,23 +328,34 @@ func _update_rotation(animation_object: Sprite2D, animation_data: Dictionary):
 		var start_time = float(start_key["time"])
 		var end_time = float(end_key["time"])
 
-		if timer >= start_time and timer <= end_time:
-			var progress = (timer - start_time) / (end_time - start_time)
+		if current_time >= start_time and current_time <= end_time:
+			var progress = (current_time - start_time) / (end_time - start_time)
 
 			animation_object.rotation_degrees = lerpf(
-				float(start_key["value"]),
-				float(end_key["value"]),
+				float(start_key["rotation"]),
+				float(end_key["rotation"]),
 				progress
 			)
 
 			return
 
 
+# Update alternate image of animation object 
 func _update_alternate_image(animation_object: Sprite2D, animation_data: Dictionary):
 	var images = animation_data.get("alternate_image", [])
 
+	if images.is_empty():
+		return
+
+	var current_time = timer
+
+	if animation_data.get("is_loop", false):
+		var last_time = float(images[images.size() - 1]["time"])
+		if last_time > 0:
+			current_time = fmod(timer, last_time)
+
 	for image_data in images:
-		if timer >= float(image_data["time"]):
+		if current_time >= float(image_data["time"]):
 			var path = image_data.get("path", "")
 
 			if path != "" and FileAccess.file_exists(path):
