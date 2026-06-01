@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://08yngngwjd1n" path="res://Scenes/StartScreen.tscn" id="2_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
+[ext_resource type="PackedScene" uid="uid://deiyfl7ij7so" path="res://Scenes/minigame_controller.tscn" id="5_idohh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
@@ -15,18 +16,17 @@ script = ExtResource("1_syfuq")
 
 [node name="SpaceBg" type="Sprite2D" parent="." unique_id=1424909887]
 z_index = -2
-position = Vector2(575, 322.75)
-scale = Vector2(0.68899524, 0.6934113)
+scale = Vector2(1.1732199, 1.1732199)
 texture = ExtResource("2_ma218")
+centered = false
 
 [node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]
-position = Vector2(3, 0)
 
 [node name="StartButton" type="Button" parent="StartScreen" unique_id=315628407]
-offset_left = 439.0
-offset_top = 495.0
-offset_right = 759.0
-offset_bottom = 599.0
+offset_left = 800.0
+offset_top = 800.0
+offset_right = 1120.0
+offset_bottom = 904.0
 text = "Start"
 
 [node name="MiniGame" parent="." unique_id=875578804 instance=ExtResource("3_syfuq")]
@@ -34,16 +34,19 @@ visible = false
 
 [node name="RestartButton" type="Button" parent="." unique_id=480556500]
 z_index = 3
-offset_left = 1076.0
-offset_top = 7.0
-offset_right = 1141.0
-offset_bottom = 60.0
+offset_left = 1811.0
+offset_top = 32.0
+offset_right = 1876.0
+offset_bottom = 85.0
 text = "Restart"
+
+[node name="MinigameController" parent="." unique_id=45388222 instance=ExtResource("5_idohh")]
+visible = false
 
 [node name="GameEnd" type="PanelContainer" parent="." unique_id=898184270]
 visible = false
-offset_right = 1154.0
-offset_bottom = 643.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Label" type="Label" parent="GameEnd" unique_id=396480100]
 layout_mode = 2
@@ -53,6 +56,7 @@ horizontal_alignment = 1
 [node name="RestartMenu" type="PanelContainer" parent="." unique_id=1349227946]
 visible = false
 z_index = 3
+custom_minimum_size = Vector2(1920, 1080)
 offset_left = 3.0
 offset_right = 1146.0
 offset_bottom = 640.0
@@ -80,14 +84,13 @@ layout_mode = 2
 text = "No"
 
 [node name="Cutscene" parent="." unique_id=2129651268 instance=ExtResource("3_s2c3o")]
-position = Vector2(2, 19)
 
 [node name="RestartWarning" type="Label" parent="." unique_id=1798436796]
 visible = false
 z_index = 6
-offset_left = 486.0
+offset_left = 830.0
 offset_top = 19.0
-offset_right = 746.0
+offset_right = 1090.0
 offset_bottom = 122.0
 text = "are you still here?"
 horizontal_alignment = 1

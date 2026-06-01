@@ -6,26 +6,26 @@ var start_transition = false
 var finished_transition = false
 
 var sun_time := 0.0
-var sun_transition_target := Vector2 (1220, 280)
+var sun_transition_target := Vector2 (2020, 380)
 var sun_scale = Vector2 (0.5, 0.5)
 @onready var sun = $Sun1
 
 # All changes to planets behaviour go here
 @onready var planets = [ 
-{	"center": Vector2(600, 260),
-	"radius_x": 200.0,
-	"radius_y": 90.0,
+{	"center": Vector2(960, 525),
+	"radius_x": 180.0,
+	"radius_y": 70.0,
 	"angle":  PI * 5.0 / 6.0,
 	"speed": 0.5,
 	"forward": true,			# used to determine if is behind or in front of the sun
 	"planet": $Planet1_1NoBlur, # Don't forget to change when renaming Scene objects
 	"scale_min": 0.1,			
 	"scale_max": 0.2,
-	"target_position": Vector2(400, 300),
+	"target_position": Vector2(710, 560),
 	"target_scale": Vector2(0.3, 0.3)
 
 },
-{	"center": Vector2(600, 275),
+{	"center": Vector2(960, 525),
 	"radius_x": 250.0,
 	"radius_y": 115.0,
 	"angle": PI / 6.0,
@@ -34,10 +34,10 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"planet": $Planet2_1,
 	"scale_min": 0.1,
 	"scale_max": 0.2,
-	"target_position": Vector2(800, 300),
+	"target_position": Vector2(1210, 560),
 	"target_scale": Vector2(0.3, 0.3)
 },
-{	"center": Vector2(600, 290),
+{	"center": Vector2(960, 525),
 	"radius_x": 290.0,
 	"radius_y": 140.0,
 	"angle": 3 * PI/2,
@@ -46,8 +46,8 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"planet": $Planet3_1,
 	"scale_min": 0.08,
 	"scale_max": 0.15,
-	"target_position": Vector2(600, 300),
-	"target_scale": Vector2(0.2, 0.2)
+	"target_position": Vector2(960, 560),
+	"target_scale": Vector2(0.3, 0.3)
 }
 ]
 

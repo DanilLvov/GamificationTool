@@ -10,7 +10,7 @@ enum GameState {
 }
 
 # Node variables, if changing node name, change it here:
-@onready var minigame_manager := $MiniGame
+@onready var minigame_manager := $MinigameController
 @onready var cutscene_manager := $Cutscene
 @onready var start_button := $StartScreen/StartButton
 @onready var restart_button := $RestartButton
@@ -20,7 +20,8 @@ enum GameState {
 @onready var end_screen := $GameEnd
 
 
-# Restart timer vars:
+# Restart timer vars:#
+# TODO: add important vars into config.json
 var idle_timeout := 60.0
 var restart_warning_time := 10.0
 var warning_shown := false
@@ -150,6 +151,7 @@ func _run_current_scene() -> void:
 			cutscene_manager.visible = true
 			cutscene_manager.get_current_cutscene(timeline.get(str(current_scene_id)).get("cutscene_id"))
 		GameState.MINIGAME:
+			minigame_manager._draw_minigame(current_minigame)
 			minigame_manager.visible = true
 		GameState.SPECIALIZATION_CHOICE:
 			start_screen.visible = true
