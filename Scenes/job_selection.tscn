@@ -1,37 +1,15 @@
-[gd_scene format=3 uid="uid://c71nk76vb6pjn"]
+[gd_scene format=3 uid="uid://se2a45nr7skt"]
 
-[ext_resource type="Script" uid="uid://cwvgqwiii81q3" path="res://Scripts/carousel_container.gd" id="1_c614l"]
-
-[sub_resource type="GDScript" id="GDScript_c614l"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_left_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_right_pressed() -> void:
-	pass # Replace with function body.
-"
+[ext_resource type="Script" uid="uid://cxjja3tdiyjxm" path="res://Scripts/job_selection.gd" id="1_c614l"]
+[ext_resource type="Script" path="res://Scripts/carousel_container.gd" id="2_mu33u"]
 
 [node name="job_selection" type="Node2D" unique_id=677812127]
-script = SubResource("GDScript_c614l")
+script = ExtResource("1_c614l")
 
 [node name="CarouselContainer" type="Node2D" parent="." unique_id=1875151211 node_paths=PackedStringArray("position_offset_node")]
 position = Vector2(576, 382)
-script = ExtResource("1_c614l")
+script = ExtResource("2_mu33u")
 position_offset_node = NodePath("Control")
-metadata/_custom_type_script = "uid://cwvgqwiii81q3"
 
 [node name="Control" type="Control" parent="CarouselContainer" unique_id=1124585691]
 layout_mode = 3
