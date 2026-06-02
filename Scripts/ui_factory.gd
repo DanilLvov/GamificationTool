@@ -55,7 +55,7 @@ static func create_label(text: String) -> MarginContainer:
 
 	return margin
 
-static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Control:
+static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Dictionary:
 
 	var root = MarginContainer.new()
 	var button : TextureButton = TextureButton.new()
@@ -72,7 +72,11 @@ static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(
 		root.add_child(create_label(text))		
 
 
-	return root
+	return {
+		"root": root,
+		"button": button,
+		# OPIONAL: add label access
+	}
 
 
 static func create_panel_container(size: Vector2) -> Dictionary:
@@ -83,9 +87,9 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	
 	var margin := MarginContainer.new()
 	margin.add_theme_constant_override("margin_left", 40)
-	margin.add_theme_constant_override("margin_top", 60)
+	margin.add_theme_constant_override("margin_top", 40)
 	margin.add_theme_constant_override("margin_right", 40)
-	margin.add_theme_constant_override("margin_bottom", 80)
+	margin.add_theme_constant_override("margin_bottom", 20)
 	root.add_child(margin)
 
 	var layout := VBoxContainer.new()
@@ -105,9 +109,9 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	layout.add_child(footer)
 
 	
-	var style := StyleBoxTexture.new()
-	style.texture = CONTAINER_TEXTURE
-	root.add_theme_stylebox_override("panel", style)
+	# var style := StyleBoxTexture.new()
+	# style.texture = CONTAINER_TEXTURE
+	# root.add_theme_stylebox_override("panel", style)
 
 	return {
 		"root": root,

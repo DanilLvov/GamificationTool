@@ -74,10 +74,8 @@ func _left():
 	selected_index -= 1
 	if selected_index < 0:
 		selected_index += 1
-	print("left")
 
 func _right(): 
 	selected_index += 1
 	if selected_index > position_offset_node.get_child_count()-1:
 		selected_index -= 1
-	print("right")

@@ -9,15 +9,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var selected_carousel_node = $CarouselContainer.position_offset_node.get_child($CarouselContainer.selected_index)
-	print(selected_carousel_node.name)
-	print("test")
+	#print(selected_carousel_node.name)
 
 
 func _on_left_pressed() -> void:
 	$CarouselContainer._left()
-	print("???")
 
 
 func _on_right_pressed() -> void:
 	$CarouselContainer._right()
-	print("??")
