@@ -108,11 +108,16 @@ var minigames :={
 
 signal failed
 signal finished
+var current_question: int
+var current_minigame: Dictionary
+var container
 
 @onready var content_container := $MinigameContent
+@onready var next_button := $Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_question = 0
 	pass # Replace with function body.
 
 
@@ -121,17 +126,23 @@ func _process(delta: float) -> void:
 	pass
 
 func _draw_minigame(id: int) -> void:
-	_draw_content(minigames.get("0").get("questions")[2])
-	
+	# TODO: my idea is to make a minigame flow control here, smth like:
+	# draw first question, if answer was correct, draw second, if not play explosion animation and try again
+	# probably possible to do via await, or via two functions _answer_correct and answer_wrong at the bottom of the script
+	current_minigame = minigames.get(str(id))
+	_draw_question(current_minigame.get("questions")[current_question])
 	
 
-func _draw_content (question: Dictionary) -> void:
+func _draw_question(question: Dictionary) -> void:
+	if container != null:
+		content_container.remove_child(container.get("root"))
 	# Question container
-	var container = UIFactory.create_panel_container (Vector2(450, 600))
+	container = UIFactory.create_panel_container (Vector2(450, 600))
 	var question_text = UIFactory.create_label(question.get("question"))
 	container.get("header").add_child(question_text)
 
-	# Question content
+	# Question content, switch through all question types
+	# TODO: add support to different question content types (like code snippets)
 	match question.get("question_type"):
 		minigame_type.SINGLECHOICE:
 			var content = VBoxContainer.new()
@@ -168,18 +179,36 @@ func _draw_content (question: Dictionary) -> void:
 						button.get("button").button_down.connect(_answer_correct)
 					else:
 						button.get("button").button_down.connect(_answer_wrong)
-			
+		minigame_type.MULTICHOICE:
+			# TODO: similar aproach as Single choice, but different button behaviour (like remain pressed?) or different button type
+			# use footer to add confirm and cancel buttons smth like:
+			# container.get("footer").add_child(hBox)
+			# hBox.add_child(confirm)
+			# when confirm is pressed check for selected buttons if they match our answer if yes, call _answer_correct
+			pass	
+		
+		minigame_type.DRAG_AND_DROP:
+			pass
+
+		minigame_type.ORDER:
+			pass
 	
 	
 	content_container.add_child(container.get("root"))
 	
-	#container.get("footer").add_child(footer)
+	
 
 
 
-func _on_next_game_button_pressed() -> void:
-	#_on_reset_button_pressed()
-	emit_signal("finished")
+func _on_next_button_pressed() -> void:
+	next_button.visible = false
+	current_question += 1
+	if current_question == current_minigame.get("questions_amount"):
+		print("game ended")
+		emit_signal("finished")
+	else: 
+		_draw_question(current_minigame.get("questions")[current_question])
+	
 
 func _failed() -> void:
 	#_on_reset_button_pressed()
@@ -187,12 +216,12 @@ func _failed() -> void:
 
 func _load_minigame() -> void:
 	pass
-func _load_singlechoice() -> void:
-	pass
 
 # Handling of correct answer
 func _answer_correct() -> void:
 	# TODO: add full handling
+	# Show button: NEXT
+	next_button.visible = true
 	print("Correct!")
 
 # Handling of correct answer

@@ -15,3 +15,14 @@ script = ExtResource("1_uojix")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="Button" type="Button" parent="." unique_id=1984416754]
+visible = false
+layout_mode = 0
+offset_left = 1700.0
+offset_top = 956.0
+offset_right = 1878.9187
+offset_bottom = 1045.8558
+text = "Next"
+
+[connection signal="pressed" from="Button" to="." method="_on_next_button_pressed"]

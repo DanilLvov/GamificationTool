@@ -55,6 +55,8 @@ static func create_label(text: String) -> MarginContainer:
 
 	return margin
 
+# creates button with 3 textures (normal, hovered, pressed), consists of:
+# root, button, and optional label (for normal text on button)
 static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Dictionary:
 
 	var root = MarginContainer.new()
@@ -79,6 +81,8 @@ static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(
 	}
 
 
+# Panel container consists of 4 parts: 
+# root (used only for dding container into scene), header (for title text), content (for any content block you need), footer (for additional things)
 static func create_panel_container(size: Vector2) -> Dictionary:
 	var root := PanelContainer.new()
 	root.custom_minimum_size = size
@@ -108,7 +112,7 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	layout.add_child(content)
 	layout.add_child(footer)
 
-	
+	# TODO: fix CONTAINER_TEXTURE problem
 	# var style := StyleBoxTexture.new()
 	# style.texture = CONTAINER_TEXTURE
 	# root.add_theme_stylebox_override("panel", style)
