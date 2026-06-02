@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://crexa6ncprce6"]
 
 [ext_resource type="Script" uid="uid://d0xev558lsohc" path="res://Scripts/cutscene.gd" id="1_7n648"]
-[ext_resource type="Texture2D" uid="uid://dkadc2cw4brg2" path="res://Assets/Textures/ContinueButton.png" id="4_iy4n7"]
+[ext_resource type="Texture2D" uid="uid://ua5acfolc0aq" path="res://Assets/UI/Simple_Buttons/simple_button_normal.svg" id="2_iy4n7"]
+[ext_resource type="Texture2D" uid="uid://bbdigo31owr7a" path="res://Assets/UI/Simple_Buttons/simple_button_press.svg" id="3_j1a0j"]
+[ext_resource type="Texture2D" uid="uid://2u84e4d67i2a" path="res://Assets/UI/Simple_Buttons/simple_button_hover.svg" id="4_j6j7k"]
 
 [node name="Cutscene" type="Node2D" unique_id=2129651268]
 script = ExtResource("1_7n648")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1985663623]
-position = Vector2(574, 321.5)
-scale = Vector2(0.7486979, 0.633789)
+position = Vector2(1000, 500)
 
 [node name="UiElements" type="Control" parent="." unique_id=764787583]
 layout_mode = 3
@@ -19,24 +20,31 @@ offset_bottom = 40.0
 [node name="Subtitles" type="RichTextLabel" parent="UiElements" unique_id=728558261]
 z_index = 10
 layout_mode = 0
-offset_left = 183.0
-offset_top = 523.0
-offset_right = 914.0
-offset_bottom = 619.0
+offset_left = 50.0
+offset_top = 901.0
+offset_right = 1532.0
+offset_bottom = 997.0
+theme_override_font_sizes/normal_font_size = 30
 
 [node name="ContinueTextureButton" type="TextureButton" parent="UiElements" unique_id=1429739027]
-visible = false
 layout_mode = 0
-offset_left = 723.0
-offset_top = 432.00003
-offset_right = 2259.0
-offset_bottom = 1456.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("4_iy4n7")
-texture_pressed = ExtResource("4_iy4n7")
-texture_hover = ExtResource("4_iy4n7")
-texture_disabled = ExtResource("4_iy4n7")
-texture_focused = ExtResource("4_iy4n7")
+offset_left = 1576.0
+offset_top = 952.0
+offset_right = 4535.0
+offset_bottom = 1861.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("2_iy4n7")
+texture_pressed = ExtResource("3_j1a0j")
+texture_hover = ExtResource("4_j6j7k")
+
+[node name="ContinueLabel" type="Label" parent="UiElements" unique_id=157142915]
+layout_mode = 0
+offset_left = 1603.0
+offset_top = 959.0
+offset_right = 1855.0
+offset_bottom = 1042.0
+theme_override_font_sizes/font_size = 50
+text = "Continue"
 
 [node name="AnimationObjects" type="Node2D" parent="." unique_id=451107968]
 

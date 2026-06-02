@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://08yngngwjd1n" path="res://Scenes/StartScreen.tscn" id="2_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
+[ext_resource type="Texture2D" uid="uid://ua5acfolc0aq" path="res://Assets/UI/Simple_Buttons/simple_button_normal.svg" id="4_3jcrr"]
+[ext_resource type="Texture2D" uid="uid://bbdigo31owr7a" path="res://Assets/UI/Simple_Buttons/simple_button_press.svg" id="5_ab40c"]
 [ext_resource type="PackedScene" uid="uid://deiyfl7ij7so" path="res://Scenes/minigame_controller.tscn" id="5_idohh"]
-[ext_resource type="PackedScene" uid="uid://bsxirosw0ndlu" path="res://Scenes/job_selection.tscn" id="6_idohh"]
+[ext_resource type="PackedScene" uid="uid://se2a45nr7skt" path="res://Scenes/job_selection.tscn" id="6_idohh"]
+[ext_resource type="Texture2D" uid="uid://2u84e4d67i2a" path="res://Assets/UI/Simple_Buttons/simple_button_hover.svg" id="6_sjh0l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
@@ -16,7 +19,6 @@ process_mode = 1
 script = ExtResource("1_syfuq")
 
 [node name="SpaceBg" type="Sprite2D" parent="." unique_id=1424909887]
-visible = false
 z_index = -2
 scale = Vector2(1.1732199, 1.1732199)
 texture = ExtResource("2_ma218")
@@ -24,11 +26,22 @@ centered = false
 
 [node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]
 
-[node name="StartButton" type="Button" parent="StartScreen" unique_id=315628407]
-offset_left = 800.0
-offset_top = 800.0
-offset_right = 1120.0
-offset_bottom = 904.0
+[node name="StartButton" type="TextureButton" parent="StartScreen" unique_id=2138111929]
+offset_left = 655.0
+offset_top = 837.0
+offset_right = 3614.0
+offset_bottom = 1746.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_3jcrr")
+texture_pressed = ExtResource("5_ab40c")
+texture_hover = ExtResource("6_sjh0l")
+
+[node name="StartLabel" type="Label" parent="StartScreen" unique_id=1319844451]
+offset_left = 827.0
+offset_top = 854.0
+offset_right = 1062.0
+offset_bottom = 991.0
+theme_override_font_sizes/font_size = 100
 text = "Start"
 
 [node name="MiniGame" parent="." unique_id=875578804 instance=ExtResource("3_syfuq")]
@@ -49,12 +62,29 @@ horizontal_alignment = 1
 
 [node name="Cutscene" parent="." unique_id=2129651268 instance=ExtResource("3_s2c3o")]
 
-[node name="RestartButton" type="Button" parent="." unique_id=480556500]
+[node name="RestartButton" type="TextureButton" parent="." unique_id=2034850718]
 z_index = 3
-offset_left = 1811.0
-offset_top = 32.0
-offset_right = 1876.0
-offset_bottom = 85.0
+offset_left = 1655.0
+offset_top = 29.0
+offset_right = 4614.0
+offset_bottom = 938.0
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("4_3jcrr")
+texture_pressed = ExtResource("5_ab40c")
+texture_hover = ExtResource("6_sjh0l")
+
+[node name="RestartLabel" type="Label" parent="RestartButton" unique_id=1066786708]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28300002
+anchor_top = 0.25
+anchor_right = -0.28300002
+anchor_bottom = 0.25
+offset_left = 1774.8971
+offset_top = -27.25
+offset_right = 2825.897
+offset_bottom = 397.75
+theme_override_font_sizes/font_size = 300
 text = "Restart"
 
 [node name="RestartMenu" type="PanelContainer" parent="." unique_id=1349227946]
