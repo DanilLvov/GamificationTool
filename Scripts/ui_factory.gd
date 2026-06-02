@@ -4,10 +4,11 @@ class_name UIFactory
 # TODO: Add Fonts here: 
 # const FONT_MAIN
 
-# TODO add
+# TODO add UI Element types here
 enum UIElementTypes {
-	NORMAL_BUTTON
-
+	NORMAL_BUTTON,
+	ROUND_BUTTON,
+	RESET_BUTTON
 }
 # TODO(optional): load list of resources from directory
 const BUTTONS = {
@@ -15,21 +16,48 @@ const BUTTONS = {
 		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_normal.svg"),
 		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_hover.svg"),
 		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_press.svg")
+	},
+	UIElementTypes.ROUND_BUTTON: {
+		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_normal.svg"),
+		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_round_hover.svg"),
+		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_round_press.svg")
+	},
+	UIElementTypes.RESET_BUTTON: {
+		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_normal.svg"),
+		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_hover.svg"),
+		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_press.svg")
 	}
 
 }
 
 const CONTAINER_TEXTURE = preload("res://assets/ui/Frames/frame_0.1V2.svg")
 
-static func create_label(text: String) -> Label:
+static func create_label(text: String) -> MarginContainer:
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 15)
+	margin.add_theme_constant_override("margin_top", 15)
+	margin.add_theme_constant_override("margin_right", 15)
+	margin.add_theme_constant_override("margin_bottom", 15)
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	var label := Label.new()
+	#label.custom_minimum_size = Vector2(50, 20)
 	label.text = text
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	return label
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	margin.add_child(label)
+
+	# var font = _load_res(FONT_MAIN)
+		# if font:
+		# 	label.add_theme_font_override("font", font)
+
+	return margin
 
 static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Control:
 
-
+	var root = MarginContainer.new()
 	var button : TextureButton = TextureButton.new()
 	button.texture_normal = BUTTONS.get(type).get("normal")
 	button.texture_hover = BUTTONS.get(type).get("hover")
@@ -38,24 +66,13 @@ static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(
 	button.ignore_texture_size = true
 	button.stretch_mode = TextureButton.STRETCH_SCALE
 	
-
+	root.add_child(button)
 
 	if text != "":
-		var label := Label.new()
-		label.text = text
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		label.anchor_right = 1.0
-		label.anchor_bottom = 1.0
+		root.add_child(create_label(text))		
 
-		# var font = _load_res(FONT_MAIN)
-		# if font:
-		# 	label.add_theme_font_override("font", font)
 
-		button.add_child(label)
-
-	return button
+	return root
 
 
 static func create_panel_container(size: Vector2) -> Dictionary:
@@ -68,19 +85,19 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	margin.add_theme_constant_override("margin_left", 40)
 	margin.add_theme_constant_override("margin_top", 60)
 	margin.add_theme_constant_override("margin_right", 40)
-	margin.add_theme_constant_override("margin_bottom", 60)
+	margin.add_theme_constant_override("margin_bottom", 80)
 	root.add_child(margin)
 
 	var layout := VBoxContainer.new()
 	margin.add_child(layout)
 
-	var header := CenterContainer.new()
+	var header := VBoxContainer.new()
+	#header.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 	var content := CenterContainer.new()
-	#content.alignment = BoxContainer.ALIGNMENT_CENTER
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 
-	var footer := CenterContainer.new()
+	var footer := VBoxContainer.new()
 	
 
 	layout.add_child(header)
@@ -88,9 +105,9 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	layout.add_child(footer)
 
 	
-	# var style := StyleBoxTexture.new()
-	# style.texture = CONTAINER_TEXTURE
-	# root.add_theme_stylebox_override("panel", style)
+	var style := StyleBoxTexture.new()
+	style.texture = CONTAINER_TEXTURE
+	root.add_theme_stylebox_override("panel", style)
 
 	return {
 		"root": root,

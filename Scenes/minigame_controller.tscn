@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://deiyfl7ij7so"]
+
+[ext_resource type="Script" uid="uid://biihgkanngmqk" path="res://Scripts/minigame_controller.gd" id="1_uojix"]
+[ext_resource type="Texture2D" uid="uid://ua5acfolc0aq" path="res://Assets/UI/Simple_Buttons/simple_button_normal.svg" id="3_qu1g1"]
+
+[node name="MinigameController" type="Control" unique_id=36141027]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uojix")
+
+[node name="MinigameContent" type="CenterContainer" parent="." unique_id=755000613]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MinigameContent" unique_id=1976369317]
+visible = false
+custom_minimum_size = Vector2(50, 300)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MinigameContent/PanelContainer" unique_id=400794550]
+layout_mode = 2
+texture_normal = ExtResource("3_qu1g1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MinigameContent/PanelContainer" unique_id=362167225]
+layout_mode = 2
+size_flags_vertical = 1
+text = "hhchxc
+сииииииииииииииииииииииииииииииииии"
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2073965570]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
