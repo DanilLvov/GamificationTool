@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://byxjxy2y1sl8q"]
+[gd_scene format=3 uid="uid://vdv6prn6u8dt"]
+
+[ext_resource type="Texture2D" uid="uid://dlatah40fs6" path="res://Assets/Objects/planet3.1.svg" id="1_auqcq"]
+[ext_resource type="Texture2D" uid="uid://lpofx4om57a2" path="res://Assets/Objects/planet2.1.svg" id="2_r5y6s"]
+[ext_resource type="Texture2D" uid="uid://c1yfwhp45ubtn" path="res://Assets/Objects/planet1.1_no_blur.svg" id="3_oyomm"]
 
 [node name="job_selection2" type="Control" unique_id=73399769]
 layout_mode = 3
@@ -8,13 +12,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="planets" type="Node2D" parent="." unique_id=77282104]
+[node name="Planets" type="Node2D" parent="." unique_id=77282104]
 
-[node name="planet 1" type="Sprite2D" parent="planets" unique_id=874769540]
+[node name="Planet1" type="Sprite2D" parent="Planets" unique_id=1583992942]
+position = Vector2(568, 320)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_oyomm")
 
-[node name="planet 2" type="Sprite2D" parent="planets" unique_id=241330975]
+[node name="Planet2" type="Sprite2D" parent="Planets" unique_id=1052807418]
+position = Vector2(792, 312)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_r5y6s")
 
-[node name="planet 3" type="Sprite2D" parent="planets" unique_id=1893904747]
+[node name="Planet3" type="Sprite2D" parent="Planets" unique_id=601646910]
+position = Vector2(328, 320)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_auqcq")
 
 [node name="left" type="Button" parent="." unique_id=951807919]
 layout_mode = 0
@@ -30,6 +43,7 @@ offset_left = 960.0
 offset_top = 256.0
 offset_right = 1088.0
 offset_bottom = 384.0
+text = ">"
 
 [node name="select" type="Button" parent="." unique_id=929717759]
 layout_mode = 0

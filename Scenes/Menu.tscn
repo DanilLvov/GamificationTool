@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://08yngngwjd1n" path="res://Scenes/StartScreen.tscn" id="2_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
+[ext_resource type="PackedScene" uid="uid://c71nk76vb6pjn" path="res://Scenes/job_selection.tscn" id="6_idohh"]
 [ext_resource type="PackedScene" uid="uid://deiyfl7ij7so" path="res://Scenes/minigame_controller.tscn" id="5_idohh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
@@ -95,6 +96,8 @@ offset_bottom = 122.0
 text = "are you still here?"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="job_selection" parent="." unique_id=677812127 instance=ExtResource("6_idohh")]
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

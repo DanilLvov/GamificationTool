@@ -1,42 +1,91 @@
-[gd_scene format=3 uid="uid://br2xlfa6ck151"]
+[gd_scene format=3 uid="uid://c71nk76vb6pjn"]
 
-[ext_resource type="Script" uid="uid://1utkmrc5agok" path="res://Scripts/job_selection.gd" id="1_c614l"]
+[ext_resource type="Script" uid="uid://cwvgqwiii81q3" path="res://Scripts/carousel_container.gd" id="1_c614l"]
 
-[node name="job_selection" type="Node2D" unique_id=1499211700]
+[sub_resource type="GDScript" id="GDScript_c614l"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_left_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_right_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="job_selection" type="Node2D" unique_id=677812127]
+script = SubResource("GDScript_c614l")
+
+[node name="CarouselContainer" type="Node2D" parent="." unique_id=1875151211 node_paths=PackedStringArray("position_offset_node")]
+position = Vector2(576, 382)
 script = ExtResource("1_c614l")
+position_offset_node = NodePath("Control")
+metadata/_custom_type_script = "uid://cwvgqwiii81q3"
 
-[node name="button_manager" type="Control" parent="." unique_id=1762859931]
+[node name="Control" type="Control" parent="CarouselContainer" unique_id=1124585691]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 40.0
 
-[node name="select" type="Button" parent="button_manager" unique_id=994532483]
+[node name="Panel" type="Panel" parent="CarouselContainer/Control" unique_id=1116214522]
+z_index = 1
 layout_mode = 0
-offset_left = 448.0
-offset_top = 448.0
-offset_right = 704.0
-offset_bottom = 576.0
-text = "Start"
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+pivot_offset = Vector2(20, 20)
+focus_mode = 2
 
-[node name="left" type="Button" parent="button_manager" unique_id=1527781819]
+[node name="Panel2" type="Panel" parent="CarouselContainer/Control" unique_id=2130670896]
+modulate = Color(1, 1, 1, 0.65)
+z_index = -1
 layout_mode = 0
-offset_left = 64.0
-offset_top = 256.0
-offset_right = 192.0
-offset_bottom = 384.0
+offset_left = 60.0
+offset_top = -20.0
+offset_right = 99.99999
+offset_bottom = 20.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(19.999996, 20)
+mouse_filter = 2
+
+[node name="Panel3" type="Panel" parent="CarouselContainer/Control" unique_id=2137608374]
+modulate = Color(1, 1, 1, 0.3)
+z_index = -2
+layout_mode = 0
+offset_left = 119.99999
+offset_top = -20.0
+offset_right = 159.99998
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(19.999996, 20)
+mouse_filter = 2
+
+[node name="Left" type="Button" parent="." unique_id=163802653]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 320.0
+offset_bottom = 448.0
 text = "<"
 
-[node name="right" type="Button" parent="button_manager" unique_id=1009468267]
-layout_mode = 0
-offset_left = 960.0
-offset_top = 256.0
-offset_right = 1088.0
-offset_bottom = 384.0
+[node name="Right" type="Button" parent="." unique_id=1941618265]
+offset_left = 832.0
+offset_top = 320.0
+offset_right = 960.0
+offset_bottom = 448.0
 text = ">"
 
-[node name="Planet 1" type="Sprite2D" parent="." unique_id=277809685]
-
-[node name="Planet 2" type="Sprite2D" parent="." unique_id=1542639398]
-
-[node name="Planet 3" type="Sprite2D" parent="." unique_id=1042331793]
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

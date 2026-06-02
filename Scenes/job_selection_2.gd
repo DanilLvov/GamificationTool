@@ -5,7 +5,7 @@ var current_index := 0
 
 func _ready():
     _update_positions()
-
+    print("Planeten:", planets)
     $left.pressed.connect(_on_left)
     $right.pressed.connect(_on_right)
     $select.pressed.connect(_on_select)
