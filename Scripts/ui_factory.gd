@@ -8,7 +8,7 @@ class_name UIFactory
 enum UIElementTypes {
 	NORMAL_BUTTON,
 	ROUND_BUTTON,
-	RESET_BUTTON
+	RESET_BUTTON,
 }
 # TODO(optional): load list of resources from directory
 const BUTTONS = {
@@ -32,13 +32,13 @@ const BUTTONS = {
 
 const CONTAINER_TEXTURE = preload("res://assets/ui/Frames/frame_0.1V2.svg")
 
-static func create_label(text: String) -> MarginContainer:
-	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 15)
-	margin.add_theme_constant_override("margin_top", 15)
-	margin.add_theme_constant_override("margin_right", 15)
-	margin.add_theme_constant_override("margin_bottom", 15)
-	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+static func create_label(text: String) -> Dictionary:
+	var root := MarginContainer.new()
+	root.add_theme_constant_override("margin_left", 15)
+	root.add_theme_constant_override("margin_top", 15)
+	root.add_theme_constant_override("margin_right", 15)
+	root.add_theme_constant_override("margin_bottom", 15)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	var label := Label.new()
 	#label.custom_minimum_size = Vector2(50, 20)
@@ -47,16 +47,19 @@ static func create_label(text: String) -> MarginContainer:
 	label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	margin.add_child(label)
+	root.add_child(label)
 
 	# var font = _load_res(FONT_MAIN)
 		# if font:
 		# 	label.add_theme_font_override("font", font)
 
-	return margin
+	return {
+		"root": root
+	}
 
 # creates button with 3 textures (normal, hovered, pressed), consists of:
 # root, button, and optional label (for normal text on button)
+# call example:
 static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Dictionary:
 
 	var root = MarginContainer.new()
@@ -71,7 +74,7 @@ static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(
 	root.add_child(button)
 
 	if text != "":
-		root.add_child(create_label(text))		
+		root.add_child(create_label(text).get("root"))		
 
 
 	return {
@@ -123,3 +126,44 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 		"content": content,
 		"footer": footer
 	}
+
+# static func create_dragable_container(snapable: bool = false, size: Vector2 = Vector2 (50, 50)) -> Dictionary:
+# 	var root := PanelContainer.new()
+# 	root.custom_minimum_size = size
+
+# 	var state := {
+# 		"dragging": false,
+# 		"offset": Vector2.ZERO
+# 	}
+
+
+# 	root.gui_input.connect(func(event: InputEvent):
+# 		var start_y: Vector2
+# 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+# 			if event.pressed:
+# 				start_y = root.global_position
+# 				state["dragging"] = true
+# 				state["offset"] = root.get_global_mouse_position() - root.global_position
+# 			else:
+# 				state["dragging"] = false
+# 				if snapable: 
+# 					var tween := root.create_tween()
+# 					tween.tween_property(root, "global_position", start_y, 0.05)
+
+
+
+# 		elif event is InputEventMouseMotion and state["dragging"]:
+# 			var new_pos: Vector2 = root.get_global_mouse_position() - state["offset"]
+			
+# 			var viewport_size: Vector2 = root.get_viewport_rect().size
+# 			var root_size: Vector2 = root.size
+
+# 			new_pos.x = clamp(new_pos.x, 0.0, viewport_size.x - root_size.x)
+# 			new_pos.y = clamp(new_pos.y, 0.0, viewport_size.y - root_size.y)
+
+# 			root.global_position = new_pos
+# 	)
+
+# 	return {
+# 		"root": root
+# 	}
