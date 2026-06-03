@@ -13,6 +13,7 @@ enum content_type {
 	NORMAL_QUESTION,
 	IMAGE
 }
+
 var minigames :={
 	  "0": {
 		"name": "Minigame1",
@@ -157,14 +158,35 @@ var minigames :={
 	 
 }
 
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	current_question = 0
+	pass # Replace with function body.
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+
+# GLOBAL VARIABLES
 signal failed
 signal finished
 var current_question: int
 var current_minigame: Dictionary
-var content_body
 var margin_default := 20
+var _normal_button = UIFactory.UIElementTypes.NORMAL_BUTTON
+
+# nodes
+var _question_container
+var _header: Control
+var _content: Control
+var _footer: Control
+@onready var _minigame_container := $MinigameContent
+var _next_button
+
+
 var ordering_res = {
 	"dragging": false,
 	"offset": Vector2.ZERO,
@@ -184,100 +206,91 @@ var drag_and_drop_res = {
 	"answers_amount": 0
 }
 
-@onready var minigame_container := $MinigameContent
-var next_button
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	current_question = 0
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+# MINIGAME CREATION
+# splitted into 3 levels: (minigame, question, content)
+# minigame (whole minigame from start to finish)
 func _draw_minigame(id: int) -> void:
 	# TODO: my idea is to make a minigame flow control here, smth like:
 	# draw first question, if answer was correct, draw second, if not play explosion animation and try again
 	# probably possible to do via await, or via two functions _answer_correct and answer_wrong at the bottom of the script
 
-	#minigame_container.add_child(UIFactory.create_dragable_container())
+	#_minigame_container.add_child(UIFactory.create_dragable_container())
 	current_minigame = minigames.get(str(id))
 	_draw_question(current_minigame.get("questions")[current_question])
 	
-			
-var _header
-var _content
-var _footer	
-	
-
+# question (one question of a minigame)
 func _draw_question(question: Dictionary) -> void:
 	# Clear container for next minigame
-	if content_body != null:
-		content_body.get("root").queue_free()
+	if _question_container != null:
+		_question_container["root"].queue_free()
 
-	next_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150,30), "Next")
-	next_button["button"].button_down.connect(_on_next_button_pressed)
+
+	_next_button = UIFactory.create_texture_button(_normal_button, Vector2(150,30), "Next")
+	_next_button["button"].button_down.connect(_on_next_button_pressed)
 	# Question container and header
-	content_body = UIFactory.create_panel_container (Vector2(450, 600))
+	_question_container = UIFactory.create_panel_container (Vector2(450, 600))
 	var question_text = UIFactory.create_label(question.get("question"))
-	_header  = content_body.get("header")
-	_content = content_body.get("content")
-	_footer  = content_body.get("footer")
+	_header  = _question_container.get("header")
+	_content = _question_container.get("content")
+	_footer  = _question_container.get("footer")
 	
 	# adding extra content in header if available
 	if question.has("extra_content"):
 		var vbox = VBoxContainer.new()
-		content_body.get("header").add_child(vbox)
+		_question_container.get("header").add_child(vbox)
 		vbox.add_child(question_text.get("root"))
 		var extra_content = _draw_content(question.get("extra_content"))
 		vbox.add_child(extra_content.get("root"))
 	else:
-		content_body.get("header").add_child(question_text.get("root"))
+		_question_container.get("header").add_child(question_text.get("root"))
 
-	# Question content, switch through all question types
-	# TODO: add support to different question content types (like code snippets)
+
+
+	# QUESTION TYPE SPECIFIC BLOCK
+	# Question content, match through all possible question types
 	match question.get("question_type"):
 		minigame_type.SINGLECHOICE:
-			var content = VBoxContainer.new()
-
-			content.add_theme_constant_override("separation", margin_default)
-			_content.add_child(content)
-			
-			var answers_amount = question.get("answers_amount")
+			# All vars go here
+			var vBox = VBoxContainer.new()
 			var answers_row_1 = HBoxContainer.new()
-			answers_row_1.add_theme_constant_override("separation", margin_default)
-			content.add_child(answers_row_1)
+			var answers_row_2 # Used only if more then 3 questions
+			var answers_amount = question.get("answers_amount")
+			var button_root
+			var button_button
 
-			var button
+			# Styling created elements
+			vBox.add_theme_constant_override("separation", margin_default)
+			answers_row_1.add_theme_constant_override("separation", margin_default)
+			
+			# Adding created elements into root
+			vBox.add_child(answers_row_1)
+			_content.add_child(vBox)
 
 			# Adding buttons and connecting their inputs
 			# If we have more than 3 answers, add second row
-			if answers_amount > 3:
-				var answers_row_2 = HBoxContainer.new()
+			if answers_amount > 3: # Two rows
+				answers_row_2 = HBoxContainer.new()
 				answers_row_2.add_theme_constant_override("separation", margin_default)
-				content.add_child(answers_row_2)
+				vBox.add_child(answers_row_2)
 				
-				for i in answers_amount:
-					button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(200,30), question.get("answers").get(str(i)).get("text"))
-					if (i > (answers_amount + 1) / 2 - 1):
-						answers_row_2.add_child(button.get("root"))
-					else:
-						answers_row_1.add_child(button.get("root"))
+			for i in answers_amount:
+				var question_answer = question.get("answers").get(str(i))
+				var tmp_button = UIFactory.create_texture_button(_normal_button, Vector2(200,30), question_answer.get("text"))
+				button_button = tmp_button["button"]
+				button_root   = tmp_button["root"]
 
-					if question.get("answers").get(str(i)).get("correct"):
-						button.get("button").button_down.connect(_answer_correct)
-					else:
-						button.get("button").button_down.connect(_answer_wrong)
-			else:
-				for i in answers_amount:
-					button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(200,30), question.get("answers").get(str(i)).get("text"))
-					answers_row_1.add_child(button.get("root"))
-					if question.get("answers").get(str(i)).get("correct"):
-						button.get("button").button_down.connect(_answer_correct)
-					else:
-						button.get("button").button_down.connect(_answer_wrong)
+				if answers_amount > 3 and (i > (answers_amount + 1) / 2 - 1): # Two rows
+					answers_row_2.add_child(button_root)
+				
+				else: answers_row_1.add_child(button_root)
+			
+				# Connecting buttons
+				if question_answer.get("correct"):
+					button_button.button_down.connect(_answer_correct)
+				else:
+					button_button.button_down.connect(_answer_wrong)
 
 		minigame_type.MULTICHOICE:
 			# TODO: similar aproach as Single choice, but different button behaviour (like remain pressed?) or different button type
@@ -368,21 +381,22 @@ func _draw_question(question: Dictionary) -> void:
 			pass
 	
 	
-	minigame_container.add_child(content_body.get("root"))
+	_minigame_container.add_child(_question_container.get("root"))
 	
-
-# creates content to use inside of any other container	
+# content (creates content to use inside of question blocks)
 func _draw_content(content: Dictionary) -> Dictionary:
 	match content.get("content_type"):
 		content_type.NORMAL_QUESTION:
 			return UIFactory.create_label(content.get("text"))
 		content_type.CODE_SNIPPET:
-			pass
-	return {}
+			# TODO: add creation of different content types 
+			return {}
+		_:
+			return {}
 
 
-# inputs handling
 
+# INPUTS HANDLING
 func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		# Started dragging
@@ -507,30 +521,6 @@ func _handle_ordering(event: InputEvent, root: Control) -> void:
 	elif event is InputEventMouseMotion and ordering_res["dragging"]:
 		_drag_node_with_mouse(root, ordering_res["offset"])
 
-func _shake_node(root: Control) -> void:
-	var start_pos := root.global_position
-	var shake_power := 8.0
-	var step_time := 0.04
-
-	var tween := root.create_tween()
-
-	tween.tween_property(root, "global_position", start_pos + Vector2(shake_power, 0), step_time)
-	tween.tween_property(root, "global_position", start_pos + Vector2(-shake_power, 0), step_time)
-	tween.tween_property(root, "global_position", start_pos + Vector2(shake_power * 0.6, 0), step_time)
-	tween.tween_property(root, "global_position", start_pos + Vector2(-shake_power * 0.6, 0), step_time)
-	tween.tween_property(root, "global_position", start_pos, step_time)
-
-func _drag_node_with_mouse(root: Control, offset: Vector2) -> void:
-	var new_pos: Vector2 = root.get_global_mouse_position() - offset
-
-	var viewport_size: Vector2 = root.get_viewport_rect().size
-	var root_size: Vector2 = root.size
-
-	new_pos.x = clamp(new_pos.x, 0.0, viewport_size.x - root_size.x)
-	new_pos.y = clamp(new_pos.y, 0.0, viewport_size.y - root_size.y)
-
-	root.global_position = new_pos
-
 func _on_next_button_pressed() -> void:
 	current_question += 1
 	if current_question == current_minigame.get("questions_amount"):
@@ -545,6 +535,47 @@ func _on_ordering_confirmed_pressed() -> void:
 	else:
 		_on_ordering_retry_pressed()
 
+func _on_ordering_retry_pressed() -> void:
+	# TODO: reset order of elements 
+	pass
+
+# function for handling failed minigame
+func _failed() -> void:
+	emit_signal("failed")
+
+# Handling of correct answer
+func _answer_correct() -> void:
+	# TODO: add full handling maybe some message
+	# Show button: NEXT
+	for child in _content.get_children():
+		child.queue_free()
+	_content.add_child(_next_button["root"])
+	print("Correct!")
+
+# Handling of wrong answer
+func _answer_wrong() -> void:
+	# TODO: add full handling, add lives amount
+	# show retry button
+	print("WROOOONG!")
+
+
+
+# HELP FUNCTIONS GO HERE
+# Help function that shakes received Node
+func _shake_node(root: Control) -> void:
+	var start_pos := root.global_position
+	var shake_power := 8.0
+	var step_time := 0.04
+
+	var tween := root.create_tween()
+
+	tween.tween_property(root, "global_position", start_pos + Vector2(shake_power, 0), step_time)
+	tween.tween_property(root, "global_position", start_pos + Vector2(-shake_power, 0), step_time)
+	tween.tween_property(root, "global_position", start_pos + Vector2(shake_power * 0.6, 0), step_time)
+	tween.tween_property(root, "global_position", start_pos + Vector2(-shake_power * 0.6, 0), step_time)
+	tween.tween_property(root, "global_position", start_pos, step_time)
+
+# Help function for Order Minigame
 func arrays_equal(a: Array, b: Array) -> bool:
 	if a.size() != b.size():
 		return false
@@ -555,27 +586,14 @@ func arrays_equal(a: Array, b: Array) -> bool:
 
 	return true
 
-func _on_ordering_retry_pressed() -> void:
-	pass
+# Help function for dragging objects with mouth
+func _drag_node_with_mouse(root: Control, offset: Vector2) -> void:
+	var new_pos: Vector2 = root.get_global_mouse_position() - offset
 
-func _failed() -> void:
-	#_on_reset_button_pressed()
-	emit_signal("failed")
+	var viewport_size: Vector2 = root.get_viewport_rect().size
+	var root_size: Vector2 = root.size
 
-func _load_minigame() -> void:
-	pass
+	new_pos.x = clamp(new_pos.x, 0.0, viewport_size.x - root_size.x)
+	new_pos.y = clamp(new_pos.y, 0.0, viewport_size.y - root_size.y)
 
-# Handling of correct answer
-func _answer_correct() -> void:
-	# TODO: add full handling maybe some message
-	# Show button: NEXT
-	for child in _content.get_children():
-		child.queue_free()
-	_content.add_child(next_button["root"])
-	print("Correct!")
-
-# Handling of correct answer
-func _answer_wrong() -> void:
-	# TODO: add full handling
-	# show retry button
-	print("WROOOONG!")
+	root.global_position = new_pos
