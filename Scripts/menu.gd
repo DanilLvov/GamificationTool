@@ -48,6 +48,7 @@ func _ready() -> void:
 	minigame_manager.finished.connect(_next_game_step)
 	minigame_manager.failed.connect(_failed_minigame)
 	cutscene_manager.finished.connect(_next_game_step)
+	job_screen.job_chosen.connect(_next_game_step)
 	current_scene_id = 0
 
 	_reset_idle_timer()

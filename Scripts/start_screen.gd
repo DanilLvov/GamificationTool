@@ -21,8 +21,8 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"planet": $Planet1_1NoBlur, # Don't forget to change when renaming Scene objects
 	"scale_min": 0.1,			
 	"scale_max": 0.2,
-	"target_position": Vector2(710, 560),
-	"target_scale": Vector2(0.3, 0.3)
+	"target_position": Vector2(960, 545),
+	"target_scale": Vector2(0.5, 0.5)
 
 },
 {	"center": Vector2(960, 525),
@@ -34,8 +34,8 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"planet": $Planet2_1,
 	"scale_min": 0.1,
 	"scale_max": 0.2,
-	"target_position": Vector2(1210, 560),
-	"target_scale": Vector2(0.3, 0.3)
+	"target_position": Vector2(1240, 545),
+	"target_scale": Vector2(0.39, 0.39)
 },
 {	"center": Vector2(960, 525),
 	"radius_x": 290.0,
@@ -46,8 +46,8 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"planet": $Planet3_1,
 	"scale_min": 0.08,
 	"scale_max": 0.15,
-	"target_position": Vector2(960, 560),
-	"target_scale": Vector2(0.3, 0.3)
+	"target_position": Vector2(710, 545),
+	"target_scale": Vector2(0.23, 0.23)
 }
 ]
 

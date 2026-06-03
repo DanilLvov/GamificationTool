@@ -45,10 +45,11 @@ func _load_JSON(path: String) -> Dictionary:
 
 	return result
 
-
+signal job_chosen
 func _add_planets_to_carousel():
 	for planet in planets.values():
 		var panel = Panel.new()
+		panel.position = -panel.size / 2 + Vector2(20, 0)
 		panel.name = planet["name"]
 		panel.custom_minimum_size = Vector2(250, 250)
 		panel.size = Vector2(250, 250)
@@ -83,6 +84,7 @@ func _add_planets_to_carousel():
 			func(event):
 				if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 					print(panel.name)
+					emit_signal("job_chosen")
 		)
 	
 		$CarouselContainer.position_offset_node.add_child(panel)

@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 			var item_width = i.size.x + spacing
 
 			var target_pos = Vector2(
-				dist * item_width,
+				dist * item_width - i.size.x / 2.0,
 				-i.size.y / 2.0
 			)
 			i.position = i.position.lerp(target_pos, smoothing_speed * delta)
@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 		i.pivot_offset = i.size / 2.0
 		var target_scale = 1.0 - (scale_strength * abs(dist))
 		target_scale = clamp(target_scale, scale_min, 1.0)
+		#if i.get_index() == 0 or i.get_index() == 1 or i.get_index() == 29: print(target_scale)
 		i.scale = i.scale.lerp(Vector2.ONE * target_scale, smoothing_speed * delta)
 
 		var target_opacity = 1.0 - (opacity_strength * abs(dist))
