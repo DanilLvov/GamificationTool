@@ -9,6 +9,13 @@ enum GameState {
 	END
 }
 
+enum Job {
+	# Jobs for specialization choice, determine minigame content
+	JOB1,
+	JOB2,
+	JOB3
+}
+
 # Node variables, if changing node name, change it here:
 @onready var minigame_manager := $MinigameController
 @onready var cutscene_manager := $Cutscene
@@ -17,11 +24,12 @@ enum GameState {
 @onready var restart_button := $RestartButton
 @onready var restart_menu := $RestartMenu
 @onready var start_screen := $StartScreen
+@onready var job_screen: Node = $JobSelection
 @onready var restart_warning := $RestartWarning
 @onready var end_screen := $GameEnd
 
 
-# Restart timer vars:#
+# Restart timer vars:
 # TODO: add important vars into config.json
 var idle_timeout := 60.0
 var restart_warning_time := 10.0
@@ -155,8 +163,7 @@ func _run_current_scene() -> void:
 			minigame_manager._draw_minigame(current_minigame)
 			minigame_manager.visible = true
 		GameState.SPECIALIZATION_CHOICE:
-			start_screen.visible = true
-			#TODO: Nils: planet_choice elements need to be shown with: .visible = true
+			job_screen.visible = true
 			#_next_game_step()
 		GameState.END:
 			end_screen.visible = true
@@ -167,6 +174,7 @@ func _hide_all_objects() -> void:
 	start_screen.visible = false
 	minigame_manager.visible = false
 	cutscene_manager.visible = false
+	job_screen.visible = false
 
 # Restart functionality 
 func _restart_game() -> void:

@@ -2,7 +2,7 @@
 	"0": {
 		"name": "StartMenu",
 		"state": "START",
-		"next_scene": 2
+		"next_scene": 1
 	},
 	"1": {
 		"name": "SpecializationChoice",

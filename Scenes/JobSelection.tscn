@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://se2a45nr7skt"]
+
+[ext_resource type="Script" uid="uid://cxjja3tdiyjxm" path="res://Scripts/job_selection.gd" id="1_c614l"]
+[ext_resource type="Script" uid="uid://cwvgqwiii81q3" path="res://Scripts/carousel_container.gd" id="2_mu33u"]
+
+[node name="JobSelection" type="Node2D" unique_id=677812127]
+script = ExtResource("1_c614l")
+
+[node name="CarouselContainer" type="Node2D" parent="." unique_id=1875151211 node_paths=PackedStringArray("position_offset_node")]
+position = Vector2(960, 544)
+script = ExtResource("2_mu33u")
+spacing = 25.0
+wraparound_radius = 500.0
+wraparound_height = 100.0
+smoothing_speed = 6.5
+position_offset_node = NodePath("Control")
+
+[node name="Control" type="Control" parent="CarouselContainer" unique_id=1124585691]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Left" type="Button" parent="." unique_id=163802653]
+offset_top = 480.0
+offset_right = 128.0
+offset_bottom = 608.0
+text = "<"
+
+[node name="Right" type="Button" parent="." unique_id=1941618265]
+offset_left = 1792.0
+offset_top = 480.0
+offset_right = 1920.0
+offset_bottom = 608.0
+text = ">"
+
+[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

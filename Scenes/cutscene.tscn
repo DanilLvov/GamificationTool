@@ -27,6 +27,7 @@ offset_bottom = 997.0
 theme_override_font_sizes/normal_font_size = 30
 
 [node name="ContinueTextureButton" type="TextureButton" parent="UiElements" unique_id=1429739027]
+visible = false
 layout_mode = 0
 offset_left = 1576.0
 offset_top = 952.0
@@ -38,6 +39,7 @@ texture_pressed = ExtResource("3_j1a0j")
 texture_hover = ExtResource("4_j6j7k")
 
 [node name="ContinueLabel" type="Label" parent="UiElements" unique_id=157142915]
+visible = false
 layout_mode = 0
 offset_left = 1603.0
 offset_top = 959.0

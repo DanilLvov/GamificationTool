@@ -1,16 +1,91 @@
 extends Node2D
 
+var planets: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	planets = _load_JSON("res://Database/planets.json")
+	_add_planets_to_carousel()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var selected_carousel_node = $CarouselContainer.position_offset_node.get_child($CarouselContainer.selected_index)
-	#print(selected_carousel_node.name)
+	pass # Replace with function body.
 
+
+func _load_JSON(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		push_error("JSON file not found: %s" % path)
+		return {}
+
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Cannot open JSON file: %s" % path)
+		return {}
+
+	var json_text := file.get_as_text()
+	var parsed = JSON.parse_string(json_text)
+
+	if parsed == null:
+		push_error("Invalid JSON in file: %s" % path)
+		return {}
+
+	if typeof(parsed) != TYPE_DICTIONARY:
+		push_error("Root JSON must be an object/dictionary")
+		return {}
+	
+	var result: Dictionary = {}
+
+	for id in parsed.keys():
+		var data = parsed[id]
+		if typeof(data) != TYPE_DICTIONARY:
+			push_error("Scene '%s' must be an object" % id)
+			continue
+	
+		result[id] = data
+
+	return result
+
+
+func _add_planets_to_carousel():
+	for planet in planets.values():
+		var panel = Panel.new()
+		panel.name = planet["name"]
+		panel.custom_minimum_size = Vector2(250, 250)
+		panel.size = Vector2(250, 250)
+		var empty_style := StyleBoxEmpty.new()
+		panel.add_theme_stylebox_override("panel", empty_style)
+
+		var texture_rect = TextureRect.new()
+		texture_rect.texture = load(planet["path"])
+		texture_rect.scale = Vector2(planet["scale_x"], planet["scale_y"])
+		texture_rect.anchor_right = 1.0
+		texture_rect.anchor_bottom = 1.0
+
+		var label = Label.new()
+		label.text = planet["name"]
+
+		label.anchor_left = 0.0
+		label.anchor_right = 1.0
+
+		label.offset_left = 0
+		label.offset_right = 4
+
+		label.position.y = panel.size.y - 10
+		label.custom_minimum_size.y = 40
+
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+		panel.add_child(texture_rect)
+		panel.add_child(label)
+
+		panel.gui_input.connect(
+
+			func(event):
+				if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+					print(panel.name)
+		)
+	
+		$CarouselContainer.position_offset_node.add_child(panel)
 
 func _on_left_pressed() -> void:
 	$CarouselContainer._left()

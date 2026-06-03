@@ -1,0 +1,182 @@
+{
+    "0": {
+        "name": "Job 1",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "1": {
+        "name": "Job 2",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "2": {
+        "name": "Job 3",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "3": {
+        "name": "Job 4",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "4": {
+        "name": "Job 5",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "5": {
+        "name": "Job 6",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "6": {
+        "name": "Job 7",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "7": {
+        "name": "Job 8",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "8": {
+        "name": "Job 9",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "9": {
+        "name": "Job 10",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "10": {
+        "name": "Job 11",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "11": {
+        "name": "Job 12",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "12": {
+        "name": "Job 13",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "13": {
+        "name": "Job 14",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "14": {
+        "name": "Job 15",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "15": {
+        "name": "Job 16",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "16": {
+        "name": "Job 17",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "17": {
+        "name": "Job 18",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "18": {
+        "name": "Job 19",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "19": {
+        "name": "Job 20",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "20": {
+        "name": "Job 21",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "21": {
+        "name": "Job 22",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "22": {
+        "name": "Job 23",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "23": {
+        "name": "Job 24",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "24": {
+        "name": "Job 25",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "25": {
+        "name": "Job 26",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "26": {
+        "name": "Job 27",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    },
+    "27": {
+        "name": "Job 28",
+        "path": "res://Assets/Objects/planet1.1_no_blur.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "28": {
+        "name": "Job 29",
+        "path": "res://Assets/Objects/planet2.1.svg",
+        "scale_x": 0.5,
+        "scale_y": 0.5
+    },
+    "29": {
+        "name": "Job 30",
+        "path": "res://Assets/Objects/planet3.1.svg",
+        "scale_x": 0.2975,
+        "scale_y": 0.302
+    }
+}
