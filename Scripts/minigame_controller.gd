@@ -88,29 +88,29 @@ var minigames :={
 				}
 			},
 			{
-				"question": "Was sollte mit diesem Commit passieren?",
+				"question": "Was sollte mit diesem Commit passieren? antwort ist 3,2,4,0,1",
 				"question_type": minigame_type.ORDER,
 				"answers_amount": 5,
 				"solution": [3, 2, 4, 0, 1],
 				"answers": {
 					"0": {
-						"text": "Direkt mergen, ohne ihn weiter zu prüfen.",
+						"text": "0 Direkt mergen, ohne ihn weiter zu prüfen.",
 						"content_type": content_type.NORMAL_QUESTION
 					},
 					"1": {
-						"text": "Ablehnen, weil Tests deaktiviert wurden.",
+						"text": "1 Ablehnen, weil Tests deaktiviert wurden.",
 						"content_type": content_type.NORMAL_QUESTION
 					},
 					"2": {
-						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"text": "2 Nur die Commit-Nachricht ändern und dann mergen.",
 						"content_type": content_type.NORMAL_QUESTION
 					},
 					"3": {
-						"text": "Ignorieren, weil es nur ein kleiner Hotfix ist.",
+						"text": "3 Ignorieren, weil es nur ein kleiner Hotfix ist.",
 						"content_type": content_type.NORMAL_QUESTION
 					},
 					"4": {
-						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"text": "4 Nur die Commit-Nachricht ändern und dann mergen.",
 						"content_type": content_type.NORMAL_QUESTION
 					}
 				}
@@ -185,11 +185,11 @@ var drag_and_drop_res = {
 }
 
 @onready var minigame_container := $MinigameContent
-@onready var next_button := $Button
+var next_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_question = 3
+	current_question = 0
 	pass # Replace with function body.
 
 
@@ -206,15 +206,25 @@ func _draw_minigame(id: int) -> void:
 	current_minigame = minigames.get(str(id))
 	_draw_question(current_minigame.get("questions")[current_question])
 	
+			
+var _header
+var _content
+var _footer	
+	
 
 func _draw_question(question: Dictionary) -> void:
 	# Clear container for next minigame
 	if content_body != null:
-		minigame_container.remove_child(content_body.get("root"))
+		content_body.get("root").queue_free()
 
+	next_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150,30), "Next")
+	next_button["button"].button_down.connect(_on_next_button_pressed)
 	# Question container and header
 	content_body = UIFactory.create_panel_container (Vector2(450, 600))
 	var question_text = UIFactory.create_label(question.get("question"))
+	_header  = content_body.get("header")
+	_content = content_body.get("content")
+	_footer  = content_body.get("footer")
 	
 	# adding extra content in header if available
 	if question.has("extra_content"):
@@ -233,7 +243,7 @@ func _draw_question(question: Dictionary) -> void:
 			var content = VBoxContainer.new()
 
 			content.add_theme_constant_override("separation", margin_default)
-			content_body.get("content").add_child(content)
+			_content.add_child(content)
 			
 			var answers_amount = question.get("answers_amount")
 			var answers_row_1 = HBoxContainer.new()
@@ -268,6 +278,7 @@ func _draw_question(question: Dictionary) -> void:
 						button.get("button").button_down.connect(_answer_correct)
 					else:
 						button.get("button").button_down.connect(_answer_wrong)
+
 		minigame_type.MULTICHOICE:
 			# TODO: similar aproach as Single choice, but different button behaviour (like remain pressed?) or different button type
 			# use footer to add confirm and cancel buttons smth like:
@@ -279,31 +290,45 @@ func _draw_question(question: Dictionary) -> void:
 			
 			for answer_key in question.get("answers"):
 				var answer = question["answers"][answer_key]
-				var root := PanelContainer.new()
-				root.custom_minimum_size = Vector2 (150, 50)
+				var tmp := UIFactory.create_colored_panel_container(Vector2 (150, 50))
+				var root = tmp["root"]
 				root.set_meta("category_id", answer["answer"])
-				content_body.get("content").add_child(root)
+				_content.add_child(root)
 				root.gui_input.connect(_handle_drag_and_drop.bind(root))
 				drag_and_drop_res["answers_amount"] += 1
+
+				# Adding content
+				var content = _draw_content(answer)
+				root.add_child(content["root"])	
+				root.z_index = 1
+				root.modulate.a = 0.0
+				root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 				
+			_content.get_child(0).modulate.a = 1.0
+			_content.get_child(0).mouse_filter = Control.MOUSE_FILTER_STOP
 
 			var footer = HBoxContainer.new()
 			footer.add_theme_constant_override("separation", margin_default)
-			content_body.get("footer").add_child(footer)
+			_footer.add_child(footer)
 
 			# Categories for Drag and Drop
 			drag_and_drop_res["categories_amount"] = question.get("categories_amount")
 			drag_and_drop_res["categories"].resize(drag_and_drop_res["categories_amount"])
 			var index = 0
-			for categorie in question.get("categories"):
+			for categorie_key in question.get("categories"):
 				var root := PanelContainer.new()
 				root.custom_minimum_size = Vector2 (150, 150)
 				#print(categorie)
-				root.set_meta("category_id", categorie)
+				root.set_meta("category_id", categorie_key)
 				footer.add_child(root)
 
 				drag_and_drop_res["categories"][index] = root
 				index += 1
+
+				# Adding content
+				var content = UIFactory.create_label(question["categories"][categorie_key])
+				root.add_child(content["root"])
+
 		minigame_type.ORDER:
 			var answers_amount = question.get("answers_amount")
 			var rows = HBoxContainer.new()
@@ -313,14 +338,32 @@ func _draw_question(question: Dictionary) -> void:
 			ordering_res["amount"] = answers_amount
 
 			for i in answers_amount:
-				var root := PanelContainer.new()
-				root.custom_minimum_size = Vector2 (50, 50)
+				var tmp := UIFactory.create_colored_panel_container(Vector2 (180, 50))
+				var root = tmp["root"]
 				root.gui_input.connect(_handle_ordering.bind(root))
 				ordering_res.get("nodes")[i] = root
 				ordering_res.get("order")[i] = i
 				rows.add_child(root)
+
+				# Adding content
+				var answer = question["answers"][str(i)]
+				var content = _draw_content(answer)
+				root.add_child(content["root"])	
 			
-			content_body.get("content").add_child(rows)
+			_content.add_child(rows)
+
+			# TODO: make button labels available in JSON
+			var confirm_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150,30), "Confirm")
+			var retry_button   = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150,30), "Retry")
+			var hBox = HBoxContainer.new()
+			hBox.add_child(retry_button["root"])
+			retry_button["button"].button_down.connect(_on_ordering_retry_pressed)
+			hBox.add_child(confirm_button["root"])
+			confirm_button["button"].button_down.connect(_on_ordering_confirmed_pressed)
+			hBox.alignment = BoxContainer.ALIGNMENT_CENTER
+			hBox.add_theme_constant_override("separation", margin_default)
+			_footer.add_child(hBox)
+			
 		minigame_type.CONNECT:
 			pass
 	
@@ -349,8 +392,7 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 			drag_and_drop_res["offset"] = root.get_global_mouse_position() - root.global_position
 		# Stopped dragging
 		else:
-			
-			var tween := root.create_tween()
+			print("sssdsds")
 			drag_and_drop_res["dragging"] = false
 
 			# checking for intersection with any categorie
@@ -370,19 +412,41 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 					if overlap_ratio > best_overlap_ratio and overlap_ratio >= min_overlap_ratio:
 						best_overlap_ratio = overlap_ratio
 						best_category = category
+
 			
 			if best_category == null:
+				var tween := root.create_tween()
 				tween.tween_property(root, "global_position", drag_and_drop_res["start"], 0.1)
 			elif best_category.get_meta("category_id") != root.get_meta("category_id"):
+				var tween := root.create_tween()
 				tween.tween_property(root, "global_position", drag_and_drop_res["start"], 0.1)
 				_shake_node(best_category)
 			else:
 				drag_and_drop_res["answers_completed"] += 1
 				if drag_and_drop_res["answers_completed"] == drag_and_drop_res["answers_amount"]:
 					_answer_correct()
+		
 				var target = best_category.global_position + best_category.size / 2.0  
+				var tween := root.create_tween()
 				tween.tween_property(root, "global_position", target, 0.2)
 				tween.parallel().tween_property(root, "scale", Vector2.ZERO, 0.2)
+				
+					
+				# # Deleting parent, showing new question
+				var parent = root.get_parent()
+				var new_child : Node = parent.get_child(1)
+				if new_child != null:
+					new_child.scale = Vector2.ZERO
+					new_child.modulate.a = 1.0
+					new_child.mouse_filter = Control.MOUSE_FILTER_STOP
+					tween.parallel().tween_property(new_child, "scale", Vector2.ONE, 0.2)
+					#tween.parallel().tween_property(root, "global_position", target, 0.2)
+				
+				await tween.finished
+				parent.remove_child(root)
+				root.queue_free()
+
+
 
 
 		
@@ -468,14 +532,31 @@ func _drag_node_with_mouse(root: Control, offset: Vector2) -> void:
 	root.global_position = new_pos
 
 func _on_next_button_pressed() -> void:
-	next_button.visible = false
 	current_question += 1
 	if current_question == current_minigame.get("questions_amount"):
 		print("game ended")
 		emit_signal("finished")
 	else: 
 		_draw_question(current_minigame.get("questions")[current_question])
-	
+
+func _on_ordering_confirmed_pressed() -> void:
+	if arrays_equal(ordering_res["order"], current_minigame["questions"][current_question]["solution"]):
+		_answer_correct()
+	else:
+		_on_ordering_retry_pressed()
+
+func arrays_equal(a: Array, b: Array) -> bool:
+	if a.size() != b.size():
+		return false
+
+	for i in range(a.size()):
+		if a[i] != b[i]:
+			return false
+
+	return true
+
+func _on_ordering_retry_pressed() -> void:
+	pass
 
 func _failed() -> void:
 	#_on_reset_button_pressed()
@@ -486,9 +567,11 @@ func _load_minigame() -> void:
 
 # Handling of correct answer
 func _answer_correct() -> void:
-	# TODO: add full handling
+	# TODO: add full handling maybe some message
 	# Show button: NEXT
-	next_button.visible = true
+	for child in _content.get_children():
+		child.queue_free()
+	_content.add_child(next_button["root"])
 	print("Correct!")
 
 # Handling of correct answer

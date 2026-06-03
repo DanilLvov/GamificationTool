@@ -127,43 +127,33 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 		"footer": footer
 	}
 
-# static func create_dragable_container(snapable: bool = false, size: Vector2 = Vector2 (50, 50)) -> Dictionary:
-# 	var root := PanelContainer.new()
-# 	root.custom_minimum_size = size
+static func create_colored_panel_container(
+	size: Vector2 = Vector2(50, 50),
+	bg_color: Color = Color8(0, 216, 177),
+	corner_radius: int = 10,
+	border_width: int = 0,
+	border_color: Color = Color.TRANSPARENT
+) -> Dictionary:
+	var root := PanelContainer.new()
+	root.custom_minimum_size = size
 
-# 	var state := {
-# 		"dragging": false,
-# 		"offset": Vector2.ZERO
-# 	}
+	var style := StyleBoxFlat.new()
+	style.bg_color = bg_color
 
+	style.corner_radius_top_left = corner_radius
+	style.corner_radius_top_right = corner_radius
+	style.corner_radius_bottom_left = corner_radius
+	style.corner_radius_bottom_right = corner_radius
 
-# 	root.gui_input.connect(func(event: InputEvent):
-# 		var start_y: Vector2
-# 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-# 			if event.pressed:
-# 				start_y = root.global_position
-# 				state["dragging"] = true
-# 				state["offset"] = root.get_global_mouse_position() - root.global_position
-# 			else:
-# 				state["dragging"] = false
-# 				if snapable: 
-# 					var tween := root.create_tween()
-# 					tween.tween_property(root, "global_position", start_y, 0.05)
+	style.border_width_left = border_width
+	style.border_width_top = border_width
+	style.border_width_right = border_width
+	style.border_width_bottom = border_width
+	style.border_color = border_color
 
+	root.add_theme_stylebox_override("panel", style)
 
-
-# 		elif event is InputEventMouseMotion and state["dragging"]:
-# 			var new_pos: Vector2 = root.get_global_mouse_position() - state["offset"]
-			
-# 			var viewport_size: Vector2 = root.get_viewport_rect().size
-# 			var root_size: Vector2 = root.size
-
-# 			new_pos.x = clamp(new_pos.x, 0.0, viewport_size.x - root_size.x)
-# 			new_pos.y = clamp(new_pos.y, 0.0, viewport_size.y - root_size.y)
-
-# 			root.global_position = new_pos
-# 	)
-
-# 	return {
-# 		"root": root
-# 	}
+	return {
+		"root": root,
+		"style": style
+	}
