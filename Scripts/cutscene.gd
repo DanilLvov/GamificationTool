@@ -16,6 +16,7 @@ var timer = 0.0
 @onready var _subtitles = $UiElements/Subtitles
 @onready var _continue = $UiElements/ContinueTextureButton
 @onready var _animation_objects = $AnimationObjects
+@onready var _continue_label = $UiElements/ContinueLabel
 #@onready var _ui_elements = $UiElements
 
 # Global cutscene structure variable
@@ -115,6 +116,7 @@ func get_current_cutscene(current_cutscene_id: int):
 func _on_continue_texture_button_pressed() -> void:
 		# Hide continue button after pressing
 		_continue.visible = false
+		_continue_label.visible = false
 
 		# Delete all animation objects
 		for child in _animation_objects.get_children():
@@ -130,6 +132,7 @@ func _on_continue_texture_button_pressed() -> void:
 func play_cutscene():
 	timer = 0.0
 	_continue.visible = false
+	_continue_label.visible = false
 
 	var background_image_path = current_cutscene["background_image_path"]
 
@@ -201,6 +204,7 @@ func play_cutscene():
 
 	# Show continue button at end of cutscene
 	_continue.visible = true
+	_continue_label.visible = true
 
 
 # If aniamtion exists, call update functions for position, scale, rotation and alternate image

@@ -13,6 +13,7 @@ enum GameState {
 @onready var minigame_manager := $MinigameController
 @onready var cutscene_manager := $Cutscene
 @onready var start_button := $StartScreen/StartButton
+@onready var start_label: Node = $StartScreen/StartLabel
 @onready var restart_button := $RestartButton
 @onready var restart_menu := $RestartMenu
 @onready var start_screen := $StartScreen
@@ -104,6 +105,7 @@ func _load_timeline(path: String) -> Dictionary:
 func _on_start_button_pressed() -> void:
 	print("pressed start button")
 	start_button.visible = false
+	start_label.visible = false
 	var _waiter = await start_screen._start_pressed()
 	_next_game_step()
 
@@ -132,7 +134,6 @@ func _next_game_step() -> void:
 func _run_current_scene() -> void:
 	# var current_scene_state
 	# var cutscene_id
-
 	#hidding all objects, to show only used for the current game step
 	_hide_all_objects()
 	# for timeline_object in game_sequence["timelineObjects"]:
@@ -169,7 +170,7 @@ func _hide_all_objects() -> void:
 
 # Restart functionality 
 func _restart_game() -> void:
-	start_screen.process_mode     = Node.PROCESS_MODE_DISABLED
+	start_screen.process_mode = Node.PROCESS_MODE_DISABLED
 	minigame_manager.process_mode = Node.PROCESS_MODE_DISABLED
 	cutscene_manager.process_mode = Node.PROCESS_MODE_DISABLED
 	restart_menu.visible = true
@@ -178,7 +179,7 @@ func _restart_menu_yes_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _restart_menu_no_pressed() -> void:
-	start_screen.process_mode     = Node.PROCESS_MODE_INHERIT
+	start_screen.process_mode = Node.PROCESS_MODE_INHERIT
 	minigame_manager.process_mode = Node.PROCESS_MODE_INHERIT
 	cutscene_manager.process_mode = Node.PROCESS_MODE_INHERIT
 	restart_menu.visible = false
