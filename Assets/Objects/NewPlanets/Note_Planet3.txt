@@ -1,0 +1,1 @@
+Planet 3 should be 151.684px x 100px (Width x Height).
