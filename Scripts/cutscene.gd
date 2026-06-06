@@ -14,9 +14,8 @@ var timer = 0.0
 # Node variables, if changing node name, change it here:
 @onready var _background = $Background
 @onready var _subtitles = $UiElements/Subtitles
-@onready var _continue = $UiElements/ContinueTextureButton
 @onready var _animation_objects = $AnimationObjects
-@onready var _continue_label = $UiElements/ContinueLabel
+var _continue
 #@onready var _ui_elements = $UiElements
 
 # Global cutscene structure variable
@@ -36,7 +35,14 @@ func _ready() -> void:
 	cutscenes = _load_JSON("res://Database/cutscenes.json")
 	animations = _load_JSON("res://Database/animations.json")
 
+	_continue = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(200, 30), "Continue")
+	_continue["button"].pressed.connect(_on_continue_texture_button_pressed)
+	_continue["root"].position = Vector2(1700, 930)
 
+	add_child(_continue["root"])
+	_continue["root"].visible = false
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Update timer for keyframes and update aniamtion objects if they have an animation connected
@@ -115,8 +121,7 @@ func get_current_cutscene(current_cutscene_id: int):
 # Button to finish scene and continue
 func _on_continue_texture_button_pressed() -> void:
 		# Hide continue button after pressing
-		_continue.visible = false
-		_continue_label.visible = false
+		_continue["root"].visible = false
 
 		# Delete all animation objects
 		for child in _animation_objects.get_children():
@@ -131,8 +136,7 @@ func _on_continue_texture_button_pressed() -> void:
 # Load background image, animation objects and play scene with subtitles
 func play_cutscene():
 	timer = 0.0
-	_continue.visible = false
-	_continue_label.visible = false
+	_continue["root"].visible = false
 
 	var background_image_path = current_cutscene["background_image_path"]
 
@@ -203,8 +207,7 @@ func play_cutscene():
 		await get_tree().create_timer(0.05).timeout
 
 	# Show continue button at end of cutscene
-	_continue.visible = true
-	_continue_label.visible = true
+	_continue["root"].visible = true
 
 
 # If aniamtion exists, call update functions for position, scale, rotation and alternate image

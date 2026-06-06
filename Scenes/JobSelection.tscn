@@ -18,19 +18,3 @@ position_offset_node = NodePath("Control")
 [node name="Control" type="Control" parent="CarouselContainer" unique_id=1124585691]
 layout_mode = 3
 anchors_preset = 0
-
-[node name="Left" type="Button" parent="." unique_id=163802653]
-offset_top = 480.0
-offset_right = 128.0
-offset_bottom = 608.0
-text = "<"
-
-[node name="Right" type="Button" parent="." unique_id=1941618265]
-offset_left = 1792.0
-offset_top = 480.0
-offset_right = 1920.0
-offset_bottom = 608.0
-text = ">"
-
-[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

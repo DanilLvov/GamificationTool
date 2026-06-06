@@ -8,6 +8,8 @@ class_name UIFactory
 enum UIElementTypes {
 	NORMAL_BUTTON,
 	ROUND_BUTTON,
+	ROUND_ARROW_BUTTON,
+	ROUND_ARROW_BUTTON_MIRRORED,
 	RESET_BUTTON,
 }
 # TODO(optional): load list of resources from directory
@@ -21,6 +23,16 @@ const BUTTONS = {
 		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_normal.svg"),
 		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_round_hover.svg"),
 		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_round_press.svg")
+	},
+	UIElementTypes.ROUND_ARROW_BUTTON: {
+		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_arrow_normal.svg"),
+		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_round_arrow_hover.svg"),
+		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_round_arrow_press.svg")
+	},
+	UIElementTypes.ROUND_ARROW_BUTTON_MIRRORED: {
+		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_arrow_normal_mirrored.svg"),
+		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_round_arrow_hover_mirrored.svg"),
+		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_round_arrow_press_mirrored.svg")
 	},
 	UIElementTypes.RESET_BUTTON: {
 		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_normal.svg"),
@@ -61,9 +73,8 @@ static func create_label(text: String) -> Dictionary:
 # root, button, and optional label (for normal text on button)
 # call example:
 static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Dictionary:
-
 	var root = MarginContainer.new()
-	var button : TextureButton = TextureButton.new()
+	var button: TextureButton = TextureButton.new()
 	button.texture_normal = BUTTONS.get(type).get("normal")
 	button.texture_hover = BUTTONS.get(type).get("hover")
 	button.texture_pressed = BUTTONS.get(type).get("pressed")
@@ -74,7 +85,7 @@ static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(
 	root.add_child(button)
 
 	if text != "":
-		root.add_child(create_label(text).get("root"))		
+		root.add_child(create_label(text).get("root"))
 
 
 	return {

@@ -1,6 +1,8 @@
 extends Node2D
 
 var planets: Dictionary
+var _left_arrow_button
+var _right_arrow_button
 
 enum Job {
 	# Jobs for specialization choice, determine minigame content
@@ -12,6 +14,25 @@ enum Job {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_left_arrow_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.ROUND_ARROW_BUTTON_MIRRORED, Vector2(876, 889))
+	_right_arrow_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.ROUND_ARROW_BUTTON, Vector2(876, 889))
+
+	_left_arrow_button["button"].pressed.connect(_on_left_pressed)
+	_right_arrow_button["button"].pressed.connect(_on_right_pressed)
+	
+	_left_arrow_button["button"].scale = Vector2(0.2, 0.1)
+	_right_arrow_button["button"].scale = Vector2(0.1, 0.1)
+	_left_arrow_button["root"].scale = Vector2(0.1, 0.1)
+	_right_arrow_button["root"].scale = Vector2(0.1, 0.1)
+
+
+	_left_arrow_button["root"].position = Vector2(20, 540)
+	_right_arrow_button["root"].position = Vector2(1810, 540)
+
+	add_child(_left_arrow_button["root"])
+	add_child(_right_arrow_button["root"])
+
+
 	planets = _load_JSON("res://Database/planets.json")
 	_add_planets_to_carousel()
 

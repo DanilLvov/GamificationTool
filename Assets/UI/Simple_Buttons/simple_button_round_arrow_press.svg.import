@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d37c6fd35spcg"
-path="res://.godot/imported/simple_button_round_arrow_pressed.svg-7a8e94627194a902b5a843eae712b63f.ctex"
+path="res://.godot/imported/simple_button_round_arrow_press.svg-137883f48f75bf89be15b345ba1cd5c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Simple_Buttons/simple_button_round_arrow_pressed.svg"
-dest_files=["res://.godot/imported/simple_button_round_arrow_pressed.svg-7a8e94627194a902b5a843eae712b63f.ctex"]
+source_file="res://Assets/UI/Simple_Buttons/simple_button_round_arrow_press.svg"
+dest_files=["res://.godot/imported/simple_button_round_arrow_press.svg-137883f48f75bf89be15b345ba1cd5c1.ctex"]
 
 [params]
 
