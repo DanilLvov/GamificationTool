@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://deiyfl7ij7so"]
 
 [ext_resource type="Script" uid="uid://biihgkanngmqk" path="res://Scripts/minigame_controller.gd" id="1_uojix"]
+[ext_resource type="Texture2D" uid="uid://ua5acfolc0aq" path="res://Assets/UI/Simple_Buttons/simple_button_normal.svg" id="2_8xva6"]
+[ext_resource type="Texture2D" uid="uid://bbdigo31owr7a" path="res://Assets/UI/Simple_Buttons/simple_button_press.svg" id="3_5tdtq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uojix"]
+bg_color = Color(0.77628314, 0.5290535, 0.47429085, 1)
+draw_center = false
+border_width_left = 30
+border_width_top = 30
+border_width_right = 30
+border_width_bottom = 30
+border_color = Color(0, 1, 0, 1)
 
 [node name="MinigameController" type="Control" unique_id=36141027]
 layout_mode = 3
@@ -24,5 +35,35 @@ offset_top = 956.0
 offset_right = 1878.9187
 offset_bottom = 1045.8558
 text = "Next"
+
+[node name="EventFeedbackFrame" type="CanvasLayer" parent="." unique_id=14041748]
+visible = false
+
+[node name="EventFeedbackFramePanel" type="Panel" parent="EventFeedbackFrame" unique_id=647007310]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uojix")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1172468984]
+z_index = 100
+layout_mode = 0
+offset_left = 39.0
+offset_top = 906.00006
+offset_right = 2998.0
+offset_bottom = 1815.0
+scale = Vector2(0.15, 0.15)
+texture_under = ExtResource("2_8xva6")
+texture_progress = ExtResource("3_5tdtq")
+
+[node name="LivesHBoxContainer" type="HBoxContainer" parent="." unique_id=1719098142]
+z_index = 100
+layout_mode = 0
+offset_left = 1426.0
+offset_top = 932.00006
+offset_right = 18833.402
+offset_bottom = 3006.0742
+scale = Vector2(0.027, 0.027)
+theme_override_constants/separation = 500
+alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_next_button_pressed"]

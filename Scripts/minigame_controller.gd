@@ -14,13 +14,13 @@ enum content_type {
 	IMAGE
 }
 
-var minigames :={
+var minigames := {
 	  "0": {
 		"name": "Minigame1",
 		"questions_amount": 4,
 		# TODO: add win/loose message
-		"questions": 
-			[{
+		"questions":
+			[ {
 				"question": "Was sollte mit diesem Commit passieren?",
 				"question_type": minigame_type.SINGLECHOICE,
 				"extra_content": {
@@ -130,17 +130,17 @@ var minigames :={
 					"0": {
 						"text": "Direkt mergen, ohne ihn weiter zu prüfen.",
 						"content_type": content_type.NORMAL_QUESTION,
-						"answer": "1" 
+						"answer": "1"
 					},
 					"1": {
 						"text": "Ablehnen, weil Tests deaktiviert wurden.",
 						"content_type": content_type.NORMAL_QUESTION,
-						"answer": "2" 
+						"answer": "2"
 					},
 					"2": {
 						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
 						"content_type": content_type.NORMAL_QUESTION,
-						"answer": "3" 
+						"answer": "3"
 					},
 					"3": {
 						"text": "Ignorieren, weil es nur ein kleiner Hotfix ist.",
@@ -150,7 +150,7 @@ var minigames :={
 					"4": {
 						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
 						"content_type": content_type.NORMAL_QUESTION,
-						"answer": "2" 
+						"answer": "2"
 					}
 				}
 			}]
@@ -158,16 +158,30 @@ var minigames :={
 	 
 }
 
+@onready var _event_feedback_frame = $EventFeedbackFrame
+@onready var _event_feedback_frame_panel = $EventFeedbackFrame/EventFeedbackFramePanel
+@onready var _texture_progress_bar = $TextureProgressBar
+@onready var _lives_hbox_container = $LivesHBoxContainer
+var lives = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_question = 0
-	pass # Replace with function body.
 
+	_event_feedback_frame.visible = false
+	_event_feedback_frame_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	_texture_progress_bar.value = 0
+
+	for live in lives:
+		var heart = TextureRect.new()
+		heart.texture = preload("res://Assets/Objects/heart.png")
+		_lives_hbox_container.add_child(heart)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
-
 
 
 # GLOBAL VARIABLES
@@ -178,12 +192,14 @@ var current_minigame: Dictionary
 var margin_default := 20
 var _normal_button = UIFactory.UIElementTypes.NORMAL_BUTTON
 
+
 # nodes
 var _question_container
 var _header: Control
 var _content: Control
 var _footer: Control
 @onready var _minigame_container := $MinigameContent
+
 var _next_button
 
 
@@ -207,17 +223,16 @@ var drag_and_drop_res = {
 }
 
 
-
 # MINIGAME CREATION
 # splitted into 3 levels: (minigame, question, content)
 # minigame (whole minigame from start to finish)
 func _draw_minigame(id: int) -> void:
 	# TODO: my idea is to make a minigame flow control here, smth like:
 	# draw first question, if answer was correct, draw second, if not play explosion animation and try again
-	# probably possible to do via await, or via two functions _answer_correct and answer_wrong at the bottom of the script
-
+	# probably possible to do via await, or via two functions _answer_corre unknown ct and answer_wrong at the bottom of the script
 	#_minigame_container.add_child(UIFactory.create_dragable_container())
 	current_minigame = minigames.get(str(id))
+	_texture_progress_bar.max_value = current_minigame.get("questions_amount")
 	_draw_question(current_minigame.get("questions")[current_question])
 	
 # question (one question of a minigame)
@@ -227,14 +242,14 @@ func _draw_question(question: Dictionary) -> void:
 		_question_container["root"].queue_free()
 
 
-	_next_button = UIFactory.create_texture_button(_normal_button, Vector2(150,30), "Next")
+	_next_button = UIFactory.create_texture_button(_normal_button, Vector2(150, 30), "Next")
 	_next_button["button"].button_down.connect(_on_next_button_pressed)
 	# Question container and header
-	_question_container = UIFactory.create_panel_container (Vector2(450, 600))
+	_question_container = UIFactory.create_panel_container(Vector2(450, 600))
 	var question_text = UIFactory.create_label(question.get("question"))
-	_header  = _question_container.get("header")
+	_header = _question_container.get("header")
 	_content = _question_container.get("content")
-	_footer  = _question_container.get("footer")
+	_footer = _question_container.get("footer")
 	
 	# adding extra content in header if available
 	if question.has("extra_content"):
@@ -245,7 +260,6 @@ func _draw_question(question: Dictionary) -> void:
 		vbox.add_child(extra_content.get("root"))
 	else:
 		_question_container.get("header").add_child(question_text.get("root"))
-
 
 
 	# QUESTION TYPE SPECIFIC BLOCK
@@ -277,9 +291,9 @@ func _draw_question(question: Dictionary) -> void:
 				
 			for i in answers_amount:
 				var question_answer = question.get("answers").get(str(i))
-				var tmp_button = UIFactory.create_texture_button(_normal_button, Vector2(200,30), question_answer.get("text"))
+				var tmp_button = UIFactory.create_texture_button(_normal_button, Vector2(200, 30), question_answer.get("text"))
 				button_button = tmp_button["button"]
-				button_root   = tmp_button["root"]
+				button_root = tmp_button["root"]
 
 				if answers_amount > 3 and (i > (answers_amount + 1) / 2 - 1): # Two rows
 					answers_row_2.add_child(button_root)
@@ -298,12 +312,11 @@ func _draw_question(question: Dictionary) -> void:
 			# container.get("footer").add_child(hBox)
 			# hBox.add_child(confirm)
 			# when confirm is pressed check for selected buttons if they match our answer if yes, call _answer_correct
-			pass	
+			pass
 		minigame_type.DRAG_AND_DROP:
-			
 			for answer_key in question.get("answers"):
 				var answer = question["answers"][answer_key]
-				var tmp := UIFactory.create_colored_panel_container(Vector2 (150, 50))
+				var tmp := UIFactory.create_colored_panel_container(Vector2(150, 50))
 				var root = tmp["root"]
 				root.set_meta("category_id", answer["answer"])
 				_content.add_child(root)
@@ -312,7 +325,7 @@ func _draw_question(question: Dictionary) -> void:
 
 				# Adding content
 				var content = _draw_content(answer)
-				root.add_child(content["root"])	
+				root.add_child(content["root"])
 				root.z_index = 1
 				root.modulate.a = 0.0
 				root.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -330,7 +343,7 @@ func _draw_question(question: Dictionary) -> void:
 			var index = 0
 			for categorie_key in question.get("categories"):
 				var root := PanelContainer.new()
-				root.custom_minimum_size = Vector2 (150, 150)
+				root.custom_minimum_size = Vector2(150, 150)
 				#print(categorie)
 				root.set_meta("category_id", categorie_key)
 				footer.add_child(root)
@@ -351,7 +364,7 @@ func _draw_question(question: Dictionary) -> void:
 			ordering_res["amount"] = answers_amount
 
 			for i in answers_amount:
-				var tmp := UIFactory.create_colored_panel_container(Vector2 (180, 50))
+				var tmp := UIFactory.create_colored_panel_container(Vector2(180, 50))
 				var root = tmp["root"]
 				root.gui_input.connect(_handle_ordering.bind(root))
 				ordering_res.get("nodes")[i] = root
@@ -361,13 +374,13 @@ func _draw_question(question: Dictionary) -> void:
 				# Adding content
 				var answer = question["answers"][str(i)]
 				var content = _draw_content(answer)
-				root.add_child(content["root"])	
+				root.add_child(content["root"])
 			
 			_content.add_child(rows)
 
 			# TODO: make button labels available in JSON
-			var confirm_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150,30), "Confirm")
-			var retry_button   = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150,30), "Retry")
+			var confirm_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150, 30), "Confirm")
+			var retry_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150, 30), "Retry")
 			var hBox = HBoxContainer.new()
 			hBox.add_child(retry_button["root"])
 			retry_button["button"].button_down.connect(_on_ordering_retry_pressed)
@@ -395,7 +408,6 @@ func _draw_content(content: Dictionary) -> Dictionary:
 			return {}
 
 
-
 # INPUTS HANDLING
 func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -413,7 +425,7 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 			var best_category: Control = null
 			var best_overlap_ratio := 0.0
 			var min_overlap_ratio := 0.25
-			var answer_rect : Rect2 = root.get_global_rect()
+			var answer_rect: Rect2 = root.get_global_rect()
 			var answer_area := answer_rect.size.x * answer_rect.size.y
 			for category in drag_and_drop_res["categories"]:
 				var category_rect: Rect2 = category.get_global_rect()
@@ -435,12 +447,13 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 				var tween := root.create_tween()
 				tween.tween_property(root, "global_position", drag_and_drop_res["start"], 0.1)
 				_shake_node(best_category)
+				_answer_wrong()
 			else:
 				drag_and_drop_res["answers_completed"] += 1
 				if drag_and_drop_res["answers_completed"] == drag_and_drop_res["answers_amount"]:
 					_answer_correct()
 		
-				var target = best_category.global_position + best_category.size / 2.0  
+				var target = best_category.global_position + best_category.size / 2.0
 				var tween := root.create_tween()
 				tween.tween_property(root, "global_position", target, 0.2)
 				tween.parallel().tween_property(root, "scale", Vector2.ZERO, 0.2)
@@ -448,7 +461,7 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 					
 				# # Deleting parent, showing new question
 				var parent = root.get_parent()
-				var new_child : Node = parent.get_child(1)
+				var new_child: Node = parent.get_child(1)
 				if new_child != null:
 					new_child.scale = Vector2.ZERO
 					new_child.modulate.a = 1.0
@@ -461,14 +474,10 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 				root.queue_free()
 
 
-
-
-		
 	elif event is InputEventMouseMotion and drag_and_drop_res["dragging"]:
 		_drag_node_with_mouse(root, drag_and_drop_res["offset"])
 		
 func _handle_ordering(event: InputEvent, root: Control) -> void:
-	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		# if started dragging
 		if event.pressed:
@@ -517,22 +526,22 @@ func _handle_ordering(event: InputEvent, root: Control) -> void:
 				tween.parallel().tween_property(ordering_res["nodes"][id], "global_position", Vector2(targ, ordering_res["y"]), 0.1)
 				
 
-
 	elif event is InputEventMouseMotion and ordering_res["dragging"]:
 		_drag_node_with_mouse(root, ordering_res["offset"])
 
 func _on_next_button_pressed() -> void:
 	current_question += 1
 	if current_question == current_minigame.get("questions_amount"):
-		print("game ended")
+		_texture_progress_bar.value = 0
 		emit_signal("finished")
-	else: 
+	else:
 		_draw_question(current_minigame.get("questions")[current_question])
 
 func _on_ordering_confirmed_pressed() -> void:
 	if arrays_equal(ordering_res["order"], current_minigame["questions"][current_question]["solution"]):
 		_answer_correct()
 	else:
+		_answer_wrong()
 		_on_ordering_retry_pressed()
 
 func _on_ordering_retry_pressed() -> void:
@@ -545,20 +554,42 @@ func _failed() -> void:
 
 # Handling of correct answer
 func _answer_correct() -> void:
-	# TODO: add full handling maybe some message
-	# Show button: NEXT
+	_event_feedback_frame.visible = true
+
+	var style = _event_feedback_frame_panel.get_theme_stylebox("panel") as StyleBoxFlat
+	style.border_color = Color.GREEN
+
+	_texture_progress_bar.value += 1
+
+	await get_tree().create_timer(0.5).timeout
+	_event_feedback_frame.visible = false
+
 	for child in _content.get_children():
 		child.queue_free()
-	_content.add_child(_next_button["root"])
-	print("Correct!")
+	
+	_on_next_button_pressed()
 
 # Handling of wrong answer
 func _answer_wrong() -> void:
-	# TODO: add full handling, add lives amount
-	# show retry button
-	print("WROOOONG!")
+	_event_feedback_frame.visible = true
 
+	var style = _event_feedback_frame_panel.get_theme_stylebox("panel") as StyleBoxFlat
+	style.border_color = Color.RED
 
+	await get_tree().create_timer(0.5).timeout
+	_event_feedback_frame.visible = false
+
+	lives -= 1
+
+	_lives_hbox_container.get_child(lives).texture = preload("res://Assets/Objects/broken_heart.png")
+	_shake_node(_lives_hbox_container.get_child(lives))
+	
+	await get_tree().create_timer(0.5).timeout
+
+	if lives < 1:
+		_failed()
+		return
+	
 
 # HELP FUNCTIONS GO HERE
 # Help function that shakes received Node
