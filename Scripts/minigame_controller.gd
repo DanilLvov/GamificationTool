@@ -23,6 +23,7 @@ var minigames := {
 			[ {
 				"question": "Was sollte mit diesem Commit passieren?",
 				"question_type": minigame_type.SINGLECHOICE,
+				"job": "SOFTWAREENTWICKLUNG",
 				"extra_content": {
 					"text": "Ein Paar total unwichtige aenderungen",
 					"content_type": content_type.NORMAL_QUESTION,
@@ -52,7 +53,40 @@ var minigames := {
 				}
 			},
 			{
+				"question": "Wie sollte der Post veröffentlicht werden?",
+				"question_type": minigame_type.SINGLECHOICE,
+				"job": "MARKETING",
+				"extra_content": {
+					"text": "Neues Feature",
+					"content_type": content_type.NORMAL_QUESTION,
+				},
+				"answers_amount": 4,
+				"answers": {
+					"0": {
+						"text": "Instagram, weil es am schnellsten ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"1": {
+						"text": "Facebook, weil es die größte Reichweite hat.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"2": {
+						"text": "Twitter, weil es die beste Plattform für Content ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"3": {
+						"text": "Den Post nicht veröffentlichen, weil das Feature noch nicht fertig ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					}
+				}
+			},
+			{
 				"question": "Was sollte mit diesem Commit passieren?",
+				"job": "SOFTWAREENTWICKLUNG",
 				"question_type": minigame_type.SINGLECHOICE,
 				"answers_amount": 6,
 				"answers": {
@@ -89,8 +123,51 @@ var minigames := {
 				}
 			},
 			{
+				"question": "Wie sollte der Post veröffentlicht werden?",
+				"question_type": minigame_type.SINGLECHOICE,
+				"job": "MARKETING",
+				"extra_content": {
+					"text": "Neues Feature",
+					"content_type": content_type.NORMAL_QUESTION,
+				},
+				"answers_amount": 6,
+				"answers": {
+					"0": {
+						"text": "Instagram, weil es am schnellsten ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"1": {
+						"text": "Facebook, weil es die größte Reichweite hat.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"2": {
+						"text": "Twitter, weil es die beste Plattform für Content ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"3": {
+						"text": "Den Post nicht veröffentlichen, weil das Feature noch nicht fertig ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"4": {
+						"text": "Discord, weil für Gamer.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"5": {
+						"text": "LinkedIn, weil es die beste Plattform für B2B ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					}
+				}
+			},
+			{
 				"question": "Was sollte mit diesem Commit passieren? antwort ist 3,2,4,0,1",
 				"question_type": minigame_type.ORDER,
+				"job": "SOFTWAREENTWICKLUNG",
 				"answers_amount": 5,
 				"solution": [3, 2, 4, 0, 1],
 				"answers": {
@@ -117,8 +194,38 @@ var minigames := {
 				}
 			},
 			{
+				"question": "Welche Reihenfolge ist korrekt? antwort ist 3,2,4,0,1",
+				"question_type": minigame_type.ORDER,
+				"job": "MARKETING",
+				"answers_amount": 5,
+				"solution": [3, 2, 4, 0, 1],
+				"answers": {
+					"0": {
+						"text": "0 Überprüfen.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"1": {
+						"text": "1 Posten.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"2": {
+						"text": "2 Bilder erstellen.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"3": {
+						"text": "3 Post Text schreiben.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"4": {
+						"text": "4 Collab hinzufügen.	",
+						"content_type": content_type.NORMAL_QUESTION
+					}
+				}
+			},
+			{
 				"question": "Was sollte mit diesem Commit passieren?",
 				"question_type": minigame_type.DRAG_AND_DROP,
+				"job": "SOFTWAREENTWICKLUNG",
 				"answers_amount": 5,
 				"categories_amount": 3,
 				"categories": {
@@ -153,7 +260,47 @@ var minigames := {
 						"answer": "2"
 					}
 				}
-			}]
+			},
+			{
+				"question": "Was sollte mit diesem Commit passieren?",
+				"question_type": minigame_type.DRAG_AND_DROP,
+				"job": "MARKETING",
+				"answers_amount": 5,
+				"categories_amount": 3,
+				"categories": {
+					"1": "gut",
+					"2": "naja",
+					"3": "nein"
+				},
+				"answers": {
+					"0": {
+						"text": "Instagram",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "1"
+					},
+					"1": {
+						"text": "Facebook",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "2"
+					},
+					"2": {
+						"text": "Twitter",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "1"
+					},
+					"3": {
+						"text": "LinkedIn",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "2"
+					},
+					"4": {
+						"text": "Discord",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "3"
+					}
+				}
+			},
+			]
 		}
 	 
 }
@@ -162,7 +309,11 @@ var minigames := {
 @onready var _event_feedback_frame_panel = $EventFeedbackFrame/EventFeedbackFramePanel
 @onready var _texture_progress_bar = $TextureProgressBar
 @onready var _lives_hbox_container = $LivesHBoxContainer
+
 var lives = 3
+
+var selected_job
+var filtered_questions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -227,14 +378,26 @@ var drag_and_drop_res = {
 # splitted into 3 levels: (minigame, question, content)
 # minigame (whole minigame from start to finish)
 func _draw_minigame(id: int) -> void:
+	var game = get_parent()
+	selected_job = game.selected_job
 	# TODO: my idea is to make a minigame flow control here, smth like:
 	# draw first question, if answer was correct, draw second, if not play explosion animation and try again
 	# probably possible to do via await, or via two functions _answer_corre unknown ct and answer_wrong at the bottom of the script
 	#_minigame_container.add_child(UIFactory.create_dragable_container())
 	current_minigame = minigames.get(str(id))
 	_texture_progress_bar.max_value = current_minigame.get("questions_amount")
-	_draw_question(current_minigame.get("questions")[current_question])
-	
+
+	filtered_questions.clear()
+	print("selected_job = ", selected_job)
+	for question in current_minigame.get("questions"):
+		if question.get("job") == selected_job:
+			filtered_questions.append(question)
+	if filtered_questions.size() != current_minigame.get("questions_amount"):
+		push_error("Not enough questions for job %s in minigame %s" % [selected_job, id])
+
+	if filtered_questions.size() > 0:
+		_draw_question(filtered_questions[current_question])
+
 # question (one question of a minigame)
 func _draw_question(question: Dictionary) -> void:
 	# Clear container for next minigame
@@ -535,10 +698,14 @@ func _on_next_button_pressed() -> void:
 		_texture_progress_bar.value = 0
 		emit_signal("finished")
 	else:
-		_draw_question(current_minigame.get("questions")[current_question])
+		if current_question >= filtered_questions.size():
+			push_error("Not enough questions for job %s in minigame %s" % [selected_job, current_minigame.get("name")])
+			emit_signal("finished")
+			return
+		_draw_question(filtered_questions[current_question])
 
 func _on_ordering_confirmed_pressed() -> void:
-	if arrays_equal(ordering_res["order"], current_minigame["questions"][current_question]["solution"]):
+	if arrays_equal(ordering_res["order"], filtered_questions[current_question]["solution"]):
 		_answer_correct()
 	else:
 		_answer_wrong()
@@ -583,7 +750,7 @@ func _answer_wrong() -> void:
 
 	_lives_hbox_container.get_child(lives).texture = preload("res://Assets/Objects/broken_heart.png")
 	_shake_node(_lives_hbox_container.get_child(lives))
-	
+
 	await get_tree().create_timer(0.5).timeout
 
 	if lives < 1:

@@ -9,12 +9,6 @@ enum GameState {
 	END
 }
 
-enum Job {
-	# Jobs for specialization choice, determine minigame content
-	JOB1,
-	JOB2,
-	JOB3
-}
 
 # Node variables, if changing node name, change it here:
 @onready var minigame_manager := $MinigameController
@@ -39,6 +33,7 @@ var idle_time_left: float
 var current_scene_id: int
 var current_minigame: int
 var timeline: Dictionary
+var selected_job
 
 func _ready() -> void:
 	#loading game sequence from json file

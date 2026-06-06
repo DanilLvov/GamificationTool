@@ -2,6 +2,14 @@ extends Node2D
 
 var planets: Dictionary
 
+enum Job {
+	# Jobs for specialization choice, determine minigame content
+	SOFTWAREENTWICKLUNG,
+	MARKETING,
+	PROJEKTMANAGEMENT
+}
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	planets = _load_JSON("res://Database/planets.json")
@@ -46,10 +54,11 @@ func _load_JSON(path: String) -> Dictionary:
 	return result
 
 signal job_chosen
+
 func _add_planets_to_carousel():
 	for planet in planets.values():
 		var panel = Panel.new()
-		panel.position = -panel.size / 2 + Vector2(20, 0)
+		panel.position = - panel.size / 2 + Vector2(20, 0)
 		panel.name = planet["name"]
 		panel.custom_minimum_size = Vector2(250, 250)
 		panel.size = Vector2(250, 250)
@@ -83,7 +92,13 @@ func _add_planets_to_carousel():
 
 			func(event):
 				if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-					print(panel.name)
+					var selected_job = panel.name.to_upper()
+					if not Job.has(selected_job):
+						push_error("Unknown Job '%s' in planets.json" % [selected_job])
+						return
+					var game = get_parent()
+					game.selected_job = selected_job
+					print("Selected job: ", game.selected_job)
 					emit_signal("job_chosen")
 		)
 	
