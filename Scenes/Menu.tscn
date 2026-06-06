@@ -135,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JobSelection" parent="." unique_id=677812127 instance=ExtResource("6_idohh")]
+visible = false
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
