@@ -42,7 +42,7 @@ const BUTTONS = {
 
 }
 
-const CONTAINER_TEXTURE = preload("res://assets/ui/Frames/frame_0.1V2.svg")
+const CONTAINER_TEXTURE = preload("res://assets/ui/frames/simple_Question_Frame.svg")
 
 static func create_label(text: String) -> Dictionary:
 	var root := MarginContainer.new()
@@ -69,6 +69,95 @@ static func create_label(text: String) -> Dictionary:
 		"root": root
 	}
 
+static func create_code_snippet(
+	code_text: String,
+	file_name: String = "code.txt",
+	title: String = "Code-Snippet"
+) -> Dictionary:
+	var root := PanelContainer.new()
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 15)
+	margin.add_theme_constant_override("margin_top", 15)
+	margin.add_theme_constant_override("margin_right", 15)
+	margin.add_theme_constant_override("margin_bottom", 15)
+	root.add_child(margin)
+
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color8(18, 22, 38)
+	style.corner_radius_top_left = 12
+	style.corner_radius_top_right = 12
+	style.corner_radius_bottom_left = 12
+	style.corner_radius_bottom_right = 12
+	style.border_width_left = 1
+	style.border_width_top = 1
+	style.border_width_right = 1
+	style.border_width_bottom = 1
+	style.border_color = Color8(55, 65, 95)
+
+	root.add_theme_stylebox_override("panel", style)
+
+	var layout := VBoxContainer.new()
+	margin.add_child(layout)
+
+	var header := HBoxContainer.new()
+	header.custom_minimum_size = Vector2(0, 42)
+	layout.add_child(header)
+
+	var title_label := Label.new()
+	title_label.text = "</>  " + title
+	title_label.add_theme_color_override("font_color", Color8(0, 216, 177))
+	header.add_child(title_label)
+
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(spacer)
+
+	var file_label := Label.new()
+	file_label.text = file_name
+	file_label.add_theme_color_override("font_color", Color8(170, 175, 195))
+	header.add_child(file_label)
+
+	var body := HBoxContainer.new()
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	layout.add_child(body)
+
+	var line_numbers := Label.new()
+	line_numbers.text = _make_line_numbers(code_text)
+	line_numbers.add_theme_color_override("font_color", Color8(130, 135, 155))
+	line_numbers.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	line_numbers.custom_minimum_size = Vector2(36, 0)
+	body.add_child(line_numbers)
+
+	var code_label := RichTextLabel.new()
+	code_label.bbcode_enabled = true
+	code_label.fit_content = true
+	code_label.scroll_active = false
+	code_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	code_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	code_label.text = "[font_size=16][color=#d8e0ff]" + _escape_bbcode(code_text) + "[/color][/font_size]"
+	body.add_child(code_label)
+
+	return {
+		"root": root,
+		"code_label": code_label
+	}
+
+static func _make_line_numbers(code_text: String) -> String:
+	var lines := code_text.split("\n")
+	var result := ""
+
+	for i in range(lines.size()):
+		result += str(i + 1)
+		if i < lines.size() - 1:
+			result += "\n"
+
+	return result
+
+
+static func _escape_bbcode(text: String) -> String:
+	return text \
+		.replace("[", "\\[") \
+		.replace("]", "\\]")
 # creates button with 3 textures (normal, hovered, pressed), consists of:
 # root, button, and optional label (for normal text on button)
 # call example:
@@ -126,10 +215,21 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	layout.add_child(content)
 	layout.add_child(footer)
 
-	# TODO: fix CONTAINER_TEXTURE problem
-	# var style := StyleBoxTexture.new()
-	# style.texture = CONTAINER_TEXTURE
-	# root.add_theme_stylebox_override("panel", style)
+
+
+	# var frame := NinePatchRect.new()
+	# frame.texture = preload("res://assets/ui/your_frame.png")
+	# frame.custom_minimum_size = Vector2(500, 300)
+
+	
+	
+	var style := StyleBoxTexture.new()
+	style.texture = CONTAINER_TEXTURE
+	style.texture_margin_left = 35
+	style.texture_margin_right = 35
+	style.texture_margin_top = 35
+	style.texture_margin_bottom = 35
+	root.add_theme_stylebox_override("panel", style)
 
 	return {
 		"root": root,

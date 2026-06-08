@@ -53,9 +53,9 @@ var minigames := {
 				}
 			},
 			{
-				"question": "Wie sollte der Post veröffentlicht werden?",
-				"question_type": minigame_type.SINGLECHOICE,
-				"job": "MARKETING",
+				"question": "Wie sollte der Post veröffentlicht werden? (answers 1,3)",
+				"question_type": minigame_type.MULTICHOICE,
+				"job": "SOFTWAREENTWICKLUNG",
 				"extra_content": {
 					"text": "Neues Feature",
 					"content_type": content_type.NORMAL_QUESTION,
@@ -75,7 +75,7 @@ var minigames := {
 					"2": {
 						"text": "Twitter, weil es die beste Plattform für Content ist.",
 						"content_type": content_type.NORMAL_QUESTION,
-						"correct": false
+						"correct": true
 					},
 					"3": {
 						"text": "Den Post nicht veröffentlichen, weil das Feature noch nicht fertig ist.",
@@ -475,8 +475,71 @@ func _draw_question(question: Dictionary) -> void:
 			# container.get("footer").add_child(hBox)
 			# hBox.add_child(confirm)
 			# when confirm is pressed check for selected buttons if they match our answer if yes, call _answer_correct
+			# All vars go here
+			var vBox = VBoxContainer.new()
+			var answers_row_1 = HBoxContainer.new()
+			var answers_row_2 # Used only if more then 3 questions
+			var answers_amount = question.get("answers_amount")
+			var button_root
+			var button_button
+			var buttons = []
 
-			pass
+			# Styling created elements
+			vBox.add_theme_constant_override("separation", margin_default)
+			answers_row_1.add_theme_constant_override("separation", margin_default)
+			
+			# Adding created elements into root
+			vBox.add_child(answers_row_1)
+			_content.add_child(vBox)
+
+			# Adding buttons and connecting their inputs
+			# If we have more than 3 answers, add second row
+			if answers_amount > 3: # Two rows
+				answers_row_2 = HBoxContainer.new()
+				answers_row_2.add_theme_constant_override("separation", margin_default)
+				vBox.add_child(answers_row_2)
+				
+			for i in answers_amount:
+				var question_answer = question.get("answers").get(str(i))
+				var tmp_button = UIFactory.create_texture_button(_normal_button, Vector2(200, 30), question_answer.get("text"))
+				button_button = tmp_button["button"]
+				button_root = tmp_button["root"]
+				button_button.toggle_mode  = true
+				buttons.append(button_button)
+
+
+				if answers_amount > 3 and (i > (answers_amount + 1) / 2 - 1): # Two rows
+					answers_row_2.add_child(button_root)
+				
+				else: answers_row_1.add_child(button_root)
+			
+				# TODO: make button labels available in JSON
+			var confirm_button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(150, 30), "Confirm")
+			var hBox = HBoxContainer.new()
+			hBox.add_child(confirm_button["root"])
+			confirm_button["button"].button_down.connect(func():
+				
+				var answers: Dictionary = question.get("answers", {})
+
+				for item in answers:
+					var answer_id: String = item
+
+					var should_be_pressed: bool = answers.get(answer_id).get("correct", false)
+					var is_pressed: bool = buttons[int(answer_id)].button_pressed
+
+					if is_pressed != should_be_pressed:
+						_answer_wrong()
+						for btn in buttons:
+							btn.button_pressed = false
+
+						return
+
+				_answer_correct()
+			)
+			hBox.alignment = BoxContainer.ALIGNMENT_CENTER
+			hBox.add_theme_constant_override("separation", margin_default)
+			_footer.add_child(hBox)
+
 		minigame_type.DRAG_AND_DROP:
 			for answer_key in question.get("answers"):
 				var answer = question["answers"][answer_key]
