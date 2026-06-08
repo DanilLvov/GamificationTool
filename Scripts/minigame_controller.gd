@@ -505,8 +505,8 @@ func _draw_question(question: Dictionary) -> void:
 			drag_and_drop_res["categories"].resize(drag_and_drop_res["categories_amount"])
 			var index = 0
 			for categorie_key in question.get("categories"):
-				var root := PanelContainer.new()
-				root.custom_minimum_size = Vector2(150, 150)
+				var tmp := UIFactory.create_colored_panel_container(Vector2 (150, 150))
+				var root = tmp["root"]
 				#print(categorie)
 				root.set_meta("category_id", categorie_key)
 				footer.add_child(root)
@@ -556,7 +556,7 @@ func _draw_question(question: Dictionary) -> void:
 		minigame_type.CONNECT:
 			pass
 	
-	
+
 	_minigame_container.add_child(_question_container.get("root"))
 	
 # content (creates content to use inside of question blocks)
@@ -633,6 +633,9 @@ func _handle_drag_and_drop(event: InputEvent, root: Control) -> void:
 					#tween.parallel().tween_property(root, "global_position", target, 0.2)
 				
 				await tween.finished
+				drag_and_drop_res["answers_completed"] += 1
+				if drag_and_drop_res["answers_completed"] == drag_and_drop_res["answers_amount"]:
+					_answer_correct()
 				parent.remove_child(root)
 				root.queue_free()
 
@@ -653,6 +656,7 @@ func _handle_ordering(event: InputEvent, root: Control) -> void:
 			ordering_res["offset"] = root.get_global_mouse_position() - root.global_position
 		# if stopped dragging
 		else:
+			root.z_index = 1
 			ordering_res["dragging"] = false
 			var tween := root.create_tween()
 
@@ -733,7 +737,12 @@ func _answer_correct() -> void:
 
 	for child in _content.get_children():
 		child.queue_free()
-	
+	for child in _header.get_children():
+		child.queue_free()
+	for child in _footer.get_children():
+		child.queue_free()
+	_content.add_child(_next_button["root"])
+	print("Correct!")
 	_on_next_button_pressed()
 
 # Handling of wrong answer
@@ -786,6 +795,7 @@ func arrays_equal(a: Array, b: Array) -> bool:
 
 # Help function for dragging objects with mouth
 func _drag_node_with_mouse(root: Control, offset: Vector2) -> void:
+	root.z_index = 2
 	var new_pos: Vector2 = root.get_global_mouse_position() - offset
 
 	var viewport_size: Vector2 = root.get_viewport_rect().size

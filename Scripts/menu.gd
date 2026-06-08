@@ -177,6 +177,7 @@ func _restart_game() -> void:
 	start_screen.process_mode = Node.PROCESS_MODE_DISABLED
 	minigame_manager.process_mode = Node.PROCESS_MODE_DISABLED
 	cutscene_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	job_screen.process_mode = Node.PROCESS_MODE_DISABLED
 	restart_menu.visible = true
 
 func _restart_menu_yes_pressed() -> void:
@@ -186,6 +187,7 @@ func _restart_menu_no_pressed() -> void:
 	start_screen.process_mode = Node.PROCESS_MODE_INHERIT
 	minigame_manager.process_mode = Node.PROCESS_MODE_INHERIT
 	cutscene_manager.process_mode = Node.PROCESS_MODE_INHERIT
+	job_screen.process_mode = Node.PROCESS_MODE_INHERIT
 	restart_menu.visible = false
 
 # Idle Timer 
@@ -206,3 +208,9 @@ func _input(event: InputEvent) -> void:
 		_reset_idle_timer()
 	elif event is InputEventMouseMotion:
 		_reset_idle_timer()
+
+	# Handling escape Button and debug button
+	if event is InputEventKey and event.pressed:
+		if Input.is_action_just_pressed("exit"):
+			get_tree().quit()
+
