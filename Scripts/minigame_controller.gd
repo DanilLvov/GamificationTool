@@ -25,8 +25,8 @@ var minigames := {
 				"question_type": minigame_type.SINGLECHOICE,
 				"job": "SOFTWAREENTWICKLUNG",
 				"extra_content": {
-					"text": "Ein Paar total unwichtige aenderungen",
-					"content_type": content_type.NORMAL_QUESTION,
+					"text": "function getUser(id) {\n\t// TODO: Fehlerbehandlung fehlt noch\n\tconst user = db.findUser(id);\n\n\tif (user) {\n\t\tuser.lastLogin = new Date();\n\t\tdb.save(user);\n\t}\n\n\treturn user;\n}",
+					"content_type": content_type.CODE_SNIPPET,
 				},
 				"answers_amount": 4,
 				"answers": {
@@ -475,6 +475,7 @@ func _draw_question(question: Dictionary) -> void:
 			# container.get("footer").add_child(hBox)
 			# hBox.add_child(confirm)
 			# when confirm is pressed check for selected buttons if they match our answer if yes, call _answer_correct
+
 			pass
 		minigame_type.DRAG_AND_DROP:
 			for answer_key in question.get("answers"):
@@ -565,7 +566,7 @@ func _draw_content(content: Dictionary) -> Dictionary:
 		content_type.NORMAL_QUESTION:
 			return UIFactory.create_label(content.get("text"))
 		content_type.CODE_SNIPPET:
-			# TODO: add creation of different content types 
+			return UIFactory.create_code_snippet(content.get("text"))
 			return {}
 		_:
 			return {}
