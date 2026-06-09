@@ -74,6 +74,10 @@ vertical_alignment = 1
 [node name="JobSelection" parent="." unique_id=677812127 instance=ExtResource("6_idohh")]
 visible = false
 
+[node name="DebugMenu" parent="." unique_id=597542210 instance=ExtResource("11_sjh0l")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [node name="RestartButton" type="TextureButton" parent="." unique_id=2034850718]
 z_index = 100
 offset_left = 1655.0
@@ -133,10 +137,6 @@ text = "Yes"
 z_index = 100
 layout_mode = 2
 text = "No"
-
-[node name="DebugMenu" parent="." unique_id=597542210 instance=ExtResource("11_sjh0l")]
-offset_right = 1920.0
-offset_bottom = 1080.0
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

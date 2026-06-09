@@ -12,6 +12,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_842g3")
 
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1030973067]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="CenterContainer" unique_id=1732064869]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+
 [node name="Return" type="Button" parent="." unique_id=2003369291]
 visible = false
 layout_mode = 0
@@ -28,20 +42,6 @@ offset_top = 956.0
 offset_right = 179.0
 offset_bottom = 1046.0
 text = "ShowDebugMenu"
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1030973067]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Grid" type="GridContainer" parent="CenterContainer" unique_id=1732064869]
-layout_mode = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
 
 [connection signal="pressed" from="Return" to="." method="_on_show_return_button"]
 [connection signal="pressed" from="ShowDebugButton" to="." method="_on_show_debug_menu_pressed"]

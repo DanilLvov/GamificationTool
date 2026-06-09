@@ -21,6 +21,7 @@ enum GameState {
 @onready var job_screen: Node = $JobSelection
 @onready var restart_warning := $RestartWarning
 @onready var end_screen := $GameEnd
+@onready var debug_menu: = $DebugMenu
 
 
 # Restart timer vars:
@@ -29,6 +30,7 @@ var idle_timeout := 60.0
 var restart_warning_time := 10.0
 var warning_shown := false
 var idle_time_left: float
+var debug = true
 
 var current_scene_id: int
 var current_minigame: int
@@ -47,6 +49,11 @@ func _ready() -> void:
 	current_scene_id = 0
 	current_minigame = 1
 
+	# Debuf specific staff
+	if debug:
+		debug_menu.visible = true
+	else:
+		debug_menu.visible = false
 	_reset_idle_timer()
 	_run_current_scene()
 
@@ -122,6 +129,8 @@ func _failed_minigame() -> void:
 	# 		current_scene_id = timeline_object["next_scene_fail"]
 	# 		break
 	current_scene_id = timeline.get(str(current_scene_id)).get("next_scene_fail")
+	timeline[0].next_scene
+
 	print(current_scene_id)
 	_run_current_scene()
 
@@ -220,4 +229,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if Input.is_action_just_pressed("exit"):
 			get_tree().quit()
+		if Input.is_action_just_pressed("debug") and debug:
+			debug_menu._on_show_debug_menu_pressed()
+
 
