@@ -15,7 +15,294 @@ enum content_type {
 }
 
 var minigames := {
-	  "0": {
+	  "1": {
+		"name": "Minigame1",
+		"questions_amount": 4,
+		# TODO: add win/loose message
+		"questions":
+			[ {
+				"question": "Was sollte mit diesem Commit passieren?",
+				"question_type": minigame_type.SINGLECHOICE,
+				"job": "SOFTWAREENTWICKLUNG",
+				"extra_content": {
+					"text": "function getUser(id) {\n\t// TODO: Fehlerbehandlung fehlt noch\n\tconst user = db.findUser(id);\n\n\tif (user) {\n\t\tuser.lastLogin = new Date();\n\t\tdb.save(user);\n\t}\n\n\treturn user;\n}",
+					"content_type": content_type.CODE_SNIPPET,
+				},
+				"answers_amount": 4,
+				"answers": {
+					"0": {
+						"text": "Direkt mergen, ohne ihn weiter zu prüfen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"1": {
+						"text": "Ablehnen, weil Tests deaktiviert wurden.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"2": {
+						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"3": {
+						"text": "Ignorieren, weil es nur ein kleiner Hotfix ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					}
+				}
+			},
+			{
+				"question": "Wie sollte der Post veröffentlicht werden? (answers 1,3)",
+				"question_type": minigame_type.MULTICHOICE,
+				"job": "SOFTWAREENTWICKLUNG",
+				"extra_content": {
+					"text": "Neues Feature",
+					"content_type": content_type.NORMAL_QUESTION,
+				},
+				"answers_amount": 4,
+				"answers": {
+					"0": {
+						"text": "Instagram, weil es am schnellsten ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"1": {
+						"text": "Facebook, weil es die größte Reichweite hat.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"2": {
+						"text": "Twitter, weil es die beste Plattform für Content ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"3": {
+						"text": "Den Post nicht veröffentlichen, weil das Feature noch nicht fertig ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					}
+				}
+			},
+			{
+				"question": "Was sollte mit diesem Commit passieren?",
+				"job": "SOFTWAREENTWICKLUNG",
+				"question_type": minigame_type.SINGLECHOICE,
+				"answers_amount": 6,
+				"answers": {
+					"0": {
+						"text": "Direkt mergen, ohne ihn weiter zu prüfen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"1": {
+						"text": "Ablehnen, weil Tests deaktiviert wurden.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"2": {
+						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"3": {
+						"text": "Ignorieren, weil es nur ein kleiner Hotfix ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"4": {
+						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"5": {
+						"text": "Ignorieren, weil es nur ein kleiner Hotfix ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					}
+				}
+			},
+			{
+				"question": "Wie sollte der Post veröffentlicht werden?",
+				"question_type": minigame_type.SINGLECHOICE,
+				"job": "MARKETING",
+				"extra_content": {
+					"text": "Neues Feature",
+					"content_type": content_type.NORMAL_QUESTION,
+				},
+				"answers_amount": 6,
+				"answers": {
+					"0": {
+						"text": "Instagram, weil es am schnellsten ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": true
+					},
+					"1": {
+						"text": "Facebook, weil es die größte Reichweite hat.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"2": {
+						"text": "Twitter, weil es die beste Plattform für Content ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"3": {
+						"text": "Den Post nicht veröffentlichen, weil das Feature noch nicht fertig ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"4": {
+						"text": "Discord, weil für Gamer.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					},
+					"5": {
+						"text": "LinkedIn, weil es die beste Plattform für B2B ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"correct": false
+					}
+				}
+			},
+			{
+				"question": "Was sollte mit diesem Commit passieren? antwort ist 3,2,4,0,1",
+				"question_type": minigame_type.ORDER,
+				"job": "SOFTWAREENTWICKLUNG",
+				"answers_amount": 5,
+				"solution": [3, 2, 4, 0, 1],
+				"answers": {
+					"0": {
+						"text": "0 Direkt mergen, ohne ihn weiter zu prüfen.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"1": {
+						"text": "1 Ablehnen, weil Tests deaktiviert wurden.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"2": {
+						"text": "2 Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"3": {
+						"text": "3 Ignorieren, weil es nur ein kleiner Hotfix ist.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"4": {
+						"text": "4 Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION
+					}
+				}
+			},
+			{
+				"question": "Welche Reihenfolge ist korrekt? antwort ist 3,2,4,0,1",
+				"question_type": minigame_type.ORDER,
+				"job": "MARKETING",
+				"answers_amount": 5,
+				"solution": [3, 2, 4, 0, 1],
+				"answers": {
+					"0": {
+						"text": "0 Überprüfen.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"1": {
+						"text": "1 Posten.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"2": {
+						"text": "2 Bilder erstellen.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"3": {
+						"text": "3 Post Text schreiben.",
+						"content_type": content_type.NORMAL_QUESTION
+					},
+					"4": {
+						"text": "4 Collab hinzufügen.	",
+						"content_type": content_type.NORMAL_QUESTION
+					}
+				}
+			},
+			{
+				"question": "Was sollte mit diesem Commit passieren?",
+				"question_type": minigame_type.DRAG_AND_DROP,
+				"job": "SOFTWAREENTWICKLUNG",
+				"answers_amount": 5,
+				"categories_amount": 3,
+				"categories": {
+					"1": "gut",
+					"2": "naja",
+					"3": "nein"
+				},
+				"answers": {
+					"0": {
+						"text": "Direkt mergen, ohne ihn weiter zu prüfen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "1"
+					},
+					"1": {
+						"text": "Ablehnen, weil Tests deaktiviert wurden.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "2"
+					},
+					"2": {
+						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "3"
+					},
+					"3": {
+						"text": "Ignorieren, weil es nur ein kleiner Hotfix ist.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "3"
+					},
+					"4": {
+						"text": "Nur die Commit-Nachricht ändern und dann mergen.",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "2"
+					}
+				}
+			},
+			{
+				"question": "Was sollte mit diesem Commit passieren?",
+				"question_type": minigame_type.DRAG_AND_DROP,
+				"job": "MARKETING",
+				"answers_amount": 5,
+				"categories_amount": 3,
+				"categories": {
+					"1": "gut",
+					"2": "naja",
+					"3": "nein"
+				},
+				"answers": {
+					"0": {
+						"text": "Instagram",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "1"
+					},
+					"1": {
+						"text": "Facebook",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "2"
+					},
+					"2": {
+						"text": "Twitter",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "1"
+					},
+					"3": {
+						"text": "LinkedIn",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "2"
+					},
+					"4": {
+						"text": "Discord",
+						"content_type": content_type.NORMAL_QUESTION,
+						"answer": "3"
+					}
+				}
+			},
+			]
+		},
+		"2": {
 		"name": "Minigame1",
 		"questions_amount": 4,
 		# TODO: add win/loose message
@@ -317,12 +604,6 @@ var filtered_questions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_question = 0
-
-	_event_feedback_frame.visible = false
-	_event_feedback_frame_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
-
-	_texture_progress_bar.value = 0
 
 	for live in lives:
 		var heart = TextureRect.new()
@@ -380,6 +661,13 @@ var drag_and_drop_res = {
 func _draw_minigame(id: int) -> void:
 	var game = get_parent()
 	selected_job = game.selected_job
+	current_question = 0
+
+	_event_feedback_frame.visible = false
+	_event_feedback_frame_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+	_texture_progress_bar.value = 0
+	
 	# TODO: my idea is to make a minigame flow control here, smth like:
 	# draw first question, if answer was correct, draw second, if not play explosion animation and try again
 	# probably possible to do via await, or via two functions _answer_corre unknown ct and answer_wrong at the bottom of the script
@@ -571,7 +859,6 @@ func _draw_question(question: Dictionary) -> void:
 			for categorie_key in question.get("categories"):
 				var tmp := UIFactory.create_colored_panel_container(Vector2 (150, 150))
 				var root = tmp["root"]
-				#print(categorie)
 				root.set_meta("category_id", categorie_key)
 				footer.add_child(root)
 
@@ -630,7 +917,6 @@ func _draw_content(content: Dictionary) -> Dictionary:
 			return UIFactory.create_label(content.get("text"))
 		content_type.CODE_SNIPPET:
 			return UIFactory.create_code_snippet(content.get("text"))
-			return {}
 		_:
 			return {}
 

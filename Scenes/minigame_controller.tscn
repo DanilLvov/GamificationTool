@@ -45,7 +45,7 @@ offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uojix")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1172468984]
-z_index = 100
+z_index = 90
 layout_mode = 0
 offset_left = 39.0
 offset_top = 906.00006

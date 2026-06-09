@@ -33,7 +33,7 @@ var idle_time_left: float
 var current_scene_id: int
 var current_minigame: int
 var timeline: Dictionary
-var selected_job
+var selected_job: String = "SOFTWAREENTWICKLUNG"
 
 func _ready() -> void:
 	#loading game sequence from json file
@@ -45,6 +45,7 @@ func _ready() -> void:
 	cutscene_manager.finished.connect(_next_game_step)
 	job_screen.job_chosen.connect(_next_game_step)
 	current_scene_id = 0
+	current_minigame = 1
 
 	_reset_idle_timer()
 	_run_current_scene()
@@ -125,17 +126,23 @@ func _failed_minigame() -> void:
 	_run_current_scene()
 
 
-func _next_game_step() -> void:
+func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0, minigame_id: int = 0) -> void:
 	# for timeline_object in game_sequence["timelineObjects"]:
 	# 	if timeline_object["id"] == current_scene_id:
 	# 		current_scene_id = timeline_object["next_scene"]
 	# 		break
-	current_scene_id = timeline.get(str(current_scene_id)).get("next_scene")
+	if jump_to_scene:
+		current_scene_id = jump_id
+		if minigame_id != 0:
+			current_minigame = minigame_id
+	else:
+		current_scene_id = timeline.get(str(current_scene_id)).get("next_scene")
 	print(current_scene_id)
 	_run_current_scene()
 
 
 func _run_current_scene() -> void:
+	print("running")
 	# var current_scene_state
 	# var cutscene_id
 	#hidding all objects, to show only used for the current game step
@@ -156,8 +163,8 @@ func _run_current_scene() -> void:
 			cutscene_manager.visible = true
 			cutscene_manager.get_current_cutscene(timeline.get(str(current_scene_id)).get("cutscene_id"))
 		GameState.MINIGAME:
-			minigame_manager._draw_minigame(current_minigame)
 			minigame_manager.visible = true
+			minigame_manager._draw_minigame(current_minigame)
 		GameState.SPECIALIZATION_CHOICE:
 			job_screen.visible = true
 			#_next_game_step()

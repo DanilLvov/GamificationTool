@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b2wrmxy0glrd6" path="res://Assets/Backgrounds/spaceBG.png" id="2_ma218"]
 [ext_resource type="PackedScene" uid="uid://08yngngwjd1n" path="res://Scenes/StartScreen.tscn" id="2_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
-[ext_resource type="PackedScene" uid="uid://c7icyl6pvqh3b" path="res://Scenes/mini_game.tscn" id="3_syfuq"]
 [ext_resource type="Texture2D" uid="uid://ua5acfolc0aq" path="res://Assets/UI/Simple_Buttons/simple_button_normal.svg" id="4_3jcrr"]
 [ext_resource type="Texture2D" uid="uid://bbdigo31owr7a" path="res://Assets/UI/Simple_Buttons/simple_button_press.svg" id="5_ab40c"]
 [ext_resource type="PackedScene" uid="uid://deiyfl7ij7so" path="res://Scenes/minigame_controller.tscn" id="5_idohh"]
 [ext_resource type="PackedScene" uid="uid://se2a45nr7skt" path="res://Scenes/JobSelection.tscn" id="6_idohh"]
 [ext_resource type="Texture2D" uid="uid://2u84e4d67i2a" path="res://Assets/UI/Simple_Buttons/simple_button_hover.svg" id="6_sjh0l"]
+[ext_resource type="PackedScene" uid="uid://407dmngrpvf8" path="res://Scenes/debug_menu.tscn" id="11_sjh0l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
@@ -45,9 +45,6 @@ offset_bottom = 991.0
 theme_override_font_sizes/font_size = 100
 text = "Start"
 
-[node name="MiniGame" parent="." unique_id=875578804 instance=ExtResource("3_syfuq")]
-visible = false
-
 [node name="MinigameController" parent="." unique_id=45388222 instance=ExtResource("5_idohh")]
 visible = false
 
@@ -62,6 +59,20 @@ text = "Thanks For playing!"
 horizontal_alignment = 1
 
 [node name="Cutscene" parent="." unique_id=2129651268 instance=ExtResource("3_s2c3o")]
+
+[node name="RestartWarning" type="Label" parent="." unique_id=1798436796]
+visible = false
+z_index = 100
+offset_left = 830.0
+offset_top = 19.0
+offset_right = 1090.0
+offset_bottom = 122.0
+text = "are you still here?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JobSelection" parent="." unique_id=677812127 instance=ExtResource("6_idohh")]
+visible = false
 
 [node name="RestartButton" type="TextureButton" parent="." unique_id=2034850718]
 z_index = 100
@@ -87,20 +98,6 @@ offset_right = 2825.897
 offset_bottom = 397.75
 theme_override_font_sizes/font_size = 300
 text = "Restart"
-
-[node name="RestartWarning" type="Label" parent="." unique_id=1798436796]
-visible = false
-z_index = 100
-offset_left = 830.0
-offset_top = 19.0
-offset_right = 1090.0
-offset_bottom = 122.0
-text = "are you still here?"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JobSelection" parent="." unique_id=677812127 instance=ExtResource("6_idohh")]
-visible = false
 
 [node name="RestartMenu" type="PanelContainer" parent="." unique_id=1349227946]
 visible = false
@@ -136,6 +133,10 @@ text = "Yes"
 z_index = 100
 layout_mode = 2
 text = "No"
+
+[node name="DebugMenu" parent="." unique_id=597542210 instance=ExtResource("11_sjh0l")]
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
