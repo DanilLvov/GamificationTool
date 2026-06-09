@@ -13,7 +13,7 @@
     },
     "2": {
         "name": "Projektmanagement",
-        "path": "res://Assets/Objects/NewPlanets/planet3.svg",
+        "path": "res://Assets/Objects/NewPlanets/planet3_no_ring.svg",
         "scale_x": 1,
         "scale_y": 1
     }
