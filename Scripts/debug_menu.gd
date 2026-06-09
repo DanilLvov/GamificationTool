@@ -18,17 +18,19 @@ func _process(delta: float) -> void:
 func _on_show_debug_menu_pressed() -> void:
 	if (first_use):
 		first_use = false
-		var timeline: Dictionary = get_parent().timeline
+		var id = 0
+		var timeline: Array[TimelineObject] = get_parent().timeline
 		menu_grid.columns = int(sqrt(timeline.size()))
-		for id in timeline:
-			var text = timeline[id]["name"]
+		for object in timeline:
+			var text = object._name
 			
 			var button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(120, 50), text)
-			if timeline[id].has("minigame_id"):
-				button["button"].button_down.connect(_grid_button_pressed.bind(int(id),int(timeline[id]["minigame_id"])))
+			if object._resource_id != -1:
+				button["button"].button_down.connect(_grid_button_pressed.bind(id,object._resource_id))
 			else: 
-				button["button"].button_down.connect(_grid_button_pressed.bind(int(id)))
+				button["button"].button_down.connect(_grid_button_pressed.bind(id))
 			menu_grid.add_child(button["root"])
+			id += 1
 
 	debug_menu_button.visible = false
 	return_button.visible = true

@@ -1,15 +1,5 @@
 extends Node2D
 
-enum GameState {
-	# Different states for different points of the game, when switched between states UI should be updated (f.E. disable some buttons etc.)
-	START,
-	CUTSCENE,
-	MINIGAME,
-	SPECIALIZATION_CHOICE,
-	END
-}
-
-
 # Node variables, if changing node name, change it here:
 @onready var minigame_manager := $MinigameController
 @onready var cutscene_manager := $Cutscene
@@ -34,12 +24,15 @@ var debug = true
 
 var current_scene_id: int
 var current_minigame: int
-var timeline: Dictionary
+var timeline: Array[TimelineObject]
 var selected_job: String = "SOFTWAREENTWICKLUNG"
+var timeleine_json_path = "res://Database/timeline.json"
 
 func _ready() -> void:
 	#loading game sequence from json file
-	timeline = _load_timeline("res://Database/timeline.json")
+	
+	
+	timeline = TimelineObject.load_timeline_array(timeleine_json_path)
 
 	# Connecting signals for finished minigame or cutscene
 	minigame_manager.finished.connect(_next_game_step)
@@ -68,51 +61,6 @@ func _process(delta: float) -> void:
 			_on_idle_timeout()
 	
 
-# Parsing timeline json with all checks and errors
-func _load_timeline(path: String) -> Dictionary:
-	if not FileAccess.file_exists(path):
-		push_error("JSON file not found: %s" % path)
-		return {}
-
-	var file := FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		push_error("Cannot open JSON file: %s" % path)
-		return {}
-
-	var json_text := file.get_as_text()
-	var parsed = JSON.parse_string(json_text)
-
-	if parsed == null:
-		push_error("Invalid JSON in file: %s" % path)
-		return {}
-
-	if typeof(parsed) != TYPE_DICTIONARY:
-		push_error("Root JSON must be an object/dictionary")
-		return {}
-	
-	var result: Dictionary = {}
-
-	for scene_id in parsed.keys():
-		var scene_data = parsed[scene_id]
-		if typeof(scene_data) != TYPE_DICTIONARY:
-			push_error("Scene '%s' must be an object" % scene_id)
-			continue
-
-		if not scene_data.has("state"):
-			push_error("Scene '%s' has no state" % scene_id)
-			continue
-
-		var state_name: String = scene_data["state"]
-
-		if not GameState.has(state_name):
-			push_error("Unknown state '%s' in scene '%s'" % [state_name, scene_id])
-			continue
-		
-		scene_data["state"] = GameState[state_name]
-		result[scene_id] = scene_data
-
-	return result
-
 
 func _on_start_button_pressed() -> void:
 	print("pressed start button")
@@ -128,8 +76,7 @@ func _failed_minigame() -> void:
 	# 	if timeline_object["id"] == current_scene_id:
 	# 		current_scene_id = timeline_object["next_scene_fail"]
 	# 		break
-	current_scene_id = timeline.get(str(current_scene_id)).get("next_scene_fail")
-	timeline[0].next_scene
+	current_scene_id = timeline[current_scene_id]._next_scene_fail
 
 	print(current_scene_id)
 	_run_current_scene()
@@ -145,7 +92,8 @@ func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0, minigame_id:
 		if minigame_id != 0:
 			current_minigame = minigame_id
 	else:
-		current_scene_id = timeline.get(str(current_scene_id)).get("next_scene")
+		print( timeline[current_scene_id]._next_scene)
+		current_scene_id = timeline[current_scene_id]._next_scene
 	print(current_scene_id)
 	_run_current_scene()
 
@@ -165,19 +113,19 @@ func _run_current_scene() -> void:
 	# print(current_scene_state)
 
 	
-	match timeline.get(str(current_scene_id)).get("state"):
-		GameState.START:
+	match timeline[current_scene_id]._state:
+		TimelineObject.GameState.START:
 			start_screen.visible = true
-		GameState.CUTSCENE:
+		TimelineObject.GameState.CUTSCENE:
 			cutscene_manager.visible = true
-			cutscene_manager.get_current_cutscene(timeline.get(str(current_scene_id)).get("cutscene_id"))
-		GameState.MINIGAME:
+			cutscene_manager.get_current_cutscene(timeline[current_scene_id]._resource_id)
+		TimelineObject.GameState.MINIGAME:
 			minigame_manager.visible = true
 			minigame_manager._draw_minigame(current_minigame)
-		GameState.SPECIALIZATION_CHOICE:
+		TimelineObject.GameState.SPECIALIZATION_CHOICE:
 			job_screen.visible = true
 			#_next_game_step()
-		GameState.END:
+		TimelineObject.GameState.END:
 			end_screen.visible = true
 
 # TODO: Add every new scene object to this function but we never hide restart button
