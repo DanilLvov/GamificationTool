@@ -21,7 +21,7 @@ enum GameState {
 @onready var job_screen: Node = $JobSelection
 @onready var restart_warning := $RestartWarning
 @onready var end_screen := $GameEnd
-@onready var debug_menu: = $DebugMenu
+@onready var debug_menu := $DebugMenu
 
 
 # Restart timer vars:
@@ -231,5 +231,3 @@ func _input(event: InputEvent) -> void:
 			get_tree().quit()
 		if Input.is_action_just_pressed("debug") and debug:
 			debug_menu._on_show_debug_menu_pressed()
-
-

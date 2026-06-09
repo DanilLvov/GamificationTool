@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6wmbw5mi3sv1"
-path="res://.godot/imported/SpaceShip.png-e84acf70e6f0e4f429e8a3a7af8ef036.ctex"
+uid="uid://dxxqwomlrbxo8"
+path="res://.godot/imported/astronaut_life_lost.png-e4d7c560ac83901905303cae6fcdfab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpaceShip.png"
-dest_files=["res://.godot/imported/SpaceShip.png-e84acf70e6f0e4f429e8a3a7af8ef036.ctex"]
+source_file="res://Assets/Objects/astronaut_life_lost.png"
+dest_files=["res://.godot/imported/astronaut_life_lost.png-e4d7c560ac83901905303cae6fcdfab2.ctex"]
 
 [params]
 

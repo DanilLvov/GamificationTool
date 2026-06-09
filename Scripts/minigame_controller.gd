@@ -604,10 +604,10 @@ var filtered_questions = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	for live in lives:
 		var heart = TextureRect.new()
-		heart.texture = preload("res://Assets/Objects/heart.png")
+		heart.texture = preload("res://Assets/Objects/astronaut_life.png")
+		heart.scale = Vector2(0.25, 0.25)
 		_lives_hbox_container.add_child(heart)
 	
 
@@ -792,7 +792,7 @@ func _draw_question(question: Dictionary) -> void:
 				var tmp_button = UIFactory.create_texture_button(_normal_button, Vector2(200, 30), question_answer.get("text"))
 				button_button = tmp_button["button"]
 				button_root = tmp_button["root"]
-				button_button.toggle_mode  = true
+				button_button.toggle_mode = true
 				buttons.append(button_button)
 
 
@@ -806,7 +806,6 @@ func _draw_question(question: Dictionary) -> void:
 			var hBox = HBoxContainer.new()
 			hBox.add_child(confirm_button["root"])
 			confirm_button["button"].button_down.connect(func():
-				
 				var answers: Dictionary = question.get("answers", {})
 
 				for item in answers:
@@ -857,7 +856,7 @@ func _draw_question(question: Dictionary) -> void:
 			drag_and_drop_res["categories"].resize(drag_and_drop_res["categories_amount"])
 			var index = 0
 			for categorie_key in question.get("categories"):
-				var tmp := UIFactory.create_colored_panel_container(Vector2 (150, 150))
+				var tmp := UIFactory.create_colored_panel_container(Vector2(150, 150))
 				var root = tmp["root"]
 				root.set_meta("category_id", categorie_key)
 				footer.add_child(root)
@@ -1107,7 +1106,7 @@ func _answer_wrong() -> void:
 
 	lives -= 1
 
-	_lives_hbox_container.get_child(lives).texture = preload("res://Assets/Objects/broken_heart.png")
+	_lives_hbox_container.get_child(lives).texture = preload("res://Assets/Objects/astronaut_life_lost.png")
 	_shake_node(_lives_hbox_container.get_child(lives))
 
 	await get_tree().create_timer(0.5).timeout

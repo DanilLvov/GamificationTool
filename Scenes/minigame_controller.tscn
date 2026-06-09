@@ -47,10 +47,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uojix")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1172468984]
 z_index = 90
 layout_mode = 0
-offset_left = 593.0
-offset_top = 963.00006
-offset_right = 5059.0
-offset_bottom = 1164.0
+offset_left = 496.0
+offset_top = 973.00006
+offset_right = 4962.0
+offset_bottom = 1174.0
 scale = Vector2(0.15, 0.4)
 texture_under = ExtResource("2_5tdtq")
 texture_progress = ExtResource("3_qu1g1")
@@ -58,12 +58,11 @@ texture_progress = ExtResource("3_qu1g1")
 [node name="LivesHBoxContainer" type="HBoxContainer" parent="." unique_id=1719098142]
 z_index = 100
 layout_mode = 0
-offset_left = 1426.0
-offset_top = 932.00006
-offset_right = 18833.402
-offset_bottom = 3006.0742
-scale = Vector2(0.027, 0.027)
-theme_override_constants/separation = 500
-alignment = 1
+offset_left = 1355.0
+offset_top = 903.0
+offset_right = 2094.0
+offset_bottom = 1116.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/separation = 50
 
 [connection signal="pressed" from="Button" to="." method="_on_next_button_pressed"]
