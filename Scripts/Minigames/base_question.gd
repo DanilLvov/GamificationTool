@@ -19,8 +19,9 @@ class Answer:
 signal signal_correct
 signal signal_wrong
 
-var _margin_default  := 20
-var _normal_button = UIFactory.UIElementTypes.NORMAL_BUTTON
+#used only in inherited classes
+@warning_ignore("unused_private_class_variable") var _margin_default  := 20
+@warning_ignore("unused_private_class_variable") var _normal_button = UIFactory.UIElementTypes.NORMAL_BUTTON
 
 var _question: String
 var _job: String
@@ -29,6 +30,7 @@ var _extra_content_type: ContentType
 var _answers_amount: int
 var _solution: Array
 var _answers: Array[Answer]
+var _extra_objects: Dictionary
 
 var _question_container
 var _header: Control
@@ -42,23 +44,24 @@ func _init(
     solution: Array,
     answers: Array[Answer],
     extra_content_text: String,
-    extra_content_type: ContentType
+    extra_content_type: ContentType,
+    extra_objects: Dictionary
+
 ) -> void:
     _question = question
     _job = job
     _answers_amount = answers_amount
     _solution = solution
     _answers = answers
+    _extra_objects = extra_objects
 
     # don't forget to check if this are empty
     _extra_content_text = extra_content_text
     _extra_content_type = extra_content_type 
 
 func draw(minigame_base: Control) -> void:
-    # Clear container for next minigame
-    if _question_container != null:
-        _question_container["root"].queue_free()
-
+    # firstly handling any extra objects that we have, normaly does nothing
+    handle_extra_objects()
 
     # _next_button = UIFactory.create_texture_button(_normal_button, Vector2(150, 30), "Next")
     # _next_button["button"].button_down.connect(_on_next_button_pressed)
@@ -100,6 +103,9 @@ func _answer_correct() -> void:
 func _answer_wrong() -> void:
     emit_signal("signal_wrong")
 
+func delete() -> void:
+    _question_container.get("root").queue_free()
+
 @abstract func draw_question()
 # used to draw question related UI inside of UIFactory panelcontainer
 
@@ -135,3 +141,7 @@ func _drag_node_with_mouse(root: Control, offset: Vector2 = Vector2.ZERO) -> voi
 
     root.global_position = new_pos
 
+
+# if extra information and/or objects are needed for game functionality, they can be added in this function
+func handle_extra_objects() -> void:
+    pass

@@ -30,17 +30,9 @@ signal finished
 var current_question: int
 var current_minigame: MinigameObject
 var margin_default  := 20
-var _normal_button = UIFactory.UIElementTypes.NORMAL_BUTTON
-
 
 # nodes
-var _question_container
-var _header: Control
-var _content: Control
-var _footer: Control
 @onready var _minigame_container := $MinigameContent
-
-var _next_button
 
 var minigames: Array[MinigameObject]
 
@@ -52,6 +44,8 @@ func load_minigames(minigame_json_path):
 # splitted into 3 levels: (minigame, question, content)
 # minigame (whole minigame from start to finish)
 func _draw_minigame(id: int) -> void:
+	for child in _minigame_container.get_children():
+		child.queue_free()
 	var game = get_parent()
 	selected_job = game.selected_job
 	current_question = 0
@@ -83,7 +77,7 @@ func _draw_minigame(id: int) -> void:
 
 func _on_next_button_pressed() -> void:
 	current_question += 1
-	if current_question == 3: #current_minigame.get("questions_amount"):
+	if current_question == 5: #current_minigame.get("questions_amount"):
 		_texture_progress_bar.value = 0
 		emit_signal("finished")
 	else:
@@ -112,16 +106,8 @@ func _answer_correct() -> void:
 
 	await get_tree().create_timer(0.5).timeout
 	_event_feedback_frame.visible = false
-
-	_minigame_container.get_child(0).queue_free()
-	# for child in _content.get_children():
-	# 	child.queue_free()
-	# for child in _header.get_children():
-	# 	child.queue_free()
-	# for child in _footer.get_children():
-	# 	child.queue_free()
-	# _content.add_child(_next_button["root"])
-	# print("Correct!")
+	
+	filtered_questions[current_question].delete()
 	_on_next_button_pressed()
 
 # Handling of wrong answer

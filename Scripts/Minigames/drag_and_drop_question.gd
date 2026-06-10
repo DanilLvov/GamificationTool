@@ -1,32 +1,26 @@
 extends BaseQuestion
 class_name DragAndDropQuestion
 
-# var drag_and_drop_res = {
-# 	"dragging": false,
-# 	"offset": Vector2.ZERO,
-# 	"start": Vector2.ZERO,
-# 	"categories": [],
-# 	"categories_amount": 0,
-# 	"answers_completed": 0,
-# 	"answers_amount": 0
-# }
-
 var dragging = false
 var start = Vector2.ZERO
 var offset = Vector2.ZERO
-var categories = []
-var categories_amount = 0
 var answers_completed = 0
-var answers_amount = 0
+var _categorie_nodes = []
+
+# extra contents from extra_object
+var _categories_amount: int
+var _categorie_names: Array
 
 func draw_question() -> void:
+
+    var id = 0
     for answer in _answers:
         var tmp := UIFactory.create_colored_panel_container(Vector2(150, 50))
         var root = tmp["root"]
-        root.set_meta("category_id", answer["answer"])
+        root.set_meta("category_id", _solution[id])
         _content.add_child(root)
         root.gui_input.connect(handle_answer.bind(root))
-        answers_amount += 1
+        _answers_amount += 1
 
         # Adding content
         var content = _draw_content(answer)
@@ -34,30 +28,34 @@ func draw_question() -> void:
         root.z_index = 1
         root.modulate.a = 0.0
         root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+         
+        id += 1
 				
-        _content.get_child(0).modulate.a = 1.0
-        _content.get_child(0).mouse_filter = Control.MOUSE_FILTER_STOP
+    _content.get_child(0).modulate.a = 1.0
+    _content.get_child(0).mouse_filter = Control.MOUSE_FILTER_STOP
 
-        var footer = HBoxContainer.new()
-        footer.add_theme_constant_override("separation", _margin_default)
-        _footer.add_child(footer)
+    var footer = HBoxContainer.new()
+    footer.add_theme_constant_override("separation", _margin_default)
+    _footer.add_child(footer)
+
+       
 
     # Categories for Drag and Drop
-    # categories_amount = question.get("categories_amount")
-    # categories.resize(drag_and_drop_res["categories_amount"])
-    # var index = 0
-    # for categorie_key in question.get("categories"):
-    #     var tmp := UIFactory.create_colored_panel_container(Vector2(150, 150))
-    #     var root = tmp["root"]
-    #     root.set_meta("category_id", categorie_key)
-    #     footer.add_child(root)
+    #categories_amount = question.get("categories_amount")
+    _categorie_nodes.resize(_categories_amount)
+    var index = 0
+    for categorie in _categorie_names:
+        var tmp := UIFactory.create_colored_panel_container(Vector2(150, 150))
+        var root = tmp["root"]
+        root.set_meta("category_id", index)
+        footer.add_child(root)
 
-    #     drag_and_drop_res["categories"][index] = root
-    #     index += 1
+        _categorie_nodes[index] = root
+        index += 1
 
-    #     # Adding content
-    #     var content = UIFactory.create_label(question["categories"][categorie_key])
-    #     root.add_child(content["root"])
+        # Adding content
+        var content = UIFactory.create_label(categorie)
+        root.add_child(content["root"])
 
 
 func handle_answer(event: InputEvent = null, root: Control = null) -> void:
@@ -77,8 +75,8 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
             var min_overlap_ratio := 0.25
             var answer_rect: Rect2 = root.get_global_rect()
             var answer_area := answer_rect.size.x * answer_rect.size.y
-            for category in categories:
-                var category_rect: Rect2 = category.get_global_rect()
+            for node in _categorie_nodes:
+                var category_rect: Rect2 = node.get_global_rect()
 
                 if answer_rect.intersects(category_rect):
                     var intersection: Rect2 = answer_rect.intersection(category_rect)
@@ -87,7 +85,7 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
 
                     if overlap_ratio > best_overlap_ratio and overlap_ratio >= min_overlap_ratio:
                         best_overlap_ratio = overlap_ratio
-                        best_category = category
+                        best_category = node
 
             
             if best_category == null:
@@ -100,7 +98,7 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
                 _answer_wrong()
             else:
                 answers_completed += 1
-                if answers_completed == answers_amount:
+                if answers_completed == _answers_amount:
                     _answer_correct()
         
                 var target = best_category.global_position + best_category.size / 2.0
@@ -121,7 +119,7 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
                 
                 await tween.finished
                 answers_completed += 1
-                if answers_completed == answers_amount:
+                if answers_completed == _answers_amount:
                     _answer_correct()
                 parent.remove_child(root)
                 root.queue_free()
@@ -129,3 +127,8 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
 
     elif event is InputEventMouseMotion and dragging:
         _drag_node_with_mouse(root, offset)
+
+func handle_extra_objects() -> void:
+    _categories_amount = _extra_objects["categories_amount"]
+    _categorie_names = _extra_objects["categories"]
+    

@@ -1,16 +1,6 @@
 extends BaseQuestion
 class_name OrderQuestion
 
-# var ordering_res = {
-# 	"dragging": false,
-# 	"offset": Vector2.ZERO,
-# 	"positions_x": [],
-# 	"y": 0,
-# 	"nodes": [],
-# 	"amount": 0,
-# 	"order": []
-# }
-
 var dragging = false
 var offset = Vector2.ZERO
 var positions_x = []

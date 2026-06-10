@@ -35,6 +35,7 @@ func draw_question() -> void:
         buttons.append(button_button)
 
 
+        @warning_ignore("integer_division")
         if _answers_amount > 3 and (i > (_answers_amount + 1) / 2 - 1): # Two rows
             answers_row_2.add_child(button_root)
         
@@ -50,7 +51,7 @@ func draw_question() -> void:
     hBox.add_theme_constant_override("separation", _margin_default)
     _footer.add_child(hBox)
 
-func handle_answer(event: InputEvent = null, root: Control = null):
+func handle_answer(_event: InputEvent = null, _root: Control = null):
     for i in _answers_amount:
         var is_pressed: bool = buttons[i].button_pressed
 

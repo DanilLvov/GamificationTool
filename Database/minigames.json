@@ -210,15 +210,18 @@
 				}
 			},
 			{
-				"question": "Was sollte mit diesem Commit passieren?",
+				"question": "Was sollte mit diesem Commit passieren? 1,2,3,3,2",
 				"question_type": "DRAG_AND_DROP",
 				"job": "SOFTWAREENTWICKLUNG",
 				"answers_amount": 5,
-				"categories_amount": 3,
-				"categories": {
-					"1": "gut",
-					"2": "naja",
-					"3": "nein"
+				"solution": [0,1,2,2,1],
+				"extra_objects": {
+					"categories_amount": 3,
+					"categories": [
+						"gut",
+						"naja",
+						"nein"
+					]
 				},
 				"answers": {
 					"0": {

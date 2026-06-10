@@ -98,6 +98,7 @@ static func load_minigame_array(path) -> Array[MinigameObject]:
             var answers_amount: int
             var solution: Array
             var answers: Array[BaseQuestion.Answer]  
+            var extra_objects: Dictionary = {}
 
             if typeof(question) != TYPE_DICTIONARY:
                 push_error("Question of minigame: '%s' must be of Type Dictionary" % minigame_id)
@@ -158,6 +159,9 @@ static func load_minigame_array(path) -> Array[MinigameObject]:
                continue
                
             solution = question["solution"]
+            
+            # if question has no extra objects, returns null
+            extra_objects = question.get("extra_objects", {})
 
             if not question.has("answers"):
                 push_error("Question '%s' has no answers" % question_text)
@@ -203,7 +207,8 @@ static func load_minigame_array(path) -> Array[MinigameObject]:
                     solution,
                     answers,
                     extra_content_text,
-                    extra_content_type
+                    extra_content_type,
+                    extra_objects,
                 )
             )
             

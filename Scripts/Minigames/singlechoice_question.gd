@@ -29,6 +29,7 @@ func draw_question():
         button_button = tmp_button["button"]
         button_root = tmp_button["root"]
 
+        @warning_ignore("integer_division")
         if _answers_amount > 3 and (i > (answers_amount + 1) / 2 - 1): # Two rows
             answers_row_2.add_child(button_root)
 
@@ -42,5 +43,5 @@ func draw_question():
 
         i += 1
 
-func handle_answer(event: InputEvent = null, root: Control = null):
+func handle_answer(_event: InputEvent = null, _root: Control = null):
     pass
