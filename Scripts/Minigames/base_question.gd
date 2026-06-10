@@ -130,6 +130,7 @@ static func _shake_node(root: Control) -> void:
 
 
 # function that allows to drag any Control Node with mouse, offset is optional
+# dragging sets z index to 2, you need to return it to 1 manualy
 func _drag_node_with_mouse(root: Control, offset: Vector2 = Vector2.ZERO) -> void:
     root.z_index = 2
     var new_pos: Vector2 = root.get_global_mouse_position() - offset

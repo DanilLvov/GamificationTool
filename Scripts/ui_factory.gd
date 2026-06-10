@@ -54,6 +54,16 @@ const MINIGAME_BACKGROUNDS = {
 }
 const CONTAINER_TEXTURE = preload("res://assets/ui/frames/simple_Question_Frame.svg")
 
+const SEQUENCE_CARDS = {
+	"end_hover": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_End_Hover.svg"),
+	"end": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_End.svg"),
+	"start_hover": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_Start_Hover.svg"),
+	"start": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_Start.svg"),
+	"normal_hover": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_Hover.svg"),
+	"normal": preload("res://Assets/UI/Sequence_Cards/Sequence_Card.svg")
+}
+	
+
 static var _margin_default  := 20
 
 static func create_label(text: String) -> Dictionary:
@@ -227,15 +237,7 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 
 	layout.add_child(header)
 	layout.add_child(content)
-	layout.add_child(footer)
-
-
-
-	# var frame := NinePatchRect.new()
-	# frame.texture = preload("res://assets/ui/your_frame.png")
-	# frame.custom_minimum_size = Vector2(500, 300)
-
-	
+	layout.add_child(footer)	
 	
 	var style := StyleBoxTexture.new()
 	style.texture = CONTAINER_TEXTURE
@@ -250,6 +252,31 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 		"header": header,
 		"content": content,
 		"footer": footer
+	}
+
+static func create_ordering_container(size: Vector2 = Vector2(50, 50)) -> Dictionary:
+
+	var root = PanelContainer.new()
+	root.custom_minimum_size = size
+
+	var start = StyleBoxTexture.new()
+	var middle = StyleBoxTexture.new()
+	var end = StyleBoxTexture.new()
+	var start_hover = StyleBoxTexture.new()
+	var middle_hover = StyleBoxTexture.new()
+	var end_hover = StyleBoxTexture.new()
+	start.texture = SEQUENCE_CARDS.get("start")
+	start_hover.texture = SEQUENCE_CARDS.get("start_hover")
+	end.texture = SEQUENCE_CARDS.get("end")
+	end_hover.texture = SEQUENCE_CARDS.get("end_hover")
+	middle.texture = SEQUENCE_CARDS.get("normal")
+	middle_hover.texture = SEQUENCE_CARDS.get("normal_hover")
+
+
+	return {
+		"root": root,
+		"normal": [start, middle, end],
+		"hover":  [start_hover, middle_hover, end_hover]
 	}
 
 static func create_colored_panel_container(

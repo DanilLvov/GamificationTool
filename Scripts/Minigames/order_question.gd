@@ -1,28 +1,41 @@
 extends BaseQuestion
 class_name OrderQuestion
 
+class NodeForOrder:
+    var _node
+    var _style
+
+    func _init(node, style) -> void:
+        _node = node
+        _style = style
+
 var dragging = false
 var offset = Vector2.ZERO
 var positions_x = []
 var y = 0
-var nodes = []
+var nodes: Array[NodeForOrder] = []
 var order = []
 
 func draw_question() -> void:
     var rows = HBoxContainer.new()
     nodes.resize(_answers_amount)
-    order.resize(_answers_amount)
     positions_x.resize(_answers_amount)
-
+    order.resize(_answers_amount)
     var i = 0
     for answer in _answers:
-        var tmp := UIFactory.create_colored_panel_container(Vector2(180, 50))
+        var tmp := UIFactory.create_ordering_container(Vector2(180, 50))
         var root = tmp["root"]
+        var style = tmp["normal"]
         root.gui_input.connect(handle_answer.bind(root))
-        nodes[i] = root
+        nodes[i] = NodeForOrder.new(root, style)
         order[i] = i
         rows.add_child(root)
-
+        if i == 0:
+            root.add_theme_stylebox_override("panel", style[0])
+        elif i < _answers_amount - 1:
+            root.add_theme_stylebox_override("panel", style[1]) 
+        else:
+            root.add_theme_stylebox_override("panel", style[2]) 
         # Adding content
         var content = _draw_content(answer)
         root.add_child(content["root"])
@@ -50,7 +63,7 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
             #print(nodes)
             for i in _answers_amount:
                 var id = order[i]
-                positions_x[i] = nodes[id].global_position.x
+                positions_x[i] = nodes[id]._node.global_position.x
             y = root.global_position.y
             dragging = true
             offset = root.get_global_mouse_position() - root.global_position
@@ -71,7 +84,7 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
                 if dif < min_dist:
                     target_node_id = i
                     min_dist = dif
-                if nodes[id] == root:
+                if nodes[id]._node == root:
                     current_node_id = i
             
             # reorder all current containers
@@ -90,7 +103,22 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
             for i in _answers_amount:
                 var id = order[i]
                 var targ = positions_x[i]
-                tween.parallel().tween_property(nodes[id], "global_position", Vector2(targ, y), 0.1)
+                tween.parallel().tween_property(nodes[id]._node, "global_position", Vector2(targ, y), 0.1)
+                
+            
+            print(order)
+            for i in _answers_amount:
+                var node = nodes[order[i]]
+                node._node.remove_theme_stylebox_override("panel")
+                if i == 0:
+                    node._node.add_theme_stylebox_override("panel", node._style[0])
+                elif i < _answers_amount - 1:
+                    node._node.add_theme_stylebox_override("panel", node._style[1]) 
+                else:
+                    node._node.add_theme_stylebox_override("panel", node._style[2]) 
+                
+
+                
                     
 
     elif event is InputEventMouseMotion and dragging:
