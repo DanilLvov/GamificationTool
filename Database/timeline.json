@@ -31,7 +31,7 @@
 		"name": "Minigame 1 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 3,
-		"next_scene": 6
+		"next_scene": 1
 	},
 	"6": {
 		"name": "Next Minigame 1",
@@ -56,7 +56,7 @@
 		"name": "Minigame 2 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
-		"next_scene": 10
+		"next_scene": 1
 	},
 	"10": {
 		"name": "Next Minigame 2",
@@ -80,7 +80,7 @@
 		"name": "Minigame 3 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
-		"next_scene": 14
+		"next_scene": 1
 	},
 	"14": {
 		"name": "Next Minigame 3",
@@ -104,7 +104,7 @@
 		"name": "Minigame 4 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
-		"next_scene": 18
+		"next_scene": 1
 	},
 	"18": {
 		"name": "Next Minigame 4",
@@ -128,7 +128,7 @@
 		"name": "Mingame 5 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 0,
-		"next_scene": 22
+		"next_scene": 1
 	},
 	"22": {
 		"name": "End Cutscene",
