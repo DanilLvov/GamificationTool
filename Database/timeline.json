@@ -18,6 +18,7 @@
 	"3": {
 		"name": "Mingame 1",
 		"state": "MINIGAME",
+		"minigame_id": 0,
 		"next_scene": 4,
 		"next_scene_fail": 5
 	},
@@ -42,6 +43,7 @@
 	"7": {
 		"name": "Minigame 2",
 		"state": "MINIGAME",
+		"minigame_id": 1,
 		"next_scene": 8,
 		"next_scene_fail": 9,
 		"next_scene_complete_fail": 1
@@ -49,19 +51,19 @@
 	"8": {
 		"name": "Mingame 2 Success",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 4,
 		"next_scene": 10
 	},
 	"9": {
 		"name": "Minigame 2 Fail",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 5,
 		"next_scene": 1
 	},
 	"10": {
 		"name": "Next Minigame 2",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 6,
 		"next_scene": 11
 	},
 	"11": {

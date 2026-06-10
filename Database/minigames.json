@@ -2,9 +2,10 @@
 	"1": {
 		"name": "Minigame1",
 		"questions_amount": 4,
+		"background_image_path": "Minigame1",
 		"questions":
 			[ {
-				"question": "hui",
+				"question": "Erste ganz wichtige Frage",
 				"question_type": "SINGLECHOICE",
 				"job": "SOFTWAREENTWICKLUNG",
 				"solution": [0, 1, 0, 0],
@@ -295,6 +296,7 @@
 		"2": {
 		"name": "Minigame 2",
 		"questions_amount": 4,
+		"background_image_path": "Minigame2",
 		"questions":
 			[ {
 				"question": "Was sollte mit diesem Commit passieren?",

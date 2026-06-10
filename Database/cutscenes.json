@@ -2,7 +2,7 @@
     "0": {
         "name": "test",
         "subtitles": "Der Kontrollraum explodiert gleich, bitte helfe mir ihn vor dem Explodieren zu bewahren!",
-        "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
         "objects": [
             {
                 "id": 0,
@@ -31,7 +31,7 @@
     "1": {
         "name": "blablabla",
         "subtitles": "Die Engines sind kaputt, bitte repariere sie!",
-        "backgroundImagePath": "res://Assets/Backgrounds/EngineRoom.jpg",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Intro.PNG",
         "objects": [
             {
                 "id": 0,
@@ -49,7 +49,7 @@
     "2": {
         "name": "Minigame 1 Succes",
         "subtitles": "juhu, wir können weiter fliegen, du hast mich gerettet",
-        "backgroundImagePath": "",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Win.PNG",
         "objects": [
             {
                 "id": 0,
@@ -67,7 +67,7 @@
     "3": {
         "name": "Minigame 1 Fail",
         "subtitles": "Das Schiff ist explodiert ... ",
-        "backgroundImagePath": "res://Assets/Backgrounds/ControllRoom.png",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Fail.PNG",
         "objects": [
             {
                 "id": 2,
@@ -85,7 +85,7 @@
     "4": {
         "name": "Cutscene 5",
         "subtitles": "Cutscene 5",
-        "backgroundImagePath": "",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Win.PNG",
         "objects": [
             {
                 "id": 0,
@@ -110,7 +110,7 @@
     "5": {
         "name": "Cutscene 6",
         "subtitles": "Cutscene 6",
-        "backgroundImagePath": "",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Fail.PNG",
         "objects": [
             {
                 "id": 0,

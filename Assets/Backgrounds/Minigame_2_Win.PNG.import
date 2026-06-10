@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjw3wst8wx3mi"
-path="res://.godot/imported/ControllRoom.png-98c7cb927103fc8f806cebcdf4b458d7.ctex"
+uid="uid://ckilrdbloqmj3"
+path="res://.godot/imported/Minigame_2_Win.PNG-44a6943464f4164683e55f215ac15261.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/ControllRoom.png"
-dest_files=["res://.godot/imported/ControllRoom.png-98c7cb927103fc8f806cebcdf4b458d7.ctex"]
+source_file="res://Assets/Backgrounds/Minigame_2_Win.PNG"
+dest_files=["res://.godot/imported/Minigame_2_Win.PNG-44a6943464f4164683e55f215ac15261.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1920
 detect_3d/compress_to=1
