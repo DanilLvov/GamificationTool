@@ -25,7 +25,7 @@ func draw_question():
         vBox.add_child(answers_row_2)
     var i = 0
     for answer in _answers:
-        var tmp_button = UIFactory.create_texture_button(_normal_button, Vector2(200, 30), answer._text)
+        var tmp_button = UIFactory.create_texture_button(_answer_button, Vector2(200, 30), answer._text)
         button_button = tmp_button["button"]
         button_root = tmp_button["root"]
 

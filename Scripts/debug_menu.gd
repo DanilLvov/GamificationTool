@@ -12,7 +12,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
  
 func _on_show_debug_menu_pressed() -> void:
@@ -23,7 +23,7 @@ func _on_show_debug_menu_pressed() -> void:
 		menu_grid.columns = int(sqrt(timeline.size()))
 		for object in timeline:
 			var text = object._name
-			
+
 			var button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(120, 50), text)
 			if object._resource_id != -1:
 				button["button"].button_down.connect(_grid_button_pressed.bind(id,object._resource_id))
@@ -36,6 +36,10 @@ func _on_show_debug_menu_pressed() -> void:
 	return_button.visible = true
 	grid_center_container.visible = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
+
+func _on_skip_minigame_pressed() -> void:
+	# TODO skip only if currently playing minigame
+	pass
 
 func _on_show_return_button() -> void:
 	debug_menu_button.visible = true

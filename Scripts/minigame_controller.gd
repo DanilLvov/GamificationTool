@@ -46,6 +46,11 @@ func load_minigames(minigame_json_path):
 func _draw_minigame(id: int) -> void:
 	for child in _minigame_container.get_children():
 		child.queue_free()
+
+	var bg_path = minigames[id]._background_image_path
+	var minigame_bg = UIFactory.create_background(bg_path)
+
+	_minigame_container.add_child(minigame_bg["root"])
 	var game = get_parent()
 	selected_job = game.selected_job
 	current_question = 0
@@ -59,7 +64,7 @@ func _draw_minigame(id: int) -> void:
 	# draw first question, if answer was correct, draw second, if not play explosion animation and try again
 	# probably possible to do via await, or via two functions _answer_corre unknown ct and answer_wrong at the bottom of the script
 	#_minigame_container.add_child(UIFactory.create_dragable_container())
-	current_minigame = minigames[0]
+	current_minigame = minigames[id]
 	_texture_progress_bar.max_value = current_minigame._questions_amount
 	filtered_questions.clear()
 	print("selected_job = ", selected_job)
@@ -77,7 +82,7 @@ func _draw_minigame(id: int) -> void:
 
 func _on_next_button_pressed() -> void:
 	current_question += 1
-	if current_question == 5: #current_minigame.get("questions_amount"):
+	if current_question == current_minigame.get("questions_amount"):
 		_texture_progress_bar.value = 0
 		emit_signal("finished")
 	else:

@@ -11,6 +11,7 @@ enum UIElementTypes {
 	ROUND_ARROW_BUTTON,
 	ROUND_ARROW_BUTTON_MIRRORED,
 	RESET_BUTTON,
+	ANSWER_BACKGROUND
 }
 # TODO(optional): load list of resources from directory
 const BUTTONS = {
@@ -38,11 +39,22 @@ const BUTTONS = {
 		"normal": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_normal.svg"),
 		"hover": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_hover.svg"),
 		"pressed": preload("res://assets/ui/Simple_Buttons/simple_button_round_reset_press.svg")
+	},
+	UIElementTypes.ANSWER_BACKGROUND: {
+		"normal": preload("res://assets/ui/frames/answers/answer_background.svg"),
+		"hover": preload("res://assets/ui/frames/answers/answer_background_hover.svg"),
+		"pressed": preload("res://assets/ui/frames/answers/answer_background_press.svg")
 	}
-
 }
 
+# add all backgrounds here
+const MINIGAME_BACKGROUNDS = {
+	"Minigame1": preload("res://Assets/Backgrounds/Minigame_1.PNG"),
+	"Minigame2": preload("res://Assets/Backgrounds/Minigame_2.PNG")
+}
 const CONTAINER_TEXTURE = preload("res://assets/ui/frames/simple_Question_Frame.svg")
+
+static var _margin_default  := 20
 
 static func create_label(text: String) -> Dictionary:
 	var root := MarginContainer.new()
@@ -55,6 +67,7 @@ static func create_label(text: String) -> Dictionary:
 	var label := Label.new()
 	#label.custom_minimum_size = Vector2(50, 20)
 	label.text = text
+	label.add_theme_color_override("font_color", Color.BLACK)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -200,6 +213,7 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	root.add_child(margin)
 
 	var layout := VBoxContainer.new()
+	layout.add_theme_constant_override("separation", _margin_default)
 	margin.add_child(layout)
 
 	var header := VBoxContainer.new()
@@ -267,4 +281,18 @@ static func create_colored_panel_container(
 	return {
 		"root": root,
 		"style": style
+	}
+
+static func create_background(path: String) -> Dictionary:
+	var root := TextureRect.new()
+
+	root.texture = MINIGAME_BACKGROUNDS.get(path)
+
+	root.custom_minimum_size = Vector2(1920,1080)
+	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	root.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	root.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+
+	return {
+		"root": root
 	}

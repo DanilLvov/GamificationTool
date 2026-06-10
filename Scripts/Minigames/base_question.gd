@@ -22,6 +22,7 @@ signal signal_wrong
 #used only in inherited classes
 @warning_ignore("unused_private_class_variable") var _margin_default  := 20
 @warning_ignore("unused_private_class_variable") var _normal_button = UIFactory.UIElementTypes.NORMAL_BUTTON
+@warning_ignore("unused_private_class_variable") var _answer_button = UIFactory.UIElementTypes.ANSWER_BACKGROUND
 
 var _question: String
 var _job: String

@@ -42,7 +42,7 @@ func _ready() -> void:
 	cutscene_manager.finished.connect(_next_game_step)
 	job_screen.job_chosen.connect(_next_game_step)
 	current_scene_id = 0
-	current_minigame = 1
+	current_minigame = 0
 
 	# Debuf specific staff
 	if debug:
@@ -91,11 +91,14 @@ func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0, minigame_id:
 	# 		break
 	if jump_to_scene:
 		current_scene_id = jump_id
-		if minigame_id != 0:
+		if minigame_id != 0:	
 			current_minigame = minigame_id
 	else:
 		print( timeline[current_scene_id]._next_scene)
 		current_scene_id = timeline[current_scene_id]._next_scene
+		
+		if timeline[current_scene_id]._state == TimelineObject.GameState.MINIGAME:
+			current_minigame = timeline[current_scene_id]._resource_id
 	print(current_scene_id)
 	_run_current_scene()
 

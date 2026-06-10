@@ -39,9 +39,17 @@ text = "Return"
 layout_mode = 0
 offset_left = 26.0
 offset_top = 956.0
-offset_right = 179.0
+offset_right = 176.0
 offset_bottom = 1046.0
 text = "ShowDebugMenu"
+
+[node name="Skip minigame" type="Button" parent="." unique_id=1537664671]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 864.0
+offset_right = 174.0
+offset_bottom = 946.0
+text = "Skip Minigame"
 
 [connection signal="pressed" from="Return" to="." method="_on_show_return_button"]
 [connection signal="pressed" from="ShowDebugButton" to="." method="_on_show_debug_menu_pressed"]
