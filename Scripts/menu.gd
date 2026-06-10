@@ -27,12 +27,14 @@ var current_minigame: int
 var timeline: Array[TimelineObject]
 var selected_job: String = "SOFTWAREENTWICKLUNG"
 var timeleine_json_path = "res://Database/timeline.json"
+var minigame_json_path = "res://Database/minigames.json"	
 
 func _ready() -> void:
 	#loading game sequence from json file
 	
 	
 	timeline = TimelineObject.load_timeline_array(timeleine_json_path)
+	minigame_manager.load_minigames(minigame_json_path)
 
 	# Connecting signals for finished minigame or cutscene
 	minigame_manager.finished.connect(_next_game_step)
