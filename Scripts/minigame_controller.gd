@@ -55,7 +55,7 @@ var minigames := {
 			{
 				"question": "Wie sollte der Post veröffentlicht werden? (answers 1,3)",
 				"question_type": minigame_type.MULTICHOICE,
-				"job": "SOFTWAREENTWICKLUNG",
+				"job": "MARKETING",
 				"extra_content": {
 					"text": "Neues Feature",
 					"content_type": content_type.NORMAL_QUESTION,
