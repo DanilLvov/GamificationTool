@@ -198,7 +198,6 @@ static func load_minigame_array(path) -> Array[MinigameObject]:
 
             var question_class = QUESTION_CLASSES.get(question_type)
             # Match for different question types
-            print("made question for " + minigame_id)
             questions.append(
                 question_class.new(
                     question_text,
@@ -223,7 +222,6 @@ static func load_minigame_array(path) -> Array[MinigameObject]:
             )
         )
 
-    print(array)
     return array
 
 

@@ -91,6 +91,5 @@ static func load_timeline_array(path: String) -> Array:
         
         array.append(TimelineObject.new(name, state, int(next_scene), int(resource_id), int(next_scene_fail)))
 
-    print(array)
     return array
 

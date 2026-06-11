@@ -115,6 +115,10 @@ func _answer_correct() -> void:
 	filtered_questions[current_question].delete()
 	_on_next_button_pressed()
 
+func _skip_answer() -> void:
+	filtered_questions[current_question].delete()
+	_on_next_button_pressed()
+
 # Handling of wrong answer
 func _answer_wrong() -> void:
 	_event_feedback_frame.visible = true

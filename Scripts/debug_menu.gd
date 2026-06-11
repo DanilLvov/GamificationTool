@@ -38,7 +38,7 @@ func _on_show_debug_menu_pressed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 
 func _on_skip_minigame_pressed() -> void:
-	# TODO skip only if currently playing minigame
+	get_parent().minigame_manager._skip_answer()
 	pass
 
 func _on_show_return_button() -> void:

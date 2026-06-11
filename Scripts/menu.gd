@@ -12,6 +12,7 @@ extends Node2D
 @onready var restart_warning := $RestartWarning
 @onready var end_screen := $GameEnd
 @onready var debug_menu := $DebugMenu
+@onready var skip_minigame: = $"DebugMenu/Skip minigame"
 
 
 # Restart timer vars:
@@ -65,7 +66,6 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	print("pressed start button")
 	start_button.visible = false
 	start_label.visible = false
 	var _waiter = await start_screen._start_pressed()
@@ -79,8 +79,6 @@ func _failed_minigame() -> void:
 	# 		current_scene_id = timeline_object["next_scene_fail"]
 	# 		break
 	current_scene_id = timeline[current_scene_id]._next_scene_fail
-
-	print(current_scene_id)
 	_run_current_scene()
 
 
@@ -94,7 +92,6 @@ func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0, minigame_id:
 		if minigame_id != 0:	
 			current_minigame = minigame_id
 	else:
-		print( timeline[current_scene_id]._next_scene)
 		current_scene_id = timeline[current_scene_id]._next_scene
 		
 		if timeline[current_scene_id]._state == TimelineObject.GameState.MINIGAME:
@@ -104,7 +101,6 @@ func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0, minigame_id:
 
 
 func _run_current_scene() -> void:
-	print("running")
 	# var current_scene_state
 	# var cutscene_id
 	#hidding all objects, to show only used for the current game step
@@ -115,7 +111,6 @@ func _run_current_scene() -> void:
 	# 		if current_scene_state == "GameState.CUTSCENE":
 	# 			cutscene_id = timeline_object["cutscene_id"]
 	# 		break
-	# print(current_scene_state)
 
 	
 	match timeline[current_scene_id]._state:
@@ -125,6 +120,7 @@ func _run_current_scene() -> void:
 			cutscene_manager.visible = true
 			cutscene_manager.get_current_cutscene(timeline[current_scene_id]._resource_id)
 		TimelineObject.GameState.MINIGAME:
+			if debug: skip_minigame.visible = true
 			minigame_manager.visible = true
 			minigame_manager._draw_minigame(current_minigame)
 		TimelineObject.GameState.SPECIALIZATION_CHOICE:
@@ -135,6 +131,7 @@ func _run_current_scene() -> void:
 
 # TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
+	if debug: skip_minigame.visible = false
 	end_screen.visible = false
 	start_screen.visible = false
 	minigame_manager.visible = false

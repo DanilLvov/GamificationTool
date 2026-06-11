@@ -53,3 +53,4 @@ text = "Skip Minigame"
 
 [connection signal="pressed" from="Return" to="." method="_on_show_return_button"]
 [connection signal="pressed" from="ShowDebugButton" to="." method="_on_show_debug_menu_pressed"]
+[connection signal="pressed" from="Skip minigame" to="." method="_on_skip_minigame_pressed"]

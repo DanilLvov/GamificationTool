@@ -60,7 +60,6 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
         # if started dragging
         if event.pressed:
-            #print(nodes)
             for i in _answers_amount:
                 var id = order[i]
                 positions_x[i] = nodes[id]._node.global_position.x
@@ -105,8 +104,6 @@ func handle_answer(event: InputEvent = null, root: Control = null) -> void:
                 var targ = positions_x[i]
                 tween.parallel().tween_property(nodes[id]._node, "global_position", Vector2(targ, y), 0.1)
                 
-            
-            print(order)
             for i in _answers_amount:
                 var node = nodes[order[i]]
                 node._node.remove_theme_stylebox_override("panel")

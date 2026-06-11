@@ -64,9 +64,6 @@ func draw(minigame_base: Control) -> void:
     # firstly handling any extra objects that we have, normaly does nothing
     handle_extra_objects()
 
-    # _next_button = UIFactory.create_texture_button(_normal_button, Vector2(150, 30), "Next")
-    # _next_button["button"].button_down.connect(_on_next_button_pressed)
-    # Question container and header
     _question_container = UIFactory.create_panel_container(Vector2(450, 600))
     var question_text = UIFactory.create_label(_question)
     _header = _question_container.get("header")
