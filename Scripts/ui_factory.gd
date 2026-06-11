@@ -181,6 +181,8 @@ static func _escape_bbcode(text: String) -> String:
 	return text \
 		.replace("[", "\\[") \
 		.replace("]", "\\]")
+
+		
 # creates button with 3 textures (normal, hovered, pressed), consists of:
 # root, button, and optional label (for normal text on button)
 # call example:

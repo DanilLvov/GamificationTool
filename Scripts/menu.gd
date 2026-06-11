@@ -24,7 +24,6 @@ var idle_time_left: float
 var debug = true
 
 var current_scene_id: int
-var current_minigame: int
 var timeline: Array[TimelineObject]
 var selected_job: String = "SOFTWAREENTWICKLUNG"
 var timeleine_json_path = "res://Database/timeline.json"
@@ -43,7 +42,6 @@ func _ready() -> void:
 	cutscene_manager.finished.connect(_next_game_step)
 	job_screen.job_chosen.connect(_next_game_step)
 	current_scene_id = 0
-	current_minigame = 0
 
 	# Debuf specific staff
 	if debug:
@@ -74,45 +72,26 @@ func _on_start_button_pressed() -> void:
 
 # If failed a Minigame get fail cutscene
 func _failed_minigame() -> void:
-	# for timeline_object in game_sequence["timelineObjects"]:
-	# 	if timeline_object["id"] == current_scene_id:
-	# 		current_scene_id = timeline_object["next_scene_fail"]
-	# 		break
 	current_scene_id = timeline[current_scene_id]._next_scene_fail
 	_run_current_scene()
 
 
-func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0, minigame_id: int = 0) -> void:
-	# for timeline_object in game_sequence["timelineObjects"]:
-	# 	if timeline_object["id"] == current_scene_id:
-	# 		current_scene_id = timeline_object["next_scene"]
-	# 		break
+func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0) -> void:
+	# used only for debug purposes to jump to any scene id
 	if jump_to_scene:
 		current_scene_id = jump_id
-		if minigame_id != 0:	
-			current_minigame = minigame_id
+	# normaly jumping to next scene stored in _next_scene 
 	else:
 		current_scene_id = timeline[current_scene_id]._next_scene
-		
-		if timeline[current_scene_id]._state == TimelineObject.GameState.MINIGAME:
-			current_minigame = timeline[current_scene_id]._resource_id
-	print(current_scene_id)
+	
+	if debug: print("Current scene is: " + str(current_scene_id))
 	_run_current_scene()
 
 
 func _run_current_scene() -> void:
-	# var current_scene_state
-	# var cutscene_id
-	#hidding all objects, to show only used for the current game step
-	_hide_all_objects()
-	# for timeline_object in game_sequence["timelineObjects"]:
-	# 	if timeline_object["id"] == current_scene_id:
-	# 		current_scene_state = timeline_object["state"]
-	# 		if current_scene_state == "GameState.CUTSCENE":
-	# 			cutscene_id = timeline_object["cutscene_id"]
-	# 		break
-
 	
+	_hide_all_objects()
+
 	match timeline[current_scene_id]._state:
 		TimelineObject.GameState.START:
 			start_screen.visible = true
@@ -122,15 +101,15 @@ func _run_current_scene() -> void:
 		TimelineObject.GameState.MINIGAME:
 			if debug: skip_minigame.visible = true
 			minigame_manager.visible = true
-			minigame_manager._draw_minigame(current_minigame)
+			minigame_manager._draw_minigame(timeline[current_scene_id]._resource_id)
 		TimelineObject.GameState.SPECIALIZATION_CHOICE:
 			job_screen.visible = true
-			#_next_game_step()
 		TimelineObject.GameState.END:
 			end_screen.visible = true
 
 # TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:
+	# all  debug related things go here
 	if debug: skip_minigame.visible = false
 	end_screen.visible = false
 	start_screen.visible = false

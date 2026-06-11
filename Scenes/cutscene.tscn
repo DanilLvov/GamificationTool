@@ -6,7 +6,7 @@
 script = ExtResource("1_7n648")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1985663623]
-position = Vector2(1000, 500)
+position = Vector2(960, 540)
 
 [node name="UiElements" type="Control" parent="." unique_id=764787583]
 layout_mode = 3

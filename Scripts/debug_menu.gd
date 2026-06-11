@@ -25,10 +25,7 @@ func _on_show_debug_menu_pressed() -> void:
 			var text = object._name
 
 			var button = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(120, 50), text)
-			if object._resource_id != -1:
-				button["button"].button_down.connect(_grid_button_pressed.bind(id,object._resource_id))
-			else: 
-				button["button"].button_down.connect(_grid_button_pressed.bind(id))
+			button["button"].button_down.connect(_grid_button_pressed.bind(id)) 
 			menu_grid.add_child(button["root"])
 			id += 1
 
@@ -47,7 +44,7 @@ func _on_show_return_button() -> void:
 	grid_center_container.visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-func _grid_button_pressed(timeline_id: int, minigame_id: int = 0) -> void:
-	get_parent()._next_game_step(true, timeline_id, minigame_id)
+func _grid_button_pressed(timeline_id: int) -> void:
+	get_parent()._next_game_step(true, timeline_id)
 	_on_show_return_button()
 
