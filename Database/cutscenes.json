@@ -1,32 +1,63 @@
 {
     "0": {
-        "name": "test",
-        "subtitles": "Der Kontrollraum explodiert gleich, bitte helfe mir ihn vor dem Explodieren zu bewahren!",
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
-        "objects": [
-            {
-                "id": 0,
-                "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronaut.png",
-                "position_x": 500,
-                "position_y": 300,
-                "scale": 0.2,
-                "rotation": 0,
-                "hasAnimation": true,
-                "animationId": "0"
-            },
-            {
-                "id": 1,
-                "name": "Smoke",
-                "path": "res://Assets/Objects/smoke.webp",
-                "position_x": 100,
-                "position_y": 300,
-                "scale": 0.5,
-                "rotation": 0,
-                "hasAnimation": true,
-                "animationId": "1"
-            }
-        ]
+    "name": "Intro_Kontrollraum_Notfall",
+    "subtitles": "Achtung! Der Kontrollraum ist beschädigt. Hilf mir, die Systeme zu stabilisieren, bevor alles explodiert!",
+    "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
+    "objects":[
+    {
+        "id": 0,
+        "name": "Text_Background",
+        "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+        "position_x": 960,
+        "position_y": 1030,
+        "scale": 0.654,
+        "rotation": 0,
+        "hasAnimation": false
+    },
+    {
+        "id": 1,
+        "name": "SpeechBubble",
+        "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+        "position_x": 250,
+        "position_y": 790,
+        "scale": 0.12,
+        "rotation": 0,
+        "hasAnimation": false
+    },
+    {
+        "id": 2,
+        "name": "Astronaut",
+        "path": "res://Assets/Objects/Astronaut.png",
+        "position_x": 250,
+        "position_y": 790,
+        "scale": 0.10,
+        "rotation": -8,
+        "hasAnimation": true,
+        "animationId": "0"
+    },
+    {
+        "id": 3,
+        "name": "Smoke_Main",
+        "path": "res://Assets/Objects/smoke.webp",
+        "position_x": 780,
+        "position_y": 720,
+        "scale": 0.18,
+        "rotation": -5,
+        "hasAnimation": true,
+        "animationId": "1"
+    },
+    {
+        "id": 4,
+        "name": "Smoke_Secondary",
+        "path": "res://Assets/Objects/smoke.webp",
+        "position_x": 850,
+        "position_y": 690,
+        "scale": 0.12,
+        "rotation": 10,
+        "hasAnimation": true,
+        "animationId": "2"
+    }
+]
     },
     "1": {
         "name": "blablabla",

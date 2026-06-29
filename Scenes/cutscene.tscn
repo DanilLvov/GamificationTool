@@ -21,6 +21,7 @@ offset_left = 50.0
 offset_top = 901.0
 offset_right = 1532.0
 offset_bottom = 997.0
+theme_override_colors/default_color = Color(0, 0.09803922, 0, 1)
 theme_override_font_sizes/normal_font_size = 30
 
 [node name="AnimationObjects" type="Node2D" parent="." unique_id=451107968]

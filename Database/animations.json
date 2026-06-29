@@ -1,110 +1,71 @@
 {
     "0": {
-        "name": "test",
-        "is_loop": false,
-        "position": [
-            {
-                "time": 1,
-                "coordinates": [
-                    500,
-                    300
-                ]
-            },
-            {
-                "time": 2,
-                "coordinates": [
-                    450,
-                    250
-                ]
-            },
-            {
-                "time": 3,
-                "coordinates": [
-                    500,
-                    300
-                ]
-            }
-        ],
-        "scale": [
-            {
-                "time": 0,
-                "scale": 0.5
-            },
-            {
-                "time": 1,
-                "scale": 0.25
-            }
-        ],
-        "rotation": [
-            {
-                "time": 0,
-                "rotation": 0.0
-            },
-            {
-                "time": 1,
-                "rotation": 45.0
-            },
-            {
-                "time": 2,
-                "rotation": 90.0
-            }
-        ],
-        "alternate_image": []
-    },
-    "1": {
-        "name": "test2",
-        "is_loop": true,
-        "position": [
-            {
-                "time": 1,
-                "coordinates": [
-                    100,
-                    300
-                ]
-            },
-            {
-                "time": 2,
-                "coordinates": [
-                    100,
-                    400
-                ]
-            },
-            {
-                "time": 3,
-                "coordinates": [
-                    100,
-                    300
-                ]
-            }
-        ],
-        "scale": [
-            {
-                "time": 1,
-                "scale": 0.5
-            },
-            {
-                "time": 2,
-                "scale": 0.25
-            },
-            {
-                "time": 3,
-                "scale": 0.5
-            }
-        ],
-        "rotation": [],
-        "alternate_image": [
-            {
-                "time": 1,
-                "path": "res://Assets/Objects/fire.webp"
-            },
-            {
-                "time": 2,
-                "path": "res://Assets/Objects/smoke.webp"
-            },
-            {
-                "time": 3,
-                "path": "res://Assets/Objects/fire.webp"
-            }
-        ]
-    }
-}
+  "name": "astronaut_panic_idle",
+  "is_loop": true,
+  "position": [
+    { "time": 0.0, "coordinates": [245, 800] },
+    { "time": 0.25, "coordinates": [250, 792] },
+    { "time": 0.5, "coordinates": [241, 806] },
+    { "time": 0.75, "coordinates": [252, 798] },
+    { "time": 1.0, "coordinates": [245, 800] }
+  ],
+  "scale": [
+    { "time": 0.0, "scale": 0.16 },
+    { "time": 0.5, "scale": 0.17 },
+    { "time": 1.0, "scale": 0.16 }
+  ],
+  "rotation": [
+    { "time": 0.0, "rotation": -8 },
+    { "time": 0.25, "rotation": -3 },
+    { "time": 0.5, "rotation": -11 },
+    { "time": 0.75, "rotation": -5 },
+    { "time": 1.0, "rotation": -8 }
+  ],
+  "alternate_image": []
+},
+"1": {
+  "name": "smoke_main_console_loop",
+  "is_loop": true,
+  "position": [
+    { "time": 0.0, "coordinates": [790, 740] },
+    { "time": 1.1, "coordinates": [805, 710] },
+    { "time": 2.2, "coordinates": [775, 680] },
+    { "time": 3.3, "coordinates": [790, 740] }
+  ],
+  "scale": [
+    { "time": 0.0, "scale": 0.30 },
+    { "time": 1.1, "scale": 0.46 },
+    { "time": 2.2, "scale": 0.20 },
+    { "time": 3.3, "scale": 0.30 }
+  ],
+  "rotation": [
+    { "time": 0.0, "rotation": -6 },
+    { "time": 1.1, "rotation": 3 },
+    { "time": 2.2, "rotation": -12 },
+    { "time": 3.3, "rotation": -6 }
+  ],
+  "alternate_image": []
+},
+"2": {
+  "name": "smoke_secondary_console_loop",
+  "is_loop": true,
+  "position": [
+    { "time": 0.0, "coordinates": [860, 700] },
+    { "time": 0.9, "coordinates": [845, 675] },
+    { "time": 1.8, "coordinates": [875, 650] },
+    { "time": 2.7, "coordinates": [860, 700] }
+  ],
+  "scale": [
+    { "time": 0.0, "scale": 0.20 },
+    { "time": 0.9, "scale": 0.34 },
+    { "time": 1.8, "scale": 0.16 },
+    { "time": 2.7, "scale": 0.20 }
+  ],
+  "rotation": [
+    { "time": 0.0, "rotation": 8 },
+    { "time": 0.9, "rotation": 17 },
+    { "time": 1.8, "rotation": 2 },
+    { "time": 2.7, "rotation": 8 }
+  ],
+  "alternate_image": []
+}}

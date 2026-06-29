@@ -50,7 +50,9 @@ const BUTTONS = {
 # add all backgrounds here
 const MINIGAME_BACKGROUNDS = {
 	"Minigame1": preload("res://Assets/Backgrounds/Minigame_1.PNG"),
-	"Minigame2": preload("res://Assets/Backgrounds/Minigame_2.PNG")
+	"Minigame2": preload("res://Assets/Backgrounds/Minigame_2.PNG"),
+	"Minigame3": preload("res://Assets/Backgrounds/Minigame_3.PNG"),
+	"Minigame4": preload("res://Assets/Backgrounds/Minigame_4.PNG")
 }
 const CONTAINER_TEXTURE = preload("res://assets/ui/frames/simple_Question_Frame.svg")
 

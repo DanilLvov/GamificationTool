@@ -69,6 +69,7 @@
 	"11": {
 		"name": "Minigame 3",
 		"state": "MINIGAME",
+		"minigame_id": 2,
 		"next_scene": 12,
 		"next_scene_fail": 13
 	},
@@ -93,6 +94,7 @@
 	"15": {
 		"name": "Minigame 4",
 		"state": "MINIGAME",
+		"minigame_id": 3,
 		"next_scene": 16,
 		"next_scene_fail": 17
 	},
