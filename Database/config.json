@@ -1,0 +1,13 @@
+{
+	"debug": true,
+	"screen": {
+		"width": 1920,
+		"height": 1080
+	},
+	"idle_timeout_sec": 60.0,
+	"restart_warning_sec": 10.0,
+	"subtitle_char_delay": 0.05,
+	"default_job": "SOFTWAREENTWICKLUNG",
+	"timeline_path": "res://Database/timeline.json",
+	"minigame_path": "res://Database/minigames.json"
+}

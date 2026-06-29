@@ -12,135 +12,141 @@
 	"2": {
 		"name": "Intro",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 16,
 		"next_scene": 3
 	},
 	"3": {
+		"name": "MG1 Intro",
+		"state": "CUTSCENE",
+		"cutscene_id": 0,
+		"next_scene": 4
+	},
+	"4": {
 		"name": "Mingame 1",
 		"state": "MINIGAME",
 		"minigame_id": 0,
-		"next_scene": 4,
-		"next_scene_fail": 5
-	},
-	"4": {
-		"name": "Mingame 1 Success",
-		"state": "CUTSCENE",
-		"cutscene_id": 2,
-		"next_scene": 6
+		"next_scene": 5,
+		"next_scene_fail": 6
 	},
 	"5": {
+		"name": "Minigame 1 Success",
+		"state": "CUTSCENE",
+		"cutscene_id": 2,
+		"next_scene": 7
+	},
+	"6": {
 		"name": "Minigame 1 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 3,
-		"next_scene": 1
-	},
-	"6": {
-		"name": "Next Minigame 1",
-		"state": "CUTSCENE",
-		"cutscene_id": 1,
-		"next_scene": 7
+		"next_scene": 0
 	},
 	"7": {
+		"name": "MG2 Intro",
+		"state": "CUTSCENE",
+		"cutscene_id": 1,
+		"next_scene": 8
+	},
+	"8": {
 		"name": "Minigame 2",
 		"state": "MINIGAME",
 		"minigame_id": 1,
-		"next_scene": 8,
-		"next_scene_fail": 9,
-		"next_scene_complete_fail": 1
-	},
-	"8": {
-		"name": "Mingame 2 Success",
-		"state": "CUTSCENE",
-		"cutscene_id": 4,
-		"next_scene": 10
+		"next_scene": 9,
+		"next_scene_fail": 10
 	},
 	"9": {
+		"name": "Minigame 2 Success",
+		"state": "CUTSCENE",
+		"cutscene_id": 4,
+		"next_scene": 11
+	},
+	"10": {
 		"name": "Minigame 2 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 5,
-		"next_scene": 1
-	},
-	"10": {
-		"name": "Next Minigame 2",
-		"state": "CUTSCENE",
-		"cutscene_id": 6,
-		"next_scene": 11
+		"next_scene": 0
 	},
 	"11": {
+		"name": "MG3 Intro",
+		"state": "CUTSCENE",
+		"cutscene_id": 6,
+		"next_scene": 12
+	},
+	"12": {
 		"name": "Minigame 3",
 		"state": "MINIGAME",
 		"minigame_id": 2,
-		"next_scene": 12,
-		"next_scene_fail": 13
-	},
-	"12": {
-		"name": "Minigame 3 Success",
-		"state": "CUTSCENE",
-		"cutscene_id": 0,
-		"next_scene": 14
+		"next_scene": 13,
+		"next_scene_fail": 14
 	},
 	"13": {
-		"name": "Minigame 3 Fail",
+		"name": "Minigame 3 Success",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
-		"next_scene": 1
-	},
-	"14": {
-		"name": "Next Minigame 3",
-		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 7,
 		"next_scene": 15
 	},
+	"14": {
+		"name": "Minigame 3 Fail",
+		"state": "CUTSCENE",
+		"cutscene_id": 8,
+		"next_scene": 0
+	},
 	"15": {
+		"name": "MG4 Intro",
+		"state": "CUTSCENE",
+		"cutscene_id": 9,
+		"next_scene": 16
+	},
+	"16": {
 		"name": "Minigame 4",
 		"state": "MINIGAME",
 		"minigame_id": 3,
-		"next_scene": 16,
-		"next_scene_fail": 17
-	},
-	"16": {
-		"name": "Minigame 4 Success",
-		"state": "CUTSCENE",
-		"cutscene_id": 0,
-		"next_scene": 18
+		"next_scene": 17,
+		"next_scene_fail": 18
 	},
 	"17": {
-		"name": "Minigame 4 Fail",
+		"name": "Minigame 4 Success",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
-		"next_scene": 1
-	},
-	"18": {
-		"name": "Next Minigame 4",
-		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 10,
 		"next_scene": 19
 	},
+	"18": {
+		"name": "Minigame 4 Fail",
+		"state": "CUTSCENE",
+		"cutscene_id": 11,
+		"next_scene": 0
+	},
 	"19": {
-		"name": "Mingame 5",
-		"state": "MINIGAME",
-		"next_scene": 20,
-		"next_scene_fail": 21
+		"name": "MG5 Intro",
+		"state": "CUTSCENE",
+		"cutscene_id": 12,
+		"next_scene": 20
 	},
 	"20": {
-		"name": "Mingame 5 Success",
-		"state": "CUTSCENE",
-		"cutscene_id": 0,
-		"next_scene": 22
+		"name": "Mingame 5",
+		"state": "MINIGAME",
+		"minigame_id": 4,
+		"next_scene": 21,
+		"next_scene_fail": 22
 	},
 	"21": {
-		"name": "Mingame 5 Fail",
+		"name": "Minigame 5 Success",
 		"state": "CUTSCENE",
-		"cutscene_id": 0,
-		"next_scene": 1
-	},
-	"22": {
-		"name": "End Cutscene",
-		"state": "CUTSCENE",
-		"cutscene_id": 0,
+		"cutscene_id": 13,
 		"next_scene": 23
 	},
+	"22": {
+		"name": "Minigame 5 Fail",
+		"state": "CUTSCENE",
+		"cutscene_id": 14,
+		"next_scene": 0
+	},
 	"23": {
+		"name": "End Cutscene",
+		"state": "CUTSCENE",
+		"cutscene_id": 15,
+		"next_scene": 24
+	},
+	"24": {
 		"name": "End",
 		"state": "END",
 		"next_scene": 0

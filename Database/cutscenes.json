@@ -1,290 +1,694 @@
 {
     "0": {
-    "name": "Intro_Kontrollraum_Notfall",
-    "subtitles": "Achtung! Der Kontrollraum ist beschädigt. Hilf mir, die Systeme zu stabilisieren, bevor alles explodiert!",
-    "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
-    "objects":[
-    {
-        "id": 0,
-        "name": "Text_Background",
-        "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
-        "position_x": 960,
-        "position_y": 1030,
-        "scale": 0.654,
-        "rotation": 0,
-        "hasAnimation": false
-    },
-    {
-        "id": 1,
-        "name": "SpeechBubble",
-        "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
-        "position_x": 250,
-        "position_y": 790,
-        "scale": 0.12,
-        "rotation": 0,
-        "hasAnimation": false
-    },
-    {
-        "id": 2,
-        "name": "Astronaut",
-        "path": "res://Assets/Objects/Astronaut.png",
-        "position_x": 250,
-        "position_y": 790,
-        "scale": 0.10,
-        "rotation": -8,
-        "hasAnimation": true,
-        "animationId": "0"
-    },
-    {
-        "id": 3,
-        "name": "Smoke_Main",
-        "path": "res://Assets/Objects/smoke.webp",
-        "position_x": 780,
-        "position_y": 720,
-        "scale": 0.18,
-        "rotation": -5,
-        "hasAnimation": true,
-        "animationId": "1"
-    },
-    {
-        "id": 4,
-        "name": "Smoke_Secondary",
-        "path": "res://Assets/Objects/smoke.webp",
-        "position_x": 850,
-        "position_y": 690,
-        "scale": 0.12,
-        "rotation": 10,
-        "hasAnimation": true,
-        "animationId": "2"
-    }
-]
+        "name": "Intro_Kontrollraum_Notfall",
+        "subtitles": "Achtung! Der Kontrollraum ist beschädigt. Hilf mir, die Systeme zu stabilisieren, bevor alles explodiert!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.10,
+                "rotation": -8,
+                "hasAnimation": true,
+                "animationId": "0"
+            },
+            {
+                "id": 3,
+                "name": "Smoke_Main",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 780,
+                "position_y": 720,
+                "scale": 0.18,
+                "rotation": -5,
+                "hasAnimation": true,
+                "animationId": "1"
+            },
+            {
+                "id": 4,
+                "name": "Smoke_Secondary",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 850,
+                "position_y": 690,
+                "scale": 0.12,
+                "rotation": 10,
+                "hasAnimation": true,
+                "animationId": "2"
+            }
+        ]
     },
     "1": {
-        "name": "blablabla",
-        "subtitles": "Die Engines sind kaputt, bitte repariere sie!",
+        "name": "MG2_Intro_Navigationssystem",
+        "subtitles": "Das Navigationssystem ist ausgefallen! Wir fliegen blind durch das Weltall. Hilf mir, es zu reparieren!",
         "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Intro.PNG",
         "objects": [
             {
                 "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
                 "name": "Astronaut",
                 "path": "res://Assets/Objects/Astronaut.png",
-                "position_x": 200,
-                "position_y": 300,
-                "scale": 0.2,
-                "rotation": 0.0,
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.10,
+                "rotation": -8,
                 "hasAnimation": true,
-                "animationId": 0
+                "animationId": "0"
+            },
+            {
+                "id": 3,
+                "name": "Smoke_Main",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 1100,
+                "position_y": 400,
+                "scale": 0.15,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "1"
             }
         ]
     },
     "2": {
-        "name": "Minigame 1 Succes",
-        "subtitles": "juhu, wir können weiter fliegen, du hast mich gerettet",
+        "name": "MG1_Success",
+        "subtitles": "Fantastisch! Die Systeme sind wieder stabil und der Treibstoff reicht für den nächsten Abschnitt. Wir können weiter fliegen!",
         "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Win.PNG",
         "objects": [
             {
                 "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
                 "name": "Astronaut",
                 "path": "res://Assets/Objects/Astronaut.png",
-                "position_x": 200,
-                "position_y": 300,
-                "scale": 0.2,
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": 0
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "3"
             }
         ]
     },
     "3": {
-        "name": "Minigame 1 Fail",
-        "subtitles": "Das Schiff ist explodiert ... ",
+        "name": "MG1_Fail",
+        "subtitles": "Oh nein! Der Kontrollraum ist nicht mehr zu retten... Das Schiff ist explodiert. Bitte versuche es erneut!",
         "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Fail.PNG",
         "objects": [
             {
-                "id": 2,
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
                 "name": "Feuer",
                 "path": "res://Assets/Objects/fire.webp",
-                "position_x": 250,
-                "position_y": 300,
-                "scale": 1,
-                "rotation": 0.0,
+                "position_x": 960,
+                "position_y": 540,
+                "scale": 0.80,
+                "rotation": 0,
                 "hasAnimation": true,
-                "animationId": 0
+                "animationId": "4"
             }
         ]
     },
     "4": {
-        "name": "Cutscene 5",
-        "subtitles": "Cutscene 5",
+        "name": "MG2_Success",
+        "subtitles": "Ausgezeichnet! Das Navigationssystem läuft wieder. Jetzt wissen wir, wohin wir müssen. Kurs auf Inverso!",
         "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Win.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": null
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "3"
             }
         ]
     },
     "5": {
-        "name": "Cutscene 6",
-        "subtitles": "Cutscene 6",
+        "name": "MG2_Fail",
+        "subtitles": "Wir sind verloren im Weltall! Ohne Navigation finden wir niemals nach Hause. Bitte versuche es erneut!",
         "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Fail.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": null
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.10,
+                "rotation": -8,
+                "hasAnimation": true,
+                "animationId": "0"
+            },
+            {
+                "id": 3,
+                "name": "Smoke_Main",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 1050,
+                "position_y": 500,
+                "scale": 0.20,
+                "rotation": -5,
+                "hasAnimation": true,
+                "animationId": "1"
             }
         ]
     },
     "6": {
-        "name": "Cutscene 7",
-        "subtitles": "Cutscene 7",
-        "backgroundImagePath": "",
+        "name": "MG3_Intro_Meteorit",
+        "subtitles": "Ein Meteorit hat das Schiff getroffen! Der Rumpf ist beschädigt und wir verlieren Luft. Repariere sofort den Schaden!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_3_Intro.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": null
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.10,
+                "rotation": -8,
+                "hasAnimation": true,
+                "animationId": "0"
+            },
+            {
+                "id": 3,
+                "name": "Smoke_Main",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 900,
+                "position_y": 600,
+                "scale": 0.22,
+                "rotation": 8,
+                "hasAnimation": true,
+                "animationId": "1"
+            },
+            {
+                "id": 4,
+                "name": "Smoke_Secondary",
+                "path": "res://Assets/Objects/smoke.webp",
+                "position_x": 1050,
+                "position_y": 560,
+                "scale": 0.14,
+                "rotation": -12,
+                "hasAnimation": true,
+                "animationId": "2"
             }
         ]
     },
     "7": {
-        "name": "Cutscene 8",
-        "subtitles": "Cutscene 8",
-        "backgroundImagePath": "",
+        "name": "MG3_Success",
+        "subtitles": "Bravo! Der Rumpf ist repariert und wir verlieren keine Luft mehr. Das Schiff ist wieder voll funktionstüchtig!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_3_Win.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": null
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "3"
             }
         ]
     },
     "8": {
-        "name": "Cutscene 9",
-        "subtitles": "Cutscene 9",
-        "backgroundImagePath": "",
+        "name": "MG3_Fail",
+        "subtitles": "Das Schiff konnte den Druckverlust nicht überstehen... Wir sind verloren. Bitte versuche es erneut!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_3_Fail.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": null
+                "name": "Feuer",
+                "path": "res://Assets/Objects/fire.webp",
+                "position_x": 960,
+                "position_y": 540,
+                "scale": 0.80,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "4"
             }
         ]
     },
     "9": {
-        "name": "Cutscene 10",
-        "subtitles": "Cutscene 10",
-        "backgroundImagePath": "",
+        "name": "MG4_Intro_Verpflegung",
+        "subtitles": "Mein Magen knurrt! Wir haben seit Stunden nichts gegessen. Zeit, die Verpflegung für die Crew vorzubereiten!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_Intro.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": false,
-                "animationId": null
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.10,
+                "rotation": -5,
+                "hasAnimation": true,
+                "animationId": "0"
             }
         ]
     },
     "10": {
-        "name": "Cutscene 11",
-        "subtitles": "Cutscene 11",
-        "backgroundImagePath": "",
+        "name": "MG4_Success",
+        "subtitles": "Lecker! Die Crew ist satt und wieder bei Kräften. Ein gut ernährtes Team ist bereit für alles. Weiter geht's!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_Win.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": 0.0,
-                "hasAnimation": true,
-                "animationId": 0
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
             },
             {
                 "id": 1,
-                "name": "",
-                "path": "",
-                "position": "0",
-                "rotation": "0.0",
-                "hasAnimation": false,
-                "animationId": null
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "3"
+            }
+        ]
+    },
+    "11": {
+        "name": "MG4_Fail",
+        "subtitles": "Oh je, das Essen ist verbrannt! Die Crew kann nicht mehr arbeiten. Bitte versuche es erneut!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_Fail.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "Feuer",
+                "path": "res://Assets/Objects/fire.webp",
+                "position_x": 960,
+                "position_y": 540,
+                "scale": 0.60,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "4"
+            },
+            {
+                "id": 2,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 3,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.10,
+                "rotation": -8,
+                "hasAnimation": true,
+                "animationId": "0"
+            }
+        ]
+    },
+    "12": {
+        "name": "MG5_Intro_Landung",
+        "subtitles": "Wir nähern uns Planet Inverso! Bereite alles für eine sichere Landung vor. Das ist der letzte Schritt auf unserer Reise!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_5_Intro.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "5"
+            }
+        ]
+    },
+    "13": {
+        "name": "MG5_Success",
+        "subtitles": "Wir haben es geschafft! Sanfte Landung auf Inverso! Danke für deine Hilfe – ich bin endlich zu Hause!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_5_Win.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 5,
+                "hasAnimation": true,
+                "animationId": "3"
+            }
+        ]
+    },
+    "14": {
+        "name": "MG5_Fail",
+        "subtitles": "Die Landung ist misslungen – wir sind abgestürzt! Wir waren so nah dran. Bitte versuche es erneut!",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_5_Fail.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "Feuer",
+                "path": "res://Assets/Objects/fire.webp",
+                "position_x": 960,
+                "position_y": 540,
+                "scale": 0.80,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "4"
+            }
+        ]
+    },
+    "15": {
+        "name": "End_Erfolgreiche_Landung",
+        "subtitles": "Herzlichen Glückwunsch! Der Inversianer ist sicher auf seinem Heimatplaneten Inverso gelandet. Du hast hervorragende Arbeit geleistet!",
+        "backgroundImagePath": "res://Assets/Backgrounds/End_Screen.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "5"
+            }
+        ]
+    },
+    "16": {
+        "name": "Allgemeine_Intro",
+        "subtitles": "Hallo! Ich bin der Inversianer und möchte zu meinem Heimatplaneten Inverso zurückkehren. Es ist eine weite Reise – bist du dabei?",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
+        "objects": [
+            {
+                "id": 0,
+                "name": "Text_Background",
+                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "position_x": 960,
+                "position_y": 1030,
+                "scale": 0.654,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 1,
+                "name": "SpeechBubble",
+                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "position_x": 250,
+                "position_y": 790,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": false
+            },
+            {
+                "id": 2,
+                "name": "Astronaut",
+                "path": "res://Assets/Objects/Astronaut.png",
+                "position_x": 250,
+                "position_y": 800,
+                "scale": 0.12,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "5"
             }
         ]
     }

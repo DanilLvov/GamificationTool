@@ -1,5 +1,7 @@
 extends Node2D
 
+const CONFIG_PATH = "res://Database/config.json"
+
 # Node variables, if changing node name, change it here:
 @onready var minigame_manager := $MinigameController
 @onready var cutscene_manager := $Cutscene
@@ -14,25 +16,40 @@ extends Node2D
 @onready var debug_menu := $DebugMenu
 @onready var skip_minigame: = $"DebugMenu/Skip minigame"
 
-
-# Restart timer vars:
-# TODO: add important vars into config.json
-var idle_timeout := 60.0
-var restart_warning_time := 10.0
+var idle_timeout: float
+var restart_warning_time: float
 var warning_shown := false
 var idle_time_left: float
-var debug = true
+var debug: bool
 
 var current_scene_id: int
 var timeline: Array[TimelineObject]
-var selected_job: String = "SOFTWAREENTWICKLUNG"
-var timeleine_json_path = "res://Database/timeline.json"
-var minigame_json_path = "res://Database/minigames.json"	
+var selected_job: String
+var timeleine_json_path: String
+var minigame_json_path: String
+
+func _load_config() -> void:
+	var file := FileAccess.open(CONFIG_PATH, FileAccess.READ)
+	if not file:
+		push_error("config.json not found at: " + CONFIG_PATH)
+		return
+	var cfg: Dictionary = JSON.parse_string(file.get_as_text())
+	file.close()
+
+	debug               = cfg.get("debug", false)
+	idle_timeout        = cfg.get("idle_timeout_sec", 60.0)
+	restart_warning_time = cfg.get("restart_warning_sec", 10.0)
+	selected_job        = cfg.get("default_job", "SOFTWAREENTWICKLUNG")
+	timeleine_json_path = cfg.get("timeline_path", "res://Database/timeline.json")
+	minigame_json_path  = cfg.get("minigame_path", "res://Database/minigames.json")
 
 func _ready() -> void:
+	# config stores values like display resolution, debug_mode, other json pathes
+	_load_config()
+
 	#loading game sequence from json file
-	
-	
+
+
 	timeline = TimelineObject.load_timeline_array(timeleine_json_path)
 	minigame_manager.load_minigames(minigame_json_path)
 

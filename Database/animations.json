@@ -1,71 +1,137 @@
 {
     "0": {
-  "name": "astronaut_panic_idle",
-  "is_loop": true,
-  "position": [
-    { "time": 0.0, "coordinates": [245, 800] },
-    { "time": 0.25, "coordinates": [250, 792] },
-    { "time": 0.5, "coordinates": [241, 806] },
-    { "time": 0.75, "coordinates": [252, 798] },
-    { "time": 1.0, "coordinates": [245, 800] }
-  ],
-  "scale": [
-    { "time": 0.0, "scale": 0.16 },
-    { "time": 0.5, "scale": 0.17 },
-    { "time": 1.0, "scale": 0.16 }
-  ],
-  "rotation": [
-    { "time": 0.0, "rotation": -8 },
-    { "time": 0.25, "rotation": -3 },
-    { "time": 0.5, "rotation": -11 },
-    { "time": 0.75, "rotation": -5 },
-    { "time": 1.0, "rotation": -8 }
-  ],
-  "alternate_image": []
-},
-"1": {
-  "name": "smoke_main_console_loop",
-  "is_loop": true,
-  "position": [
-    { "time": 0.0, "coordinates": [790, 740] },
-    { "time": 1.1, "coordinates": [805, 710] },
-    { "time": 2.2, "coordinates": [775, 680] },
-    { "time": 3.3, "coordinates": [790, 740] }
-  ],
-  "scale": [
-    { "time": 0.0, "scale": 0.30 },
-    { "time": 1.1, "scale": 0.46 },
-    { "time": 2.2, "scale": 0.20 },
-    { "time": 3.3, "scale": 0.30 }
-  ],
-  "rotation": [
-    { "time": 0.0, "rotation": -6 },
-    { "time": 1.1, "rotation": 3 },
-    { "time": 2.2, "rotation": -12 },
-    { "time": 3.3, "rotation": -6 }
-  ],
-  "alternate_image": []
-},
-"2": {
-  "name": "smoke_secondary_console_loop",
-  "is_loop": true,
-  "position": [
-    { "time": 0.0, "coordinates": [860, 700] },
-    { "time": 0.9, "coordinates": [845, 675] },
-    { "time": 1.8, "coordinates": [875, 650] },
-    { "time": 2.7, "coordinates": [860, 700] }
-  ],
-  "scale": [
-    { "time": 0.0, "scale": 0.20 },
-    { "time": 0.9, "scale": 0.34 },
-    { "time": 1.8, "scale": 0.16 },
-    { "time": 2.7, "scale": 0.20 }
-  ],
-  "rotation": [
-    { "time": 0.0, "rotation": 8 },
-    { "time": 0.9, "rotation": 17 },
-    { "time": 1.8, "rotation": 2 },
-    { "time": 2.7, "rotation": 8 }
-  ],
-  "alternate_image": []
-}}
+        "name": "astronaut_panic_idle",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [245, 800] },
+            { "time": 0.25, "coordinates": [250, 792] },
+            { "time": 0.5, "coordinates": [241, 806] },
+            { "time": 0.75, "coordinates": [252, 798] },
+            { "time": 1.0, "coordinates": [245, 800] }
+        ],
+        "scale": [
+            { "time": 0.0, "scale": 0.16 },
+            { "time": 0.5, "scale": 0.17 },
+            { "time": 1.0, "scale": 0.16 }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": -8 },
+            { "time": 0.25, "rotation": -3 },
+            { "time": 0.5, "rotation": -11 },
+            { "time": 0.75, "rotation": -5 },
+            { "time": 1.0, "rotation": -8 }
+        ],
+        "alternate_image": []
+    },
+    "1": {
+        "name": "smoke_main_console_loop",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [790, 740] },
+            { "time": 1.1, "coordinates": [805, 710] },
+            { "time": 2.2, "coordinates": [775, 680] },
+            { "time": 3.3, "coordinates": [790, 740] }
+        ],
+        "scale": [
+            { "time": 0.0, "scale": 0.30 },
+            { "time": 1.1, "scale": 0.46 },
+            { "time": 2.2, "scale": 0.20 },
+            { "time": 3.3, "scale": 0.30 }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": -6 },
+            { "time": 1.1, "rotation": 3 },
+            { "time": 2.2, "rotation": -12 },
+            { "time": 3.3, "rotation": -6 }
+        ],
+        "alternate_image": []
+    },
+    "2": {
+        "name": "smoke_secondary_console_loop",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [860, 700] },
+            { "time": 0.9, "coordinates": [845, 675] },
+            { "time": 1.8, "coordinates": [875, 650] },
+            { "time": 2.7, "coordinates": [860, 700] }
+        ],
+        "scale": [
+            { "time": 0.0, "scale": 0.20 },
+            { "time": 0.9, "scale": 0.34 },
+            { "time": 1.8, "scale": 0.16 },
+            { "time": 2.7, "scale": 0.20 }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": 8 },
+            { "time": 0.9, "rotation": 17 },
+            { "time": 1.8, "rotation": 2 },
+            { "time": 2.7, "rotation": 8 }
+        ],
+        "alternate_image": []
+    },
+    "3": {
+        "name": "astronaut_happy_idle",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [250, 800] },
+            { "time": 0.4, "coordinates": [250, 786] },
+            { "time": 0.8, "coordinates": [250, 800] }
+        ],
+        "scale": [
+            { "time": 0.0, "scale": 0.12 },
+            { "time": 0.4, "scale": 0.125 },
+            { "time": 0.8, "scale": 0.12 }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": 5 },
+            { "time": 0.4, "rotation": -5 },
+            { "time": 0.8, "rotation": 5 }
+        ],
+        "alternate_image": []
+    },
+    "4": {
+        "name": "fire_burning_loop",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [960, 540] },
+            { "time": 0.3, "coordinates": [955, 526] },
+            { "time": 0.6, "coordinates": [967, 548] },
+            { "time": 0.9, "coordinates": [960, 540] }
+        ],
+        "scale": [
+            { "time": 0.0, "scale": 0.80 },
+            { "time": 0.3, "scale": 1.05 },
+            { "time": 0.6, "scale": 0.70 },
+            { "time": 0.9, "scale": 0.80 }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": -3 },
+            { "time": 0.3, "rotation": 5 },
+            { "time": 0.6, "rotation": -7 },
+            { "time": 0.9, "rotation": -3 }
+        ],
+        "alternate_image": []
+    },
+    "5": {
+        "name": "astronaut_wave",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [250, 800] },
+            { "time": 0.5, "coordinates": [252, 796] },
+            { "time": 1.0, "coordinates": [250, 800] }
+        ],
+        "scale": [
+            { "time": 0.0, "scale": 0.12 },
+            { "time": 0.5, "scale": 0.12 },
+            { "time": 1.0, "scale": 0.12 }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": 0 },
+            { "time": 0.25, "rotation": 8 },
+            { "time": 0.5, "rotation": 0 },
+            { "time": 0.75, "rotation": -8 },
+            { "time": 1.0, "rotation": 0 }
+        ],
+        "alternate_image": []
+    }
+}

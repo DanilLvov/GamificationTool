@@ -66,14 +66,12 @@ const SEQUENCE_CARDS = {
 }
 	
 
-static var _margin_default  := 20
-
 static func create_label(text: String) -> Dictionary:
 	var root := MarginContainer.new()
-	root.add_theme_constant_override("margin_left", 15)
-	root.add_theme_constant_override("margin_top", 15)
-	root.add_theme_constant_override("margin_right", 15)
-	root.add_theme_constant_override("margin_bottom", 15)
+	root.add_theme_constant_override("margin_left", UIConst.MARGIN_DEFAULT)
+	root.add_theme_constant_override("margin_top", UIConst.MARGIN_DEFAULT)
+	root.add_theme_constant_override("margin_right", UIConst.MARGIN_DEFAULT)
+	root.add_theme_constant_override("margin_bottom", UIConst.MARGIN_DEFAULT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	var label := Label.new()
@@ -101,23 +99,23 @@ static func create_code_snippet(
 ) -> Dictionary:
 	var root := PanelContainer.new()
 	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 15)
-	margin.add_theme_constant_override("margin_top", 15)
-	margin.add_theme_constant_override("margin_right", 15)
-	margin.add_theme_constant_override("margin_bottom", 15)
+	margin.add_theme_constant_override("margin_left", UIConst.MARGIN_DEFAULT)
+	margin.add_theme_constant_override("margin_top", UIConst.MARGIN_DEFAULT)
+	margin.add_theme_constant_override("margin_right", UIConst.MARGIN_DEFAULT)
+	margin.add_theme_constant_override("margin_bottom", UIConst.MARGIN_DEFAULT)
 	root.add_child(margin)
 
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color8(18, 22, 38)
-	style.corner_radius_top_left = 12
-	style.corner_radius_top_right = 12
-	style.corner_radius_bottom_left = 12
-	style.corner_radius_bottom_right = 12
-	style.border_width_left = 1
-	style.border_width_top = 1
-	style.border_width_right = 1
-	style.border_width_bottom = 1
-	style.border_color = Color8(55, 65, 95)
+	style.bg_color = UIConst.COLOR_CODE_BG
+	style.corner_radius_top_left = UIConst.CORNER_RADIUS_DEFAULT
+	style.corner_radius_top_right = UIConst.CORNER_RADIUS_DEFAULT
+	style.corner_radius_bottom_left = UIConst.CORNER_RADIUS_DEFAULT
+	style.corner_radius_bottom_right = UIConst.CORNER_RADIUS_DEFAULT
+	style.border_width_left = UIConst.CODE_SNIPPET_BORDER_WIDTH
+	style.border_width_top = UIConst.CODE_SNIPPET_BORDER_WIDTH
+	style.border_width_right = UIConst.CODE_SNIPPET_BORDER_WIDTH
+	style.border_width_bottom = UIConst.CODE_SNIPPET_BORDER_WIDTH
+	style.border_color = UIConst.COLOR_CODE_BORDER
 
 	root.add_theme_stylebox_override("panel", style)
 
@@ -125,12 +123,12 @@ static func create_code_snippet(
 	margin.add_child(layout)
 
 	var header := HBoxContainer.new()
-	header.custom_minimum_size = Vector2(0, 42)
+	header.custom_minimum_size = Vector2(0, UIConst.CODE_SNIPPET_HEADER_HEIGHT)
 	layout.add_child(header)
 
 	var title_label := Label.new()
 	title_label.text = "</>  " + title
-	title_label.add_theme_color_override("font_color", Color8(0, 216, 177))
+	title_label.add_theme_color_override("font_color", UIConst.COLOR_CODE_ACCENT)
 	header.add_child(title_label)
 
 	var spacer := Control.new()
@@ -139,7 +137,7 @@ static func create_code_snippet(
 
 	var file_label := Label.new()
 	file_label.text = file_name
-	file_label.add_theme_color_override("font_color", Color8(170, 175, 195))
+	file_label.add_theme_color_override("font_color", UIConst.COLOR_CODE_FILENAME)
 	header.add_child(file_label)
 
 	var body := HBoxContainer.new()
@@ -148,9 +146,9 @@ static func create_code_snippet(
 
 	var line_numbers := Label.new()
 	line_numbers.text = _make_line_numbers(code_text)
-	line_numbers.add_theme_color_override("font_color", Color8(130, 135, 155))
+	line_numbers.add_theme_color_override("font_color", UIConst.COLOR_CODE_LINE_NUMBERS)
 	line_numbers.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	line_numbers.custom_minimum_size = Vector2(36, 0)
+	line_numbers.custom_minimum_size = Vector2(UIConst.LINE_NUMBER_WIDTH, 0)
 	body.add_child(line_numbers)
 
 	var code_label := RichTextLabel.new()
@@ -159,7 +157,7 @@ static func create_code_snippet(
 	code_label.scroll_active = false
 	code_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	code_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	code_label.text = "[font_size=16][color=#d8e0ff]" + _escape_bbcode(code_text) + "[/color][/font_size]"
+	code_label.text = "[font_size=%d][color=%s]" % [UIConst.CODE_SNIPPET_FONT_SIZE, UIConst.COLOR_CODE_TEXT] + _escape_bbcode(code_text) + "[/color][/font_size]"
 	body.add_child(code_label)
 
 	return {
@@ -188,7 +186,7 @@ static func _escape_bbcode(text: String) -> String:
 # creates button with 3 textures (normal, hovered, pressed), consists of:
 # root, button, and optional label (for normal text on button)
 # call example:
-static func create_texture_button(type: UIElementTypes, size: Vector2 = Vector2(120, 50), text: String = "") -> Dictionary:
+static func create_texture_button(type: UIElementTypes, size: Vector2 = UIConst.BUTTON_SIZE_SMALL, text: String = "") -> Dictionary:
 	var root = MarginContainer.new()
 	var button: TextureButton = TextureButton.new()
 	button.texture_normal = BUTTONS.get(type).get("normal")
@@ -220,14 +218,14 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	root.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	
 	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 40)
-	margin.add_theme_constant_override("margin_top", 40)
-	margin.add_theme_constant_override("margin_right", 40)
-	margin.add_theme_constant_override("margin_bottom", 20)
+	margin.add_theme_constant_override("margin_left", UIConst.MARGIN_PANEL)
+	margin.add_theme_constant_override("margin_top", UIConst.MARGIN_PANEL)
+	margin.add_theme_constant_override("margin_right", UIConst.MARGIN_PANEL)
+	margin.add_theme_constant_override("margin_bottom", UIConst.MARGIN_PANEL_BOTTOM)
 	root.add_child(margin)
 
 	var layout := VBoxContainer.new()
-	layout.add_theme_constant_override("separation", _margin_default)
+	layout.add_theme_constant_override("separation", UIConst.SEPARATION_DEFAULT)
 	margin.add_child(layout)
 
 	var header := VBoxContainer.new()
@@ -245,10 +243,10 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 	
 	var style := StyleBoxTexture.new()
 	style.texture = CONTAINER_TEXTURE
-	style.texture_margin_left = 35
-	style.texture_margin_right = 35
-	style.texture_margin_top = 35
-	style.texture_margin_bottom = 35
+	style.texture_margin_left = UIConst.TEXTURE_MARGIN
+	style.texture_margin_right = UIConst.TEXTURE_MARGIN
+	style.texture_margin_top = UIConst.TEXTURE_MARGIN
+	style.texture_margin_bottom = UIConst.TEXTURE_MARGIN
 	root.add_theme_stylebox_override("panel", style)
 
 	return {
@@ -258,7 +256,7 @@ static func create_panel_container(size: Vector2) -> Dictionary:
 		"footer": footer
 	}
 
-static func create_ordering_container(size: Vector2 = Vector2(50, 50)) -> Dictionary:
+static func create_ordering_container(size: Vector2 = UIConst.ORDERING_CARD_SIZE) -> Dictionary:
 
 	var root = PanelContainer.new()
 	root.custom_minimum_size = size
@@ -284,9 +282,9 @@ static func create_ordering_container(size: Vector2 = Vector2(50, 50)) -> Dictio
 	}
 
 static func create_colored_panel_container(
-	size: Vector2 = Vector2(50, 50),
-	bg_color: Color = Color8(0, 216, 177),
-	corner_radius: int = 10,
+	size: Vector2 = UIConst.COLORED_PANEL_SIZE,
+	bg_color: Color = UIConst.COLORED_PANEL_DEFAULT_COLOR,
+	corner_radius: int = UIConst.COLORED_PANEL_DEFAULT_RADIUS,
 	border_width: int = 0,
 	border_color: Color = Color.TRANSPARENT
 ) -> Dictionary:
@@ -319,7 +317,7 @@ static func create_background(path: String) -> Dictionary:
 
 	root.texture = MINIGAME_BACKGROUNDS.get(path)
 
-	root.custom_minimum_size = Vector2(1920,1080)
+	root.custom_minimum_size = UIConst.BG_SIZE
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	root.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
