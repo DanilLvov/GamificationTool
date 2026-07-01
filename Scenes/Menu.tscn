@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dlwa3cx6bf1fj"]
 
 [ext_resource type="Script" uid="uid://c4q3n8bja66b8" path="res://Scripts/menu.gd" id="1_syfuq"]
-[ext_resource type="Texture2D" uid="uid://b2wrmxy0glrd6" path="res://Assets/Backgrounds/spaceBG.png" id="2_ma218"]
 [ext_resource type="PackedScene" uid="uid://08yngngwjd1n" path="res://Scenes/StartScreen.tscn" id="2_s2c3o"]
 [ext_resource type="PackedScene" uid="uid://crexa6ncprce6" path="res://Scenes/cutscene.tscn" id="3_s2c3o"]
 [ext_resource type="Texture2D" uid="uid://ua5acfolc0aq" path="res://Assets/UI/Simple_Buttons/simple_button_normal.svg" id="4_3jcrr"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://se2a45nr7skt" path="res://Scenes/JobSelection.tscn" id="6_idohh"]
 [ext_resource type="Texture2D" uid="uid://2u84e4d67i2a" path="res://Assets/UI/Simple_Buttons/simple_button_hover.svg" id="6_sjh0l"]
 [ext_resource type="PackedScene" uid="uid://407dmngrpvf8" path="res://Scenes/debug_menu.tscn" id="11_sjh0l"]
+[ext_resource type="PackedScene" uid="uid://dsypx2g6ptugd" path="res://Scenes/SpaceBackground.tscn" id="13_spbg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
@@ -18,11 +18,8 @@ bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
 process_mode = 1
 script = ExtResource("1_syfuq")
 
-[node name="SpaceBg" type="Sprite2D" parent="." unique_id=1424909887]
-z_index = -2
-scale = Vector2(1.1732199, 1.1732199)
-texture = ExtResource("2_ma218")
-centered = false
+[node name="SpaceBackground" parent="." unique_id=1954357426 instance=ExtResource("13_spbg")]
+z_index = -5
 
 [node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]
 visible = false
