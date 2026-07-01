@@ -14,6 +14,7 @@ wraparound_radius = 500.0
 wraparound_height = 100.0
 smoothing_speed = 6.5
 position_offset_node = NodePath("Control")
+fixed_slot_positions = Array[Vector2]([Vector2(710, 545), Vector2(960, 545), Vector2(1240, 545)])
 
 [node name="Control" type="Control" parent="CarouselContainer" unique_id=1124585691]
 layout_mode = 3

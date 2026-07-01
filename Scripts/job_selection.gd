@@ -95,16 +95,14 @@ func _add_planets_to_carousel():
 		var label = Label.new()
 		label.text = planet["name"]
 
-		label.anchor_left = 0.0
-		label.anchor_right = 1.0
-
-		label.offset_left = 0
-		label.offset_right = 4
-
-		label.position.y = panel.size.y - 10
-		label.custom_minimum_size.y = 40
-
+		label.anchor_left = 0.5
+		label.anchor_right = 0.5
+		label.grow_horizontal = Control.GROW_DIRECTION_BOTH
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+		var label_gap := 130.0
+		label.position.y = panel.size.y * float(planet["scale_y"]) + label_gap
+		label.custom_minimum_size.y = 40
 
 		panel.add_child(texture_rect)
 		panel.add_child(label)

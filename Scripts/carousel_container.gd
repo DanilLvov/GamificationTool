@@ -8,7 +8,7 @@ class_name CarouselContainer
 @export var wraparound_radius: float = 300.0 # horizontal spacing between child nodes
 @export var wraparound_height: float = 50.0 # height of children behind selected child
 
-@export_range(0.0, 1.0) var opacity_strength: float = 0.35 # fadeout speed
+@export_range(0.0, 1.0) var darken_strength: float = 0.35 # how much off-center items darken
 @export_range(0.0, 1.0) var scale_strength: float = 0.25 # down scale speed
 @export_range(0.01, 0.99, 0.01) var scale_min: float = 0.1 # minimum size to which children can scale
 
@@ -60,9 +60,10 @@ func _process(delta: float) -> void:
 		#if i.get_index() == 0 or i.get_index() == 1 or i.get_index() == 29: print(target_scale)
 		i.scale = i.scale.lerp(Vector2.ONE * target_scale, smoothing_speed * delta)
 
-		var target_opacity = 1.0 - (opacity_strength * abs(dist))
-		target_opacity = clamp(target_opacity, 0.0, 1.0)
-		i.modulate.a = lerp(i.modulate.a, target_opacity, smoothing_speed * delta)
+		var target_brightness = 1.0 - (darken_strength * abs(dist))
+		target_brightness = clamp(target_brightness, 0.0, 1.0)
+		var target_color = Color(target_brightness, target_brightness, target_brightness, 1.0)
+		i.modulate = i.modulate.lerp(target_color, smoothing_speed * delta)
 
 		if i.get_index() == selected_wrapped:
 			i.z_index = 1
