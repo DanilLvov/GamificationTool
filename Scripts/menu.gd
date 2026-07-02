@@ -81,9 +81,14 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	start_button.visible = false
-	start_label.visible = false
+	var start_pos: Vector2 = start_button.position
+	var button_tween := create_tween()
+	button_tween.tween_property(start_button, "position", start_pos + Vector2(0, -20), 0.1)
+	button_tween.tween_property(start_button, "position", start_pos + Vector2(0, 400), 0.4)
+
+	
 	var _waiter = await start_screen._start_pressed()
+	start_button.visible = false
 	_next_game_step()
 
 

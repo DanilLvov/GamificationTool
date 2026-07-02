@@ -51,9 +51,15 @@ void fragment() {
 	float shape_a = fbm(p);
 	float shape_b = fbm(p * 1.3 + vec2(17.3, -9.4));
 	float shape = max(shape_a, shape_b);
-	float detail = fbm(p * 2.3 + 11.7);
 
 	float cloud = smoothstep(1.0 - density, 1.0, shape);
+	// Fully transparent here regardless of detail/color below, so bail out
+	// before paying for the third fbm() call and the color mixing.
+	if (cloud <= 0.0) {
+		discard;
+	}
+
+	float detail = fbm(p * 2.3 + 11.7);
 	vec3 col = mix(color_deep.rgb, color_mid.rgb, smoothstep(0.2, 0.7, shape));
 	col = mix(col, color_bright.rgb, smoothstep(0.65, 0.95, detail) * cloud);
 

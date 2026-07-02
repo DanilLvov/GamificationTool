@@ -22,7 +22,6 @@ script = ExtResource("1_syfuq")
 z_index = -5
 
 [node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]
-visible = false
 
 [node name="StartButton" type="TextureButton" parent="StartScreen" unique_id=2138111929]
 offset_left = 655.0
@@ -34,13 +33,17 @@ texture_normal = ExtResource("4_3jcrr")
 texture_pressed = ExtResource("5_ab40c")
 texture_hover = ExtResource("6_sjh0l")
 
-[node name="StartLabel" type="Label" parent="StartScreen" unique_id=1319844451]
-offset_left = 827.0
-offset_top = 854.0
-offset_right = 1062.0
-offset_bottom = 991.0
-theme_override_font_sizes/font_size = 100
+[node name="StartLabel" type="Label" parent="StartScreen/StartButton" unique_id=1319844451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 500
 text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MinigameController" parent="." unique_id=45388222 instance=ExtResource("5_idohh")]
 visible = false

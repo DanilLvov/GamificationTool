@@ -10,6 +10,10 @@ var sun_transition_target := Vector2 (2020, 380)
 var sun_scale = Vector2 (0.5, 0.5)
 @onready var sun = $Sun1
 
+# Start button pulsing
+var button_base_scale: Vector2
+@onready var start_button = $StartButton
+
 # All changes to planets behaviour go here
 @onready var planets = [ 
 {	"center": Vector2(960, 525),
@@ -18,11 +22,13 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"angle":  PI * 5.0 / 6.0,
 	"speed": 0.5,
 	"forward": true,			# used to determine if is behind or in front of the sun
-	"planet": $Planet1_1NoBlur, # Don't forget to change when renaming Scene objects
+	"planet": $Planet1, # Don't forget to change when renaming Scene objects
 	"scale_min": 0.1,			
 	"scale_max": 0.2,
 	"target_position": Vector2(960, 545),
-	"target_scale": Vector2(0.5, 0.5)
+	"target_scale": Vector2(0.5, 0.5),
+	# Center planet stays fully lit — matches the carousel's "selected" item.
+	"target_modulate": Color(1.0, 1.0, 1.0)
 
 },
 {	"center": Vector2(960, 525),
@@ -31,11 +37,12 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"angle": PI / 6.0,
 	"speed": 0.5,
 	"forward": true,
-	"planet": $Planet2_1,
+	"planet": $Planet2,
 	"scale_min": 0.1,
 	"scale_max": 0.2,
-	"target_position": Vector2(1240, 545),
-	"target_scale": Vector2(0.39, 0.39)
+	"target_position": Vector2(1235, 545),
+	"target_scale": Vector2(0.375, 0.375),
+	"target_modulate": Color(0.65, 0.65, 0.65)
 },
 {	"center": Vector2(960, 525),
 	"radius_x": 290.0,
@@ -43,17 +50,22 @@ var sun_scale = Vector2 (0.5, 0.5)
 	"angle": 3 * PI/2,
 	"speed": 0.5,
 	"forward": true,
-	"planet": $Planet3_1,
-	"scale_min": 0.08,
-	"scale_max": 0.15,
-	"target_position": Vector2(710, 545),
-	"target_scale": Vector2(0.23, 0.23)
+	"planet": $Planet3,
+	"scale_min": 0.1,
+	"scale_max": 0.2,
+	"target_position": Vector2(685, 545),
+	"target_scale": Vector2(0.375, 0.375),
+	"target_modulate": Color(0.65, 0.65, 0.65)
 }
 ]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_process(0)	
+	button_base_scale = start_button.scale
+	var pivot: Vector2 = start_button.size / 2.0
+	start_button.position -= pivot * (Vector2.ONE - button_base_scale)
+	start_button.pivot_offset = pivot
+	_process(0)
 	pass # Replace with function body.
 
 
@@ -66,6 +78,10 @@ func _process(delta: float) -> void:
 		var pulse := (sin(sun_time * 2.0) + 1.0) / 2.0
 		sun.scale = Vector2.ONE * lerp(sun_scale.x - 0.02, sun_scale.x + 0.02 , pulse)
 		sun.modulate = Color(1.0, 1.0, 1.0).lerp(Color(1.0, 0.92, 0.65), pulse * 0.25)
+
+		# Start button pulsing, synced to the same wave as the sun
+		start_button.scale = button_base_scale * lerp(0.97, 1.03, pulse)
+
 		if not finished_transition:
 			# Planets movement
 			for planet in planets:
@@ -115,6 +131,7 @@ func _start_pressed() -> bool:
 	for planet in planets:
 		tween.parallel().tween_property(planet["planet"], "position", planet["target_position"], transition_speed)
 		tween.parallel().tween_property(planet["planet"], "scale", planet["target_scale"], transition_speed)
+		tween.parallel().tween_property(planet["planet"], "modulate", planet["target_modulate"], transition_speed)
 
 	await tween.finished
 	start_transition = false
