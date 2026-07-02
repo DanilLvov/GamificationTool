@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgrxnqsaog5"
-path="res://.godot/imported/Minigame_4_intro.PNG-bef665db508860e686217d92c8cd980c.ctex"
+uid="uid://dytrh3fxsmxjy"
+path="res://.godot/imported/Minigame_4_BG.png-89efc8944af7522947596e29c92999a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/Minigame_4_intro.PNG"
-dest_files=["res://.godot/imported/Minigame_4_intro.PNG-bef665db508860e686217d92c8cd980c.ctex"]
+source_file="res://Assets/Backgrounds/Minigame_4_BG.png"
+dest_files=["res://.godot/imported/Minigame_4_BG.png-89efc8944af7522947596e29c92999a0.ctex"]
 
 [params]
 

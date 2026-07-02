@@ -133,5 +133,71 @@
             { "time": 1.0, "rotation": 0 }
         ],
         "alternate_image": []
+    },
+    "6": {
+        "name": "chips_float",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0,  "coordinates": [576, 724] },
+            { "time": 1.25, "coordinates": [600, 710] },
+            { "time": 2.5,  "coordinates": [556, 700] },
+            { "time": 3.75, "coordinates": [560, 742] },
+            { "time": 5.0,  "coordinates": [576, 724] }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": 15 },
+            { "time": 6.0, "rotation": 375 }
+        ],
+        "alternate_image": []
+    },
+    "7": {
+        "name": "dose_float",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0,  "coordinates": [1238, 564] },
+            { "time": 1.5,  "coordinates": [1258, 544] },
+            { "time": 3.0,  "coordinates": [1220, 580] },
+            { "time": 4.5,  "coordinates": [1230, 530] },
+            { "time": 6.0,  "coordinates": [1238, 564] }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": -10 },
+            { "time": 9.0, "rotation": -370 }
+        ],
+        "alternate_image": []
+    },
+    "8": {
+        "name": "flasche_float",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0,   "coordinates": [1265, 782] },
+            { "time": 1.375, "coordinates": [1290, 760] },
+            { "time": 2.75,  "coordinates": [1245, 768] },
+            { "time": 4.125, "coordinates": [1250, 805] },
+            { "time": 5.5,   "coordinates": [1265, 782] }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": -20 },
+            { "time": 7.0, "rotation": 340 }
+        ],
+        "alternate_image": []
+    },
+    "9": {
+        "name": "planet_left_float",
+        "is_loop": false,
+        "position": [
+            { "time": 0.0, "coordinates": [365, 525] },
+            { "time": 20.0, "coordinates": [255, 650] }
+        ],
+        "alternate_image": []
+    },
+    "10": {
+        "name": "planet_right_float",
+        "is_loop": false,
+        "position": [
+            { "time": 0.0,  "coordinates": [1460, 350] },
+            { "time": 20.5,  "coordinates": [1650, 300] }
+        ],
+        "alternate_image": []
     }
 }

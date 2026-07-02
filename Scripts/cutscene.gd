@@ -185,6 +185,8 @@ func play_cutscene():
 		animation_object.rotation_degrees = object_rotation
 		animation_object.global_position = Vector2(position_x, position_y)
 		animation_object.scale = Vector2(scale_value, scale_value)
+		if object.has("z_index"):
+			animation_object.z_index = int(object.get("z_index"))
 
 		if object.get("hasAnimation") == true and object.has("animationId"):
 			animation_object_connections.append({

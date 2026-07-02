@@ -19,6 +19,7 @@ process_mode = 1
 script = ExtResource("1_syfuq")
 
 [node name="SpaceBackground" parent="." unique_id=1954357426 instance=ExtResource("13_spbg")]
+visible = true
 z_index = -5
 
 [node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]

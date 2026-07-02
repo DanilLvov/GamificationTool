@@ -390,7 +390,7 @@
     "9": {
         "name": "MG4_Intro_Verpflegung",
         "subtitles": "Mein Magen knurrt! Wir haben seit Stunden nichts gegessen. Zeit, die Verpflegung für die Crew vorzubereiten!",
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_Intro.PNG",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_BG.png",
         "objects": [
             {
                 "id": 0,
@@ -404,24 +404,60 @@
             },
             {
                 "id": 1,
-                "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
-                "position_x": 250,
-                "position_y": 790,
-                "scale": 0.12,
+                "name": "Planet_Left",
+                "path": "res://Assets/Objects/NewPlanets/planet2.svg",
+                "position_x": 365,
+                "position_y": 525,
+                "scale": 0.4,
                 "rotation": 0,
-                "hasAnimation": false
+                "z_index": -1,
+                "hasAnimation": true,
+                "animationId": "9"
             },
             {
                 "id": 2,
-                "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronaut.png",
-                "position_x": 250,
-                "position_y": 790,
-                "scale": 0.10,
-                "rotation": -5,
+                "name": "Planet_Right",
+                "path": "res://Assets/Objects/NewPlanets/planet1.svg",
+                "position_x": 1460,
+                "position_y": 350,
+                "scale": 0.3,
+                "rotation": 0,
+                "z_index": -1,
                 "hasAnimation": true,
-                "animationId": "0"
+                "animationId": "10"
+            },
+            {
+                "id": 3,
+                "name": "Chips",
+                "path": "res://Assets/Objects/CutsceneObjects/Chips_Minigame_4.png",
+                "position_x": 576,
+                "position_y": 724,
+                "scale": 0.9,
+                "rotation": 15,
+                "hasAnimation": true,
+                "animationId": "6"
+            },
+            {
+                "id": 4,
+                "name": "Dose",
+                "path": "res://Assets/Objects/CutsceneObjects/Dose_Minigame_4.png",
+                "position_x": 1238,
+                "position_y": 564,
+                "scale": 0.9,
+                "rotation": -10,
+                "hasAnimation": true,
+                "animationId": "7"
+            },
+            {
+                "id": 5,
+                "name": "Flasche",
+                "path": "res://Assets/Objects/CutsceneObjects/Flasche_Minigame_4.png",
+                "position_x": 1265,
+                "position_y": 782,
+                "scale": 0.9,
+                "rotation": -20,
+                "hasAnimation": true,
+                "animationId": "8"
             }
         ]
     },
