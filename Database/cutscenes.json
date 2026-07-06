@@ -2,15 +2,15 @@
     "0": {
         "name": "Intro_Kontrollraum_Notfall",
         "subtitles": "Achtung! Der Kontrollraum ist beschädigt. Hilf mir, die Systeme zu stabilisieren, bevor alles explodiert!",
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
+        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
         "objects": [
             {
                 "id": 0,
                 "name": "Text_Background",
                 "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
-                "position_x": 960,
+                "position_x": 480,
                 "position_y": 1030,
-                "scale": 0.654,
+                "scale": 0.327,
                 "rotation": 0,
                 "hasAnimation": false
             },
@@ -56,13 +56,35 @@
                 "rotation": 10,
                 "hasAnimation": true,
                 "animationId": "2"
+            },
+            {
+                "id": 5,
+                "name": "Crosshair_Left",
+                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "position_x": 1016,
+                "position_y": 855,
+                "scale": 0.6,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "11"
+            },
+            {
+                "id": 6,
+                "name": "Crosshair_Right",
+                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "position_x": 1265,
+                "position_y": 865,
+                "scale": 0.6,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "12"
             }
         ]
     },
     "1": {
         "name": "MG2_Intro_Navigationssystem",
         "subtitles": "Das Navigationssystem ist ausgefallen! Wir fliegen blind durch das Weltall. Hilf mir, es zu reparieren!",
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Intro.PNG",
+        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
         "objects": [
             {
                 "id": 0,
@@ -693,15 +715,20 @@
     "16": {
         "name": "Allgemeine_Intro",
         "subtitles": "Hallo! Ich bin der Inversianer und möchte zu meinem Heimatplaneten Inverso zurückkehren. Es ist eine weite Reise – bist du dabei?",
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Intro.PNG",
+        "subtitles_position_x": 285,
+        "subtitles_position_y": 430,
+        "subtitles_width": 500,
+        "subtitles_height": 220,
+        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
         "objects": [
             {
                 "id": 0,
-                "name": "Text_Background",
-                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "name": "Sky",
+                "path": "res://Assets/Backgrounds/Sky_BG.png",
                 "position_x": 960,
-                "position_y": 1030,
-                "scale": 0.654,
+                "position_y": 590,
+                "scale": 1.0,
+                "z_index": -1,
                 "rotation": 0,
                 "hasAnimation": false
             },
@@ -709,9 +736,9 @@
                 "id": 1,
                 "name": "SpeechBubble",
                 "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
-                "position_x": 250,
-                "position_y": 790,
-                "scale": 0.12,
+                "position_x": 515,
+                "position_y": 540,
+                "scale": 0.21,
                 "rotation": 0,
                 "hasAnimation": false
             },
@@ -721,10 +748,55 @@
                 "path": "res://Assets/Objects/Astronaut.png",
                 "position_x": 250,
                 "position_y": 800,
-                "scale": 0.12,
+                "scale": 0.5,
                 "rotation": 0,
                 "hasAnimation": true,
                 "animationId": "5"
+            },
+            {
+                "id": 3,
+                "name": "Crosshair_Left",
+                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "position_x": 1016,
+                "position_y": 855,
+                "scale": 0.6,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "11"
+            },
+            {
+                "id": 4,
+                "name": "Crosshair_Right",
+                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "position_x": 1265,
+                "position_y": 865,
+                "scale": 0.6,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "12"
+            },
+            {
+                "id": 5,
+                "name": "Rotating_Gauge",
+                "path": "res://Assets/Objects/CutsceneObjects/Rotating_Gauge.png",
+                "position_x": 1066,
+                "position_y": 940,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "13"
+            },
+            {
+                "id": 6,
+                "name": "Clouds",
+                "path": "res://Assets/Objects/CutsceneObjects/Clouds.png",
+                "position_x": 0,
+                "position_y": 590,
+                "scale": 2.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "14",
+                "z_index": -1
             }
         ]
     }

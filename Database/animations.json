@@ -116,14 +116,9 @@
         "name": "astronaut_wave",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [250, 800] },
-            { "time": 0.5, "coordinates": [252, 796] },
-            { "time": 1.0, "coordinates": [250, 800] }
-        ],
-        "scale": [
-            { "time": 0.0, "scale": 0.12 },
-            { "time": 0.5, "scale": 0.12 },
-            { "time": 1.0, "scale": 0.12 }
+            { "time": 0.0, "coordinates": [250, 850] },
+            { "time": 0.5, "coordinates": [252, 846] },
+            { "time": 1.0, "coordinates": [250, 850] }
         ],
         "rotation": [
             { "time": 0.0, "rotation": 0 },
@@ -187,7 +182,7 @@
         "is_loop": false,
         "position": [
             { "time": 0.0, "coordinates": [365, 525] },
-            { "time": 20.0, "coordinates": [255, 650] }
+            { "time": 50.0, "coordinates": [55, 650] }
         ],
         "alternate_image": []
     },
@@ -199,5 +194,43 @@
             { "time": 20.5,  "coordinates": [1650, 300] }
         ],
         "alternate_image": []
+    },
+    "11": {
+        "name": "crosshair_left_grid_scan",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [1025, 865] },
+            { "time": 1.5, "coordinates": [1065, 865] },
+            { "time": 3.0, "coordinates": [1050, 885] },
+            { "time": 4.5, "coordinates": [1025, 885] },
+            { "time": 6.0, "coordinates": [1025, 865] }
+        ],
+        "alternate_image": []
+    },
+    "12": {
+        "name": "crosshair_right_grid_scan",
+        "is_loop": true,
+        "position": [
+            { "time": 0.0, "coordinates": [1275, 865] },
+            { "time": 1.5, "coordinates": [1305, 885] },
+            { "time": 3.0, "coordinates": [1275, 865] }
+        ],
+        "alternate_image": []
+    },
+    "13": {
+        "name": "rotating_arrow",
+        "is_loop": true,
+        "rotation": [
+            { "time": 0.0, "rotation": 0 },
+            { "time": 7.0, "rotation": 360 }
+        ]
+    },
+    "14": {
+        "name": "floating clouds",
+        "is_loop": false,
+        "position": [
+            { "time": 0.0, "coordinates": [0, 590] },
+            { "time": 60.0, "coordinates": [1920, 590]}
+        ]
     }
 }

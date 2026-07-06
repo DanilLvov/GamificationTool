@@ -18,11 +18,20 @@ var timer = 0.0
 var _continue
 #@onready var _ui_elements = $UiElements
 
+# Subtitles box position/size as authored in the scene, used whenever a
+# cutscene doesn't specify its own subtitles_position_x/y or subtitles_width/height.
+var _default_subtitles_position: Vector2
+var _default_subtitles_size: Vector2
+
 # Global cutscene structure variable
 var current_cutscene = {
 	"id": 0,
 	"name": "",
 	"subtitles": "",
+	"subtitles_position_x": null,
+	"subtitles_position_y": null,
+	"subtitles_width": null,
+	"subtitles_height": null,
 	"background_image_path": "",
 	"objects": []
 }
@@ -34,6 +43,9 @@ func _ready() -> void:
 	# Load cutscene and animation data from JSON files
 	cutscenes = _load_JSON("res://Database/cutscenes.json")
 	animations = _load_JSON("res://Database/animations.json")
+
+	_default_subtitles_position = _subtitles.position
+	_default_subtitles_size = _subtitles.size
 
 	_continue = UIFactory.create_texture_button(UIFactory.UIElementTypes.NORMAL_BUTTON, Vector2(200, 30), "Continue")
 	_continue["button"].pressed.connect(_on_continue_texture_button_pressed)
@@ -49,7 +61,7 @@ func _process(delta: float) -> void:
 	timer += delta
 	for animation_object in _animation_objects.get_children():
 		_update_animation_object(animation_object)
-	
+
 
 # Parsing json with all checks and errors
 func _load_JSON(path: String) -> Dictionary:
@@ -112,6 +124,10 @@ func get_current_cutscene(current_cutscene_id: int):
 	current_cutscene["id"] = current_cutscene_id
 	current_cutscene["name"] = cutscene.get("name", "")
 	current_cutscene["subtitles"] = cutscene.get("subtitles", "")
+	current_cutscene["subtitles_position_x"] = cutscene.get("subtitles_position_x")
+	current_cutscene["subtitles_position_y"] = cutscene.get("subtitles_position_y")
+	current_cutscene["subtitles_width"] = cutscene.get("subtitles_width")
+	current_cutscene["subtitles_height"] = cutscene.get("subtitles_height")
 	current_cutscene["background_image_path"] = cutscene.get("backgroundImagePath", "")
 	current_cutscene["objects"] = cutscene.get("objects", [])
 		
@@ -129,7 +145,7 @@ func _on_continue_texture_button_pressed() -> void:
 
 		animation_object_connections.clear()
 
-		# Emit signal, so next scene can be played 
+		# Emit signal, so next scene can be played
 		emit_signal("finished")
 		
 
@@ -150,12 +166,23 @@ func play_cutscene():
 
 	var objects = current_cutscene["objects"]
 
+	# Position/size the subtitles box, falling back to the scene's authored
+	# defaults if the cutscene doesn't specify its own
+	_subtitles.position = Vector2(
+		_numeric_or_default(current_cutscene["subtitles_position_x"], _default_subtitles_position.x),
+		_numeric_or_default(current_cutscene["subtitles_position_y"], _default_subtitles_position.y)
+	)
+	_subtitles.size = Vector2(
+		_numeric_or_default(current_cutscene["subtitles_width"], _default_subtitles_size.x),
+		_numeric_or_default(current_cutscene["subtitles_height"], _default_subtitles_size.y)
+	)
+
 	# Load every animation object
 	for object in objects:
 		if typeof(object) != TYPE_DICTIONARY:
 			push_error("Cutscene object must be a dictionary")
 			continue
-		
+
 		var object_path = object.get("path", "")
 		var position_x = object.get("position_x")
 		var position_y = object.get("position_y")
@@ -369,3 +396,9 @@ func _update_alternate_image(animation_object: Sprite2D, animation_data: Diction
 
 			if path != "" and FileAccess.file_exists(path):
 				animation_object.texture = load(path)
+
+# Returns value as a float if it's a valid number, otherwise the given default
+func _numeric_or_default(value, default: float) -> float:
+	if typeof(value) in [TYPE_INT, TYPE_FLOAT]:
+		return float(value)
+	return default
