@@ -1,4 +1,4 @@
-{
+﻿{
 	"0": {
 		"name": "StartMenu",
 		"state": "START",
@@ -13,7 +13,8 @@
 		"name": "Intro",
 		"state": "CUTSCENE",
 		"cutscene_id": 16,
-		"next_scene": 3
+		"next_scene": 3,
+		"has_transition_at_start": true
 	},
 	"3": {
 		"name": "MG1 Intro",
@@ -26,129 +27,150 @@
 		"state": "MINIGAME",
 		"minigame_id": 0,
 		"next_scene": 5,
-		"next_scene_fail": 6
+		"next_scene_fail": 6,
+		"has_transition_at_start": true
 	},
 	"5": {
 		"name": "Minigame 1 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 2,
-		"next_scene": 7
+		"next_scene": 7,
+		"has_transition_at_start": true
 	},
 	"6": {
 		"name": "Minigame 1 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 3,
-		"next_scene": 0
+		"next_scene": 0,
+		"has_transition_at_start": true
 	},
 	"7": {
 		"name": "MG2 Intro",
 		"state": "CUTSCENE",
 		"cutscene_id": 1,
-		"next_scene": 8
+		"next_scene": 8,
+		"has_transition_at_start": true
 	},
 	"8": {
 		"name": "Minigame 2",
 		"state": "MINIGAME",
 		"minigame_id": 1,
 		"next_scene": 9,
-		"next_scene_fail": 10
+		"next_scene_fail": 10,
+		"has_transition_at_start": true
 	},
 	"9": {
 		"name": "Minigame 2 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 4,
-		"next_scene": 11
+		"next_scene": 11,
+		"has_transition_at_start": true
 	},
 	"10": {
 		"name": "Minigame 2 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 5,
-		"next_scene": 0
+		"next_scene": 0,
+		"has_transition_at_start": true
 	},
 	"11": {
 		"name": "MG3 Intro",
 		"state": "CUTSCENE",
 		"cutscene_id": 6,
-		"next_scene": 12
+		"next_scene": 12,
+		"has_transition_at_start": true
 	},
 	"12": {
 		"name": "Minigame 3",
 		"state": "MINIGAME",
 		"minigame_id": 2,
 		"next_scene": 13,
-		"next_scene_fail": 14
+		"next_scene_fail": 14,
+		"has_transition_at_start": true
 	},
 	"13": {
 		"name": "Minigame 3 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 7,
-		"next_scene": 15
+		"next_scene": 15,
+		"has_transition_at_start": true
 	},
 	"14": {
 		"name": "Minigame 3 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 8,
-		"next_scene": 0
+		"next_scene": 0,
+		"has_transition_at_start": true
 	},
 	"15": {
 		"name": "MG4 Intro",
 		"state": "CUTSCENE",
 		"cutscene_id": 9,
-		"next_scene": 16
+		"next_scene": 16,
+		"has_transition_at_start": true
 	},
 	"16": {
 		"name": "Minigame 4",
 		"state": "MINIGAME",
 		"minigame_id": 3,
 		"next_scene": 17,
-		"next_scene_fail": 18
+		"next_scene_fail": 18,
+		"has_transition_at_start": true
 	},
 	"17": {
 		"name": "Minigame 4 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 10,
-		"next_scene": 19
+		"next_scene": 19,
+		"has_transition_at_start": true
 	},
 	"18": {
 		"name": "Minigame 4 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 11,
-		"next_scene": 0
+		"next_scene": 0,
+		"has_transition_at_start": true
 	},
 	"19": {
 		"name": "MG5 Intro",
 		"state": "CUTSCENE",
 		"cutscene_id": 12,
-		"next_scene": 20
+		"next_scene": 20,
+		"has_transition_at_start": true
 	},
 	"20": {
 		"name": "Mingame 5",
 		"state": "MINIGAME",
 		"minigame_id": 4,
 		"next_scene": 21,
-		"next_scene_fail": 22
+		"next_scene_fail": 22,
+		"has_transition_at_start": true
 	},
 	"21": {
 		"name": "Minigame 5 Success",
 		"state": "CUTSCENE",
 		"cutscene_id": 13,
-		"next_scene": 23
+		"next_scene": 23,
+		"has_transition_at_start": true
 	},
 	"22": {
 		"name": "Minigame 5 Fail",
 		"state": "CUTSCENE",
 		"cutscene_id": 14,
-		"next_scene": 0
+		"next_scene": 0,
+		"has_transition_at_start": true
 	},
 	"23": {
 		"name": "End Cutscene",
 		"state": "CUTSCENE",
 		"cutscene_id": 15,
-		"next_scene": 24
+		"next_scene": 24,
+		"has_transition_at_start": true
 	},
 	"24": {
 		"name": "End",
 		"state": "END",
-		"next_scene": 0
+		"next_scene": 0,
+		"has_transition_at_start": true
 	}
 }

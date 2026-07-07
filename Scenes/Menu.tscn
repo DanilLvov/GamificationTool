@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://2u84e4d67i2a" path="res://Assets/UI/Simple_Buttons/simple_button_hover.svg" id="6_sjh0l"]
 [ext_resource type="PackedScene" uid="uid://407dmngrpvf8" path="res://Scenes/debug_menu.tscn" id="11_sjh0l"]
 [ext_resource type="PackedScene" uid="uid://dsypx2g6ptugd" path="res://Scenes/SpaceBackground.tscn" id="13_spbg"]
+[ext_resource type="Script" path="res://Scripts/transition_overlay.gd" id="14_trns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
@@ -123,6 +124,14 @@ offset_right = 2825.897
 offset_bottom = 397.75
 theme_override_font_sizes/font_size = 300
 text = "Restart"
+
+[node name="TransitionOverlay" type="ColorRect" parent="." unique_id=1004200501]
+z_index = 500
+mouse_filter = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("14_trns")
 
 [node name="RestartMenu" type="PanelContainer" parent="." unique_id=1349227946]
 visible = false

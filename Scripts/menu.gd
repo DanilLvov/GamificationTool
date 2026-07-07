@@ -15,6 +15,7 @@ const CONFIG_PATH = "res://Database/config.json"
 @onready var end_screen := $GameEnd
 @onready var debug_menu := $DebugMenu
 @onready var skip_minigame: = $"DebugMenu/Skip minigame"
+@onready var _transition: TransitionOverlay = $TransitionOverlay
 
 var idle_timeout: float
 var restart_warning_time: float
@@ -111,7 +112,9 @@ func _next_game_step(jump_to_scene: bool = false, jump_id: int = 0) -> void:
 
 
 func _run_current_scene() -> void:
-	
+	if timeline[current_scene_id]._has_transition_at_start:
+		await _transition.play("black_out")
+
 	_hide_all_objects()
 
 	match timeline[current_scene_id]._state:
@@ -128,6 +131,9 @@ func _run_current_scene() -> void:
 			job_screen.visible = true
 		TimelineObject.GameState.END:
 			end_screen.visible = true
+
+	if timeline[current_scene_id]._has_transition_at_start:
+		await _transition.play("fade_in")
 
 # TODO: Add every new scene object to this function but we never hide restart button
 func _hide_all_objects() -> void:

@@ -14,13 +14,15 @@ var _state: GameState
 var _next_scene: int
 var _resource_id: int     #used only for cutscene and minigame
 var _next_scene_fail: int # used only for minigame
+var _has_transition_at_start: bool      # uses a fade in fade out transition if set to true
 
-func _init(name: String, state: GameState, next_scene: int, resource_id: int, next_scene_fail: int) -> void:
+func _init(name: String, state: GameState, next_scene: int, resource_id: int, next_scene_fail: int, has_transition_at_start) -> void:
     _name = name
-    _state = state  
+    _state = state
     _next_scene = next_scene
     _resource_id = resource_id
     _next_scene_fail = next_scene_fail
+    _has_transition_at_start = has_transition_at_start
 
 static func load_timeline_array(path: String) -> Array:
 
@@ -88,8 +90,9 @@ static func load_timeline_array(path: String) -> Array:
                 continue
             next_scene_fail = scene_data["next_scene_fail"]
 
-        
-        array.append(TimelineObject.new(name, state, int(next_scene), int(resource_id), int(next_scene_fail)))
+        var has_transition_at_start: bool = scene_data.get("has_transition_at_start", false)
+
+        array.append(TimelineObject.new(name, state, int(next_scene), int(resource_id), int(next_scene_fail), has_transition_at_start))
 
     return array
 
