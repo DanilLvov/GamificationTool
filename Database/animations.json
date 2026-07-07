@@ -3,23 +3,18 @@
         "name": "astronaut_panic_idle",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [245, 800] },
-            { "time": 0.25, "coordinates": [250, 792] },
-            { "time": 0.5, "coordinates": [241, 806] },
-            { "time": 0.75, "coordinates": [252, 798] },
-            { "time": 1.0, "coordinates": [245, 800] }
-        ],
-        "scale": [
-            { "time": 0.0, "scale": 0.16 },
-            { "time": 0.5, "scale": 0.17 },
-            { "time": 1.0, "scale": 0.16 }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 0.25, "coordinates": [5, -4] },
+            { "time": 0.5, "coordinates": [-4, 6] },
+            { "time": 0.75, "coordinates": [7, -2] },
+            { "time": 1.0, "coordinates": [0, 0] }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": -8 },
-            { "time": 0.25, "rotation": -3 },
-            { "time": 0.5, "rotation": -11 },
-            { "time": 0.75, "rotation": -5 },
-            { "time": 1.0, "rotation": -8 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 0.25, "rotation": 5 },
+            { "time": 0.5, "rotation": -3 },
+            { "time": 0.75, "rotation": 3 },
+            { "time": 1.0, "rotation": 0 }
         ],
         "alternate_image": []
     },
@@ -27,22 +22,22 @@
         "name": "smoke_main_console_loop",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [790, 740] },
-            { "time": 1.1, "coordinates": [805, 710] },
-            { "time": 2.2, "coordinates": [775, 680] },
-            { "time": 3.3, "coordinates": [790, 740] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 1.1, "coordinates": [15, -30] },
+            { "time": 2.2, "coordinates": [-15, -60] },
+            { "time": 3.3, "coordinates": [0, 0] }
         ],
         "scale": [
-            { "time": 0.0, "scale": 0.30 },
-            { "time": 1.1, "scale": 0.46 },
-            { "time": 2.2, "scale": 0.20 },
-            { "time": 3.3, "scale": 0.30 }
+            { "time": 0.0, "scale": 0.0 },
+            { "time": 1.1, "scale": 0.16 },
+            { "time": 2.2, "scale": -0.10 },
+            { "time": 3.3, "scale": 0.0 }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": -6 },
-            { "time": 1.1, "rotation": 3 },
-            { "time": 2.2, "rotation": -12 },
-            { "time": 3.3, "rotation": -6 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 1.1, "rotation": 9 },
+            { "time": 2.2, "rotation": -6 },
+            { "time": 3.3, "rotation": 0 }
         ],
         "alternate_image": []
     },
@@ -50,22 +45,22 @@
         "name": "smoke_secondary_console_loop",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [860, 700] },
-            { "time": 0.9, "coordinates": [845, 675] },
-            { "time": 1.8, "coordinates": [875, 650] },
-            { "time": 2.7, "coordinates": [860, 700] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 0.9, "coordinates": [-15, -25] },
+            { "time": 1.8, "coordinates": [15, -50] },
+            { "time": 2.7, "coordinates": [0, 0] }
         ],
         "scale": [
-            { "time": 0.0, "scale": 0.20 },
-            { "time": 0.9, "scale": 0.34 },
-            { "time": 1.8, "scale": 0.16 },
-            { "time": 2.7, "scale": 0.20 }
+            { "time": 0.0, "scale": 0.0 },
+            { "time": 0.9, "scale": 0.14 },
+            { "time": 1.8, "scale": -0.04 },
+            { "time": 2.7, "scale": 0.0 }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": 8 },
-            { "time": 0.9, "rotation": 17 },
-            { "time": 1.8, "rotation": 2 },
-            { "time": 2.7, "rotation": 8 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 0.9, "rotation": 9 },
+            { "time": 1.8, "rotation": -6 },
+            { "time": 2.7, "rotation": 0 }
         ],
         "alternate_image": []
     },
@@ -73,19 +68,14 @@
         "name": "astronaut_happy_idle",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [250, 800] },
-            { "time": 0.4, "coordinates": [250, 786] },
-            { "time": 0.8, "coordinates": [250, 800] }
-        ],
-        "scale": [
-            { "time": 0.0, "scale": 0.12 },
-            { "time": 0.4, "scale": 0.125 },
-            { "time": 0.8, "scale": 0.12 }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 0.4, "coordinates": [0, -14] },
+            { "time": 0.8, "coordinates": [0, 0] }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": 5 },
-            { "time": 0.4, "rotation": -5 },
-            { "time": 0.8, "rotation": 5 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 0.4, "rotation": -10 },
+            { "time": 0.8, "rotation": 0 }
         ],
         "alternate_image": []
     },
@@ -93,22 +83,22 @@
         "name": "fire_burning_loop",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [960, 540] },
-            { "time": 0.3, "coordinates": [955, 526] },
-            { "time": 0.6, "coordinates": [967, 548] },
-            { "time": 0.9, "coordinates": [960, 540] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 0.3, "coordinates": [-5, -14] },
+            { "time": 0.6, "coordinates": [7, 8] },
+            { "time": 0.9, "coordinates": [0, 0] }
         ],
         "scale": [
-            { "time": 0.0, "scale": 0.80 },
-            { "time": 0.3, "scale": 1.05 },
-            { "time": 0.6, "scale": 0.70 },
-            { "time": 0.9, "scale": 0.80 }
+            { "time": 0.0, "scale": 0.0 },
+            { "time": 0.3, "scale": 0.25 },
+            { "time": 0.6, "scale": -0.10 },
+            { "time": 0.9, "scale": 0.0 }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": -3 },
-            { "time": 0.3, "rotation": 5 },
-            { "time": 0.6, "rotation": -7 },
-            { "time": 0.9, "rotation": -3 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 0.3, "rotation": 8 },
+            { "time": 0.6, "rotation": -4 },
+            { "time": 0.9, "rotation": 0 }
         ],
         "alternate_image": []
     },
@@ -116,9 +106,9 @@
         "name": "astronaut_wave",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [250, 850] },
-            { "time": 0.5, "coordinates": [252, 846] },
-            { "time": 1.0, "coordinates": [250, 850] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 0.5, "coordinates": [2, -4] },
+            { "time": 1.0, "coordinates": [0, 0] }
         ],
         "rotation": [
             { "time": 0.0, "rotation": 0 },
@@ -133,15 +123,15 @@
         "name": "chips_float",
         "is_loop": true,
         "position": [
-            { "time": 0.0,  "coordinates": [576, 724] },
-            { "time": 1.25, "coordinates": [600, 710] },
-            { "time": 2.5,  "coordinates": [556, 700] },
-            { "time": 3.75, "coordinates": [560, 742] },
-            { "time": 5.0,  "coordinates": [576, 724] }
+            { "time": 0.0,  "coordinates": [0, 0] },
+            { "time": 1.25, "coordinates": [24, -14] },
+            { "time": 2.5,  "coordinates": [-20, -24] },
+            { "time": 3.75, "coordinates": [-16, 18] },
+            { "time": 5.0,  "coordinates": [0, 0] }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": 15 },
-            { "time": 6.0, "rotation": 375 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 6.0, "rotation": 360 }
         ],
         "alternate_image": []
     },
@@ -149,15 +139,15 @@
         "name": "dose_float",
         "is_loop": true,
         "position": [
-            { "time": 0.0,  "coordinates": [1238, 564] },
-            { "time": 1.5,  "coordinates": [1258, 544] },
-            { "time": 3.0,  "coordinates": [1220, 580] },
-            { "time": 4.5,  "coordinates": [1230, 530] },
-            { "time": 6.0,  "coordinates": [1238, 564] }
+            { "time": 0.0,  "coordinates": [0, 0] },
+            { "time": 1.5,  "coordinates": [20, -20] },
+            { "time": 3.0,  "coordinates": [-18, 16] },
+            { "time": 4.5,  "coordinates": [-8, -34] },
+            { "time": 6.0,  "coordinates": [0, 0] }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": -10 },
-            { "time": 9.0, "rotation": -370 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 9.0, "rotation": -360 }
         ],
         "alternate_image": []
     },
@@ -165,15 +155,15 @@
         "name": "flasche_float",
         "is_loop": true,
         "position": [
-            { "time": 0.0,   "coordinates": [1265, 782] },
-            { "time": 1.375, "coordinates": [1290, 760] },
-            { "time": 2.75,  "coordinates": [1245, 768] },
-            { "time": 4.125, "coordinates": [1250, 805] },
-            { "time": 5.5,   "coordinates": [1265, 782] }
+            { "time": 0.0,   "coordinates": [0, 0] },
+            { "time": 1.375, "coordinates": [25, -22] },
+            { "time": 2.75,  "coordinates": [-20, -14] },
+            { "time": 4.125, "coordinates": [-15, 23] },
+            { "time": 5.5,   "coordinates": [0, 0] }
         ],
         "rotation": [
-            { "time": 0.0, "rotation": -20 },
-            { "time": 7.0, "rotation": 340 }
+            { "time": 0.0, "rotation": 0 },
+            { "time": 7.0, "rotation": 360 }
         ],
         "alternate_image": []
     },
@@ -181,8 +171,8 @@
         "name": "planet_left_float",
         "is_loop": false,
         "position": [
-            { "time": 0.0, "coordinates": [365, 525] },
-            { "time": 50.0, "coordinates": [55, 650] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 50.0, "coordinates": [-310, 125] }
         ],
         "alternate_image": []
     },
@@ -190,8 +180,8 @@
         "name": "planet_right_float",
         "is_loop": false,
         "position": [
-            { "time": 0.0,  "coordinates": [1460, 350] },
-            { "time": 20.5,  "coordinates": [1650, 300] }
+            { "time": 0.0,  "coordinates": [0, 0] },
+            { "time": 20.5,  "coordinates": [190, -50] }
         ],
         "alternate_image": []
     },
@@ -199,11 +189,11 @@
         "name": "crosshair_left_grid_scan",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [1025, 865] },
-            { "time": 1.5, "coordinates": [1065, 865] },
-            { "time": 3.0, "coordinates": [1050, 885] },
-            { "time": 4.5, "coordinates": [1025, 885] },
-            { "time": 6.0, "coordinates": [1025, 865] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 1.5, "coordinates": [40, 0] },
+            { "time": 3.0, "coordinates": [25, 20] },
+            { "time": 4.5, "coordinates": [0, 20] },
+            { "time": 6.0, "coordinates": [0, 0] }
         ],
         "alternate_image": []
     },
@@ -211,9 +201,9 @@
         "name": "crosshair_right_grid_scan",
         "is_loop": true,
         "position": [
-            { "time": 0.0, "coordinates": [1275, 865] },
-            { "time": 1.5, "coordinates": [1305, 885] },
-            { "time": 3.0, "coordinates": [1275, 865] }
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 1.5, "coordinates": [30, 20] },
+            { "time": 3.0, "coordinates": [0, 0] }
         ],
         "alternate_image": []
     },
@@ -229,8 +219,19 @@
         "name": "floating clouds",
         "is_loop": false,
         "position": [
-            { "time": 0.0, "coordinates": [0, 590] },
-            { "time": 60.0, "coordinates": [1920, 590]}
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 60.0, "coordinates": [1920, 0]}
+        ]
+    },
+    "15": {
+        "name": "spaceship drifting away",
+        "position": [
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 60.0, "coordinates": [400, 1340] }
+        ],
+        "rotation": [
+            { "time": 0.0, "rotation": 0 },
+            { "time": 60.0, "rotation": 460 }
         ]
     }
 }
