@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7bwfuets25y8"
-path="res://.godot/imported/Clouds.png-e71f2bff7a0cecf3f953e5466d953e3f.ctex"
+uid="uid://davenpqgwutp5"
+path="res://.godot/imported/Minigame_1_Outside.png-1c131cd88fbc31122b2ba25fcfe2cad6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/CutsceneObjects/Clouds.png"
-dest_files=["res://.godot/imported/Clouds.png-e71f2bff7a0cecf3f953e5466d953e3f.ctex"]
+source_file="res://Assets/Backgrounds/Minigame_1_Outside.png"
+dest_files=["res://.godot/imported/Minigame_1_Outside.png-1c131cd88fbc31122b2ba25fcfe2cad6.ctex"]
 
 [params]
 
