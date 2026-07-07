@@ -4,6 +4,9 @@ var planets: Dictionary
 var _left_arrow_button
 var _right_arrow_button
 
+@onready var select_button = $SelectButton
+var _show_select_button := true
+
 enum Job {
 	# Jobs for specialization choice, determine minigame content
 	SOFTWAREENTWICKLUNG,
@@ -129,3 +132,21 @@ func _on_left_pressed() -> void:
 
 func _on_right_pressed() -> void:
 	$CarouselContainer._right()
+
+func _on_select_button_pressed() -> void:
+	var start_pos: Vector2 = select_button.position
+	var button_tween := create_tween()
+	button_tween.tween_property(select_button, "position", start_pos + Vector2(0, -20), 0.1)
+	button_tween.tween_property(select_button, "position", start_pos + Vector2(0, 400), 0.4)
+
+	
+	await button_tween.finished
+	emit_signal("job_chosen")
+
+func _on_node_shown() -> void:
+	if visible && select_button != null && _show_select_button: 
+		_show_select_button = false
+		var start_pos: Vector2 = select_button.position
+		var button_tween := create_tween()
+		button_tween.tween_property(select_button, "position", start_pos + Vector2(0, -420), 0.3)
+		button_tween.tween_property(select_button, "position", start_pos + Vector2(0, -400), 0.1)

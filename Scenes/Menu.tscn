@@ -19,7 +19,6 @@ process_mode = 1
 script = ExtResource("1_syfuq")
 
 [node name="SpaceBackground" parent="." unique_id=1954357426 instance=ExtResource("13_spbg")]
-visible = true
 z_index = -5
 
 [node name="StartScreen" parent="." unique_id=504394107 instance=ExtResource("2_s2c3o")]
@@ -73,7 +72,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JobSelection" parent="." unique_id=677812127 instance=ExtResource("6_idohh")]
-visible = false
+
+[node name="SelectButton" type="TextureButton" parent="JobSelection" unique_id=622049670]
+offset_left = 655.0
+offset_top = 1237.0
+offset_right = 3614.0
+offset_bottom = 1746.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_3jcrr")
+texture_pressed = ExtResource("5_ab40c")
+texture_hover = ExtResource("6_sjh0l")
+
+[node name="SelectLabel" type="Label" parent="JobSelection/SelectButton" unique_id=974653241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 500
+text = "Select"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DebugMenu" parent="." unique_id=597542210 instance=ExtResource("11_sjh0l")]
 offset_right = 1920.0
@@ -140,6 +160,7 @@ layout_mode = 2
 text = "No"
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="JobSelection/SelectButton" to="JobSelection" method="_on_select_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_restart_game"]
 [connection signal="pressed" from="RestartMenu/Content/Buttons/Yes" to="." method="_restart_menu_yes_pressed"]

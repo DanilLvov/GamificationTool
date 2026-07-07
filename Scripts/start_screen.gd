@@ -6,7 +6,7 @@ var start_transition = false
 var finished_transition = false
 
 var sun_time := 0.0
-var sun_transition_target := Vector2 (2020, 380)
+var sun_transition_target := Vector2 (2320, 380)
 var sun_scale = Vector2 (0.5, 0.5)
 @onready var sun = $Sun1
 
