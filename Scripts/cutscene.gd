@@ -104,11 +104,10 @@ func _load_JSON(path: String) -> Dictionary:
 
 			if not data.has("subtitles"):
 				push_error("Scene '%s' has no subtitles" % id)
+		else:
+			# Animation entries: is_loop defaults to false when not specified
+			data["is_loop"] = data.get("is_loop", false)
 
-			if not data.has("backgroundImagePath"):
-				push_error("Scene '%s' has no background image path" % id)
-
-			
 		result[id] = data
 
 	return result
@@ -156,13 +155,14 @@ func play_cutscene():
 
 	var background_image_path = current_cutscene["background_image_path"]
 
-	# Check if path to background image is valid
-	if background_image_path == "" or not FileAccess.file_exists(background_image_path):
-		push_error("Background image not found or path is missing: %s" % background_image_path)
-		return
-
-	# Load background image into scene
-	_background.texture = load(background_image_path)
+	# Background is optional: no path means no background image. Always reset
+	# the texture so a previous cutscene's background doesn't linger.
+	_background.texture = null
+	if background_image_path != "":
+		if FileAccess.file_exists(background_image_path):
+			_background.texture = load(background_image_path)
+		else:
+			push_error("Background image not found: %s" % background_image_path)
 
 	var objects = current_cutscene["objects"]
 
@@ -215,13 +215,20 @@ func play_cutscene():
 		if object.has("z_index"):
 			animation_object.z_index = int(object.get("z_index"))
 
-		if object.get("hasAnimation") == true and object.has("animationId"):
+		# Add to the tree first: if another object already used this name,
+		# Godot renames this node to stay unique among siblings. Reading
+		# .name only after add_child() ensures the connection matches the
+		# object's actual final name.
+		_animation_objects.add_child(animation_object)
+
+		if object.get("hasAnimation", false) == true and object.has("animationId"):
 			animation_object_connections.append({
 			"object_name": animation_object.name,
-			"animation_id": object.get("animationId")
+			"animation_id": object.get("animationId"),
+			"base_position": animation_object.global_position,
+			"base_scale": scale_value,
+			"base_rotation": object_rotation
 			})
-
-		_animation_objects.add_child(animation_object)
 
 	# Animate every character in subtitles string
 	var characters = current_cutscene["subtitles"].split()
@@ -239,36 +246,41 @@ func play_cutscene():
 	_continue["root"].visible = true
 
 
-# If aniamtion exists, call update functions for position, scale, rotation and alternate image
+# If aniamtion exists, call update functions for position, scale, rotation and alternate image.
+# Keyframes in animations.json are offsets from the object's own spawn
+# position/scale/rotation (its first keyframe is always 0), not absolute
+# values, so the same animation can be reused by objects placed anywhere.
 func _update_animation_object(animation_object: Sprite2D):
-	print("Update:", animation_object.name)
+	#print("Update:", animation_object.name)
 
-	var animation_id = _get_animation_id(animation_object.name)
-	if animation_id == null:
+	var connection = _get_connection(animation_object.name)
+	if connection == null:
 		return
 
-	var animation_data = animations.get(str(animation_id))
+	var animation_data = animations.get(str(connection["animation_id"]))
 
 	if animation_data == null:
-		push_error("Animation not found: " + str(animation_id))
+		push_error("Animation not found: " + str(connection["animation_id"]))
 		return
 
-	_update_position(animation_object, animation_data)
-	_update_scale(animation_object, animation_data)
-	_update_rotation(animation_object, animation_data)
+	_update_position(animation_object, animation_data, connection["base_position"])
+	_update_scale(animation_object, animation_data, connection["base_scale"])
+	_update_rotation(animation_object, animation_data, connection["base_rotation"])
 	_update_alternate_image(animation_object, animation_data)
-	
 
-# Get the animation id for an animation object by its name from the connections list
-func _get_animation_id(object_name: String):
+
+# Get the connection entry (animation id + base transform) for an animation
+# object by its name from the connections list
+func _get_connection(object_name: String):
 	for connection in animation_object_connections:
 		if connection["object_name"] == object_name:
-			return connection["animation_id"]
+			return connection
 	return null
 
 
-# Update position of animation object and interpolate between keyframes, if there are any
-func _update_position(animation_object: Sprite2D, animation_data: Dictionary):
+# Update position of animation object: interpolate the keyframe offsets and
+# add them to the object's base position
+func _update_position(animation_object: Sprite2D, animation_data: Dictionary, base_position: Vector2):
 	var positions = animation_data.get("position", [])
 
 	if positions.size() < 2:
@@ -291,27 +303,28 @@ func _update_position(animation_object: Sprite2D, animation_data: Dictionary):
 		if current_time >= start_time and current_time <= end_time:
 			var progress = (current_time - start_time) / (end_time - start_time)
 
-			var start_pos = Vector2(
+			var start_offset = Vector2(
 				start_key["coordinates"][0],
 				start_key["coordinates"][1]
 			)
 
-			var end_pos = Vector2(
+			var end_offset = Vector2(
 				end_key["coordinates"][0],
 				end_key["coordinates"][1]
 			)
 
-			animation_object.global_position = start_pos.lerp(
-				end_pos,
+			animation_object.global_position = base_position + start_offset.lerp(
+				end_offset,
 				progress
 			)
 
 			return
 
 
-# Update scale of animation object and interpolate between keyframes, if there are any
-func _update_scale(animation_object: Sprite2D, animation_data: Dictionary):
-	print("SCALE", timer)
+# Update scale of animation object: interpolate the keyframe offsets and add
+# them to the object's base scale
+func _update_scale(animation_object: Sprite2D, animation_data: Dictionary, base_scale: float):
+	#print("SCALE", timer)
 	var scales = animation_data.get("scale", [])
 
 	if scales.size() < 2:
@@ -333,19 +346,21 @@ func _update_scale(animation_object: Sprite2D, animation_data: Dictionary):
 		if current_time >= start_time and current_time <= end_time:
 			var progress = (current_time - start_time) / (end_time - start_time)
 
-			var value = lerpf(
+			var offset = lerpf(
 				float(start_key["scale"]),
 				float(end_key["scale"]),
 				progress
 			)
 
+			var value = base_scale + offset
 			animation_object.scale = Vector2(value, value)
 
 			return
 
 
-# Update rotation of animation object and interpolate between keyframes, if there are any
-func _update_rotation(animation_object: Sprite2D, animation_data: Dictionary):
+# Update rotation of animation object: interpolate the keyframe offsets and
+# add them to the object's base rotation
+func _update_rotation(animation_object: Sprite2D, animation_data: Dictionary, base_rotation: float):
 	var rotations = animation_data.get("rotation", [])
 
 	if rotations.size() < 2:
@@ -367,11 +382,13 @@ func _update_rotation(animation_object: Sprite2D, animation_data: Dictionary):
 		if current_time >= start_time and current_time <= end_time:
 			var progress = (current_time - start_time) / (end_time - start_time)
 
-			animation_object.rotation_degrees = lerpf(
+			var offset = lerpf(
 				float(start_key["rotation"]),
 				float(end_key["rotation"]),
 				progress
 			)
+
+			animation_object.rotation_degrees = base_rotation + offset
 
 			return
 
