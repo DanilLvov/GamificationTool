@@ -16,9 +16,9 @@ var button_base_scale: Vector2
 
 # All changes to planets behaviour go here
 @onready var planets = [ 
-{	"center": Vector2(960, 525),
-	"radius_x": 180.0,
-	"radius_y": 70.0,
+{	"center": Vector2(960, 500),
+	"radius_x": 310.0,
+	"radius_y": 121.0,
 	"angle":  PI * 5.0 / 6.0,
 	"speed": 0.5,
 	"forward": true,			# used to determine if is behind or in front of the sun
@@ -31,9 +31,9 @@ var button_base_scale: Vector2
 	"target_modulate": Color(1.0, 1.0, 1.0)
 
 },
-{	"center": Vector2(960, 525),
-	"radius_x": 250.0,
-	"radius_y": 115.0,
+{	"center": Vector2(960, 500),
+	"radius_x": 431.0,
+	"radius_y": 198.0,
 	"angle": PI / 6.0,
 	"speed": 0.5,
 	"forward": true,
@@ -44,9 +44,9 @@ var button_base_scale: Vector2
 	"target_scale": Vector2(0.375, 0.375),
 	"target_modulate": Color(0.65, 0.65, 0.65)
 },
-{	"center": Vector2(960, 525),
-	"radius_x": 290.0,
-	"radius_y": 140.0,
+{	"center": Vector2(960, 500),
+	"radius_x": 552.0,
+	"radius_y": 275.0,
 	"angle": 3 * PI/2,
 	"speed": 0.5,
 	"forward": true,

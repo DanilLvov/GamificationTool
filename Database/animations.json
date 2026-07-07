@@ -216,11 +216,11 @@
         ]
     },
     "14": {
-        "name": "floating clouds",
+        "name": "cloud float left to right",
         "is_loop": false,
         "position": [
             { "time": 0.0, "coordinates": [0, 0] },
-            { "time": 60.0, "coordinates": [1920, 0]}
+            { "time": 60.0, "coordinates": [4040, 0]}
         ]
     },
     "15": {
@@ -232,6 +232,35 @@
         "rotation": [
             { "time": 0.0, "rotation": 0 },
             { "time": 60.0, "rotation": 460 }
+        ]
+    },
+    "16": {
+        "name": "cloud float left to right slow",
+        "is_loop": false,
+        "position": [
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 120.0, "coordinates": [4040, 0]}
+        ]
+    },
+    "17": {
+        "name": "asteroids floating to camera",
+        "is_loop": false,
+        "scale": [
+            { "time": 0.0, "scale": 0 },
+            { "time": 60.0, "scale": 0.9}
+        ],
+        "position": [
+            { "time": 0.0, "coordinates": [0, 0] },
+            { "time": 60.0, "coordinates": [0, 100]}
+        ]
+    },
+    "18": {
+        "name": "object scaled quick big no loop",
+        "is_loop": false,
+        "scale": [
+            { "time": 0.0, "scale": 0 },
+            { "time": 1.0, "scale": 0.8},
+            { "time": 60.0, "scale": 1.5}
         ]
     }
 }

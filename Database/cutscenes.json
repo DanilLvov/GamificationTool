@@ -66,35 +66,48 @@
                 "animationId": "13"
             },
             {
-                "name": "Clouds",
-                "path": "res://Assets/Objects/CutsceneObjects/Clouds.png",
+                "name": "Cloud1",
+                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
                 "position_x": 0,
-                "position_y": 590,
-                "scale": 2.0,
+                "position_y": 100,
+                "scale": 1.0,
                 "rotation": 0,
                 "hasAnimation": true,
                 "animationId": "14",
                 "z_index": -1
             },
             {
-                "name": "Smoke_Main",
-                "path": "res://Assets/Objects/smoke.webp",
-                "position_x": 780,
-                "position_y": 720,
-                "scale": 0.18,
-                "rotation": -5,
+                "name": "Cloud2",
+                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "position_x": 700,
+                "position_y": 250,
+                "scale": 1.0,
+                "rotation": 0,
                 "hasAnimation": true,
-                "animationId": "1"
+                "animationId": "16",
+                "z_index": -1
             },
             {
-                "name": "Smoke_Secondary",
-                "path": "res://Assets/Objects/smoke.webp",
-                "position_x": 850,
-                "position_y": 690,
-                "scale": 0.12,
-                "rotation": 10,
+                "name": "Cloud3",
+                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "position_x": -1300,
+                "position_y": 50,
+                "scale": 1.0,
+                "rotation": 0,
                 "hasAnimation": true,
-                "animationId": "2"
+                "animationId": "14",
+                "z_index": -1
+            },
+             {
+                "name": "Cloud4",
+                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "position_x": -400,
+                "position_y": 450,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "16",
+                "z_index": -1
             }
         ]
     },
@@ -173,17 +186,16 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_Fail.PNG",
+        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_outside.PNG",
         "objects": [
             {
-                "name": "Feuer",
-                "path": "res://Assets/Objects/fire.webp",
+                "name": "Sky",
+                "path": "res://Assets/Backgrounds/Sky_BG.png",
                 "position_x": 960,
-                "position_y": 540,
-                "scale": 0.80,
-                "rotation": 0,
-                "hasAnimation": true,
-                "animationId": "4"
+                "position_y": 590,
+                "scale": 1.0,
+                "z_index": -1,
+                "rotation": 0
             },
             {
                 "name": "SpeechBubble",
@@ -202,6 +214,68 @@
                 "rotation": -8,
                 "hasAnimation": true,
                 "animationId": "0"
+            },
+            {
+                "name": "Cloud1",
+                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "position_x": 0,
+                "position_y": 100,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "14",
+                "z_index": -1
+            },
+            {
+                "name": "Cloud2",
+                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "position_x": 700,
+                "position_y": 250,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "16",
+                "z_index": -1
+            },
+            {
+                "name": "Cloud3",
+                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "position_x": -1300,
+                "position_y": 50,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "14",
+                "z_index": -1
+            },
+            {
+                "name": "Cloud4",
+                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "position_x": -400,
+                "position_y": 450,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "16",
+                "z_index": -1
+            },
+            {
+                "name": "Spaceship",
+                "path": "res://Assets/Objects/CutsceneObjects/Rakete_Small.png",
+                "position_x": 960,
+                "position_y": 650,
+                "scale": 1.0,
+                "rotation": 0
+            },
+            {
+                "name": "Smoke",
+                "path": "res://Assets/Objects/CutsceneObjects/Smoke_Big.png",
+                "position_x": 960,
+                "position_y": 750,
+                "scale": 0.3,
+                "hasAnimation": true,
+                "animationId": "18",
+                "rotation": 0
             }
         ]
     },
@@ -212,7 +286,7 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_2_Win.PNG",
+        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
         "objects": [
             {
                 "name": "SpeechBubble",
@@ -309,7 +383,7 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_3_Intro.PNG",
+        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
         "objects": [
             {
                 "name": "SpeechBubble",
@@ -330,24 +404,26 @@
                 "animationId": "0"
             },
             {
-                "name": "Smoke_Main",
-                "path": "res://Assets/Objects/smoke.webp",
-                "position_x": 900,
-                "position_y": 600,
-                "scale": 0.22,
-                "rotation": 8,
+                "name": "Asteroids1",
+                "path": "res://Assets/Objects/CutsceneObjects/Asteroids_1.png",
+                "position_x": 450,
+                "position_y": 290,
+                "scale": 0.2,
+                "rotation": 0,
                 "hasAnimation": true,
-                "animationId": "1"
+                "animationId": "17",
+                "z_index": -1
             },
             {
-                "name": "Smoke_Secondary",
-                "path": "res://Assets/Objects/smoke.webp",
-                "position_x": 1050,
-                "position_y": 560,
-                "scale": 0.14,
-                "rotation": -12,
+                "name": "Asteroids2",
+                "path": "res://Assets/Objects/CutsceneObjects/Asteroids_2.png",
+                "position_x": 1200,
+                "position_y": 190,
+                "scale": 0.2,
+                "rotation": 0,
                 "hasAnimation": true,
-                "animationId": "2"
+                "animationId": "17",
+                "z_index": -1
             }
         ]
     },
@@ -370,7 +446,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_3.4600_04-05.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_3/4600_4-05.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -409,7 +485,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_3.9700_01-08.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_3/9700_1-08.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -438,7 +514,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_4.4400_10-03.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_4/4400_10-03.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -519,7 +595,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_4.3700_02-09.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_4/3700_2-09.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -558,7 +634,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_5.4700_10-04.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_5/4700_10-04.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -587,7 +663,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_1.7200_02-06.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_1/7200_2-06.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -616,7 +692,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_5.3600_01-09.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_5/3600_1-09.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -655,7 +731,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_5.4700_10-04.png",
+                "path": "res://Assets/Objects/Astronauts/Spiel_5/4700_10-04.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -765,14 +841,47 @@
                 "animationId": "13"
             },
             {
-                "name": "Clouds",
-                "path": "res://Assets/Objects/CutsceneObjects/Clouds.png",
+                "name": "Cloud1",
+                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
                 "position_x": 0,
-                "position_y": 590,
-                "scale": 2.0,
+                "position_y": 100,
+                "scale": 1.0,
                 "rotation": 0,
                 "hasAnimation": true,
                 "animationId": "14",
+                "z_index": -1
+            },
+             {
+                "name": "Cloud2",
+                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "position_x": 700,
+                "position_y": 250,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "16",
+                "z_index": -1
+            },
+            {
+                "name": "Cloud1",
+                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "position_x": -1300,
+                "position_y": 50,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "14",
+                "z_index": -1
+            },
+             {
+                "name": "Cloud2",
+                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "position_x": -400,
+                "position_y": 450,
+                "scale": 1.0,
+                "rotation": 0,
+                "hasAnimation": true,
+                "animationId": "16",
                 "z_index": -1
             }
         ]

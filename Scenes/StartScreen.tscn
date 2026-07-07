@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cg0ijflafs2qa" path="res://Assets/Objects/NewPlanets/planet1.svg" id="3_a2231"]
 [ext_resource type="Texture2D" uid="uid://ct2nctqr684xl" path="res://Assets/Objects/NewPlanets/planet3_no_ring.svg" id="4_ey7n4"]
 [ext_resource type="Texture2D" uid="uid://dqmtcpkewcjf6" path="res://Assets/Objects/NewPlanets/planet2.svg" id="5_6mw8b"]
+[ext_resource type="Texture2D" uid="uid://dhfy8gq0oyw8k" path="res://Assets/Objects/orbit_planet1.svg" id="6_kehkj"]
+[ext_resource type="Texture2D" uid="uid://dcqfss28byn3q" path="res://Assets/Objects/orbit_planet2.svg" id="7_anxsw"]
+[ext_resource type="Texture2D" uid="uid://baipo7o0h6s3n" path="res://Assets/Objects/orbit_planet3.svg" id="8_ogpyo"]
 
 [node name="StarSystem" type="Node2D" unique_id=504394107]
 script = ExtResource("1_a2231")
@@ -28,3 +31,18 @@ texture = ExtResource("4_ey7n4")
 position = Vector2(524, 487)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_6mw8b")
+
+[node name="OrbitPlanet1" type="Sprite2D" parent="." unique_id=1297161]
+z_index = -2
+position = Vector2(960, 500)
+texture = ExtResource("6_kehkj")
+
+[node name="OrbitPlanet2" type="Sprite2D" parent="." unique_id=370403213]
+z_index = -2
+position = Vector2(960, 500)
+texture = ExtResource("7_anxsw")
+
+[node name="OrbitPlanet3" type="Sprite2D" parent="." unique_id=112902054]
+z_index = -2
+position = Vector2(960, 500)
+texture = ExtResource("8_ogpyo")

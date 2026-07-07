@@ -138,13 +138,11 @@ func _on_continue_texture_button_pressed() -> void:
 		# Hide continue button after pressing
 		_continue["root"].visible = false
 
-		# Delete all animation objects
-		for child in _animation_objects.get_children():
-			child.queue_free()
-
-		animation_object_connections.clear()
-
-		# Emit signal, so next scene can be played
+		# Animation objects are left in place here on purpose: menu.gd fades
+		# the screen to black before starting the next scene, and only then
+		# calls get_current_cutscene() again, which is where play_cutscene()
+		# clears them. Freeing them here would pop the cutscene away before
+		# the fade has covered the screen.
 		emit_signal("finished")
 		
 
@@ -152,6 +150,13 @@ func _on_continue_texture_button_pressed() -> void:
 func play_cutscene():
 	timer = 0.0
 	_continue["root"].visible = false
+
+	# Clear the previous cutscene's animation objects now: this always runs
+	# after the screen has already been faded to black by menu.gd, so the
+	# swap is never visible.
+	for child in _animation_objects.get_children():
+		child.queue_free()
+	animation_object_connections.clear()
 
 	var background_image_path = current_cutscene["background_image_path"]
 
