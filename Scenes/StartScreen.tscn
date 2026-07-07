@@ -32,17 +32,19 @@ position = Vector2(524, 487)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_6mw8b")
 
-[node name="OrbitPlanet1" type="Sprite2D" parent="." unique_id=1297161]
+[node name="Orbits" type="Node2D" parent="." unique_id=543086269]
+
+[node name="OrbitPlanet1" type="Sprite2D" parent="Orbits" unique_id=1297161]
 z_index = -2
 position = Vector2(960, 500)
 texture = ExtResource("6_kehkj")
 
-[node name="OrbitPlanet2" type="Sprite2D" parent="." unique_id=370403213]
+[node name="OrbitPlanet2" type="Sprite2D" parent="Orbits" unique_id=370403213]
 z_index = -2
 position = Vector2(960, 500)
 texture = ExtResource("7_anxsw")
 
-[node name="OrbitPlanet3" type="Sprite2D" parent="." unique_id=112902054]
+[node name="OrbitPlanet3" type="Sprite2D" parent="Orbits" unique_id=112902054]
 z_index = -2
 position = Vector2(960, 500)
 texture = ExtResource("8_ogpyo")

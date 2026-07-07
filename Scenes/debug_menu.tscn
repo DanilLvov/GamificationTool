@@ -28,27 +28,33 @@ theme_override_constants/v_separation = 20
 
 [node name="Return" type="Button" parent="." unique_id=2003369291]
 visible = false
+custom_minimum_size = Vector2(300, 70)
 layout_mode = 0
 offset_left = 25.0
 offset_top = 957.0
 offset_right = 179.0
 offset_bottom = 1046.0
+theme_override_font_sizes/font_size = 30
 text = "Return"
 
 [node name="ShowDebugButton" type="Button" parent="." unique_id=217736340]
+custom_minimum_size = Vector2(300, 70)
 layout_mode = 0
 offset_left = 26.0
 offset_top = 956.0
 offset_right = 176.0
 offset_bottom = 1046.0
+theme_override_font_sizes/font_size = 30
 text = "ShowDebugMenu"
 
 [node name="Skip minigame" type="Button" parent="." unique_id=1537664671]
+custom_minimum_size = Vector2(300, 70)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 864.0
 offset_right = 174.0
 offset_bottom = 946.0
+theme_override_font_sizes/font_size = 30
 text = "Skip Minigame"
 
 [connection signal="pressed" from="Return" to="." method="_on_show_return_button"]

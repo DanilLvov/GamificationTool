@@ -38,6 +38,10 @@ var current_cutscene = {
 
 var animation_object_connections = []
 
+# Set while the subtitle typewriter is running; a mouse click sets this to
+# reveal the rest of the text immediately instead of waiting it out.
+var _skip_typing := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Load cutscene and animation data from JSON files
@@ -54,7 +58,13 @@ func _ready() -> void:
 	add_child(_continue["root"])
 	_continue["root"].visible = false
 
-	
+
+# A mouse click skips the rest of the subtitle typewriter effect
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		_skip_typing = true
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Update timer for keyframes and update aniamtion objects if they have an animation connected
@@ -235,17 +245,24 @@ func play_cutscene():
 			"base_rotation": object_rotation
 			})
 
-	# Animate every character in subtitles string
+	# Animate every character in subtitles string; a mouse click skips
+	# straight to the full text instead of waiting out the rest
 	var characters = current_cutscene["subtitles"].split()
 	var text = ""
 	_subtitles.text = text
+	_skip_typing = false
 
 	await get_tree().create_timer(0.05).timeout
 
 	for character in characters:
+		if _skip_typing:
+			break
 		text += character
 		_subtitles.text = text
 		await get_tree().create_timer(0.05).timeout
+
+	if _skip_typing:
+		_subtitles.text = current_cutscene["subtitles"]
 
 	# Show continue button at end of cutscene
 	_continue["root"].visible = true

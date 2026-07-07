@@ -9,11 +9,37 @@
 [ext_resource type="PackedScene" uid="uid://se2a45nr7skt" path="res://Scenes/JobSelection.tscn" id="6_idohh"]
 [ext_resource type="Texture2D" uid="uid://2u84e4d67i2a" path="res://Assets/UI/Simple_Buttons/simple_button_hover.svg" id="6_sjh0l"]
 [ext_resource type="PackedScene" uid="uid://407dmngrpvf8" path="res://Scenes/debug_menu.tscn" id="11_sjh0l"]
+[ext_resource type="Texture2D" uid="uid://bhmpsdf4fvadq" path="res://Assets/UI/Frames/Answers/Answer_Background.svg" id="12_qki4b"]
 [ext_resource type="PackedScene" uid="uid://dsypx2g6ptugd" path="res://Scenes/SpaceBackground.tscn" id="13_spbg"]
-[ext_resource type="Script" path="res://Scripts/transition_overlay.gd" id="14_trns"]
+[ext_resource type="Script" uid="uid://cyxborvfdjexw" path="res://Scripts/transition_overlay.gd" id="14_trns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2c3o"]
 bg_color = Color(0.6, 0.3019608, 0.6, 0.56078434)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byewe"]
+bg_color = Color(0, 0.84705883, 0.69411767, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8aa6"]
+bg_color = Color(1.6845763e-07, 0.3056103, 0.24446997, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0ao6"]
+bg_color = Color(0, 0.84705883, 0.69411767, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Game" type="Node2D" unique_id=333191118]
 process_mode = 1
@@ -127,9 +153,9 @@ text = "Restart"
 
 [node name="TransitionOverlay" type="ColorRect" parent="." unique_id=1004200501]
 z_index = 500
-mouse_filter = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("14_trns")
 
@@ -142,35 +168,57 @@ offset_right = 1923.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2c3o")
 
+[node name="AnswerBackground" type="Sprite2D" parent="RestartMenu" unique_id=835630124]
+position = Vector2(957, 541)
+scale = Vector2(0.2, 0.2125)
+texture = ExtResource("12_qki4b")
+
 [node name="Content" type="VBoxContainer" parent="RestartMenu" unique_id=818826965]
 z_index = 100
 layout_mode = 2
+theme_override_constants/separation = 11
 alignment = 1
 
 [node name="Label" type="Label" parent="RestartMenu/Content" unique_id=171890597]
 z_index = 100
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.41851938, 0.33823553, 1)
+theme_override_font_sizes/font_size = 25
 text = "Are you sure? Restart will erase all progress"
 horizontal_alignment = 1
 
 [node name="Buttons" type="HBoxContainer" parent="RestartMenu/Content" unique_id=1782032524]
 z_index = 100
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Yes" type="Button" parent="RestartMenu/Content/Buttons" unique_id=220387279]
 z_index = 100
+clip_contents = true
+custom_minimum_size = Vector2(80, 60)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.41851938, 0.33823553, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_byewe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8aa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0ao6")
 text = "Yes"
 
 [node name="No" type="Button" parent="RestartMenu/Content/Buttons" unique_id=1588320668]
 z_index = 100
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.41851938, 0.33823553, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_byewe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8aa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0ao6")
 text = "No"
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="JobSelection/SelectButton" to="JobSelection" method="_on_select_button_pressed"]
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_restart_game"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="RestartMenu/Content/Buttons/Yes" to="." method="_restart_menu_yes_pressed"]
 [connection signal="pressed" from="RestartMenu/Content/Buttons/No" to="." method="_restart_menu_no_pressed"]

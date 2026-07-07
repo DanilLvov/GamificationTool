@@ -14,6 +14,8 @@ var sun_scale = Vector2 (0.5, 0.5)
 var button_base_scale: Vector2
 @onready var start_button = $StartButton
 
+@onready var orbits = $Orbits
+
 # All changes to planets behaviour go here
 @onready var planets = [ 
 {	"center": Vector2(960, 500),
@@ -119,6 +121,8 @@ func scale_t_from_angle(angle: float) -> float:
 	return smoothstep(0.0, 1.0, t)
 
 func _start_pressed() -> bool:
+
+	orbits.visible = false
 	start_transition = true 
 	var tween = create_tween()
 	# tween.set_trans(Tween.TRANS_SINE)
