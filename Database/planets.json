@@ -1,19 +1,19 @@
 {
     "0": {
         "name": "Softwareentwicklung",
-        "path": "res://Assets/Objects/NewPlanets/planet1.svg",
+        "path": "res://Assets/objects/new_planets/planet1.svg",
         "scale_x": 0.5,
         "scale_y": 0.5
     },
     "1": {
         "name": "Marketing",
-        "path": "res://Assets/Objects/NewPlanets/planet2.svg",
+        "path": "res://Assets/objects/new_planets/planet2.svg",
         "scale_x": 0.5,
         "scale_y": 0.5
     },
     "2": {
         "name": "Projektmanagement",
-        "path": "res://Assets/Objects/NewPlanets/planet3_no_ring.svg",
+        "path": "res://Assets/objects/new_planets/planet3_no_ring.svg",
         "scale_x": 0.5,
         "scale_y": 0.5
     }

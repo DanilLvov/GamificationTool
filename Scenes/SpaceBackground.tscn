@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dsypx2g6ptugd"]
 
-[ext_resource type="Shader" uid="uid://6jwhhcauq0pb" path="res://Assets/Shaders/gradient_background.gdshader" id="1"]
+[ext_resource type="Shader" uid="uid://6jwhhcauq0pb" path="res://Assets/shaders/gradient_background.gdshader" id="1"]
 [ext_resource type="Script" uid="uid://culoj3a5oarcp" path="res://Scripts/star_field.gd" id="3"]
-[ext_resource type="Shader" uid="uid://bchn7mmyr1kw" path="res://Assets/Shaders/nebula.gdshader" id="4"]
-[ext_resource type="Texture2D" uid="uid://b0jihlyip6472" path="res://Assets/Objects/star_1.png" id="4_il1rk"]
-[ext_resource type="Texture2D" uid="uid://bgyyy3f7guyh3" path="res://Assets/Objects/Asteroids/asteroid.svg" id="5_bsf37"]
+[ext_resource type="Shader" uid="uid://bchn7mmyr1kw" path="res://Assets/shaders/nebula.gdshader" id="4"]
+[ext_resource type="Texture2D" uid="uid://y00uv22n78s3" path="res://Assets/objects/star_1.png" id="4_il1rk"]
+[ext_resource type="Texture2D" uid="uid://d25k15adorma0" path="res://Assets/objects/asteroids/asteroid.svg" id="5_bsf37"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gradient"]
 shader = ExtResource("1")

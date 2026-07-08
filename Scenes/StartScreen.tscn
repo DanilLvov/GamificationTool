@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://08yngngwjd1n"]
 
-[ext_resource type="Texture2D" uid="uid://dw2wi3wj7ujfj" path="res://Assets/Objects/sun1.svg" id="1_3u666"]
+[ext_resource type="Texture2D" uid="uid://yo2p7rkgiulq" path="res://Assets/objects/sun1.svg" id="1_3u666"]
 [ext_resource type="Script" uid="uid://dacrs4p4kb14" path="res://Scripts/start_screen.gd" id="1_a2231"]
-[ext_resource type="Texture2D" uid="uid://cg0ijflafs2qa" path="res://Assets/Objects/NewPlanets/planet1.svg" id="3_a2231"]
-[ext_resource type="Texture2D" uid="uid://ct2nctqr684xl" path="res://Assets/Objects/NewPlanets/planet3_no_ring.svg" id="4_ey7n4"]
-[ext_resource type="Texture2D" uid="uid://dqmtcpkewcjf6" path="res://Assets/Objects/NewPlanets/planet2.svg" id="5_6mw8b"]
-[ext_resource type="Texture2D" uid="uid://dhfy8gq0oyw8k" path="res://Assets/Objects/orbit_planet1.svg" id="6_kehkj"]
-[ext_resource type="Texture2D" uid="uid://dcqfss28byn3q" path="res://Assets/Objects/orbit_planet2.svg" id="7_anxsw"]
-[ext_resource type="Texture2D" uid="uid://baipo7o0h6s3n" path="res://Assets/Objects/orbit_planet3.svg" id="8_ogpyo"]
+[ext_resource type="Texture2D" uid="uid://bgv4uqcvj2rpj" path="res://Assets/objects/new_planets/planet1.svg" id="3_a2231"]
+[ext_resource type="Texture2D" uid="uid://fwehkjmx8gn4" path="res://Assets/objects/new_planets/planet3_no_ring.svg" id="4_ey7n4"]
+[ext_resource type="Texture2D" uid="uid://d0bvco2r7k883" path="res://Assets/objects/new_planets/planet2.svg" id="5_6mw8b"]
+[ext_resource type="Texture2D" uid="uid://dxiti14x2syuq" path="res://Assets/objects/orbit_planet1.svg" id="6_kehkj"]
+[ext_resource type="Texture2D" uid="uid://d2jfxp4dhxhsq" path="res://Assets/objects/orbit_planet2.svg" id="7_anxsw"]
+[ext_resource type="Texture2D" uid="uid://cw8rpvm3fwq3g" path="res://Assets/objects/orbit_planet3.svg" id="8_ogpyo"]
 
 [node name="StarSystem" type="Node2D" unique_id=504394107]
 script = ExtResource("1_a2231")

@@ -257,6 +257,7 @@
 				"question_type": "DRAG_AND_DROP",
 				"job": "MARKETING",
 				"answers_amount": 5,
+				"solution": [0, 1, 0, 1, 2],
 				"categories_amount": 3,
 				"categories": {
 					"1": "gut",
@@ -302,6 +303,7 @@
 				"question": "Was sollte mit diesem Commit passieren?",
 				"question_type": "SINGLECHOICE",
 				"job": "SOFTWAREENTWICKLUNG",
+				"solution": [0, 1, 0, 0],
 				"extra_content": {
 					"text": "function getUser(id) {\n\t// TODO: Fehlerbehandlung fehlt noch\n\tconst user = db.findUser(id);\n\n\tif (user) {\n\t\tuser.lastLogin = new Date();\n\t\tdb.save(user);\n\t}\n\n\treturn user;\n}",
 					"content_type": "CODE_SNIPPET"
@@ -334,6 +336,7 @@
 				"question": "Wie sollte der Post veröffentlicht werden? (answers 1,3)",
 				"question_type": "MULTICHOICE",
 				"job": "SOFTWAREENTWICKLUNG",
+				"solution": [1, 0, 1, 0],
 				"extra_content": {
 					"text": "Neues Feature",
 					"content_type": "NORMAL_QUESTION"
@@ -367,6 +370,7 @@
 				"job": "SOFTWAREENTWICKLUNG",
 				"question_type": "SINGLECHOICE",
 				"answers_amount": 6,
+				"solution": [1, 0, 0, 0, 0, 0],
 				"answers": {
 					"0": {
 						"text": "Direkt mergen, ohne ihn weiter zu prüfen.",
@@ -409,6 +413,7 @@
 					"content_type": "NORMAL_QUESTION"
 				},
 				"answers_amount": 6,
+				"solution": [1, 0, 0, 0, 0, 0],
 				"answers": {
 					"0": {
 						"text": "Instagram, weil es am schnellsten ist.",
@@ -505,6 +510,7 @@
 				"question_type": "DRAG_AND_DROP",
 				"job": "SOFTWAREENTWICKLUNG",
 				"answers_amount": 5,
+				"solution": [0, 1, 2, 2, 1],
 				"categories_amount": 3,
 				"categories": {
 					"1": "gut",
@@ -544,6 +550,7 @@
 				"question_type": "DRAG_AND_DROP",
 				"job": "MARKETING",
 				"answers_amount": 5,
+				"solution": [0, 1, 0, 1, 2],
 				"categories_amount": 3,
 				"categories": {
 					"1": "gut",
@@ -838,6 +845,7 @@
 				"question_type": "DRAG_AND_DROP",
 				"job": "MARKETING",
 				"answers_amount": 5,
+				"solution": [0, 1, 0, 1, 2],
 				"categories_amount": 3,
 				"categories": {
 					"1": "gut",
@@ -1132,6 +1140,7 @@
 				"question_type": "DRAG_AND_DROP",
 				"job": "MARKETING",
 				"answers_amount": 5,
+				"solution": [0, 1, 0, 1, 2],
 				"categories_amount": 3,
 				"categories": {
 					"1": "gut",

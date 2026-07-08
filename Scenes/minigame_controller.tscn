@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://deiyfl7ij7so"]
 
 [ext_resource type="Script" uid="uid://biihgkanngmqk" path="res://Scripts/minigame_controller.gd" id="1_uojix"]
-[ext_resource type="Texture2D" uid="uid://riwsb2qmht7i" path="res://Assets/UI/Progess_Bars/progressbar_under.svg" id="2_5tdtq"]
-[ext_resource type="Texture2D" uid="uid://d0dwnsbihdkue" path="res://Assets/UI/Progess_Bars/progressbar_over.svg" id="3_qu1g1"]
+[ext_resource type="Texture2D" uid="uid://dd702dmmnn1j" path="res://Assets/ui/progess_bars/progressbar_under.svg" id="2_5tdtq"]
+[ext_resource type="Texture2D" uid="uid://nwp0h8jcnshw" path="res://Assets/ui/progess_bars/progressbar_over.svg" id="3_qu1g1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uojix"]
 bg_color = Color(0.77628314, 0.5290535, 0.47429085, 1)
