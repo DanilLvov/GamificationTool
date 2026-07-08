@@ -13,7 +13,7 @@ config_version=5
 config/name="Gameification Tool"
 run/main_scene="uid://dlwa3cx6bf1fj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://xe0ac2l166t8"
+config/icon="uid://ca8wdpwahe74j"
 
 [display]
 

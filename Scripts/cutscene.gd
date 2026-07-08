@@ -174,7 +174,7 @@ func play_cutscene():
 	# the texture so a previous cutscene's background doesn't linger.
 	_background.texture = null
 	if background_image_path != "":
-		if FileAccess.file_exists(background_image_path):
+		if ResourceLoader.exists(background_image_path):
 			_background.texture = load(background_image_path)
 		else:
 			push_error("Background image not found: %s" % background_image_path)
@@ -211,7 +211,7 @@ func play_cutscene():
 		var object_rotation = float(object_rotation_value)
 
 		# Check if object image path is valid
-		if typeof(object_path) != TYPE_STRING or object_path == "" or not FileAccess.file_exists(object_path):
+		if typeof(object_path) != TYPE_STRING or object_path == "" or not ResourceLoader.exists(object_path):
 			push_error("Object image not found or path missing: %s" % object_path)
 			continue
 
@@ -433,7 +433,7 @@ func _update_alternate_image(animation_object: Sprite2D, animation_data: Diction
 		if current_time >= float(image_data["time"]):
 			var path = image_data.get("path", "")
 
-			if path != "" and FileAccess.file_exists(path):
+			if path != "" and ResourceLoader.exists(path):
 				animation_object.texture = load(path)
 
 # Returns value as a float if it's a valid number, otherwise the given default

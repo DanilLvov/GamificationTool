@@ -6,8 +6,8 @@ extends Control
 @onready var _lives_hbox_container = $LivesHBoxContainer
 
 # const values used throughout controller, better to read from separate file
-const _life_texture_path = preload("res://Assets/Objects/astronaut_life.png")
-const _life_lost_texture_path = preload("res://Assets/Objects/astronaut_life_lost.png")
+const _life_texture_path = preload("res://Assets/objects/astronaut_life.png")
+const _life_lost_texture_path = preload("res://Assets/objects/astronaut_life_lost.png")
 const _default_minigame_timer = 0.5
 const debug = true
 const _win_color = Color.GREEN

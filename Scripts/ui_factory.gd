@@ -16,53 +16,53 @@ enum UIElementTypes {
 # TODO(optional): load list of resources from directory
 const BUTTONS = {
 	UIElementTypes.NORMAL_BUTTON: {
-		"normal": preload("res://Assets/UI/Simple_Buttons/simple_button_normal.svg"),
-		"hover": preload("res://Assets/UI/Simple_Buttons/simple_button_hover.svg"),
-		"pressed": preload("res://Assets/UI/Simple_Buttons/simple_button_press.svg")
+		"normal": preload("res://Assets/ui/simple_buttons/simple_button_normal.svg"),
+		"hover": preload("res://Assets/ui/simple_buttons/simple_button_hover.svg"),
+		"pressed": preload("res://Assets/ui/simple_buttons/simple_button_press.svg")
 	},
 	UIElementTypes.ROUND_BUTTON: {
-		"normal": preload("res://Assets/UI/Simple_Buttons/simple_button_round_normal.svg"),
-		"hover": preload("res://Assets/UI/Simple_Buttons/simple_button_round_hover.svg"),
-		"pressed": preload("res://Assets/UI/Simple_Buttons/simple_button_round_press.svg")
+		"normal": preload("res://Assets/ui/simple_buttons/simple_button_round_normal.svg"),
+		"hover": preload("res://Assets/ui/simple_buttons/simple_button_round_hover.svg"),
+		"pressed": preload("res://Assets/ui/simple_buttons/simple_button_round_press.svg")
 	},
 	UIElementTypes.ROUND_ARROW_BUTTON: {
-		"normal": preload("res://Assets/UI/Simple_Buttons/simple_button_round_arrow_normal.svg"),
-		"hover": preload("res://Assets/UI/Simple_Buttons/simple_button_round_arrow_hover.svg"),
-		"pressed": preload("res://Assets/UI/Simple_Buttons/simple_button_round_arrow_press.svg")
+		"normal": preload("res://Assets/ui/simple_buttons/simple_button_round_arrow_normal.svg"),
+		"hover": preload("res://Assets/ui/simple_buttons/simple_button_round_arrow_hover.svg"),
+		"pressed": preload("res://Assets/ui/simple_buttons/simple_button_round_arrow_press.svg")
 	},
 	UIElementTypes.ROUND_ARROW_BUTTON_MIRRORED: {
-		"normal": preload("res://Assets/UI/Simple_Buttons/simple_button_round_arrow_normal_mirrored.svg"),
-		"hover": preload("res://Assets/UI/Simple_Buttons/simple_button_round_arrow_hover_mirrored.svg"),
-		"pressed": preload("res://Assets/UI/Simple_Buttons/simple_button_round_arrow_press_mirrored.svg")
+		"normal": preload("res://Assets/ui/simple_buttons/simple_button_round_arrow_normal_mirrored.svg"),
+		"hover": preload("res://Assets/ui/simple_buttons/simple_button_round_arrow_hover_mirrored.svg"),
+		"pressed": preload("res://Assets/ui/simple_buttons/simple_button_round_arrow_press_mirrored.svg")
 	},
 	UIElementTypes.RESET_BUTTON: {
-		"normal": preload("res://Assets/UI/Simple_Buttons/simple_button_round_reset_normal.svg"),
-		"hover": preload("res://Assets/UI/Simple_Buttons/simple_button_round_reset_hover.svg"),
-		"pressed": preload("res://Assets/UI/Simple_Buttons/simple_button_round_reset_press.svg")
+		"normal": preload("res://Assets/ui/simple_buttons/simple_button_round_reset_normal.svg"),
+		"hover": preload("res://Assets/ui/simple_buttons/simple_button_round_reset_hover.svg"),
+		"pressed": preload("res://Assets/ui/simple_buttons/simple_button_round_reset_press.svg")
 	},
 	UIElementTypes.ANSWER_BACKGROUND: {
-		"normal": preload("res://Assets/UI/Frames/Answers/answer_background.svg"),
-		"hover": preload("res://Assets/UI/Frames/Answers/answer_background_hover.svg"),
-		"pressed": preload("res://Assets/UI/Frames/Answers/answer_background_press.svg")
+		"normal": preload("res://Assets/ui/frames/answers/answer_background.svg"),
+		"hover": preload("res://Assets/ui/frames/answers/answer_background_hover.svg"),
+		"pressed": preload("res://Assets/ui/frames/answers/answer_background_press.svg")
 	}
 }
 
 # add all backgrounds here
 const MINIGAME_BACKGROUNDS = {
-	"Minigame1": preload("res://Assets/Backgrounds/Minigame_1.PNG"),
-	"Minigame2": preload("res://Assets/Backgrounds/Minigame_2.PNG"),
-	"Minigame3": preload("res://Assets/Backgrounds/Minigame_3.PNG"),
-	"Minigame4": preload("res://Assets/Backgrounds/Minigame_4.PNG")
+	"Minigame1": preload("res://Assets/backgrounds/minigame_1.png"),
+	"Minigame2": preload("res://Assets/backgrounds/minigame_2.png"),
+	"Minigame3": preload("res://Assets/backgrounds/minigame_3.png"),
+	"Minigame4": preload("res://Assets/backgrounds/minigame_4.png")
 }
-const CONTAINER_TEXTURE = preload("res://Assets/UI/frames/simple_question_frame.svg")
+const CONTAINER_TEXTURE = preload("res://Assets/ui/frames/simple_question_frame.svg")
 
 const SEQUENCE_CARDS = {
-	"end_hover": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_End_Hover.svg"),
-	"end": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_End.svg"),
-	"start_hover": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_Start_Hover.svg"),
-	"start": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_Start.svg"),
-	"normal_hover": preload("res://Assets/UI/Sequence_Cards/Sequence_Card_Hover.svg"),
-	"normal": preload("res://Assets/UI/Sequence_Cards/Sequence_Card.svg")
+	"end_hover": preload("res://Assets/ui/sequence_cards/sequence_card_end_hover.svg"),
+	"end": preload("res://Assets/ui/sequence_cards/sequence_card_end.svg"),
+	"start_hover": preload("res://Assets/ui/sequence_cards/sequence_card_start_hover.svg"),
+	"start": preload("res://Assets/ui/sequence_cards/sequence_card_start.svg"),
+	"normal_hover": preload("res://Assets/ui/sequence_cards/sequence_card_hover.svg"),
+	"normal": preload("res://Assets/ui/sequence_cards/sequence_card.svg")
 }
 	
 

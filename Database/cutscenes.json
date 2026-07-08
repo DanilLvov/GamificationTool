@@ -6,11 +6,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/spaceship_bg.png",
         "objects": [
             {
                 "name": "Sky",
-                "path": "res://Assets/Backgrounds/Sky_BG.png",
+                "path": "res://Assets/backgrounds/sky_bg.png",
                 "position_x": 960,
                 "position_y": 590,
                 "scale": 1.0,
@@ -19,7 +19,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -27,7 +27,7 @@
             },
             {
                 "name": "Astronaut2",
-                "path": "res://Assets/Objects/Astronauts/Spiel_1/6000_9-04.svg",
+                "path": "res://Assets/objects/astronauts/spiel_1/6000_9_04.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.1,
@@ -37,7 +37,7 @@
             },
             {
                 "name": "Crosshair_Left",
-                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "path": "res://Assets/objects/cutscene_objects/crosshair.png",
                 "position_x": 1016,
                 "position_y": 855,
                 "scale": 0.6,
@@ -47,7 +47,7 @@
             },
             {
                 "name": "Crosshair_Right",
-                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "path": "res://Assets/objects/cutscene_objects/crosshair.png",
                 "position_x": 1265,
                 "position_y": 865,
                 "scale": 0.6,
@@ -57,7 +57,7 @@
             },
             {
                 "name": "Rotating_Gauge",
-                "path": "res://Assets/Objects/CutsceneObjects/Rotating_Gauge.png",
+                "path": "res://Assets/objects/cutscene_objects/rotating_gauge.png",
                 "position_x": 1066,
                 "position_y": 940,
                 "scale": 1.0,
@@ -67,7 +67,7 @@
             },
             {
                 "name": "Cloud1",
-                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "path": "res://Assets/objects/cutscene_objects/big_cloud.png",
                 "position_x": 0,
                 "position_y": 100,
                 "scale": 1.0,
@@ -78,7 +78,7 @@
             },
             {
                 "name": "Cloud2",
-                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "path": "res://Assets/objects/cutscene_objects/3_clouds.png",
                 "position_x": 700,
                 "position_y": 250,
                 "scale": 1.0,
@@ -89,7 +89,7 @@
             },
             {
                 "name": "Cloud3",
-                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "path": "res://Assets/objects/cutscene_objects/big_cloud.png",
                 "position_x": -1300,
                 "position_y": 50,
                 "scale": 1.0,
@@ -100,7 +100,7 @@
             },
              {
                 "name": "Cloud4",
-                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "path": "res://Assets/objects/cutscene_objects/3_clouds.png",
                 "position_x": -400,
                 "position_y": 450,
                 "scale": 1.0,
@@ -118,11 +118,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/spaceship_bg.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -130,7 +130,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_2/4500_3-06.svg",
+                "path": "res://Assets/objects/astronauts/spiel_2/4500_3_06.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -140,7 +140,7 @@
             },
             {
                 "name": "Smoke_Main",
-                "path": "res://Assets/Objects/smoke.webp",
+                "path": "res://Assets/objects/smoke.webp",
                 "position_x": 1100,
                 "position_y": 400,
                 "scale": 0.15,
@@ -157,11 +157,11 @@
         "subtitles_position_y": 470,
         "subtitles_width": 400,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/spaceship_bg.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 500,
                 "position_y": 540,
                 "scale": 0.15,
@@ -169,7 +169,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_1/7200_2-06.svg",
+                "path": "res://Assets/objects/astronauts/spiel_1/7200_2_06.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.1,
@@ -186,11 +186,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_1_outside.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_1_outside.png",
         "objects": [
             {
                 "name": "Sky",
-                "path": "res://Assets/Backgrounds/Sky_BG.png",
+                "path": "res://Assets/backgrounds/sky_bg.png",
                 "position_x": 960,
                 "position_y": 590,
                 "scale": 1.0,
@@ -199,7 +199,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -207,7 +207,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_1/7200_2-06.svg",
+                "path": "res://Assets/objects/astronauts/spiel_1/7200_2_06.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -217,7 +217,7 @@
             },
             {
                 "name": "Cloud1",
-                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "path": "res://Assets/objects/cutscene_objects/big_cloud.png",
                 "position_x": 0,
                 "position_y": 100,
                 "scale": 1.0,
@@ -228,7 +228,7 @@
             },
             {
                 "name": "Cloud2",
-                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "path": "res://Assets/objects/cutscene_objects/3_clouds.png",
                 "position_x": 700,
                 "position_y": 250,
                 "scale": 1.0,
@@ -239,7 +239,7 @@
             },
             {
                 "name": "Cloud3",
-                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "path": "res://Assets/objects/cutscene_objects/big_cloud.png",
                 "position_x": -1300,
                 "position_y": 50,
                 "scale": 1.0,
@@ -250,7 +250,7 @@
             },
             {
                 "name": "Cloud4",
-                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "path": "res://Assets/objects/cutscene_objects/3_clouds.png",
                 "position_x": -400,
                 "position_y": 450,
                 "scale": 1.0,
@@ -261,7 +261,7 @@
             },
             {
                 "name": "Spaceship",
-                "path": "res://Assets/Objects/CutsceneObjects/Rakete_Small.png",
+                "path": "res://Assets/objects/cutscene_objects/rakete_small.png",
                 "position_x": 960,
                 "position_y": 650,
                 "scale": 1.0,
@@ -269,7 +269,7 @@
             },
             {
                 "name": "Smoke",
-                "path": "res://Assets/Objects/CutsceneObjects/Smoke_Big.png",
+                "path": "res://Assets/objects/cutscene_objects/smoke_big.png",
                 "position_x": 960,
                 "position_y": 750,
                 "scale": 0.3,
@@ -286,11 +286,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/spaceship_bg.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -298,7 +298,7 @@
             },
             {
                 "name": "Astronaut_MG2_Success",
-                "path": "res://Assets/Objects/Astronauts/Spiel_2/4500_3-06.svg",
+                "path": "res://Assets/objects/astronauts/spiel_2/4500_3_06.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -308,7 +308,7 @@
             },
             {
                 "name": "Crosshair_Left",
-                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "path": "res://Assets/objects/cutscene_objects/crosshair.png",
                 "position_x": 1016,
                 "position_y": 855,
                 "scale": 0.6,
@@ -318,7 +318,7 @@
             },
             {
                 "name": "Crosshair_Right",
-                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "path": "res://Assets/objects/cutscene_objects/crosshair.png",
                 "position_x": 1265,
                 "position_y": 865,
                 "scale": 0.6,
@@ -328,7 +328,7 @@
             },
             {
                 "name": "Rotating_Gauge",
-                "path": "res://Assets/Objects/CutsceneObjects/Rotating_Gauge.png",
+                "path": "res://Assets/objects/cutscene_objects/rotating_gauge.png",
                 "position_x": 1066,
                 "position_y": 940,
                 "scale": 1.0,
@@ -348,7 +348,7 @@
         "objects": [
             {
                 "name": "Spaceship",
-                "path": "res://Assets/Objects/CutsceneObjects/Rakete_Small.png",
+                "path": "res://Assets/objects/cutscene_objects/rakete_small.png",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 1.0,
@@ -358,7 +358,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -366,7 +366,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_2/3500_9-10.svg",
+                "path": "res://Assets/objects/astronauts/spiel_2/3500_9_10.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -383,11 +383,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/spaceship_bg.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -395,7 +395,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_3/5600_1-04.svg",
+                "path": "res://Assets/objects/astronauts/spiel_3/5600_1_04.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -405,7 +405,7 @@
             },
             {
                 "name": "Asteroids1",
-                "path": "res://Assets/Objects/CutsceneObjects/Asteroids_1.png",
+                "path": "res://Assets/objects/cutscene_objects/asteroids_1.png",
                 "position_x": 450,
                 "position_y": 290,
                 "scale": 0.2,
@@ -416,7 +416,7 @@
             },
             {
                 "name": "Asteroids2",
-                "path": "res://Assets/Objects/CutsceneObjects/Asteroids_2.png",
+                "path": "res://Assets/objects/cutscene_objects/asteroids_2.png",
                 "position_x": 1200,
                 "position_y": 190,
                 "scale": 0.2,
@@ -434,11 +434,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_3_Win.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_3_win.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -446,7 +446,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_3/4600_4-05.svg",
+                "path": "res://Assets/objects/astronauts/spiel_3/4600_4_05.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -463,11 +463,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_3_Fail.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_3_fail.png",
         "objects": [
             {
                 "name": "Feuer",
-                "path": "res://Assets/Objects/fire.webp",
+                "path": "res://Assets/objects/fire.webp",
                 "position_x": 960,
                 "position_y": 540,
                 "scale": 0.80,
@@ -477,7 +477,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -485,7 +485,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_3/9700_1-08.svg",
+                "path": "res://Assets/objects/astronauts/spiel_3/9700_1_08.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -502,11 +502,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_BG.png",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_4_bg.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -514,7 +514,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_4/4400_10-03.svg",
+                "path": "res://Assets/objects/astronauts/spiel_4/4400_10_03.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -524,7 +524,7 @@
             },
             {
                 "name": "Planet_Left",
-                "path": "res://Assets/Objects/NewPlanets/planet2.svg",
+                "path": "res://Assets/objects/new_planets/planet2.svg",
                 "position_x": 365,
                 "position_y": 525,
                 "scale": 0.4,
@@ -535,7 +535,7 @@
             },
             {
                 "name": "Planet_Right",
-                "path": "res://Assets/Objects/NewPlanets/planet1.svg",
+                "path": "res://Assets/objects/new_planets/planet1.svg",
                 "position_x": 1460,
                 "position_y": 350,
                 "scale": 0.3,
@@ -546,7 +546,7 @@
             },
             {
                 "name": "Chips",
-                "path": "res://Assets/Objects/CutsceneObjects/Chips_Minigame_4.png",
+                "path": "res://Assets/objects/cutscene_objects/chips_minigame_4.png",
                 "position_x": 576,
                 "position_y": 724,
                 "scale": 0.9,
@@ -556,7 +556,7 @@
             },
             {
                 "name": "Dose",
-                "path": "res://Assets/Objects/CutsceneObjects/Dose_Minigame_4.png",
+                "path": "res://Assets/objects/cutscene_objects/dose_minigame_4.png",
                 "position_x": 1238,
                 "position_y": 564,
                 "scale": 0.9,
@@ -566,7 +566,7 @@
             },
             {
                 "name": "Flasche",
-                "path": "res://Assets/Objects/CutsceneObjects/Flasche_Minigame_4.png",
+                "path": "res://Assets/objects/cutscene_objects/flasche_minigame_4.png",
                 "position_x": 1265,
                 "position_y": 782,
                 "scale": 0.9,
@@ -583,11 +583,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_Win.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_4_win.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -595,7 +595,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_4/3700_2-09.svg",
+                "path": "res://Assets/objects/astronauts/spiel_4/3700_2_09.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -612,11 +612,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_4_Fail.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_4_fail.png",
         "objects": [
             {
                 "name": "Feuer",
-                "path": "res://Assets/Objects/fire.webp",
+                "path": "res://Assets/objects/fire.webp",
                 "position_x": 960,
                 "position_y": 540,
                 "scale": 0.60,
@@ -626,7 +626,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -634,7 +634,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_5/4700_10-04.svg",
+                "path": "res://Assets/objects/astronauts/spiel_5/4700_10_04.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -651,11 +651,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_5_Intro.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_5_intro.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -663,7 +663,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_1/7200_2-06.svg",
+                "path": "res://Assets/objects/astronauts/spiel_1/7200_2_06.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -680,11 +680,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_5_Win.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_5_win.png",
         "objects": [
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -692,7 +692,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_5/3600_1-09.svg",
+                "path": "res://Assets/objects/astronauts/spiel_5/3600_1_09.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -709,11 +709,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Minigame_5_Fail.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/minigame_5_fail.png",
         "objects": [
             {
                 "name": "Feuer",
-                "path": "res://Assets/Objects/fire.webp",
+                "path": "res://Assets/objects/fire.webp",
                 "position_x": 960,
                 "position_y": 540,
                 "scale": 0.80,
@@ -723,7 +723,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -731,7 +731,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_5/4700_10-04.svg",
+                "path": "res://Assets/objects/astronauts/spiel_5/4700_10_04.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.10,
@@ -744,11 +744,11 @@
     "15": {
         "name": "End_Erfolgreiche_Landung",
         "subtitles": "Herzlichen Glückwunsch! Der Inversianer ist sicher auf seinem Heimatplaneten Inverso gelandet. Du hast hervorragende Arbeit geleistet!",
-        "backgroundImagePath": "res://Assets/Backgrounds/End_Screen.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/end_screen.png",
         "objects": [
             {
                 "name": "Text_Background",
-                "path": "res://Assets/UI/Frames/Answers/Answer_Background.svg",
+                "path": "res://Assets/ui/frames/answers/answer_background.svg",
                 "position_x": 960,
                 "position_y": 1030,
                 "scale": 0.654,
@@ -756,7 +756,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 250,
                 "position_y": 790,
                 "scale": 0.12,
@@ -764,7 +764,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronaut.png",
+                "path": "res://Assets/objects/astronaut.png",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.12,
@@ -781,11 +781,11 @@
         "subtitles_position_y": 430,
         "subtitles_width": 500,
         "subtitles_height": 220,
-        "backgroundImagePath": "res://Assets/Backgrounds/Spaceship_BG.PNG",
+        "backgroundImagePath": "res://Assets/backgrounds/spaceship_bg.png",
         "objects": [
             {
                 "name": "Sky",
-                "path": "res://Assets/Backgrounds/Sky_BG.png",
+                "path": "res://Assets/backgrounds/sky_bg.png",
                 "position_x": 960,
                 "position_y": 590,
                 "scale": 1.0,
@@ -794,7 +794,7 @@
             },
             {
                 "name": "SpeechBubble",
-                "path": "res://Assets/UI/Speech_Bubbles/speech_bubble_rounded.svg",
+                "path": "res://Assets/ui/speech_bubbles/speech_bubble_rounded.svg",
                 "position_x": 515,
                 "position_y": 540,
                 "scale": 0.21,
@@ -802,7 +802,7 @@
             },
             {
                 "name": "Astronaut",
-                "path": "res://Assets/Objects/Astronauts/Spiel_1/6000_9-04.svg",
+                "path": "res://Assets/objects/astronauts/spiel_1/6000_9_04.svg",
                 "position_x": 250,
                 "position_y": 800,
                 "scale": 0.1,
@@ -812,7 +812,7 @@
             },
             {
                 "name": "Crosshair_Left",
-                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "path": "res://Assets/objects/cutscene_objects/crosshair.png",
                 "position_x": 1016,
                 "position_y": 855,
                 "scale": 0.6,
@@ -822,7 +822,7 @@
             },
             {
                 "name": "Crosshair_Right",
-                "path": "res://Assets/Objects/CutsceneObjects/Crosshair.png",
+                "path": "res://Assets/objects/cutscene_objects/crosshair.png",
                 "position_x": 1265,
                 "position_y": 865,
                 "scale": 0.6,
@@ -832,7 +832,7 @@
             },
             {
                 "name": "Rotating_Gauge",
-                "path": "res://Assets/Objects/CutsceneObjects/Rotating_Gauge.png",
+                "path": "res://Assets/objects/cutscene_objects/rotating_gauge.png",
                 "position_x": 1066,
                 "position_y": 940,
                 "scale": 1.0,
@@ -842,7 +842,7 @@
             },
             {
                 "name": "Cloud1",
-                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "path": "res://Assets/objects/cutscene_objects/big_cloud.png",
                 "position_x": 0,
                 "position_y": 100,
                 "scale": 1.0,
@@ -853,7 +853,7 @@
             },
              {
                 "name": "Cloud2",
-                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "path": "res://Assets/objects/cutscene_objects/3_clouds.png",
                 "position_x": 700,
                 "position_y": 250,
                 "scale": 1.0,
@@ -864,7 +864,7 @@
             },
             {
                 "name": "Cloud1",
-                "path": "res://Assets/Objects/CutsceneObjects/Big_Cloud.png",
+                "path": "res://Assets/objects/cutscene_objects/big_cloud.png",
                 "position_x": -1300,
                 "position_y": 50,
                 "scale": 1.0,
@@ -875,7 +875,7 @@
             },
              {
                 "name": "Cloud2",
-                "path": "res://Assets/Objects/CutsceneObjects/3_Clouds.png",
+                "path": "res://Assets/objects/cutscene_objects/3_clouds.png",
                 "position_x": -400,
                 "position_y": 450,
                 "scale": 1.0,

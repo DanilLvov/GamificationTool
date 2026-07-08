@@ -6,7 +6,6 @@ const CONFIG_PATH = "res://Database/config.json"
 @onready var minigame_manager := $MinigameController
 @onready var cutscene_manager := $Cutscene
 @onready var start_button := $StartScreen/StartButton
-@onready var start_label: Node = $StartScreen/StartLabel
 @onready var restart_button := $RestartButton
 @onready var restart_menu := $RestartMenu
 @onready var start_screen := $StartScreen
