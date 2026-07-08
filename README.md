@@ -6,7 +6,9 @@ minigames, cutscenes, and a job-selection sequence that teach basic workplace co
 single-choice, multi-choice, drag-and-drop, and ordering questions.
 
 This project was built as part of *Softwareprojekt 2026, Thema 6* at TU Ilmenau.
+## Demo
 
+![Demo - game playthrough](Readme_Data/Game.gif)
 ## Tech stack
 
 - **Engine**: Godot 4.6 (GDScript, GL Compatibility renderer)
@@ -52,15 +54,28 @@ Most gameplay content lives in `Database/*.json` and is loaded at runtime — ed
 questions, solutions, or cutscene steps there does not require touching GDScript.
 See `Scripts/Data/minigame_object.gd` for the expected schema.
 
-## Web admin panel (planned)
+## Web admin panel
 
-A small browser-based single-page app to manage the game without needing the Godot
-editor. Planned features:
+A small browser-based single-page app (`AdminPanel/`) for managing the game without
+needing the Godot editor. Run it with:
 
-- **Launch the game** directly from the panel (loads the exported Web build).
-- **Edit content JSONs** (`minigames.json`, `cutscenes.json`, `planets.json`,
-  `timeline.json`, `config.json`) through guided, form/prompt-based editors instead of
-  hand-editing raw JSON.
-- Additional admin/QA features to be defined as the panel develops.
+```powershell
+python AdminPanel/server.py
+```
 
-This is not implemented yet — this section documents the intended scope.
+Then open `http://localhost:8000`. Features:
+
+- **Launch Game** button — opens the exported Web build from `Export/`.
+- **Edit content JSONs** (`animations.json`, `config.json`, `cutscenes.json`,
+  `minigames.json`, `planets.json`, `timeline.json`) as an expandable tree; click
+  **Edit** on any value to change it via a prompt, then **Save** to write it back to
+  `Database/`.
+- More admin/QA features to be added over time.
+
+Notes:
+- Stdlib-only Python server, no external dependencies.
+- Requires an existing export in `Export/` (see [Exporting](#exporting)) for the
+  Launch Game button to work.
+- Saving a file reformats it (standard 2-space JSON indent) and normalizes numbers
+  through JavaScript, so whole-number floats like `10.0` become `10` — the first save
+  of any given file will show as a full-file diff.

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "admin-panel",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["AdminPanel/server.py"],
+      "port": 8000
+    }
+  ]
+}
